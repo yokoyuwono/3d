@@ -54,10 +54,10 @@ button:focus-visible,li:focus-visible{outline:3px solid var(--red);outline-offse
       <div class="loading" id="load">Memuat video…</div>
     </div>
     <div>
-      <span class="alert"><i></i>Simulasi 3D · 60 detik · 9:16</span>
-      <h1>Gempa M 8,9 memicu tsunami, lalu banjir menenggelamkan kota</h1>
-      <p class="lede">Animasi vertikal untuk Shorts, Reels dan TikTok. Di awal penonton diberi satu misi: temukan tanda penyelamat sebelum hitungan mundur habis. Jawabannya baru dibuka di detik terakhir. Klik baris naskah untuk melompat ke adegannya.</p>
-      <div class="facts"><span>1080 × 1920</span><span>30 fps</span><span>Narasi Bahasa Indonesia</span><span>Subtitle per kata</span><span>Efek suara orisinal</span></div>
+      <span class="alert"><i></i>Simulasi 3D · 2:40 · 9:16 · 7 bab</span>
+      <h1>Dari lempeng yang tersangkut sampai banjir yang menenggelamkan kota</h1>
+      <p class="lede">Penjelasan 3D dalam 7 bab: kenapa Indonesia rawan gempa, bagaimana tsunami lahir dan bergerak, kenapa laut surut lebih dulu, seberapa berbahaya arus banjir, dan kisah nyata smong dari Simeulue. Penonton diberi dua teka-teki di awal yang baru terjawab di bab terakhir. Klik baris naskah untuk melompat ke adegannya.</p>
+      <div class="facts"><span>1080 × 1920</span><span>30 fps</span><span>Narasi Bahasa Indonesia</span><span>Subtitle per kata</span><span>Efek suara orisinal</span><span>Penanda bab</span></div>
       <ol id="script"></ol>
       <button id="restart" type="button">Putar dari awal</button>
     </div>
@@ -72,15 +72,16 @@ button:focus-visible,li:focus-visible{outline:3px solid var(--red);outline-offse
 <script>
 {
   const lines = [
-    [0, 'Pembuka', 'Kota ini cuma punya enam puluh detik. Dan ada satu tanda yang bisa menyelamatkan semua orang. Perhatikan baik-baik.'],
-    [8.4, 'Di bawah laut', 'Sepuluh kilometer di bawah laut, dua lempeng bumi saling mengunci. Ratusan tahun, tekanannya terus menumpuk.'],
-    [15.5, 'Gempa', 'Sampai akhirnya, patah! Gempa magnitudo delapan koma sembilan. Tapi percayalah, guncangan ini belum bagian terburuk.'],
-    [23.3, 'Laut surut', 'Lihat lautnya. Airnya justru mundur. Dasar laut terlihat, dan orang-orang malah mendekat karena penasaran.'],
-    [30.75, 'Tsunami', 'Itu kesalahan fatal. Di cakrawala, jutaan ton air sedang bergerak. Dinding air setinggi tiga puluh meter, dan di laut dalam, kecepatannya setara pesawat jet.'],
-    [41.45, 'Banjir', 'Dalam hitungan menit, jalanan berubah jadi sungai. Air terus naik. Lantai satu, lantai dua, atap.'],
-    [48.95, 'Jawaban', 'Lalu, tanda yang kujanjikan tadi? Kamu sudah melihatnya. Saat laut tiba-tiba surut, jangan mendekat. Lari ke tempat tinggi. Sekarang.'],
+    [0.00, "Pembuka", "Kota ini punya satu tanda, yang bisa menyelamatkan semua orang. Dan ada satu pulau di Indonesia, yang selamat hanya karena sebuah kisah turun-temurun. Tonton sampai habis."],
+    [13.97, "Bab 1 · Kenapa Indonesia?", "Indonesia berdiri di atas pertemuan lempeng-lempeng raksasa bumi. Di sepanjang Sumatra dan Jawa, lempeng Indo-Australia menyusup ke bawah lempeng Eurasia, sekitar lima sampai tujuh sentimeter per tahun. Pelan, tapi tidak pernah berhenti."],
+    [31.37, "Bab 2 · Lempeng terkunci", "Masalahnya, lempeng itu tidak meluncur mulus. Ia tersangkut. Bagian atasnya ikut tertarik ke bawah, melengkung seperti penggaris yang ditekan. Ratusan tahun, energinya terus menumpuk."],
+    [44.70, "Bab 3 · Gempa M 8,9", "Sampai akhirnya, patah! Gempa magnitudo delapan koma sembilan. Setiap naik satu angka magnitudo, energinya sekitar tiga puluh dua kali lipat. Gempa sembilan, seribu kali lebih dahsyat dari gempa tujuh. Kalau kamu merasakannya: merunduk, berlindung, bertahan. Tapi jangan lega dulu. Bahaya terbesar justru belum datang."],
+    [69.11, "Bab 4 · Lahirnya tsunami", "Dasar laut terangkat beberapa meter dalam sekejap, mendorong seluruh air di atasnya. Di laut dalam, gelombang ini cuma setinggi satu meter. Kapal di atasnya bahkan tidak sadar. Tapi kecepatannya, tujuh ratus kilometer per jam. Secepat pesawat jet."],
+    [87.73, "Bab 5 · Kenapa laut surut?", "Mendekati pantai, laut makin dangkal. Gelombang melambat, dan airnya menumpuk jadi tinggi. Dan sering kali, yang tiba lebih dulu adalah lembah gelombangnya. Itu sebabnya, laut tiba-tiba surut. Dasar laut terlihat, dan orang-orang malah mendekat karena penasaran. Itu kesalahan fatal."],
+    [109.48, "Bab 6 · Hantaman", "Dinding air setinggi tiga puluh meter. Di darat, arusnya sering lebih cepat dari orang berlari. Air bergerak setinggi lima belas sentimeter saja, bisa menjatuhkan orang dewasa. Tiga puluh sentimeter, bisa menghanyutkan mobil kecil. Dan tsunami bukan satu gelombang. Gelombang berikutnya, bisa lebih besar."],
+    [132.20, "Bab 7 · Kisah smong", "Tahun dua ribu empat, di Pulau Simeulue, Aceh, hampir seluruh warganya selamat. Mereka mewarisi kisah smong, dari tsunami tahun seribu sembilan ratus tujuh. Kalau laut surut, larilah ke gunung. Jadi, tanda yang kujanjikan tadi? Kamu sudah melihatnya. Saat laut tiba-tiba surut, jangan mendekat. Lari ke tempat tinggi. Sekarang."],
   ];
-  const fmt = (s) => '0:' + String(Math.floor(s)).padStart(2, '0');
+  const fmt = (s) => Math.floor(s / 60) + ':' + String(Math.floor(s % 60)).padStart(2, '0');
   const ol = document.getElementById('script');
   ol.innerHTML = lines.map(([t, h, p], i) => `<li tabindex="0" data-i="${i}"><time>${fmt(t)}</time><div><b>${h}</b><p>${p}</p></div></li>`).join('');
   const v = document.getElementById('v');
