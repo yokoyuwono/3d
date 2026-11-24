@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<title>Simulasi 3D: Gempa → Tsunami → Banjir (9:16, 60 detik)</title>
+<script type="importmap">
+{ "imports": { "three": "./node_modules/three/build/three.module.js", "three/addons/": "./node_modules/three/examples/jsm/" } }
+</script>
+<style>
+  html, body { margin: 0; background: #000; overflow: hidden; }
+  #stage { position: relative; width: 1080px; height: 1920px; overflow: hidden; font-family: 'Inter', sans-serif; color: #fff; transform-origin: 0 0; }
+  #stage canvas { position: absolute; inset: 0; width: 1080px !important; height: 1920px !important; }
+  .ov { position: absolute; pointer-events: none; }
+  #vignette { inset: 0; background: radial-gradient(ellipse at 50% 45%, rgba(0,0,0,0) 55%, rgba(0,0,0,0.55) 100%); }
+  #scan { inset: 0; opacity: 0; background: repeating-linear-gradient(0deg, rgba(0,0,0,0.18) 0 3px, rgba(0,0,0,0) 3px 7px); }
+  #flash { inset: 0; background: #fff; opacity: 0; }
+  #fade { inset: 0; background: #000; opacity: 0; }
+
+  /* countdown */
+  #timer { top: 150px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 18px;
+    background: rgba(10,10,12,0.62); border: 3px solid rgba(255,255,255,0.18); padding: 14px 34px 14px 26px; border-radius: 60px;
+    font-weight: 900; font-size: 58px; letter-spacing: 2px; font-variant-numeric: tabular-nums; }
+  #timer .dot { width: 26px; height: 26px; border-radius: 50%; background: #ff3b30; box-shadow: 0 0 18px #ff3b30; }
+  #timer.urgent { background: rgba(200,20,10,0.75); border-color: #ff8a80; }
+  #quest { top: 262px; left: 50%; transform: translateX(-50%); white-space: nowrap; font-weight: 800; font-size: 34px;
+    background: rgba(255,214,0,0.95); color: #111; padding: 10px 26px; border-radius: 14px; letter-spacing: 0.5px; }
+
+  /* captions */
+  #cap { left: 60px; right: 60px; top: 1190px; text-align: center; font-weight: 900; font-size: 80px; line-height: 1.12;
+    letter-spacing: -1px; }
+  #cap span { display: inline-block; margin: 0 8px; color: #fff; -webkit-text-stroke: 12px #000; paint-order: stroke fill;
+    text-shadow: 0 8px 22px rgba(0,0,0,0.65); transition: none; }
+  #cap span.key { color: #ff5a48; }
+  #cap span.on { color: #ffe14d; transform: scale(1.1); }
+
+  /* tags anchored to 3D points */
+  .tag { position: absolute; transform: translate(-50%, -100%); white-space: nowrap; font-weight: 900; font-size: 34px;
+    padding: 10px 20px; border-radius: 12px; background: rgba(12,14,18,0.78); border: 3px solid rgba(255,255,255,0.85); }
+  .tag::after { content: ''; position: absolute; left: 50%; bottom: -26px; width: 4px; height: 24px; background: rgba(255,255,255,0.85); transform: translateX(-50%); }
+  .tag.red { background: #e5281b; border-color: #fff; }
+  .tag.green { background: #0d9b4a; border-color: #fff; }
+  .tag.yellow { background: #ffd400; color: #111; border-color: #111; }
+  .tag.yellow::after { background: #111; }
+
+  /* stress meter */
+  #meter { left: 90px; right: 90px; top: 360px; }
+  #meter .lbl { display: flex; justify-content: space-between; font-weight: 900; font-size: 40px; margin-bottom: 12px; text-shadow: 0 3px 10px #000; }
+  #meter .bar { height: 34px; border-radius: 20px; background: rgba(255,255,255,0.15); border: 3px solid rgba(255,255,255,0.6); overflow: hidden; }
+  #meter .fill { height: 100%; width: 0%; background: linear-gradient(90deg, #ffd400, #ff7a00, #ff2a1a); }
+
+  #mag { left: 0; right: 0; top: 600px; text-align: center; font-weight: 900; font-size: 250px; line-height: 1; color: #fff;
+    -webkit-text-stroke: 16px #c0150b; paint-order: stroke fill; text-shadow: 0 0 60px rgba(255,40,20,0.9); }
+  #mag small { display: block; font-size: 64px; -webkit-text-stroke: 10px #000; letter-spacing: 6px; margin-top: 10px; }
+
+  /* tsunami info panel */
+  .panel { background: rgba(10,12,16,0.72); border: 3px solid rgba(255,255,255,0.25); border-radius: 22px; padding: 22px 30px; font-weight: 800; }
+  #wave { left: 60px; top: 360px; width: 470px; }
+  #wave .head { display: inline-block; background: #e5281b; color: #fff; font-weight: 900; font-size: 32px; padding: 6px 16px; border-radius: 10px; margin-bottom: 14px; letter-spacing: 1px; }
+  #wave .row { display: flex; justify-content: space-between; font-size: 38px; margin: 6px 0; font-variant-numeric: tabular-nums; }
+  #wave .row b { font-weight: 900; color: #ffe14d; }
+
+  #gauge { right: 60px; top: 360px; width: 230px; text-align: center; }
+  #gauge .t { font-size: 28px; letter-spacing: 1px; }
+  #gauge .v { font-size: 72px; font-weight: 900; color: #ffe14d; font-variant-numeric: tabular-nums; }
+  #gauge .tube { margin: 12px auto 0; width: 60px; height: 260px; border: 4px solid #fff; border-radius: 14px; position: relative; overflow: hidden; background: rgba(255,255,255,0.08); }
+  #gauge .lvl { position: absolute; left: 0; right: 0; bottom: 0; background: linear-gradient(0deg, #6b4e2e, #9a7a50); }
+
+  #rewind { left: 60px; top: 360px; font-weight: 900; font-size: 54px; letter-spacing: 3px; color: #fff; text-shadow: 0 0 16px rgba(255,255,255,0.8); }
+  #sign { left: 70px; right: 70px; top: 520px; text-align: center; background: rgba(229,40,27,0.92); border: 6px solid #fff; border-radius: 26px; padding: 26px 20px; font-weight: 900; }
+  #sign .a { font-size: 44px; letter-spacing: 2px; }
+  #sign .b { font-size: 74px; line-height: 1.05; margin-top: 8px; }
+
+  #end { inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; background: rgba(0,0,0,0.72); }
+  #end .a { font-size: 72px; font-weight: 900; color: #ffe14d; }
+  #end .b { font-size: 110px; font-weight: 900; line-height: 1.02; margin: 24px 60px; }
+  #end .c { font-size: 46px; font-weight: 700; opacity: 0.9; margin-top: 30px; }
+  #end .arrow { width: 0; height: 0; border-left: 70px solid transparent; border-right: 70px solid transparent; border-bottom: 90px solid #0d9b4a; margin-bottom: 20px; }
+</style>
+</head>
+<body>
+<div id="stage">
+  <div class="ov" id="vignette"></div>
+  <div class="ov" id="scan"></div>
+  <div class="ov" id="tags"></div>
+  <div class="ov" id="meter"><div class="lbl"><span>TEKANAN LEMPENG</span><span id="meterV">0%</span></div><div class="bar"><div class="fill" id="meterF"></div></div></div>
+  <div class="ov" id="mag">M 8,9<small>GEMPA BUMI</small></div>
+  <div class="ov panel" id="wave"><div class="head">TSUNAMI TERDETEKSI</div>
+    <div class="row"><span>Jarak</span><b id="wDist">-</b></div>
+    <div class="row"><span>Tinggi</span><b id="wH">-</b></div>
+    <div class="row"><span>Tiba dalam</span><b id="wEta">-</b></div></div>
+  <div class="ov panel" id="gauge"><div class="t">KETINGGIAN AIR</div><div class="v" id="gV">0 m</div><div class="tube"><div class="lvl" id="gL"></div></div></div>
+  <div class="ov" id="rewind">◀◀ PUTAR ULANG</div>
+  <div class="ov" id="sign"><div class="a">INI TANDANYA</div><div class="b">LAUT TIBA-TIBA SURUT</div></div>
+  <div class="ov" id="timer"><div class="dot" id="tdot"></div><span id="tval">00:60</span></div>
+  <div class="ov" id="quest">CARI 1 TANDA PENYELAMAT SEBELUM 00:00</div>
+  <div class="ov" id="cap"></div>
+  <div class="ov" id="end"><div class="arrow"></div><div class="a">LAUT TIBA-TIBA SURUT?</div><div class="b">LARI KE TEMPAT TINGGI</div><div class="c">Bagikan. Bisa menyelamatkan nyawa.</div></div>
+  <div class="ov" id="flash"></div>
+  <div class="ov" id="fade"></div>
+</div>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>

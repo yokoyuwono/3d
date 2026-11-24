@@ -1,0 +1,161 @@
+[
+ {
+  "id": 1,
+  "start": 0.3,
+  "dur": 7.625,
+  "sentences": [
+   {
+    "text": "Kota ini cuma punya enam puluh detik.",
+    "start": 0.3,
+    "end": 2.635
+   },
+   {
+    "text": "Dan ada satu tanda, yang bisa menyelamatkan semua orang.",
+    "start": 2.855,
+    "end": 6.26
+   },
+   {
+    "text": "Perhatikan baik-baik.",
+    "start": 6.48,
+    "end": 7.925
+   }
+  ]
+ },
+ {
+  "id": 2,
+  "start": 8.4,
+  "dur": 7.101,
+  "sentences": [
+   {
+    "text": "Sepuluh kilometer di bawah laut, dua lempeng bumi saling mengunci.",
+    "start": 8.4,
+    "end": 12.667
+   },
+   {
+    "text": "Ratusan tahun, tekanannya terus menumpuk.",
+    "start": 12.887,
+    "end": 15.501
+   }
+  ]
+ },
+ {
+  "id": 3,
+  "start": 15.5,
+  "dur": 7.514,
+  "sentences": [
+   {
+    "text": "Sampai akhirnya, patah!",
+    "start": 15.5,
+    "end": 17.024
+   },
+   {
+    "text": "Gempa magnitudo delapan koma sembilan.",
+    "start": 17.244,
+    "end": 19.713
+   },
+   {
+    "text": "Tapi percayalah, guncangan ini, belum bagian terburuk.",
+    "start": 19.933,
+    "end": 23.014
+   }
+  ]
+ },
+ {
+  "id": 4,
+  "start": 23.3,
+  "dur": 7.261,
+  "sentences": [
+   {
+    "text": "Lihat lautnya.",
+    "start": 23.3,
+    "end": 24.334
+   },
+   {
+    "text": "Airnya justru mundur.",
+    "start": 24.554,
+    "end": 26.075
+   },
+   {
+    "text": "Dasar laut terlihat, dan orang-orang malah mendekat karena penasaran.",
+    "start": 26.295,
+    "end": 30.561
+   }
+  ]
+ },
+ {
+  "id": 5,
+  "start": 30.75,
+  "dur": 10.567,
+  "sentences": [
+   {
+    "text": "Itu kesalahan fatal.",
+    "start": 30.75,
+    "end": 32.214
+   },
+   {
+    "text": "Di cakrawala, jutaan ton air sedang bergerak.",
+    "start": 32.434,
+    "end": 35.558
+   },
+   {
+    "text": "Dinding air setinggi tiga puluh meter, dan di laut dalam, kecepatannya setara pesawat jet.",
+    "start": 35.778,
+    "end": 41.317
+   }
+  ]
+ },
+ {
+  "id": 6,
+  "start": 41.45,
+  "dur": 6.817,
+  "sentences": [
+   {
+    "text": "Dalam hitungan menit, jalanan berubah jadi sungai.",
+    "start": 41.45,
+    "end": 44.461
+   },
+   {
+    "text": "Air terus naik.",
+    "start": 44.681,
+    "end": 45.755
+   },
+   {
+    "text": "Lantai satu, lantai dua, atap.",
+    "start": 45.975,
+    "end": 48.267
+   }
+  ]
+ },
+ {
+  "id": 7,
+  "start": 48.95,
+  "dur": 9.042,
+  "sentences": [
+   {
+    "text": "Lalu, tanda yang kujanjikan tadi?",
+    "start": 48.95,
+    "end": 51.21
+   },
+   {
+    "text": "Kamu sudah melihatnya.",
+    "start": 51.43,
+    "end": 52.701
+   },
+   {
+    "text": "Saat laut tiba-tiba surut, jangan mendekat.",
+    "start": 52.921,
+    "end": 55.487
+   },
+   {
+    "text": "Lari ke tempat tinggi.",
+    "start": 55.707,
+    "end": 57.124
+   },
+   {
+    "text": "Sekarang.",
+    "start": 57.344,
+    "end": 57.992
+   }
+  ]
+ }
+]
