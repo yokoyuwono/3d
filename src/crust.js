@@ -12,10 +12,11 @@ export const slabTop = (x) => { const d = Math.max(0, x + 8); return -12 - 0.42 
 const contTop0 = (x) => -12 + 12 * smoothstep(-8, 22, x) + 3 * smoothstep(22, 45, x);
 
 // a vertical prism between bottom(x) and top(x), extruded from ZB to ZF
-class Prism {
-  constructor(mat, rows = 8) {
+export class Prism {
+  constructor(mat, rows = 8, xs = XS, zf = ZF, zb = ZB) {
     this.rows = rows;
-    const nx = XS.length;
+    this.xs = xs; this.zf = zf; this.zb = zb;
+    const nx = xs.length;
     this.front = nx * (rows + 1);
     this.topN = nx * 2;
     this.capN = (rows + 1) * 2;
@@ -40,7 +41,8 @@ class Prism {
     const p = this.mesh.geometry.attributes.position, c = this.mesh.geometry.attributes.color;
     const col = new THREE.Color();
     let k = 0;
-    XS.forEach((x) => {
+    const { xs, zf: ZF, zb: ZB } = this;
+    xs.forEach((x) => {
       const yt = top(x), yb = bot(x);
       for (let r = 0; r <= this.rows; r++) {
         const f = r / this.rows, y = lerp(yb, yt, f);
@@ -50,14 +52,14 @@ class Prism {
         k++;
       }
     });
-    XS.forEach((x) => {
+    xs.forEach((x) => {
       const yt = top(x);
       colorFn(x, yt, 1, 0, col);
       col.multiplyScalar(1.12);
       p.setXYZ(k, x, yt, ZF); c.setXYZ(k++, col.r, col.g, col.b);
       p.setXYZ(k, x, yt, ZB); c.setXYZ(k++, col.r, col.g, col.b);
     });
-    const xr = X1;
+    const xr = xs[xs.length - 1];
     for (let r = 0; r <= this.rows; r++) {
       const f = r / this.rows, y = lerp(bot(xr), top(xr), f);
       colorFn(xr, y, f, top(xr) - y, col);

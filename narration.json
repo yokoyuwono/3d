@@ -1,37 +1,22 @@
 [
- {
-  "id": 1,
-  "start": 0.3,
-  "text": "Kota ini cuma punya enam puluh detik. Dan ada satu tanda, yang bisa menyelamatkan semua orang. Perhatikan baik-baik."
- },
- {
-  "id": 2,
-  "start": 8.4,
-  "text": "Sepuluh kilometer di bawah laut, dua lempeng bumi saling mengunci. Ratusan tahun, tekanannya terus menumpuk."
- },
- {
-  "id": 3,
-  "start": 15.5,
-  "text": "Sampai akhirnya, patah! Gempa magnitudo delapan koma sembilan. Tapi percayalah, guncangan ini, belum bagian terburuk."
- },
- {
-  "id": 4,
-  "start": 23.3,
-  "text": "Lihat lautnya. Airnya justru mundur. Dasar laut terlihat, dan orang-orang malah mendekat karena penasaran."
- },
- {
-  "id": 5,
-  "start": 30.75,
-  "text": "Itu kesalahan fatal. Di cakrawala, jutaan ton air sedang bergerak. Dinding air setinggi tiga puluh meter, dan di laut dalam, kecepatannya setara pesawat jet."
- },
- {
-  "id": 6,
-  "start": 41.45,
-  "text": "Dalam hitungan menit, jalanan berubah jadi sungai. Air terus naik. Lantai satu, lantai dua, atap."
- },
- {
-  "id": 7,
-  "start": 48.95,
-  "text": "Lalu, tanda yang kujanjikan tadi? Kamu sudah melihatnya. Saat laut tiba-tiba surut, jangan mendekat. Lari ke tempat tinggi. Sekarang."
- }
+ {"id": 1, "ch": 0, "start": 2.5, "text": "Kota ini punya satu tanda, yang bisa menyelamatkan semua orang."},
+ {"id": 2, "ch": 0, "gap": 0.35, "text": "Dan ada satu pulau di Indonesia, yang selamat hanya karena sebuah kisah turun-temurun. Tonton sampai habis."},
+ {"id": 3, "ch": 1, "gap": 1.3, "text": "Indonesia berdiri di atas pertemuan lempeng-lempeng raksasa bumi."},
+ {"id": 4, "ch": 1, "gap": 0.35, "text": "Di sepanjang Sumatra dan Jawa, lempeng Indo-Australia menyusup ke bawah lempeng Eurasia, sekitar lima sampai tujuh sentimeter per tahun. Pelan, tapi tidak pernah berhenti."},
+ {"id": 5, "ch": 2, "gap": 1.3, "text": "Masalahnya, lempeng itu tidak meluncur mulus. Ia tersangkut."},
+ {"id": 6, "ch": 2, "gap": 0.35, "text": "Bagian atasnya ikut tertarik ke bawah, melengkung seperti penggaris yang ditekan. Ratusan tahun, energinya terus menumpuk."},
+ {"id": 7, "ch": 3, "gap": 1.3, "text": "Sampai akhirnya, patah! Gempa magnitudo delapan koma sembilan."},
+ {"id": 8, "ch": 3, "gap": 1.8, "text": "Setiap naik satu angka magnitudo, energinya sekitar tiga puluh dua kali lipat. Gempa sembilan, seribu kali lebih dahsyat dari gempa tujuh."},
+ {"id": 9, "ch": 3, "gap": 0.4, "text": "Kalau kamu merasakannya: merunduk, berlindung, bertahan. Tapi jangan lega dulu. Bahaya terbesar justru belum datang."},
+ {"id": 10, "ch": 4, "gap": 1.3, "text": "Dasar laut terangkat beberapa meter dalam sekejap, mendorong seluruh air di atasnya."},
+ {"id": 11, "ch": 4, "gap": 0.8, "text": "Di laut dalam, gelombang ini cuma setinggi satu meter. Kapal di atasnya bahkan tidak sadar. Tapi kecepatannya, tujuh ratus kilometer per jam. Secepat pesawat jet."},
+ {"id": 12, "ch": 5, "gap": 1.3, "text": "Mendekati pantai, laut makin dangkal. Gelombang melambat, dan airnya menumpuk jadi tinggi."},
+ {"id": 13, "ch": 5, "gap": 0.7, "text": "Dan sering kali, yang tiba lebih dulu adalah lembah gelombangnya. Itu sebabnya, laut tiba-tiba surut."},
+ {"id": 14, "ch": 5, "gap": 0.35, "text": "Dasar laut terlihat, dan orang-orang malah mendekat karena penasaran. Itu kesalahan fatal."},
+ {"id": 15, "ch": 6, "gap": 2.5, "text": "Dinding air setinggi tiga puluh meter. Di darat, arusnya sering lebih cepat dari orang berlari."},
+ {"id": 16, "ch": 6, "gap": 0.6, "text": "Air bergerak setinggi lima belas sentimeter saja, bisa menjatuhkan orang dewasa. Tiga puluh sentimeter, bisa menghanyutkan mobil kecil."},
+ {"id": 17, "ch": 6, "gap": 0.35, "text": "Dan tsunami bukan satu gelombang. Gelombang berikutnya, bisa lebih besar."},
+ {"id": 18, "ch": 7, "gap": 1.8, "text": "Tahun dua ribu empat, di Pulau Simeulue, Aceh, hampir seluruh warganya selamat."},
+ {"id": 19, "ch": 7, "gap": 0.35, "text": "Mereka mewarisi kisah smong, dari tsunami tahun seribu sembilan ratus tujuh. Kalau laut surut, larilah ke gunung."},
+ {"id": 20, "ch": 7, "gap": 1.0, "text": "Jadi, tanda yang kujanjikan tadi? Kamu sudah melihatnya. Saat laut tiba-tiba surut, jangan mendekat. Lari ke tempat tinggi. Sekarang."}
 ]

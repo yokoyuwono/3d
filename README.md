@@ -1,58 +1,62 @@
-# Simulasi 3D: Gempa → Tsunami → Banjir (60 detik, 9:16)
+# Simulasi 3D: Gempa → Tsunami → Banjir (2:40, 9:16)
 
-Animasi 3D vertikal (1080×1920, 30 fps, 60 detik) untuk Shorts/Reels/TikTok, dibuat
-dengan Three.js dan dirender offline di Chromium headless. Narasinya berbahasa
-Indonesia, dengan subtitle gaya TikTok (kata yang sedang diucapkan disorot).
+Animasi 3D vertikal (1080×1920, 30 fps) untuk Shorts/Reels/TikTok, dibuat dengan Three.js
+dan dirender offline di Chromium headless. Narasinya berbahasa Indonesia (Piper TTS offline),
+dengan subtitle per kata, penanda bab, dan desain suara prosedural.
 
-**Hasil akhir:** `output/gempa_tsunami_9x16.mp4`
+- **Versi panjang (2:40):** `output/gempa_tsunami_2m40_9x16.mp4`
+- **Versi pendek (60 dtk):** `output/gempa_tsunami_9x16.mp4` (dari commit sebelumnya)
+- **Prompt backsound Gemini:** `docs/gemini_music_prompt.md`
 
-## Alur cerita & teknik retensi
+## Alur 7 bab
 
-| Detik | Adegan | Narasi | "Hook" penahan penonton |
+| Waktu | Bab | Visual | Inti penjelasan |
 |---|---|---|---|
-| 0–8 | Kota pesisir tenang, kamera drone | *"Kota ini cuma punya enam puluh detik. Dan ada satu tanda yang bisa menyelamatkan semua orang. Perhatikan baik-baik."* | Hitung mundur 00:60 dan misi "CARI 1 TANDA PENYELAMAT SEBELUM 00:00" (open loop) |
-| 8–17 | Potongan 3D lempeng bumi, zona terkunci berdenyut | *"Sepuluh kilometer di bawah laut, dua lempeng bumi saling mengunci…"* | Meter "TEKANAN LEMPENG" naik ke 100% |
-| 16,5 | Lempeng patah, gelombang seismik | *"Sampai akhirnya, patah!"* | Kilatan, guncangan, "M 8,9" |
-| 17–23 | Gedung bergoyang dan runtuh, tanah retak, debu | *"…guncangan ini, belum bagian terburuk."* | Janji bahwa yang lebih buruk masih akan datang |
-| 23–31 | Laut surut ratusan meter, perahu kandas, orang mendekat | *"Lihat lautnya. Airnya justru mundur…"* | Tanda "AIR MUNDUR 174 m" (tanda penyelamatnya terlihat, tetapi belum disebut) |
-| 31–41 | Garis putih di cakrawala menjadi dinding air 30 m | *"Itu kesalahan fatal…"* | Panel jarak/tinggi/waktu tiba dihitung mundur |
-| 41–49 | Banjir: jalan jadi sungai, air naik lantai demi lantai | *"Lantai satu, lantai dua, atap."* | Pengukur ketinggian air, label "TERENDAM" |
-| 49–56 | Putar ulang (sepia) ke momen laut surut | *"Tanda yang kujanjikan tadi? Kamu sudah melihatnya."* | Jawaban dari open loop di awal |
-| 56–60 | Warga selamat di bukit evakuasi, kartu penutup | *"Lari ke tempat tinggi. Sekarang."* | Ajakan untuk membagikan video |
+| 0:00–0:14 | Hook | Kilas-depan (dinding air, runtuh, banjir), kota tenang, papan jalur evakuasi | Satu tanda penyelamat + satu pulau yang selamat karena kisah turun-temurun |
+| 0:14–0:31 | 1. Kenapa Indonesia? | Peta ilustrasi kepulauan, zona subduksi, panah lempeng | Indo-Australia menyusup ke bawah Eurasia ±5–7 cm/tahun |
+| 0:31–0:47 | 2. Lempeng terkunci | Diorama lempeng + sisipan penggaris yang ditekan | Lempeng tersangkut, energi menumpuk ratusan tahun |
+| 0:47–1:09 | 3. Gempa M 8,9 | Patahan, kota berguncang, kubus energi, ikon merunduk-berlindung-bertahan | Tiap +1 magnitudo ≈ 32× energi; M9 ≈ 1.000× M7 |
+| 1:09–1:28 | 4. Lahirnya tsunami | Dasar laut terangkat (gerak lambat), potongan samudra | Di laut dalam ±1 m tapi ±700 km/jam |
+| 1:28–1:49 | 5. Kenapa laut surut? | Gelombang melambat & meninggi, lembah datang duluan, laut surut | Pendangkalan gelombang; surut = tanda bahaya |
+| 1:49–2:12 | 6. Hantaman | Dinding 30 m, skala orang & mobil, banjir | 15 cm air bergerak menjatuhkan orang dewasa, 30 cm menghanyutkan mobil kecil |
+| 2:12–2:40 | 7. Kisah smong | Peta Simeulue, warga lari ke bukit, putar ulang tanda, titik kumpul | Simeulue 2004: hampir semua selamat berkat kisah smong (dari tsunami 1907) |
+
+Sumber fakta: laju lempeng (USGS, Caltech Tectonics Observatory), ambang air bergerak 15/30 cm
+(NWS "Turn Around Don't Drown"), Simeulue dan smong (catatan 2004 dan kajian akademis). Animasi
+dan skala diilustrasikan dan dilebih-lebihkan untuk edukasi.
 
 ## Struktur
 
 ```
-index.html          halaman + overlay (timer, subtitle, panel, label)
-src/timeline.js     "fisika" cerita: medan, muka air, tsunami, suasana, guncangan (fungsi waktu)
-src/world.js        kota pesisir, laut (shader), perahu, orang, puing, debu, semburan
-src/crust.js        diorama potongan lempeng subduksi
-src/main.js         shot kamera, overlay, subtitle, renderAt(t)
-narration.json      naskah narasi + waktu mulai tiap segmen
-assets/voice/       rekaman narasi per segmen (TTS Piper offline, suara id_ID)
-assets/timing.json  waktu tiap kalimat (untuk subtitle)
-assets/soundtrack.* mix final (narasi + musik + efek suara prosedural, -14 LUFS)
-tools/              tts.py, audio.py, render.mjs, render_all.sh, mux.sh
+index.html          halaman + overlay (bab, subtitle, panel, label, ikon, kutipan)
+src/timeline.js     "fisika" kota: medan, muka air, tsunami, suasana, guncangan (fungsi waktu dunia)
+src/world.js        kota pesisir, laut (shader), perahu, orang, pengungsi, puing, debu, semburan
+src/crust.js        diorama potongan lempeng subduksi (+ kelas Prism)
+src/map.js          peta ilustrasi kepulauan, zona subduksi, Simeulue
+src/ocean.js        potongan samudra: kecepatan & pendangkalan gelombang
+src/extras.js       kubus energi, penggaris, adegan skala orang/mobil
+src/main.js         daftar shot (mengikuti waktu kata narasi), overlay, renderAt(t), EVENTS
+narration.json      naskah 20 segmen + jeda
+assets/voice/       narasi per segmen, assets/timing.json waktu per kalimat
+assets/soundtrack.* mix final (narasi + musik + efek, -14 LUFS)
+tools/              tts.py, audio.py, render.mjs, render_all.sh, mux.sh, sheet.py
 ```
 
 ## Membangun ulang
 
 ```bash
-npm install                                   # three.js
-pip install piper-tts numpy                   # TTS opsional
-# 1) narasi (opsional, sudah ada di assets/voice)
-python3 tools/tts.py <id_ID-news_tts-medium.onnx> narration.json assets/voice 0.93
-cp assets/voice/timing.json assets/
-# 2) audio
+npm install
+pip install piper-tts numpy
+# 1) narasi (sudah ada di assets/voice)
+python3 tools/tts.py <id_ID-news_tts-medium.onnx> narration.json assets/voice 0.95 && mv assets/voice/timing.json assets/
+# 2) event timeline untuk audio, lalu audio (taruh assets/music.mp3 untuk backsound sendiri)
+node tools/render.mjs --events build/events.json
 python3 tools/audio.py
-# 3) video (Playwright + Chromium + ffmpeg)
-./tools/render_all.sh && ./tools/mux.sh
+# 3) video
+DUR=160 ./tools/render_all.sh && ./tools/mux.sh
 ```
 
-Pratinjau langsung: jalankan server statis di folder ini (misalnya `npx serve`) lalu buka
-`index.html`. Klik untuk memutar dari awal dengan suara; `?t=30` untuk mulai dari detik 30.
-`node tools/render.mjs --stills 5,20,40` merender frame tertentu ke `build/stills/`.
+Pratinjau: jalankan server statis di folder ini lalu buka `index.html` (`?t=90` untuk mulai di detik 90;
+klik untuk suara). `node tools/render.mjs --stills 5,60,120` merender frame tertentu ke `build/stills/`.
 
-Catatan: animasi ini dibuat dramatis untuk edukasi (deformasi lempeng dan kecepatan gelombang
-dilebih-lebihkan). Pesan keselamatannya nyata: **jika laut tiba-tiba surut setelah gempa,
-jangan mendekat. Segera lari ke tempat tinggi.**
+**Pesan keselamatan:** jika laut tiba-tiba surut setelah gempa, jangan mendekat. Segera lari ke tempat tinggi.

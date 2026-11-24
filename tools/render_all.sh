@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
-# Render the 60 s video in parallel chunks, then concatenate (video only).
+# Render the video in parallel chunks, then concatenate (video only).
 set -e
 cd "$(dirname "$0")/.."
 mkdir -p build/parts
-N=${N:-4}; FPS=${FPS:-30}
+N=${N:-4}; FPS=${FPS:-30}; DUR=${DUR:-160}
 pids=()
 for i in $(seq 0 $((N-1))); do
-  a=$(python3 -c "print(60*$i/$N)"); b=$(python3 -c "print(60*($i+1)/$N)")
+  a=$(python3 -c "print($DUR*$i/$N)"); b=$(python3 -c "print($DUR*($i+1)/$N)")
   node tools/render.mjs --from $a --to $b --fps $FPS --out build/parts/p$i.mp4 > build/parts/p$i.log 2>&1 &
   pids+=($!)
 done

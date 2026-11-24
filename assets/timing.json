@@ -1,160 +1,391 @@
 [
  {
   "id": 1,
-  "start": 0.3,
-  "dur": 7.625,
+  "ch": 0,
+  "start": 2.5,
+  "dur": 3.91,
+  "end": 6.41,
   "sentences": [
    {
-    "text": "Kota ini cuma punya enam puluh detik.",
-    "start": 0.3,
-    "end": 2.635
-   },
-   {
-    "text": "Dan ada satu tanda, yang bisa menyelamatkan semua orang.",
-    "start": 2.855,
-    "end": 6.26
-   },
-   {
-    "text": "Perhatikan baik-baik.",
-    "start": 6.48,
-    "end": 7.925
+    "text": "Kota ini punya satu tanda, yang bisa menyelamatkan semua orang.",
+    "start": 2.5,
+    "end": 6.41
    }
   ]
  },
  {
   "id": 2,
-  "start": 8.4,
-  "dur": 7.101,
+  "ch": 0,
+  "start": 6.76,
+  "dur": 7.165,
+  "end": 13.925,
   "sentences": [
    {
-    "text": "Sepuluh kilometer di bawah laut, dua lempeng bumi saling mengunci.",
-    "start": 8.4,
-    "end": 12.667
+    "text": "Dan ada satu pulau di Indonesia, yang selamat hanya karena sebuah kisah turun-temurun.",
+    "start": 6.76,
+    "end": 12.219
    },
    {
-    "text": "Ratusan tahun, tekanannya terus menumpuk.",
-    "start": 12.887,
-    "end": 15.501
+    "text": "Tonton sampai habis.",
+    "start": 12.439,
+    "end": 13.925
    }
   ]
  },
  {
   "id": 3,
-  "start": 15.5,
-  "dur": 7.514,
+  "ch": 1,
+  "start": 15.225,
+  "dur": 4.24,
+  "end": 19.465,
   "sentences": [
    {
-    "text": "Sampai akhirnya, patah!",
-    "start": 15.5,
-    "end": 17.024
-   },
-   {
-    "text": "Gempa magnitudo delapan koma sembilan.",
-    "start": 17.244,
-    "end": 19.713
-   },
-   {
-    "text": "Tapi percayalah, guncangan ini, belum bagian terburuk.",
-    "start": 19.933,
-    "end": 23.014
+    "text": "Indonesia berdiri di atas pertemuan lempeng-lempeng raksasa bumi.",
+    "start": 15.225,
+    "end": 19.465
    }
   ]
  },
  {
   "id": 4,
-  "start": 23.3,
-  "dur": 7.261,
+  "ch": 1,
+  "start": 19.815,
+  "dur": 11.505,
+  "end": 31.32,
   "sentences": [
    {
-    "text": "Lihat lautnya.",
-    "start": 23.3,
-    "end": 24.334
+    "text": "Di sepanjang Sumatra dan Jawa, lempeng Indo-Australia menyusup ke bawah lempeng Eurasia, sekitar lima sampai tujuh sentimeter per tahun.",
+    "start": 19.815,
+    "end": 28.919
    },
    {
-    "text": "Airnya justru mundur.",
-    "start": 24.554,
-    "end": 26.075
-   },
-   {
-    "text": "Dasar laut terlihat, dan orang-orang malah mendekat karena penasaran.",
-    "start": 26.295,
-    "end": 30.561
+    "text": "Pelan, tapi tidak pernah berhenti.",
+    "start": 29.139,
+    "end": 31.32
    }
   ]
  },
  {
   "id": 5,
-  "start": 30.75,
-  "dur": 10.567,
+  "ch": 2,
+  "start": 32.62,
+  "dur": 4.147,
+  "end": 36.767,
   "sentences": [
    {
-    "text": "Itu kesalahan fatal.",
-    "start": 30.75,
-    "end": 32.214
+    "text": "Masalahnya, lempeng itu tidak meluncur mulus.",
+    "start": 32.62,
+    "end": 35.637
    },
    {
-    "text": "Di cakrawala, jutaan ton air sedang bergerak.",
-    "start": 32.434,
-    "end": 35.558
-   },
-   {
-    "text": "Dinding air setinggi tiga puluh meter, dan di laut dalam, kecepatannya setara pesawat jet.",
-    "start": 35.778,
-    "end": 41.317
+    "text": "Ia tersangkut.",
+    "start": 35.857,
+    "end": 36.767
    }
   ]
  },
  {
   "id": 6,
-  "start": 41.45,
-  "dur": 6.817,
+  "ch": 2,
+  "start": 37.117,
+  "dur": 7.528,
+  "end": 44.645,
   "sentences": [
    {
-    "text": "Dalam hitungan menit, jalanan berubah jadi sungai.",
-    "start": 41.45,
-    "end": 44.461
+    "text": "Bagian atasnya ikut tertarik ke bawah, melengkung seperti penggaris yang ditekan.",
+    "start": 37.117,
+    "end": 41.775
    },
    {
-    "text": "Air terus naik.",
-    "start": 44.681,
-    "end": 45.755
-   },
-   {
-    "text": "Lantai satu, lantai dua, atap.",
-    "start": 45.975,
-    "end": 48.267
+    "text": "Ratusan tahun, energinya terus menumpuk.",
+    "start": 41.995,
+    "end": 44.645
    }
   ]
  },
  {
   "id": 7,
-  "start": 48.95,
-  "dur": 9.042,
+  "ch": 3,
+  "start": 45.945,
+  "dur": 4.25,
+  "end": 50.195,
   "sentences": [
    {
-    "text": "Lalu, tanda yang kujanjikan tadi?",
-    "start": 48.95,
-    "end": 51.21
+    "text": "Sampai akhirnya, patah!",
+    "start": 45.945,
+    "end": 47.382
+   },
+   {
+    "text": "Gempa magnitudo delapan koma sembilan.",
+    "start": 47.602,
+    "end": 50.195
+   }
+  ]
+ },
+ {
+  "id": 8,
+  "ch": 3,
+  "start": 51.995,
+  "dur": 8.921,
+  "end": 60.916,
+  "sentences": [
+   {
+    "text": "Setiap naik satu angka magnitudo, energinya sekitar tiga puluh dua kali lipat.",
+    "start": 51.995,
+    "end": 57.063
+   },
+   {
+    "text": "Gempa sembilan, seribu kali lebih dahsyat dari gempa tujuh.",
+    "start": 57.283,
+    "end": 60.916
+   }
+  ]
+ },
+ {
+  "id": 9,
+  "ch": 3,
+  "start": 61.316,
+  "dur": 7.749,
+  "end": 69.065,
+  "sentences": [
+   {
+    "text": "Kalau kamu merasakannya: merunduk, berlindung, bertahan.",
+    "start": 61.316,
+    "end": 64.939
+   },
+   {
+    "text": "Tapi jangan lega dulu.",
+    "start": 65.159,
+    "end": 66.661
+   },
+   {
+    "text": "Bahaya terbesar justru belum datang.",
+    "start": 66.881,
+    "end": 69.065
+   }
+  ]
+ },
+ {
+  "id": 10,
+  "ch": 4,
+  "start": 70.365,
+  "dur": 5.377,
+  "end": 75.742,
+  "sentences": [
+   {
+    "text": "Dasar laut terangkat beberapa meter dalam sekejap, mendorong seluruh air di atasnya.",
+    "start": 70.365,
+    "end": 75.742
+   }
+  ]
+ },
+ {
+  "id": 11,
+  "ch": 4,
+  "start": 76.542,
+  "dur": 11.138,
+  "end": 87.68,
+  "sentences": [
+   {
+    "text": "Di laut dalam, gelombang ini cuma setinggi satu meter.",
+    "start": 76.542,
+    "end": 80.108
+   },
+   {
+    "text": "Kapal di atasnya bahkan tidak sadar.",
+    "start": 80.328,
+    "end": 82.541
+   },
+   {
+    "text": "Tapi kecepatannya, tujuh ratus kilometer per jam.",
+    "start": 82.761,
+    "end": 86.055
+   },
+   {
+    "text": "Secepat pesawat jet.",
+    "start": 86.275,
+    "end": 87.68
+   }
+  ]
+ },
+ {
+  "id": 12,
+  "ch": 5,
+  "start": 88.98,
+  "dur": 6.025,
+  "end": 95.005,
+  "sentences": [
+   {
+    "text": "Mendekati pantai, laut makin dangkal.",
+    "start": 88.98,
+    "end": 91.518
+   },
+   {
+    "text": "Gelombang melambat, dan airnya menumpuk jadi tinggi.",
+    "start": 91.738,
+    "end": 95.005
+   }
+  ]
+ },
+ {
+  "id": 13,
+  "ch": 5,
+  "start": 95.705,
+  "dur": 6.362,
+  "end": 102.067,
+  "sentences": [
+   {
+    "text": "Dan sering kali, yang tiba lebih dulu adalah lembah gelombangnya.",
+    "start": 95.705,
+    "end": 99.48
+   },
+   {
+    "text": "Itu sebabnya, laut tiba-tiba surut.",
+    "start": 99.7,
+    "end": 102.067
+   }
+  ]
+ },
+ {
+  "id": 14,
+  "ch": 5,
+  "start": 102.417,
+  "dur": 5.812,
+  "end": 108.229,
+  "sentences": [
+   {
+    "text": "Dasar laut terlihat, dan orang-orang malah mendekat karena penasaran.",
+    "start": 102.417,
+    "end": 106.557
+   },
+   {
+    "text": "Itu kesalahan fatal.",
+    "start": 106.777,
+    "end": 108.229
+   }
+  ]
+ },
+ {
+  "id": 15,
+  "ch": 6,
+  "start": 110.729,
+  "dur": 5.764,
+  "end": 116.493,
+  "sentences": [
+   {
+    "text": "Dinding air setinggi tiga puluh meter.",
+    "start": 110.729,
+    "end": 112.983
+   },
+   {
+    "text": "Di darat, arusnya sering lebih cepat dari orang berlari.",
+    "start": 113.203,
+    "end": 116.493
+   }
+  ]
+ },
+ {
+  "id": 16,
+  "ch": 6,
+  "start": 117.093,
+  "dur": 9.196,
+  "end": 126.289,
+  "sentences": [
+   {
+    "text": "Air bergerak setinggi lima belas sentimeter saja, bisa menjatuhkan orang dewasa.",
+    "start": 117.093,
+    "end": 122.401
+   },
+   {
+    "text": "Tiga puluh sentimeter, bisa menghanyutkan mobil kecil.",
+    "start": 122.621,
+    "end": 126.289
+   }
+  ]
+ },
+ {
+  "id": 17,
+  "ch": 6,
+  "start": 126.639,
+  "dur": 5.007,
+  "end": 131.646,
+  "sentences": [
+   {
+    "text": "Dan tsunami bukan satu gelombang.",
+    "start": 126.639,
+    "end": 128.779
+   },
+   {
+    "text": "Gelombang berikutnya, bisa lebih besar.",
+    "start": 128.999,
+    "end": 131.646
+   }
+  ]
+ },
+ {
+  "id": 18,
+  "ch": 7,
+  "start": 133.446,
+  "dur": 5.283,
+  "end": 138.729,
+  "sentences": [
+   {
+    "text": "Tahun dua ribu empat, di Pulau Simeulue, Aceh, hampir seluruh warganya selamat.",
+    "start": 133.446,
+    "end": 138.729
+   }
+  ]
+ },
+ {
+  "id": 19,
+  "ch": 7,
+  "start": 139.079,
+  "dur": 7.511,
+  "end": 146.59,
+  "sentences": [
+   {
+    "text": "Mereka mewarisi kisah smong, dari tsunami tahun seribu sembilan ratus tujuh.",
+    "start": 139.079,
+    "end": 144.056
+   },
+   {
+    "text": "Kalau laut surut, larilah ke gunung.",
+    "start": 144.276,
+    "end": 146.59
+   }
+  ]
+ },
+ {
+  "id": 20,
+  "ch": 7,
+  "start": 147.59,
+  "dur": 9.23,
+  "end": 156.82,
+  "sentences": [
+   {
+    "text": "Jadi, tanda yang kujanjikan tadi?",
+    "start": 147.59,
+    "end": 149.861
    },
    {
     "text": "Kamu sudah melihatnya.",
-    "start": 51.43,
-    "end": 52.701
+    "start": 150.081,
+    "end": 151.493
    },
    {
     "text": "Saat laut tiba-tiba surut, jangan mendekat.",
-    "start": 52.921,
-    "end": 55.487
+    "start": 151.713,
+    "end": 154.385
    },
    {
     "text": "Lari ke tempat tinggi.",
-    "start": 55.707,
-    "end": 57.124
+    "start": 154.605,
+    "end": 155.942
    },
    {
     "text": "Sekarang.",
-    "start": 57.344,
-    "end": 57.992
+    "start": 156.162,
+    "end": 156.82
    }
   ]
  }

@@ -630,6 +630,14 @@ export class World {
       const x = HILL.x + 6 + Math.cos(a) * r * 1.3, z = HILL.z - 8 + Math.sin(a) * r * 0.8;
       this.hillPeople.push({ g: mk(1.25), x, z, tIn: 33 + R() * 4, phase: R() * 6.28 });
     }
+    // evacuees who know the sign: run from the town up the hill while the sea retreats
+    this.evac = [];
+    this.showEvac = false;
+    for (let k = 0; k < 44; k++) {
+      const x0 = -75 + R() * 75, z0 = 105 + R() * 45;
+      const a = R() * 6.28, r = Math.sqrt(R()) * 14;
+      this.evac.push({ g: mk(1.6), x0, z0, x1: HILL.x + 6 + Math.cos(a) * r * 1.3, z1: HILL.z - 8 + Math.sin(a) * r * 0.8, t0: 24 + R() * 1.5, dur: 8 + R() * 3, phase: R() * 6.28 });
+    }
     this.anchors.hilltop = new THREE.Vector3(HILL.x + 6, terrainY(HILL.x + 6, HILL.z - 8) + 6, HILL.z - 8);
   }
 
@@ -816,6 +824,16 @@ export class World {
       p.g.visible = t > p.tIn;
       p.g.position.set(p.x, terrainY(p.x, p.z) + Math.abs(Math.sin(t * 2 + p.phase)) * 0.05, p.z);
       p.g.rotation.y = Math.PI + Math.sin(p.phase) * 0.6;
+    }
+
+    for (const p of this.evac) {
+      const k = clamp((t - p.t0) / p.dur);
+      p.g.visible = this.showEvac && t > 23 && t < 41;
+      if (!p.g.visible) continue;
+      const x = lerp(p.x0, p.x1, k), z = lerp(p.z0, p.z1, k);
+      const run = k > 0 && k < 1 ? 1 : 0;
+      p.g.position.set(x, terrainY(x, z) + Math.abs(Math.sin(t * 11 + p.phase)) * 0.15 * run, z);
+      p.g.rotation.y = Math.atan2(p.x1 - p.x0, p.z1 - p.z0);
     }
 
     // floating debris once the bore has passed

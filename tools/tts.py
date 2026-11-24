@@ -1,5 +1,6 @@
 """Synthesize narration offline with an Indonesian Piper voice, sentence by sentence,
 and write exact sentence timings (for captions) to build/voice/timing.json.
+Segments without "start" are placed after the previous one using "gap".
 Usage: python3 tools/tts.py <voice.onnx> <narration.json> <out_dir> [length_scale]"""
 import json, sys, os, re, wave
 import numpy as np
@@ -13,7 +14,10 @@ SR = voice.config.sample_rate
 GAP = 0.22  # pause between sentences (s)
 os.makedirs(out_dir, exist_ok=True)
 timing = []
+prev_end = 0.0
 for s in json.load(open(nar_path)):
+    if 'start' not in s:
+        s['start'] = round(prev_end + s.get('gap', 0.35), 3)
     sentences = [x.strip() for x in re.findall(r'[^.!?]+[.!?]?', s['text']) if x.strip()]
     pieces, t, sents = [], 0.0, []
     for sent in sentences:
@@ -31,5 +35,6 @@ for s in json.load(open(nar_path)):
         w.writeframes((np.clip(x, -1, 1) * 32767).astype('<i2').tobytes())
     d = len(x) / SR
     print(f"seg{s['id']}: start {s['start']:5.1f}  dur {d:5.2f}  end {s['start']+d:5.2f}")
-    timing.append({"id": s['id'], "start": s['start'], "dur": round(d, 3), "sentences": sents})
+    prev_end = s['start'] + d
+    timing.append({"id": s['id'], "ch": s.get('ch', 0), "start": s['start'], "dur": round(d, 3), "end": round(prev_end, 3), "sentences": sents})
 json.dump(timing, open(os.path.join(out_dir, 'timing.json'), 'w'), ensure_ascii=False, indent=1)

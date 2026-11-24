@@ -1,6 +1,7 @@
 // Offline renderer: drives index.html in headless Chromium, captures frames with
 // overlays and pipes them to ffmpeg.
-// Usage: node tools/render.mjs --from 0 --to 60 --fps 30 --out build/part.mp4 [--scale 0.75] [--stills 1,9,17]
+// Usage: node tools/render.mjs --from 0 --to 160 --fps 30 --out build/part.mp4 [--scale 0.75]
+//        node tools/render.mjs --stills 1,9,17 [--dir build/stills]   |   --events build/events.json
 import { createRequire } from 'node:module';
 const { chromium } = createRequire(import.meta.url)('playwright');
 import http from 'node:http';
@@ -10,7 +11,8 @@ import { spawn } from 'node:child_process';
 
 const args = Object.fromEntries(process.argv.slice(2).reduce((a, v, i, arr) => (v.startsWith('--') ? [...a, [v.slice(2), arr[i + 1]]] : a), []));
 const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
-const fps = +(args.fps || 30), from = +(args.from || 0), to = +(args.to || 60), scale = args.scale || '1';
+const fps = +(args.fps || 30), scale = args.scale || '1';
+let from = +(args.from || 0), to = args.to;
 
 const types = { '.html': 'text/html', '.js': 'text/javascript', '.json': 'application/json', '.m4a': 'audio/mp4', '.wav': 'audio/wav' };
 const server = http.createServer((req, res) => {
@@ -33,7 +35,12 @@ async function frame(t) {
   return page.screenshot({ type: 'jpeg', quality: 93 });
 }
 
-if (args.stills) {
+to = +(to ?? (await page.evaluate(() => window.DURATION)));
+if (args.events) {
+  const ev = await page.evaluate(() => ({ ...window.EVENTS, shots: window.SHOT_TIMES }));
+  fs.writeFileSync(args.events, JSON.stringify(ev, null, 1));
+  console.log(JSON.stringify(ev));
+} else if (args.stills) {
   fs.mkdirSync(args.dir || 'build/stills', { recursive: true });
   for (const s of args.stills.split(',')) {
     const t0 = Date.now();

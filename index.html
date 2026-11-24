@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
 <meta charset="utf-8" />
-<title>Simulasi 3D: Gempa → Tsunami → Banjir (9:16, 60 detik)</title>
+<title>Simulasi 3D: Gempa → Tsunami → Banjir (9:16, 2:40)</title>
 <script type="importmap">
 { "imports": { "three": "./node_modules/three/build/three.module.js", "three/addons/": "./node_modules/three/examples/jsm/" } }
 </script>
@@ -22,7 +22,7 @@
     font-weight: 900; font-size: 58px; letter-spacing: 2px; font-variant-numeric: tabular-nums; }
   #timer .dot { width: 26px; height: 26px; border-radius: 50%; background: #ff3b30; box-shadow: 0 0 18px #ff3b30; }
   #timer.urgent { background: rgba(200,20,10,0.75); border-color: #ff8a80; }
-  #quest { top: 262px; left: 50%; transform: translateX(-50%); white-space: nowrap; font-weight: 800; font-size: 34px;
+  #quest { top: 252px; left: 50%; transform: translateX(-50%); white-space: nowrap; font-weight: 800; font-size: 34px;
     background: rgba(255,214,0,0.95); color: #111; padding: 10px 26px; border-radius: 14px; letter-spacing: 0.5px; }
 
   /* captions */
@@ -43,7 +43,7 @@
   .tag.yellow::after { background: #111; }
 
   /* stress meter */
-  #meter { left: 90px; right: 90px; top: 360px; }
+  #meter { left: 90px; right: 90px; top: 330px; }
   #meter .lbl { display: flex; justify-content: space-between; font-weight: 900; font-size: 40px; margin-bottom: 12px; text-shadow: 0 3px 10px #000; }
   #meter .bar { height: 34px; border-radius: 20px; background: rgba(255,255,255,0.15); border: 3px solid rgba(255,255,255,0.6); overflow: hidden; }
   #meter .fill { height: 100%; width: 0%; background: linear-gradient(90deg, #ffd400, #ff7a00, #ff2a1a); }
@@ -54,12 +54,12 @@
 
   /* tsunami info panel */
   .panel { background: rgba(10,12,16,0.72); border: 3px solid rgba(255,255,255,0.25); border-radius: 22px; padding: 22px 30px; font-weight: 800; }
-  #wave { left: 60px; top: 360px; width: 470px; }
+  #wave { left: 60px; top: 330px; width: 520px; }
   #wave .head { display: inline-block; background: #e5281b; color: #fff; font-weight: 900; font-size: 32px; padding: 6px 16px; border-radius: 10px; margin-bottom: 14px; letter-spacing: 1px; }
   #wave .row { display: flex; justify-content: space-between; font-size: 38px; margin: 6px 0; font-variant-numeric: tabular-nums; }
   #wave .row b { font-weight: 900; color: #ffe14d; }
 
-  #gauge { right: 60px; top: 360px; width: 230px; text-align: center; }
+  #gauge { right: 60px; top: 330px; width: 230px; text-align: center; }
   #gauge .t { font-size: 28px; letter-spacing: 1px; }
   #gauge .v { font-size: 72px; font-weight: 900; color: #ffe14d; font-variant-numeric: tabular-nums; }
   #gauge .tube { margin: 12px auto 0; width: 60px; height: 260px; border: 4px solid #fff; border-radius: 14px; position: relative; overflow: hidden; background: rgba(255,255,255,0.08); }
@@ -75,6 +75,27 @@
   #end .b { font-size: 110px; font-weight: 900; line-height: 1.02; margin: 24px 60px; }
   #end .c { font-size: 46px; font-weight: 700; opacity: 0.9; margin-top: 30px; }
   #end .arrow { width: 0; height: 0; border-left: 70px solid transparent; border-right: 70px solid transparent; border-bottom: 90px solid #0d9b4a; margin-bottom: 20px; }
+
+  #chap { top: 150px; left: 50%; transform: translateX(-50%); white-space: nowrap; font-weight: 900; font-size: 40px; letter-spacing: 1px;
+    background: rgba(10,10,12,0.66); border: 3px solid rgba(255,255,255,0.2); padding: 12px 30px; border-radius: 60px; }
+  #chap b { color: #ff5a48; margin-right: 14px; }
+  #chcard { left: 0; right: 0; top: 640px; text-align: center; }
+  #chcard .n { display: inline-block; font-weight: 900; font-size: 46px; letter-spacing: 6px; background: #e5281b; padding: 8px 26px; border-radius: 12px; }
+  #chcard .t { font-weight: 900; font-size: 112px; line-height: 1.0; margin: 22px 50px 0; -webkit-text-stroke: 14px #000; paint-order: stroke fill; text-shadow: 0 10px 40px rgba(0,0,0,0.7); }
+  #inset { left: 250px; top: 430px; width: 580px; height: 400px; border: 5px solid #fff; border-radius: 22px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+  #inset span { position: absolute; left: 50%; bottom: -26px; transform: translateX(-50%); white-space: nowrap; background: #ffd400; color: #111; font-weight: 900; font-size: 32px; padding: 6px 18px; border-radius: 10px; }
+  #icons { left: 40px; right: 40px; top: 360px; display: flex; gap: 22px; justify-content: center; }
+  #icons .ic { width: 300px; background: rgba(255,255,255,0.94); color: #111; border-radius: 26px; padding: 18px 10px 16px; text-align: center; font-weight: 900; font-size: 34px; box-shadow: 0 16px 40px rgba(0,0,0,0.45); }
+  #icons svg { width: 190px; height: 170px; display: block; margin: 0 auto 6px; }
+  #quote { left: 70px; right: 70px; top: 380px; background: rgba(250,244,230,0.95); color: #2a1d10; border-radius: 26px; padding: 30px 36px; border-left: 16px solid #c8892a; box-shadow: 0 20px 50px rgba(0,0,0,0.45); }
+  #quote .q { font-weight: 900; font-size: 58px; line-height: 1.12; }
+  #quote .s { font-weight: 700; font-size: 30px; margin-top: 14px; opacity: 0.75; }
+  #lower { left: 60px; bottom: 470px; }
+  #lower .a { display: inline-block; background: #e5281b; font-weight: 900; font-size: 34px; padding: 6px 16px; border-radius: 8px; letter-spacing: 1px; }
+  #lower .b { font-weight: 900; font-size: 62px; text-shadow: 0 4px 20px rgba(0,0,0,0.8); margin-top: 8px; }
+  #note { right: 40px; bottom: 420px; font-weight: 700; font-size: 26px; opacity: 0.85; background: rgba(0,0,0,0.45); padding: 6px 14px; border-radius: 8px; }
+  #slowmo { left: 60px; top: 330px; font-weight: 900; font-size: 40px; color: #ffe14d; letter-spacing: 2px; text-shadow: 0 2px 12px #000; }
+  #wave .head.blue { background: #1f6fd1; }
 </style>
 </head>
 <body>
@@ -84,15 +105,26 @@
   <div class="ov" id="tags"></div>
   <div class="ov" id="meter"><div class="lbl"><span>TEKANAN LEMPENG</span><span id="meterV">0%</span></div><div class="bar"><div class="fill" id="meterF"></div></div></div>
   <div class="ov" id="mag">M 8,9<small>GEMPA BUMI</small></div>
-  <div class="ov panel" id="wave"><div class="head">TSUNAMI TERDETEKSI</div>
-    <div class="row"><span>Jarak</span><b id="wDist">-</b></div>
-    <div class="row"><span>Tinggi</span><b id="wH">-</b></div>
-    <div class="row"><span>Tiba dalam</span><b id="wEta">-</b></div></div>
+  <div class="ov panel" id="wave"><div class="head" id="wHead">TSUNAMI TERDETEKSI</div>
+    <div class="row"><span id="wL1">Jarak</span><b id="wV1">-</b></div>
+    <div class="row"><span id="wL2">Tinggi</span><b id="wV2">-</b></div>
+    <div class="row"><span id="wL3">Tiba dalam</span><b id="wV3">-</b></div></div>
   <div class="ov panel" id="gauge"><div class="t">KETINGGIAN AIR</div><div class="v" id="gV">0 m</div><div class="tube"><div class="lvl" id="gL"></div></div></div>
   <div class="ov" id="rewind">◀◀ PUTAR ULANG</div>
   <div class="ov" id="sign"><div class="a">INI TANDANYA</div><div class="b">LAUT TIBA-TIBA SURUT</div></div>
-  <div class="ov" id="timer"><div class="dot" id="tdot"></div><span id="tval">00:60</span></div>
-  <div class="ov" id="quest">CARI 1 TANDA PENYELAMAT SEBELUM 00:00</div>
+  <div class="ov" id="chap"><b id="chapN">1/7</b><span id="chapT"></span></div>
+  <div class="ov" id="quest">CARI 1 TANDA PENYELAMAT DI VIDEO INI</div>
+  <div class="ov" id="inset"><span>SEPERTI PENGGARIS DITEKAN</span></div>
+  <div class="ov" id="icons">
+    <div class="ic" id="ic1"><svg viewBox="0 0 190 170"><g fill="none" stroke="#111" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"><circle cx="70" cy="52" r="16" fill="#111"/><path d="M78 72 L112 104 L150 104 M112 104 L100 150 L140 150 M90 86 L60 118"/><path d="M20 160 L175 160"/></g></svg>MERUNDUK</div>
+    <div class="ic" id="ic2"><svg viewBox="0 0 190 170"><g fill="none" stroke="#111" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"><path d="M15 62 L175 62 M35 62 L35 160 M155 62 L155 160"/><circle cx="80" cy="92" r="14" fill="#111"/><path d="M90 108 L118 130 L140 130 M118 130 L106 156 L138 156 M98 116 L80 102"/></g></svg>BERLINDUNG</div>
+    <div class="ic" id="ic3"><svg viewBox="0 0 190 170"><g fill="none" stroke="#111" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"><path d="M15 62 L175 62 M35 62 L35 160 M155 62 L155 160"/><circle cx="82" cy="92" r="14" fill="#111"/><path d="M92 108 L118 130 L134 130 M118 130 L106 156 L138 156 M100 112 L152 92"/></g></svg>BERTAHAN</div>
+  </div>
+  <div class="ov" id="quote"><div class="q">“Kalau laut surut,<br>larilah ke gunung.”</div><div class="s">Pesan inti kisah smong, Simeulue (diterjemahkan bebas)</div></div>
+  <div class="ov" id="lower"><div class="a" id="lowA"></div><div class="b" id="lowB"></div></div>
+  <div class="ov" id="note">Ilustrasi · skala tidak sebenarnya</div>
+  <div class="ov" id="slowmo">● GERAK LAMBAT</div>
+  <div class="ov" id="chcard"><div class="n" id="ccN">BAB 1</div><div class="t" id="ccT"></div></div>
   <div class="ov" id="cap"></div>
   <div class="ov" id="end"><div class="arrow"></div><div class="a">LAUT TIBA-TIBA SURUT?</div><div class="b">LARI KE TEMPAT TINGGI</div><div class="c">Bagikan. Bisa menyelamatkan nyawa.</div></div>
   <div class="ov" id="flash"></div>
