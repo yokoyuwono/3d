@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simulasi Gempa dan Tsunami</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<style>
+/* VOICE: urgent, public-safety broadcast, cinematic but clear
+   IDEA: an emergency alert screen: the video is the alert, the script is the transcript
+   PICTURE: the 9:16 video itself, large, in a phone-shaped frame
+   COLOUR and TYPE: storm slate ground, white ink, alert red accent, sand support; Inter black
+   LAYOUT: video left/top, transcript timeline right/below, safety band at the end */
+:root{color-scheme:light dark;--bg:light-dark(#eef1f3,#0d1216);--panel:light-dark(#ffffff,#151c22);--ink:light-dark(#10151a,#eef2f5);--mute:light-dark(#55616b,#9aa7b2);--line:light-dark(#d8dee3,#25303a);--red:#e5281b;--sand:#e9c98f}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Inter,system-ui,sans-serif;overflow-x:clip}
+.band{padding:clamp(24px,4vw,56px) max(5vw,16px)}
+.wrap{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:minmax(0,420px) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:start}
+.phone{position:relative;border-radius:28px;background:#000;padding:10px;box-shadow:0 30px 60px -20px rgba(0,0,0,.45)}
+.phone video{display:block;width:100%;aspect-ratio:9/16;border-radius:20px;background:#0a0f13;object-fit:cover}
+.loading{position:absolute;inset:10px;display:grid;place-items:center;color:#cfd8df;font-weight:600;border-radius:20px;pointer-events:none}
+.alert{display:inline-flex;align-items:center;gap:10px;background:var(--red);color:#fff;font-weight:800;font-size:14px;padding:6px 12px;border-radius:8px}
+.alert i{width:9px;height:9px;border-radius:50%;background:#fff;animation:blink 1s steps(2) infinite}
+@keyframes blink{50%{opacity:.2}}
+h1{font-size:clamp(32px,4.4vw,50px);line-height:1.05;font-weight:900;margin:14px 0 12px;text-wrap:balance}
+.lede{color:var(--mute);max-width:60ch;margin:0 0 22px}
+.facts{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
+.facts span{border:1px solid var(--line);border-radius:999px;padding:4px 12px;font-size:14px;font-weight:600;white-space:nowrap}
+ol{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+li{display:grid;grid-template-columns:64px minmax(0,1fr);gap:14px;padding:12px 0;border-bottom:1px solid var(--line);cursor:pointer}
+li:hover{background:light-dark(#f6f8f9,#182129)}
+li.on{background:light-dark(#fff3f2,#2a1614)}
+li.on time{color:var(--red)}
+time{font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap;padding-left:4px}
+li b{display:block;font-size:14px;color:var(--mute);font-weight:600}
+li p{margin:2px 0 0}
+.safe{background:var(--red);color:#fff}
+.safe .in{max-width:1180px;margin:0 auto;display:flex;flex-wrap:wrap;gap:12px 40px;align-items:baseline}
+.safe strong{font-size:clamp(28px,4vw,44px);font-weight:900;line-height:1.05}
+.safe p{margin:0;max-width:56ch}
+button{font:inherit;font-weight:700;min-height:44px;padding:0 18px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--ink);cursor:pointer;margin-top:16px}
+button:focus-visible,li:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+@media(max-width:820px){.wrap{grid-template-columns:minmax(0,1fr)}.phone{max-width:380px;margin:0 auto}}
+@media(prefers-reduced-motion:reduce){.alert i{animation:none}}
+</style>
+</head>
+<body>
+<section class="band">
+  <div class="wrap">
+    <div class="phone">
+      <video id="v" controls playsinline preload="auto"></video>
+      <div class="loading" id="load">Memuat video…</div>
+    </div>
+    <div>
+      <span class="alert"><i></i>Simulasi 3D · 60 detik · 9:16</span>
+      <h1>Gempa M 8,9 memicu tsunami, lalu banjir menenggelamkan kota</h1>
+      <p class="lede">Animasi vertikal untuk Shorts, Reels dan TikTok. Di awal penonton diberi satu misi: temukan tanda penyelamat sebelum hitungan mundur habis. Jawabannya baru dibuka di detik terakhir. Klik baris naskah untuk melompat ke adegannya.</p>
+      <div class="facts"><span>1080 × 1920</span><span>30 fps</span><span>Narasi Bahasa Indonesia</span><span>Subtitle per kata</span><span>Efek suara orisinal</span></div>
+      <ol id="script"></ol>
+      <button id="restart" type="button">Putar dari awal</button>
+    </div>
+  </div>
+</section>
+<section class="band safe">
+  <div class="in">
+    <strong>Laut tiba-tiba surut? Lari ke tempat tinggi.</strong>
+    <p>Setelah gempa kuat di dekat pantai, surutnya air laut adalah peringatan alami bahwa tsunami akan datang. Jangan mendekat untuk melihat. Segera menuju bukit atau bangunan tinggi lewat jalur evakuasi.</p>
+  </div>
+</section>
+<script>
+{
+  const lines = [
+    [0, 'Pembuka', 'Kota ini cuma punya enam puluh detik. Dan ada satu tanda yang bisa menyelamatkan semua orang. Perhatikan baik-baik.'],
+    [8.4, 'Di bawah laut', 'Sepuluh kilometer di bawah laut, dua lempeng bumi saling mengunci. Ratusan tahun, tekanannya terus menumpuk.'],
+    [15.5, 'Gempa', 'Sampai akhirnya, patah! Gempa magnitudo delapan koma sembilan. Tapi percayalah, guncangan ini belum bagian terburuk.'],
+    [23.3, 'Laut surut', 'Lihat lautnya. Airnya justru mundur. Dasar laut terlihat, dan orang-orang malah mendekat karena penasaran.'],
+    [30.75, 'Tsunami', 'Itu kesalahan fatal. Di cakrawala, jutaan ton air sedang bergerak. Dinding air setinggi tiga puluh meter, dan di laut dalam, kecepatannya setara pesawat jet.'],
+    [41.45, 'Banjir', 'Dalam hitungan menit, jalanan berubah jadi sungai. Air terus naik. Lantai satu, lantai dua, atap.'],
+    [48.95, 'Jawaban', 'Lalu, tanda yang kujanjikan tadi? Kamu sudah melihatnya. Saat laut tiba-tiba surut, jangan mendekat. Lari ke tempat tinggi. Sekarang.'],
+  ];
+  const fmt = (s) => '0:' + String(Math.floor(s)).padStart(2, '0');
+  const ol = document.getElementById('script');
+  ol.innerHTML = lines.map(([t, h, p], i) => `<li tabindex="0" data-i="${i}"><time>${fmt(t)}</time><div><b>${h}</b><p>${p}</p></div></li>`).join('');
+  const v = document.getElementById('v');
+  const load = document.getElementById('load');
+  const items = [...ol.children];
+  const seek = (i) => { v.currentTime = lines[i][0]; v.play().catch(() => {}); };
+  items.forEach((li, i) => {
+    li.addEventListener('click', () => seek(i));
+    li.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); seek(i); } });
+  });
+  document.getElementById('restart').addEventListener('click', () => seek(0));
+  v.addEventListener('timeupdate', () => {
+    let cur = 0;
+    lines.forEach(([t], i) => { if (v.currentTime >= t) cur = i; });
+    items.forEach((li, i) => li.classList.toggle('on', i === cur));
+  });
+  v.addEventListener('loadeddata', () => { load.style.display = 'none'; });
+  // own file first; if the frame's policy blocks media from the page's host, load it as a blob
+  let triedBlob = false;
+  const viaBlob = () => {
+    if (triedBlob) return; triedBlob = true;
+    fetch('video.mp4').then((r) => r.blob()).then((b) => { v.src = URL.createObjectURL(b); })
+      .catch(() => { load.textContent = 'Video gagal dimuat.'; });
+  };
+  v.addEventListener('error', viaBlob);
+  v.src = 'video.mp4';
+  setTimeout(() => { if (v.readyState < 2) viaBlob(); }, 4000);
+}
+</script>
+</body>
+</html>
