@@ -199,10 +199,29 @@ if ext:
         subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', ext[0], '-ac', '1', '-ar', str(SR), dst], check=True)
         with wave.open(dst) as w:
             m = np.frombuffer(w.readframes(w.getnframes()), dtype='<i2').astype(np.float64) / 32768
+    edit_p = os.path.join(ROOT, 'assets', 'music_edit.json')
+    if os.path.exists(edit_p):
+        # bar-aligned re-edit: concatenate source segments with short equal-power crossfades
+        ed = json.load(open(edit_p))
+        xf = int(ed.get('crossfade', 0.1) * SR)
+        out = np.zeros(0)
+        for a, b in ed['segments']:
+            seg = m[int(a * SR): int(b * SR) + xf].copy()
+            if len(out) and xf:
+                ramp = np.linspace(0, np.pi / 2, xf)
+                tail = out[-xf:] * np.cos(ramp)
+                seg[:xf] = seg[:xf] * np.sin(ramp) + tail
+                out = out[:-xf]
+            out = np.concatenate([out, seg])
+        m = out
+        MUSIC_GAIN_DB = ed.get('gain_db', MUSIC_GAIN_DB)
+        print('applied music edit:', ed['segments'])
     m = np.pad(m, (0, max(0, N - len(m))))[:N]
     m /= np.sqrt(np.mean(m ** 2)) + 1e-9
     music = m * 0.11 * 10 ** (MUSIC_GAIN_DB / 20)
-    music *= 1 - ss(DUR - 2.0, DUR, T)
+    music *= 1 - ss(DUR - 1.0, DUR, T)
+    # soft procedural chord under the end card so the last seconds are not silent
+    music += pad([65.4, 98, 130.8, 196, 261.6, 329.6], EV['finalHit'], DUR, 0.07, att=0.6, rel=1.2)
     print('using external backsound:', os.path.basename(ext[0]))
 
 # ================================================================= narration + mix
@@ -224,7 +243,7 @@ k = int(0.25 * SR)
 cs = np.concatenate([[0], np.cumsum(np.abs(voice))])
 idx = np.arange(N)
 v_env = (cs[np.clip(idx + k // 2, 0, N)] - cs[np.clip(idx - k // 2, 0, N)]) / k
-duck = 1 - 0.55 * np.clip(v_env / 0.06, 0, 1)
+duck = 1 - (0.62 if ext else 0.55) * np.clip(v_env / 0.06, 0, 1)
 
 bg = (music * 0.9 + sfx) * duck
 d = int(0.012 * SR)

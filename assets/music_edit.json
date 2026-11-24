@@ -1,0 +1,6 @@
+{
+ "_note": "Bar-aligned re-edit of assets/music.mp3 (105 BPM, bar = 2.2852 s). Repeats 7 bars before the second climax so its peak lands on the tsunami impact (1:56), and removes 6 aftermath bars so the soft ending lands on the final line.",
+ "segments": [[0.0, 88.0], [72.004, 119.9], [133.609, 158.98]],
+ "crossfade": 0.12,
+ "gain_db": -1
+}
