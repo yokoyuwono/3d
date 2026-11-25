@@ -16,11 +16,11 @@ D3, F3, A3, C4, D4, E4, F4, G4, A4, C5 = 146.8, 174.6, 220, 261.6, 293.7, 329.6,
 
 # ---------------------------------------------------------------- music
 # hook: spacey D minor with a rising "rotation" hum while the speed counter climbs
-m.music += m.pad([73.4, 110, D3, A3, E4], 0.0, EV['stop1'] + 0.05, 0.11, att=1.2, rel=0.05)
+m.music += m.pad([73.4, 110, D3, A3, E4], 1.5, EV['stop1'] + 0.05, 0.11, att=0.8, rel=0.05)
 hum_f = 60 + 180 * m.ss(2.0, 6.6)
 m.music += np.sin(2 * np.pi * np.cumsum(hum_f) / SR) * 0.06 * m.win(1.5, EV['stop1'] + 0.05, 0.5, 0.05)
 arp = [D4, F4, A4, C5, A4, F4]
-for i, t0 in enumerate(np.arange(0.5, EV['stop1'], 60 / 90 / 2)):
+for i, t0 in enumerate(np.arange(1.6, EV['stop1'], 60 / 90 / 2)):
     m.place(m.music, m.pluck(arp[i % 6], 0.9, 5), t0, 0.10)
 m.music += m.pad([73.4, 77.8], EV['stop1'] + 1.2, CH[0] + 0.4, 0.12, att=0.6)  # unease after the stop
 # chapter 1: wonder (F maj7 -> C -> Dm), steady plucks
@@ -69,8 +69,13 @@ def stop(t, big=1.0):
     m.place(m.sfx, m.burst(80, 7000, 1.5, 2.5, -0.4), t, 0.5 * big)
 stop(EV['stop1'])
 stop(EV['stop2'], 1.1)
-for c in (EV['shots'][2], EV['shots'][3]):  # montage hits
-    m.place(m.sfx, m.boom(45, 50, 0.9, 3.5), c, 0.5)
+for c in EV['montage']:  # flash-forward hits
+    m.place(m.sfx, m.boom(45, 50, 0.9, 3.5), c, 0.55)
+    m.place(m.sfx, m.burst(300, 8000, 0.25, 14), c, 0.22)
+# open-loop sting on "Dan itu baru permulaan"
+m.place(m.sfx, m.tone(lambda t: 55 + 20 * np.exp(-t * 3), 2.0, 1.5, 0.01), EV['tease'], 0.35)
+# time-lapse whoosh for the fast-spinning young Earth
+m.sfx += m.noise(200, 4000, -0.3) * 0.08 * (0.6 + 0.4 * np.sin(2 * np.pi * 3 * m.T)) * m.win(EV['fast'], EV['clock2'], 0.3, 0.3)
 # bus: engine, screech, thud
 b = EV['brake']
 eng = (np.sin(2 * np.pi * 52 * m.T) * 0.5 + m.noise(40, 300, -0.6) * 0.5) * m.win(CH[1] + 0.2, b + 0.3, 0.4, 0.2)

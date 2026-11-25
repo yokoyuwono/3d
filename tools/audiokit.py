@@ -108,9 +108,13 @@ class Mix:
             for s in json.load(open(timing_json)):
                 src = os.path.join(voice_dir, f"seg{s['id']}.wav")
                 dst = os.path.join(td, f"v{s['id']}.wav")
+                # narrator polish: ~4% lower pitch (same speed) for a deeper documentary tone,
+                # presence EQ, compression and a faint room so the free TTS voice sounds less flat
                 subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', src, '-af',
-                                'highpass=f=90,equalizer=f=3000:t=q:w=1.2:g=3,equalizer=f=180:t=q:w=1:g=2,'
-                                'acompressor=threshold=-20dB:ratio=3:attack=5:release=80:makeup=4',
+                                'aresample=22050,asetrate=21168,aresample=22050,atempo=1.0417,'
+                                'highpass=f=80,equalizer=f=150:t=q:w=1:g=3,equalizer=f=3200:t=q:w=1.2:g=3,'
+                                'acompressor=threshold=-22dB:ratio=3.5:attack=4:release=90:makeup=5,'
+                                'aecho=0.85:0.6:35|62:0.10|0.06',
                                 '-ar', str(SR), '-ac', '1', dst], check=True)
                 with wave.open(dst) as w:
                     x = np.frombuffer(w.readframes(w.getnframes()), dtype='<i2').astype(np.float64) / 32768

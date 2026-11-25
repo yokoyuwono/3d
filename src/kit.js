@@ -96,7 +96,8 @@ export function tagger(container, camera) {
     el.style.display = '';
     el.className = 'tag ' + cls;
     if (el.textContent !== text) el.textContent = text;
-    el.style.left = clamp((v.x * 0.5 + 0.5) * W, 170, W - 170).toFixed(1) + 'px';
+    const half = Math.min(W / 2 - 30, (el.offsetWidth || 340) / 2 + 24);
+    el.style.left = clamp((v.x * 0.5 + 0.5) * W, half, W - half).toFixed(1) + 'px';
     el.style.top = ((-v.y * 0.5 + 0.5) * H - 30).toFixed(1) + 'px';
     el.style.opacity = clamp(opacity).toFixed(3);
   };

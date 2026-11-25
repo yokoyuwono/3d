@@ -54,12 +54,15 @@
   .tag.yellow::after { background: #111; }
   .tag.big { font-size: 60px; padding: 14px 30px; }
 
-  #counter { left: 0; right: 0; top: 300px; text-align: center; }
+  #pill { top: 238px; left: 50%; transform: translateX(-50%); white-space: nowrap; font-weight: 900; font-size: 34px; background: #ffd400; color: #111; padding: 10px 26px; border-radius: 14px; }
+  #pill.done { background: #0d9b4a; color: #fff; }
+  #tint { inset: 0; mix-blend-mode: multiply; }
+  #counter { left: 0; right: 0; top: 330px; text-align: center; }
   #counter .v { font-weight: 900; font-size: 190px; line-height: 1; letter-spacing: -4px; -webkit-text-stroke: 12px #000; paint-order: stroke fill; text-shadow: 0 0 50px rgba(255,90,40,0.6); font-variant-numeric: tabular-nums; }
   #counter .u { font-weight: 900; font-size: 56px; color: #ffd400; -webkit-text-stroke: 8px #000; paint-order: stroke fill; }
 
   .panel { background: rgba(10,12,16,0.8); border: 3px solid rgba(255,255,255,0.25); border-radius: 22px; padding: 24px 30px; }
-  #bars { left: 60px; right: 60px; top: 330px; }
+  #bars { left: 60px; right: 60px; top: 320px; }
   #bars .row { margin: 10px 0 22px; }
   #bars .l { display: flex; justify-content: space-between; font-weight: 800; font-size: 34px; margin-bottom: 10px; }
   #bars .b { height: 40px; border-radius: 10px; background: rgba(255,255,255,0.12); overflow: hidden; }
@@ -102,6 +105,7 @@
 <body>
 <div id="wrap"><div id="stage">
   <div class="ov" id="vignette"></div>
+  <div class="ov" id="tint"></div>
   <div class="ov" id="scan"></div>
   <div class="ov" id="tags"></div>
   <div class="ov" id="counter"><div class="v" id="cntV">0</div><div class="u" id="cntU">KM/JAM</div></div>
@@ -118,12 +122,13 @@
   <div class="ov" id="note">Ilustrasi · skala tidak sebenarnya</div>
   <div class="ov" id="brand">ANDAI… · EP 1</div>
   <div class="ov" id="chap"><b id="chapN"></b><span id="chapT"></span></div>
+  <div class="ov" id="pill"></div>
   <div class="ov" id="cap"></div>
   <div class="ov" id="chcard"><div class="n" id="ccN"></div><div class="t" id="ccT"></div></div>
   <div class="ov" id="end"><div class="a">SERI ANDAI… · EPISODE 1</div><div class="b">Bumi Berhenti Berputar</div><div class="c">Episode 2: Andai Indonesia Bersalju</div></div>
   <div class="ov" id="flash"></div>
   <div class="ov" id="fade"></div>
-  <div class="ov" id="bigPlay" tabindex="0" role="button" aria-label="Putar video" style="display:none"><div class="btn"></div><div class="t">Andai Bumi Berhenti Berputar</div><div class="s">Seri ANDAI… · Episode 1 · 2:42 · nyalakan suara</div><div class="s" id="loadMsg">Memuat suara…</div></div>
+  <div class="ov" id="bigPlay" tabindex="0" role="button" aria-label="Putar video" style="display:none"><div class="btn"></div><div class="t">Andai Bumi Berhenti Berputar</div><div class="s">Seri ANDAI… · Episode 1 · nyalakan suara</div><div class="s" id="loadMsg">Memuat suara…</div></div>
   <div class="ov" id="player" style="display:none"><button id="playBtn" type="button" aria-label="Putar atau jeda">▶</button><div id="pBar"><div id="pFill"></div></div><div id="pTime">0:00 / 0:00</div></div>
 </div></div>
 <script type="module" src="./episodes/ep1/main.js"></script>

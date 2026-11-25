@@ -3,343 +3,362 @@
   "id": 1,
   "ch": 0,
   "start": 1.6,
-  "dur": 7.181,
-  "end": 8.781,
+  "dur": 7.129,
+  "end": 8.729,
   "sentences": [
    {
     "text": "Saat ini, kamu sedang melaju seribu enam ratus tujuh puluh kilometer per jam.",
     "start": 1.6,
-    "end": 6.888
+    "end": 6.728
    },
    {
     "text": "Lebih cepat dari pesawat jet.",
-    "start": 7.108,
-    "end": 8.781
+    "start": 6.948,
+    "end": 8.729
    }
   ]
  },
  {
   "id": 2,
   "ch": 0,
-  "start": 9.181,
-  "dur": 9.261,
-  "end": 18.442,
+  "start": 9.129,
+  "dur": 9.144,
+  "end": 18.273,
   "sentences": [
    {
     "text": "Dan kalau Bumi tiba-tiba berhenti berputar, satu detik saja, Indonesia akan kena paling parah.",
-    "start": 9.181,
-    "end": 15.787
+    "start": 9.129,
+    "end": 15.686
    },
    {
     "text": "Kenapa?",
-    "start": 16.007,
-    "end": 16.711
+    "start": 15.906,
+    "end": 16.487
    },
    {
     "text": "Tonton sampai habis.",
-    "start": 16.931,
-    "end": 18.442
+    "start": 16.707,
+    "end": 18.273
    }
   ]
  },
  {
   "id": 3,
   "ch": 1,
-  "start": 19.742,
-  "dur": 7.282,
-  "end": 27.024,
+  "start": 19.573,
+  "dur": 7.511,
+  "end": 27.084,
   "sentences": [
    {
     "text": "Bumi berputar satu kali setiap dua puluh empat jam.",
-    "start": 19.742,
-    "end": 23.07
+    "start": 19.573,
+    "end": 22.971
    },
    {
     "text": "Kelilingnya di khatulistiwa sekitar empat puluh ribu kilometer.",
-    "start": 23.29,
-    "end": 27.024
+    "start": 23.191,
+    "end": 27.084
    }
   ]
  },
  {
   "id": 4,
   "ch": 1,
-  "start": 27.374,
-  "dur": 13.638,
-  "end": 41.012,
+  "start": 27.434,
+  "dur": 13.668,
+  "end": 41.102,
   "sentences": [
    {
     "text": "Artinya, di garis khatulistiwa, tepat di Indonesia, permukaan Bumi melaju hampir seribu tujuh ratus kilometer per jam.",
-    "start": 27.374,
-    "end": 35.788
+    "start": 27.434,
+    "end": 35.845
    },
    {
     "text": "Di Tokyo, sekitar seribu tiga ratus enam puluh.",
-    "start": 36.008,
-    "end": 39.171
+    "start": 36.065,
+    "end": 39.19
    },
    {
     "text": "Di kutub, hampir nol.",
-    "start": 39.391,
-    "end": 41.012
+    "start": 39.41,
+    "end": 41.102
    }
   ]
  },
  {
   "id": 5,
   "ch": 1,
-  "start": 41.362,
-  "dur": 8.811,
-  "end": 50.173,
+  "start": 41.452,
+  "dur": 8.964,
+  "end": 50.416,
   "sentences": [
    {
     "text": "Kita tidak merasakannya, sama seperti di dalam pesawat yang terbang mulus.",
-    "start": 41.362,
-    "end": 46.134
+    "start": 41.452,
+    "end": 46.284
    },
    {
     "text": "Semuanya ikut bergerak: tanah, rumah, udara, dan laut.",
-    "start": 46.354,
-    "end": 50.173
+    "start": 46.504,
+    "end": 50.416
    }
   ]
  },
  {
   "id": 6,
   "ch": 2,
-  "start": 51.473,
-  "dur": 6.697,
-  "end": 58.17,
+  "start": 51.716,
+  "dur": 6.387,
+  "end": 58.103,
   "sentences": [
    {
     "text": "Sekarang bayangkan kamu di dalam bus yang direm mendadak.",
-    "start": 51.473,
-    "end": 54.683
+    "start": 51.716,
+    "end": 54.76
    },
    {
     "text": "Bus berhenti, tapi tubuhmu tetap melaju ke depan.",
-    "start": 54.903,
-    "end": 58.17
+    "start": 54.98,
+    "end": 58.103
    }
   ]
  },
  {
   "id": 7,
   "ch": 2,
-  "start": 58.57,
-  "dur": 12.966,
-  "end": 71.536,
+  "start": 58.503,
+  "dur": 13.012,
+  "end": 71.515,
   "sentences": [
    {
     "text": "Itulah yang terjadi jika Bumi berhenti.",
-    "start": 58.57,
-    "end": 60.882
+    "start": 58.503,
+    "end": 60.892
    },
    {
     "text": "Tanah berhenti, tapi udara tetap melaju ke timur, hampir seribu tujuh ratus kilometer per jam.",
-    "start": 61.102,
-    "end": 67.136
+    "start": 61.112,
+    "end": 67.257
    },
    {
     "text": "Sekitar lima kali lebih kencang dari badai terkuat yang pernah tercatat.",
-    "start": 67.356,
-    "end": 71.536
+    "start": 67.477,
+    "end": 71.515
    }
   ]
  },
  {
   "id": 8,
   "ch": 2,
-  "start": 71.936,
-  "dur": 6.857,
-  "end": 78.793,
+  "start": 71.915,
+  "dur": 6.767,
+  "end": 78.682,
   "sentences": [
    {
     "text": "Bangunan tersapu, pohon tercabut, dan laut ikut terlempar ke timur, menjadi gelombang raksasa yang menyapu daratan.",
-    "start": 71.936,
-    "end": 78.793
+    "start": 71.915,
+    "end": 78.682
+   }
+  ]
+ },
+ {
+  "id": 17,
+  "ch": 2,
+  "start": 79.182,
+  "dur": 5.74,
+  "end": 84.922,
+  "sentences": [
+   {
+    "text": "Dan itu baru permulaan.",
+    "start": 79.182,
+    "end": 80.945
+   },
+   {
+    "text": "Yang paling aneh, justru akan terjadi pada laut Indonesia.",
+    "start": 81.165,
+    "end": 84.922
    }
   ]
  },
  {
   "id": 9,
   "ch": 3,
-  "start": 80.093,
-  "dur": 7.958,
-  "end": 88.051,
+  "start": 86.222,
+  "dur": 8.1,
+  "end": 94.322,
   "sentences": [
    {
     "text": "Kalaupun ada yang selamat, Bumi kini tidak lagi berputar.",
-    "start": 80.093,
-    "end": 83.808
+    "start": 86.222,
+    "end": 89.986
    },
    {
     "text": "Matahari terbit, lalu, tidak terbenam selama berbulan-bulan.",
-    "start": 84.028,
-    "end": 88.051
+    "start": 90.206,
+    "end": 94.322
    }
   ]
  },
  {
   "id": 10,
   "ch": 3,
-  "start": 88.451,
-  "dur": 9.889,
-  "end": 98.34,
+  "start": 94.722,
+  "dur": 9.819,
+  "end": 104.541,
   "sentences": [
    {
     "text": "Satu hari menjadi sepanjang satu tahun.",
-    "start": 88.451,
-    "end": 91.101
+    "start": 94.722,
+    "end": 97.327
    },
    {
     "text": "Sekitar enam bulan siang tanpa henti, yang memanggang daratan.",
-    "start": 91.321,
-    "end": 94.951
+    "start": 97.547,
+    "end": 101.185
    },
    {
     "text": "Lalu enam bulan malam, yang membekukan segalanya.",
-    "start": 95.171,
-    "end": 98.34
+    "start": 101.405,
+    "end": 104.541
    }
   ]
  },
  {
   "id": 11,
   "ch": 4,
-  "start": 99.64,
-  "dur": 6.136,
-  "end": 105.776,
+  "start": 105.841,
+  "dur": 6.298,
+  "end": 112.139,
   "sentences": [
    {
     "text": "Lalu terjadi hal paling aneh.",
-    "start": 99.64,
-    "end": 101.449
+    "start": 105.841,
+    "end": 107.648
    },
    {
     "text": "Selama ini, putaran Bumi membuat laut menggembung di khatulistiwa.",
-    "start": 101.669,
-    "end": 105.776
+    "start": 107.868,
+    "end": 112.139
    }
   ]
  },
  {
   "id": 12,
   "ch": 4,
-  "start": 106.176,
-  "dur": 8.589,
-  "end": 114.765,
+  "start": 112.539,
+  "dur": 8.767,
+  "end": 121.306,
   "sentences": [
    {
     "text": "Tanpa putaran, gravitasi menarik air perlahan ke arah kutub.",
-    "start": 106.176,
-    "end": 110.054
+    "start": 112.539,
+    "end": 116.475
    },
    {
     "text": "Eropa, Kanada, dan Rusia bagian utara tenggelam di bawah samudra kutub.",
-    "start": 110.274,
-    "end": 114.765
+    "start": 116.695,
+    "end": 121.306
    }
   ]
  },
  {
   "id": 13,
   "ch": 4,
-  "start": 115.365,
-  "dur": 12.831,
-  "end": 128.196,
+  "start": 121.906,
+  "dur": 13.332,
+  "end": 135.238,
   "sentences": [
    {
     "text": "Dan Indonesia?",
-    "start": 115.365,
-    "end": 116.413
+    "start": 121.906,
+    "end": 123.024
    },
    {
     "text": "Laut kita surut.",
-    "start": 116.633,
-    "end": 117.689
+    "start": 123.244,
+    "end": 124.448
    },
    {
     "text": "Dasar laut muncul ke permukaan, dan pulau-pulau kita menyatu dengan Asia dan Australia.",
-    "start": 117.909,
-    "end": 123.879
+    "start": 124.668,
+    "end": 130.785
    },
    {
     "text": "Indonesia menjadi bagian dari satu benua raksasa di khatulistiwa.",
-    "start": 124.099,
-    "end": 128.196
+    "start": 131.005,
+    "end": 135.238
    }
   ]
  },
  {
   "id": 14,
   "ch": 5,
-  "start": 129.496,
-  "dur": 7.203,
-  "end": 136.699,
+  "start": 136.538,
+  "dur": 7.165,
+  "end": 143.703,
   "sentences": [
    {
     "text": "Tenang.",
-    "start": 129.496,
-    "end": 130.007
+    "start": 136.538,
+    "end": 137.038
    },
    {
     "text": "Bumi tidak akan berhenti mendadak.",
-    "start": 130.227,
-    "end": 132.23
+    "start": 137.258,
+    "end": 139.246
    },
    {
     "text": "Tapi putarannya memang melambat, sangat pelan, karena tarikan Bulan.",
-    "start": 132.45,
-    "end": 136.699
+    "start": 139.466,
+    "end": 143.703
    }
   ]
  },
  {
   "id": 15,
   "ch": 5,
-  "start": 137.099,
-  "dur": 11.529,
-  "end": 148.628,
+  "start": 144.103,
+  "dur": 11.649,
+  "end": 155.752,
   "sentences": [
    {
     "text": "Satu koma empat miliar tahun lalu, satu hari di Bumi hanya sekitar delapan belas jam.",
-    "start": 137.099,
-    "end": 142.729
+    "start": 144.103,
+    "end": 149.875
    },
    {
     "text": "Sekarang dua puluh empat jam, dan terus bertambah, hanya beberapa milidetik setiap abad.",
-    "start": 142.949,
-    "end": 148.628
+    "start": 150.095,
+    "end": 155.752
    }
   ]
  },
  {
   "id": 16,
   "ch": 5,
-  "start": 149.228,
-  "dur": 9.889,
-  "end": 159.117,
+  "start": 156.352,
+  "dur": 10.117,
+  "end": 166.469,
   "sentences": [
    {
     "text": "Jadi kamu masih aman.",
-    "start": 149.228,
-    "end": 150.877
+    "start": 156.352,
+    "end": 158.102
    },
    {
     "text": "Tapi episode berikutnya akan membuatmu kaget.",
-    "start": 151.097,
-    "end": 154.03
+    "start": 158.322,
+    "end": 161.357
    },
    {
     "text": "Andai Indonesia bersalju.",
-    "start": 154.25,
-    "end": 155.996
+    "start": 161.577,
+    "end": 163.422
    },
    {
     "text": "Dan ternyata, Indonesia memang punya salju.",
-    "start": 156.216,
-    "end": 159.117
+    "start": 163.642,
+    "end": 166.469
    }
   ]
  }

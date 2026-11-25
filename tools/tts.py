@@ -19,6 +19,8 @@ for s in json.load(open(nar_path)):
     if 'start' not in s:
         s['start'] = round(prev_end + s.get('gap', 0.35), 3)
     sentences = [x.strip() for x in re.findall(r'[^.!?]+[.!?]?', s['text']) if x.strip()]
+    # optional per-segment pacing: "ls" multiplies the base length scale (>1 = slower)
+    cfg = SynthesisConfig(length_scale=ls * s.get('ls', 1.0), noise_scale=0.667, noise_w_scale=0.8)
     pieces, t, sents = [], 0.0, []
     for sent in sentences:
         audio = np.concatenate([c.audio_float_array for c in voice.synthesize(sent, syn_config=cfg)])
