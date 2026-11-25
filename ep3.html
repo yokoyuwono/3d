@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Andai Semua Es Mencair</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800;900&display=swap" rel="stylesheet">
+<script>
+  // three.js: local copy when previewing/rendering here, CDN when published
+  {
+    const local = /^(localhost|127\.)/.test(location.hostname);
+    const base = local ? './node_modules/three/' : 'https://cdn.jsdelivr.net/npm/three@0.170.0/';
+    const im = document.createElement('script');
+    im.type = 'importmap';
+    im.textContent = JSON.stringify({ imports: { three: base + 'build/three.module.js', 'three/addons/': base + 'examples/jsm/' } });
+    document.currentScript.after(im);
+  }
+</script>
+<style>
+  /* VOICE: curious, cinematic science short. IDEA: a 9:16 phone video with broadcast overlays.
+     PICTURE: the live 3D scene fills the frame. COLOUR and TYPE: deep space black, white ink,
+     signal red + amber accents; Inter black. LAYOUT: centred 9:16 stage, player bar at the bottom. */
+  html, body { margin: 0; height: 100%; background: #05070b; overflow: hidden; font-family: Inter, system-ui, sans-serif; }
+  #wrap { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); }
+  #stage { position: relative; width: 1080px; height: 1920px; overflow: hidden; color: #fff; transform-origin: 0 0; cursor: pointer; }
+  #stage canvas { position: absolute; inset: 0; width: 1080px !important; height: 1920px !important; }
+  .ov { position: absolute; pointer-events: none; }
+  #vignette { inset: 0; background: radial-gradient(ellipse at 50% 45%, rgba(0,0,0,0) 55%, rgba(0,0,0,0.55) 100%); }
+  #scan { inset: 0; opacity: 0; background: repeating-linear-gradient(0deg, rgba(0,0,0,0.2) 0 3px, rgba(0,0,0,0) 3px 7px); }
+  #flash { inset: 0; background: #fff; opacity: 0; }
+  #fade { inset: 0; background: #000; opacity: 0; }
+
+  #brand { top: 70px; left: 60px; font-weight: 900; font-size: 34px; letter-spacing: 3px; background: #ffd400; color: #111; padding: 8px 18px; border-radius: 10px; }
+  #chap { top: 150px; left: 50%; transform: translateX(-50%); white-space: nowrap; font-weight: 900; font-size: 40px; letter-spacing: 1px;
+    background: rgba(10,10,12,0.66); border: 3px solid rgba(255,255,255,0.2); padding: 12px 30px; border-radius: 60px; }
+  #chap b { color: #ff5a48; margin-right: 14px; }
+  #chcard { left: 0; right: 0; top: 640px; text-align: center; }
+  #chcard .n { display: inline-block; font-weight: 900; font-size: 46px; letter-spacing: 6px; background: #e5281b; padding: 8px 26px; border-radius: 12px; }
+  #chcard .t { font-weight: 900; font-size: 112px; line-height: 1.0; margin: 22px 50px 0; -webkit-text-stroke: 14px #000; paint-order: stroke fill; text-shadow: 0 10px 40px rgba(0,0,0,0.7); }
+
+  #cap { left: 60px; right: 60px; top: 1190px; text-align: center; font-weight: 900; font-size: 80px; line-height: 1.12; letter-spacing: -1px; }
+  #cap span { display: inline-block; margin: 0 8px; color: #fff; -webkit-text-stroke: 12px #000; paint-order: stroke fill; text-shadow: 0 8px 22px rgba(0,0,0,0.65); }
+  #cap span.key { color: #ff5a48; }
+  #cap span.on { color: #ffe14d; transform: scale(1.1); }
+
+  .tag { position: absolute; transform: translate(-50%, -100%); white-space: nowrap; font-weight: 900; font-size: 34px;
+    padding: 10px 20px; border-radius: 12px; background: rgba(12,14,18,0.78); border: 3px solid rgba(255,255,255,0.85); }
+  .tag::after { content: ''; position: absolute; left: 50%; bottom: -26px; width: 4px; height: 24px; background: rgba(255,255,255,0.85); transform: translateX(-50%); }
+  .tag.red { background: #e5281b; border-color: #fff; }
+  .tag.green { background: #0d9b4a; border-color: #fff; }
+  .tag.blue { background: #1f6fd1; border-color: #fff; }
+  .tag.yellow { background: #ffd400; color: #111; border-color: #111; }
+  .tag.yellow::after { background: #111; }
+  .tag.big { font-size: 60px; padding: 14px 30px; }
+
+  #pill { top: 160px; left: 50%; transform: translateX(-50%); white-space: nowrap; font-weight: 900; font-size: 34px; background: #ffd400; color: #111; padding: 10px 26px; border-radius: 14px; }
+  #pill.done { background: #0d9b4a; color: #fff; }
+  #tint { inset: 0; mix-blend-mode: multiply; }
+  #counter { left: 0; right: 0; top: 330px; text-align: center; }
+  #counter .v { font-weight: 900; font-size: 190px; line-height: 1; letter-spacing: -4px; -webkit-text-stroke: 12px #000; paint-order: stroke fill; text-shadow: 0 0 50px rgba(255,90,40,0.6); font-variant-numeric: tabular-nums; }
+  #counter .u { font-weight: 900; font-size: 56px; color: #ffd400; -webkit-text-stroke: 8px #000; paint-order: stroke fill; }
+
+  .panel { background: rgba(10,12,16,0.8); border: 3px solid rgba(255,255,255,0.25); border-radius: 22px; padding: 24px 30px; }
+  #bars { left: 60px; right: 60px; top: 320px; }
+  #bars .row { margin: 10px 0 22px; }
+  #bars .l { display: flex; justify-content: space-between; font-weight: 800; font-size: 34px; margin-bottom: 10px; }
+  #bars .b { height: 40px; border-radius: 10px; background: rgba(255,255,255,0.12); overflow: hidden; }
+  #bars .f { height: 100%; width: 0; border-radius: 10px; }
+
+  #days { left: 0; right: 0; top: 320px; text-align: center; }
+  #days .a { display: inline-block; font-weight: 900; font-size: 38px; letter-spacing: 2px; padding: 8px 20px; border-radius: 10px; background: #ff8a00; color: #111; }
+  #days .v { font-weight: 900; font-size: 150px; line-height: 1.05; -webkit-text-stroke: 10px #000; paint-order: stroke fill; font-variant-numeric: tabular-nums; }
+
+  #clock { left: 70px; right: 70px; top: 330px; display: flex; gap: 30px; justify-content: center; }
+  #clock .c { flex: 1; text-align: center; }
+  #clock .c .h { font-weight: 900; font-size: 120px; line-height: 1; -webkit-text-stroke: 8px #000; paint-order: stroke fill; }
+  #clock .c .s { font-weight: 800; font-size: 32px; margin-top: 10px; }
+  #clock svg { width: 230px; height: 230px; display: block; margin: 0 auto 10px; }
+
+  #teaser { left: 60px; right: 60px; top: 360px; text-align: center; }
+  #teaser .a { display: inline-block; font-weight: 900; font-size: 40px; letter-spacing: 4px; background: #ffd400; color: #111; padding: 8px 22px; border-radius: 10px; }
+  #teaser .b { font-weight: 900; font-size: 104px; line-height: 1.02; margin-top: 18px; -webkit-text-stroke: 12px #00243d; paint-order: stroke fill; text-shadow: 0 0 40px rgba(60,160,255,0.8); }
+  #end { inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; background: rgba(0,0,0,0.75); }
+  #end .a { font-size: 48px; font-weight: 900; color: #ffd400; letter-spacing: 6px; }
+  #end .b { font-size: 120px; font-weight: 900; line-height: 1.0; margin: 18px 60px; }
+  #end .c { font-size: 44px; font-weight: 700; opacity: 0.9; margin-top: 24px; }
+  #note { right: 40px; bottom: 420px; font-weight: 700; font-size: 26px; opacity: 0.85; background: rgba(0,0,0,0.45); padding: 6px 14px; border-radius: 8px; }
+
+  /* player */
+  #player { left: 40px; right: 40px; bottom: 34px; pointer-events: auto; display: flex; align-items: center; gap: 22px; cursor: default; }
+  #playBtn { width: 92px; height: 92px; border-radius: 50%; border: 0; background: rgba(255,255,255,0.92); color: #111; font-size: 38px; font-weight: 900; cursor: pointer; }
+  #pBar { position: relative; flex: 1; height: 16px; background: rgba(255,255,255,0.25); border-radius: 10px; cursor: pointer; }
+  #pBar i { position: absolute; top: -6px; width: 4px; height: 28px; background: rgba(255,255,255,0.7); border-radius: 2px; }
+  #pFill { position: absolute; left: 0; top: 0; bottom: 0; background: #ff5a48; border-radius: 10px; }
+  #pTime { font-weight: 800; font-size: 32px; font-variant-numeric: tabular-nums; min-width: 190px; text-align: right; }
+  #bigPlay { inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 34px; pointer-events: auto; background: rgba(0,0,0,0.45); cursor: pointer; }
+  #bigPlay .btn { width: 240px; height: 240px; border-radius: 50%; background: #ffd400; display: grid; place-items: center; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
+  #bigPlay .btn::before { content: ''; margin-left: 24px; border-left: 90px solid #111; border-top: 56px solid transparent; border-bottom: 56px solid transparent; }
+  #bigPlay .t { font-weight: 900; font-size: 70px; text-align: center; line-height: 1.05; padding: 0 60px; text-shadow: 0 6px 30px #000; }
+  #bigPlay .s { font-weight: 700; font-size: 34px; opacity: 0.9; }
+  #playBtn:focus-visible, #bigPlay:focus-visible { outline: 6px solid #ffd400; outline-offset: 4px; }
+
+  #temp { left: 0; right: 0; top: 330px; text-align: center; }
+  #temp .v { font-weight: 900; font-size: 200px; line-height: 1; -webkit-text-stroke: 12px #000; paint-order: stroke fill; font-variant-numeric: tabular-nums; }
+  #temp .u { font-weight: 900; font-size: 48px; color: #fff; -webkit-text-stroke: 8px #000; paint-order: stroke fill; }
+  #cards { left: 40px; right: 40px; top: 330px; display: flex; gap: 20px; justify-content: center; }
+  #cards .cd { width: 310px; background: rgba(255,255,255,0.95); color: #111; border-radius: 26px; padding: 18px 12px; text-align: center; font-weight: 900; font-size: 32px; box-shadow: 0 16px 40px rgba(0,0,0,0.45); }
+  #cards .cd .i { font-size: 92px; line-height: 1.1; }
+  #cards .cd .r { display: inline-block; margin-top: 8px; padding: 4px 14px; border-radius: 10px; color: #fff; font-size: 28px; }
+  #poll { left: 70px; right: 70px; top: 360px; text-align: center; }
+  #poll .q { font-weight: 900; font-size: 64px; -webkit-text-stroke: 10px #000; paint-order: stroke fill; margin-bottom: 26px; }
+  #poll .opts { display: flex; gap: 26px; }
+  #poll .o { flex: 1; border-radius: 26px; padding: 26px 10px; font-weight: 900; font-size: 54px; box-shadow: 0 16px 40px rgba(0,0,0,0.45); }
+  #poll .o small { display: block; font-size: 30px; font-weight: 700; margin-top: 6px; }
+  #thermo { left: 60px; top: 330px; width: 300px; text-align: center; }
+  #thermo .alt { font-weight: 900; font-size: 64px; font-variant-numeric: tabular-nums; }
+  #thermo .deg { font-weight: 900; font-size: 92px; color: #ffe14d; font-variant-numeric: tabular-nums; }
+  #thermo .s { font-weight: 700; font-size: 28px; opacity: 0.9; }
+  #glacier { left: 60px; right: 60px; top: 320px; }
+  #glacier .y { font-weight: 900; font-size: 150px; line-height: 1; text-align: center; -webkit-text-stroke: 10px #000; paint-order: stroke fill; font-variant-numeric: tabular-nums; }
+  #glacier .a { text-align: center; font-weight: 900; font-size: 58px; color: #bfe8ff; -webkit-text-stroke: 8px #002; paint-order: stroke fill; margin-top: 8px; }
+  #glacier .bar { margin: 18px 40px 0; height: 34px; border-radius: 18px; background: rgba(255,255,255,0.2); overflow: hidden; border: 3px solid #fff; }
+  #glacier .bar div { height: 100%; background: linear-gradient(90deg, #8fd3ff, #ffffff); }
+  #fields { left: 70px; right: 70px; top: 330px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  #fields div { aspect-ratio: 3 / 2; border-radius: 10px; background: #2f8f3a; border: 5px solid #fff; position: relative; }
+  #fields div::after { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 5px; background: #fff; transform: translateX(-50%); }
+  #fieldsT { left: 0; right: 0; top: 820px; text-align: center; font-weight: 900; font-size: 56px; -webkit-text-stroke: 9px #000; paint-order: stroke fill; }
+  #blurNote { left: 0; right: 0; top: 330px; text-align: center; font-weight: 900; font-size: 60px; -webkit-text-stroke: 10px #000; paint-order: stroke fill; }
+
+  #lvl { left: 0; right: 0; top: 330px; text-align: center; }
+  #lvl .v { font-weight: 900; font-size: 210px; line-height: 1; color: #8fd3ff; -webkit-text-stroke: 12px #00203a; paint-order: stroke fill; font-variant-numeric: tabular-nums; }
+  #lvl .u { font-weight: 900; font-size: 46px; -webkit-text-stroke: 8px #000; paint-order: stroke fill; }
+  #chart { left: 60px; right: 60px; top: 320px; padding: 22px 26px; }
+  #chart .h { display: flex; justify-content: space-between; font-weight: 900; font-size: 36px; margin-bottom: 10px; }
+  #chart .h b { color: #ffe14d; }
+  #chart svg { width: 100%; height: 300px; display: block; }
+  #chart .f { font-weight: 700; font-size: 24px; opacity: 0.85; margin-top: 6px; }
+</style>
+</head>
+<body>
+<div id="wrap"><div id="stage">
+  <div class="ov" id="vignette"></div>
+  <div class="ov" id="tint"></div>
+  <div class="ov" id="scan"></div>
+  <div class="ov" id="tags"></div>
+  <div class="ov" id="lvl"><div class="v" id="lvlV">+0 m</div><div class="u" id="lvlU">PERMUKAAN LAUT</div></div>
+  <div class="ov panel" id="chart"><div class="h"><span>Kenaikan muka laut global</span><b id="chV">+10 cm</b></div>
+    <svg viewBox="0 0 900 300" preserveAspectRatio="none"><g stroke="rgba(255,255,255,0.2)" stroke-width="2"><line x1="0" y1="290" x2="900" y2="290"/><line x1="0" y1="150" x2="900" y2="150"/><line x1="0" y1="10" x2="900" y2="10"/></g>
+    <path id="chP" d="" fill="none" stroke="#8fd3ff" stroke-width="10" stroke-linecap="round"/><text x="0" y="285" fill="#fff" font-size="30" font-weight="800">1993</text><text x="800" y="285" fill="#fff" font-size="30" font-weight="800">2025</text></svg>
+    <div class="f">Data satelit NASA · laju kini ±4,5 mm/tahun, makin cepat</div></div>
+  <div class="ov" id="teaser"><div class="a">EPISODE BERIKUTNYA</div><div class="b">ANDAI ADA LUBANG TEMBUS BUMI</div></div>
+  <div class="ov" id="note">Ilustrasi · skala tidak sebenarnya</div>
+  <div class="ov" id="brand">ANDAI… · EP 3</div>
+  <div class="ov" id="pill"></div>
+  <div class="ov" id="cap"></div>
+  <div class="ov" id="end"><div class="a">SERI ANDAI… · EPISODE 3</div><div class="b">Semua Es Mencair</div><div class="c">Episode 4: Andai Ada Lubang Tembus Bumi</div></div>
+  <div class="ov" id="flash"></div>
+  <div class="ov" id="fade"></div>
+  <div class="ov" id="bigPlay" tabindex="0" role="button" aria-label="Putar video" style="display:none"><div class="btn"></div><div class="t">Andai Semua Es Mencair</div><div class="s">Seri ANDAI… · Episode 3 · nyalakan suara</div><div class="s" id="loadMsg">Memuat suara…</div></div>
+  <div class="ov" id="player" style="display:none"><button id="playBtn" type="button" aria-label="Putar atau jeda">▶</button><div id="pBar"><div id="pFill"></div></div><div id="pTime">0:00 / 0:00</div></div>
+</div></div>
+<script type="module" src="./episodes/ep3/main.js"></script>
+</body>
+</html>

@@ -14,8 +14,8 @@ dengan subtitle per kata, penanda bab, dan desain suara prosedural.
 |---|---|---|---|
 | 1 | `ep1.html`: Andai Bumi berhenti berputar (2:50) | `episodes/ep1/` | selesai (web) |
 | 2 | `ep2.html`: Andai Indonesia bersalju (2:58) | `episodes/ep2/` | selesai (web) |
-| 3 | Andai semua es mencair | | berikutnya |
-| 4 | Andai ada lubang tembus Bumi dari Jakarta | | rencana |
+| 3 | `ep3.html`: Andai semua es mencair (2:28) | `episodes/ep3/` | selesai (web) |
+| 4 | Andai ada lubang tembus Bumi dari Jakarta | | berikutnya |
 | 5 | Andai Bulan menghilang | | rencana |
 
 Episode diputar langsung di browser (Three.js), jam animasinya mengikuti soundtrack. Bersama-sama memakai

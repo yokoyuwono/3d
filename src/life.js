@@ -108,6 +108,14 @@ export class Person {
     } else if (p === 'cheer') {
       const j = Math.abs(Math.sin(w * 6));
       A[0].rotation.z = 2.6; A[1].rotation.z = -2.6; B.position.y = 0.9 + j * 0.18; L[0].rotation.x = -0.3 * j; L[1].rotation.x = -0.3 * j;
+    } else if (p === 'row') {
+      const c = Math.sin(w * 4);
+      A[0].rotation.set(-1.3 + 0.5 * c, 0, 0.35); A[1].rotation.set(-1.3 + 0.5 * c, 0, -0.35); B.rotation.x = 0.25 * c;
+      L[0].rotation.x = -1.5; L[1].rotation.x = -1.5; B.position.y = 0.45;
+    } else if (p === 'dig') {
+      const c = (w * 1.1) % 1;
+      B.rotation.x = 0.7 + 0.25 * Math.sin(c * Math.PI * 2); Hd.rotation.x = -0.4;
+      A[0].rotation.x = -0.9 + 0.8 * Math.sin(c * Math.PI * 2); A[1].rotation.x = A[0].rotation.x; L[0].rotation.x = -0.6; L[1].rotation.x = 0.3; B.position.y = 0.75;
     } else { // idle
       B.position.y = 0.9 + 0.012 * Math.sin(w * 2); Hd.rotation.y = 0.3 * Math.sin(w * 0.4);
     }
@@ -262,6 +270,44 @@ export function makeFire() {
   g.add(flame, core, light);
   g.userData = { flame, core, light };
   return g;
+}
+
+export function makePenguin() {
+  const g = new THREE.Group();
+  const black = mat([0.08, 0.08, 0.1]), white = mat([0.96, 0.96, 0.96]), orange = mat([1, 0.6, 0.1]);
+  const body = new THREE.Mesh(new THREE.CapsuleGeometry(0.22, 0.4, 4, 10), black); body.position.y = 0.42;
+  const belly = new THREE.Mesh(new THREE.CapsuleGeometry(0.17, 0.32, 4, 10), white); belly.position.set(0, 0.4, 0.08);
+  const head = new THREE.Mesh(new THREE.SphereGeometry(0.15, 12, 10), black); head.position.y = 0.82;
+  const beak = new THREE.Mesh(new THREE.ConeGeometry(0.04, 0.14, 6), orange); beak.rotation.x = Math.PI / 2; beak.position.set(0, 0.8, 0.16);
+  for (const x of [-0.06, 0.06]) { const e = new THREE.Mesh(new THREE.SphereGeometry(0.025, 6, 6), white); e.position.set(x, 0.86, 0.12); g.add(e); }
+  const wings = [-1, 1].map((s) => { const w = new THREE.Mesh(new THREE.CapsuleGeometry(0.05, 0.3, 2, 6), black); w.position.set(s * 0.23, 0.48, 0); g.add(w); return w; });
+  for (const x of [-0.08, 0.08]) { const f = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.03, 0.16), orange); f.position.set(x, 0.02, 0.06); g.add(f); }
+  g.add(body, belly, head, beak);
+  g.userData = { wings };
+  return g;
+}
+
+export function makeRowBoat(R, n = 2) {
+  const g = new THREE.Group();
+  const hull = new THREE.Mesh(new THREE.BoxGeometry(1.4, 0.5, 4.2, 1, 1, 4), mat([[0.75, 0.45, 0.2], [0.2, 0.45, 0.75], [0.85, 0.2, 0.15]][Math.floor(R() * 3)]));
+  const hp = hull.geometry.attributes.position;
+  for (let i = 0; i < hp.count; i++) { const z = hp.getZ(i), y = hp.getY(i); let x = hp.getX(i); if (y < 0) x *= 0.5; x *= 1 - 0.7 * Math.max(0, Math.abs(z) - 1.2) / 0.9; hp.setX(i, x); }
+  hull.geometry.computeVertexNormals();
+  hull.position.y = 0.2;
+  g.add(hull);
+  const crew = [];
+  for (let i = 0; i < n; i++) { const p = new Person(R, { scale: i === n - 1 && n > 2 ? 0.7 : 1 }); p.root.position.set(0, 0.05, -1.2 + i * 1.2); g.add(p.root); crew.push(p); }
+  const oar = new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.03, 2.4, 4), mat([0.5, 0.35, 0.2]));
+  oar.rotation.z = Math.PI / 2.6; oar.position.set(0.6, 0.6, -1.2);
+  g.add(oar);
+  g.userData = { crew, oar };
+  return g;
+}
+
+export function makeTent(R) {
+  const t = new THREE.Mesh(new THREE.ConeGeometry(1.4, 1.6, 4), mat([[0.95, 0.5, 0.1], [0.15, 0.5, 0.8], [0.2, 0.6, 0.3]][Math.floor(R() * 3)]));
+  t.rotation.y = Math.PI / 4; t.position.y = 0.8; t.scale.z = 1.4;
+  const g = new THREE.Group(); g.add(t); return g;
 }
 
 // ------------------------------------------------------------------ city lights for the globe night side

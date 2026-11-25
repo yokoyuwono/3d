@@ -1,0 +1,385 @@
+[
+ {
+  "id": 1,
+  "ch": 0,
+  "start": 1.7,
+  "dur": 7.363,
+  "end": 9.063,
+  "sentences": [
+   {
+    "text": "Ini Monas.",
+    "start": 1.7,
+    "end": 2.659
+   },
+   {
+    "text": "Tingginya seratus tiga puluh dua meter.",
+    "start": 2.879,
+    "end": 5.291
+   },
+   {
+    "text": "Dan suatu hari, hampir setengahnya bisa terendam laut.",
+    "start": 5.511,
+    "end": 9.063
+   }
+  ]
+ },
+ {
+  "id": 2,
+  "ch": 0,
+  "start": 9.513,
+  "dur": 8.337,
+  "end": 17.85,
+  "sentences": [
+   {
+    "text": "Bagaimana mungkin?",
+    "start": 9.513,
+    "end": 10.744
+   },
+   {
+    "text": "Jawabannya ada ribuan kilometer dari sini.",
+    "start": 10.964,
+    "end": 14.062
+   },
+   {
+    "text": "Dan kota mana yang tetap selamat?",
+    "start": 14.282,
+    "end": 16.117
+   },
+   {
+    "text": "Tonton sampai habis.",
+    "start": 16.337,
+    "end": 17.85
+   }
+  ]
+ },
+ {
+  "id": 3,
+  "ch": 1,
+  "start": 18.65,
+  "dur": 6.676,
+  "end": 25.326,
+  "sentences": [
+   {
+    "text": "Hampir semua es di Bumi tersimpan di dua tempat.",
+    "start": 18.65,
+    "end": 21.879
+   },
+   {
+    "text": "Antartika di selatan, dan Greenland di utara.",
+    "start": 22.099,
+    "end": 25.326
+   }
+  ]
+ },
+ {
+  "id": 4,
+  "ch": 1,
+  "start": 25.676,
+  "dur": 8.472,
+  "end": 34.148,
+  "sentences": [
+   {
+    "text": "Lapisan es Antartika tebalnya hampir dua kilometer.",
+    "start": 25.676,
+    "end": 29.078
+   },
+   {
+    "text": "Di atasnya, penguin hidup di dunia es yang sudah ada sejak jutaan tahun.",
+    "start": 29.298,
+    "end": 34.148
+   }
+  ]
+ },
+ {
+  "id": 5,
+  "ch": 1,
+  "start": 34.548,
+  "dur": 5.964,
+  "end": 40.512,
+  "sentences": [
+   {
+    "text": "Jika semua es itu mencair, air laut di seluruh dunia akan naik sekitar tujuh puluh meter.",
+    "start": 34.548,
+    "end": 40.512
+   }
+  ]
+ },
+ {
+  "id": 6,
+  "ch": 2,
+  "start": 41.312,
+  "dur": 5.526,
+  "end": 46.838,
+  "sentences": [
+   {
+    "text": "Tapi tunggu.",
+    "start": 41.312,
+    "end": 42.307
+   },
+   {
+    "text": "Tidak semua es menaikkan air laut.",
+    "start": 42.527,
+    "end": 44.892
+   },
+   {
+    "text": "Coba lihat dua gelas ini.",
+    "start": 45.112,
+    "end": 46.838
+   }
+  ]
+ },
+ {
+  "id": 7,
+  "ch": 2,
+  "start": 47.188,
+  "dur": 12.838,
+  "end": 60.026,
+  "sentences": [
+   {
+    "text": "Es yang mengapung, seperti di gelas kiri, saat mencair tidak membuat air meluap.",
+    "start": 47.188,
+    "end": 52.333
+   },
+   {
+    "text": "Tapi es di atas daratan, seperti di gelas kanan, saat mencair airnya mengalir ke bawah.",
+    "start": 52.553,
+    "end": 58.344
+   },
+   {
+    "text": "Dan permukaannya naik.",
+    "start": 58.564,
+    "end": 60.026
+   }
+  ]
+ },
+ {
+  "id": 8,
+  "ch": 2,
+  "start": 60.426,
+  "dur": 4.821,
+  "end": 65.247,
+  "sentences": [
+   {
+    "text": "Antartika dan Greenland adalah es daratan.",
+    "start": 60.426,
+    "end": 63.479
+   },
+   {
+    "text": "Itulah yang berbahaya.",
+    "start": 63.699,
+    "end": 65.247
+   }
+  ]
+ },
+ {
+  "id": 9,
+  "ch": 3,
+  "start": 66.047,
+  "dur": 4.04,
+  "end": 70.087,
+  "sentences": [
+   {
+    "text": "Sekarang, ayo kita naikkan air laut, sedikit demi sedikit.",
+    "start": 66.047,
+    "end": 70.087
+   }
+  ]
+ },
+ {
+  "id": 10,
+  "ch": 3,
+  "start": 70.487,
+  "dur": 5.077,
+  "end": 75.564,
+  "sentences": [
+   {
+    "text": "Sepuluh meter.",
+    "start": 70.487,
+    "end": 71.664
+   },
+   {
+    "text": "Jakarta, Surabaya, Makassar, dan Palembang tenggelam.",
+    "start": 71.884,
+    "end": 75.564
+   }
+  ]
+ },
+ {
+  "id": 11,
+  "ch": 3,
+  "start": 75.964,
+  "dur": 7.796,
+  "end": 83.76,
+  "sentences": [
+   {
+    "text": "Dua puluh lima meter.",
+    "start": 75.964,
+    "end": 77.493
+   },
+   {
+    "text": "Sepertiga pesisir utara Jawa hilang.",
+    "start": 77.713,
+    "end": 80.241
+   },
+   {
+    "text": "Hampir separuh pesisir timur Sumatra menjadi laut.",
+    "start": 80.461,
+    "end": 83.76
+   }
+  ]
+ },
+ {
+  "id": 12,
+  "ch": 3,
+  "start": 84.16,
+  "dur": 10.054,
+  "end": 94.214,
+  "sentences": [
+   {
+    "text": "Tujuh puluh meter.",
+    "start": 84.16,
+    "end": 85.44
+   },
+   {
+    "text": "Hampir separuh daratan di kawasan ini lenyap.",
+    "start": 85.66,
+    "end": 88.41
+   },
+   {
+    "text": "Medan pun tenggelam.",
+    "start": 88.63,
+    "end": 90.142
+   },
+   {
+    "text": "Tapi Bandung, Bogor, Malang, dan Yogyakarta tetap kering.",
+    "start": 90.362,
+    "end": 94.214
+   }
+  ]
+ },
+ {
+  "id": 13,
+  "ch": 4,
+  "start": 95.014,
+  "dur": 8.963,
+  "end": 103.977,
+  "sentences": [
+   {
+    "text": "Lalu bagaimana dengan kehidupan?",
+    "start": 95.014,
+    "end": 96.955
+   },
+   {
+    "text": "Jutaan orang harus pindah ke dataran tinggi.",
+    "start": 97.175,
+    "end": 100.045
+   },
+   {
+    "text": "Jalanan berubah jadi laut, dan perahu menggantikan motor.",
+    "start": 100.265,
+    "end": 103.977
+   }
+  ]
+ },
+ {
+  "id": 14,
+  "ch": 4,
+  "start": 104.377,
+  "dur": 5.098,
+  "end": 109.475,
+  "sentences": [
+   {
+    "text": "Dan Monas, berdiri sendirian di tengah laut.",
+    "start": 104.377,
+    "end": 107.023
+   },
+   {
+    "text": "Hampir setengah badannya terendam.",
+    "start": 107.243,
+    "end": 109.475
+   }
+  ]
+ },
+ {
+  "id": 15,
+  "ch": 5,
+  "start": 110.275,
+  "dur": 12.442,
+  "end": 122.717,
+  "sentences": [
+   {
+    "text": "Tenang.",
+    "start": 110.275,
+    "end": 110.84
+   },
+   {
+    "text": "Mencairnya semua es butuh ribuan tahun.",
+    "start": 111.06,
+    "end": 113.771
+   },
+   {
+    "text": "Tapi prosesnya sudah dimulai.",
+    "start": 113.991,
+    "end": 115.837
+   },
+   {
+    "text": "Saat ini, permukaan laut naik sekitar empat setengah milimeter setiap tahun, dan terus bertambah cepat.",
+    "start": 116.057,
+    "end": 122.717
+   }
+  ]
+ },
+ {
+  "id": 16,
+  "ch": 5,
+  "start": 123.117,
+  "dur": 7.659,
+  "end": 130.776,
+  "sentences": [
+   {
+    "text": "Dan di Jakarta Utara, sebagian daratannya bahkan sudah lebih rendah dari laut.",
+    "start": 123.117,
+    "end": 127.855
+   },
+   {
+    "text": "Kota ini sedang berlomba, melawan air.",
+    "start": 128.075,
+    "end": 130.776
+   }
+  ]
+ },
+ {
+  "id": 17,
+  "ch": 5,
+  "start": 131.276,
+  "dur": 13.519,
+  "end": 144.795,
+  "sentences": [
+   {
+    "text": "Kalau air terus naik, mungkin kita harus pergi.",
+    "start": 131.276,
+    "end": 134.273
+   },
+   {
+    "text": "Tapi bagaimana kalau kita pergi ke bawah?",
+    "start": 134.493,
+    "end": 136.861
+   },
+   {
+    "text": "Menggali lubang lurus menembus Bumi dari Jakarta.",
+    "start": 137.081,
+    "end": 140.138
+   },
+   {
+    "text": "Kamu akan keluar di mana?",
+    "start": 140.358,
+    "end": 141.912
+   },
+   {
+    "text": "Jawabannya, di episode berikutnya.",
+    "start": 142.132,
+    "end": 144.795
+   }
+  ]
+ }
+]

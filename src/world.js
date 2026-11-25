@@ -843,8 +843,10 @@ export class World {
 
   // ================================================================ update
   update(t, camera, canvasH) {
-    const sp = seaParams(t);
-    const md = mood(t);
+    let sp = seaParams(t);
+    // episodes can hold the sea at a fixed level (e.g. +70 m) instead of the tsunami timeline
+    if (this.levelOverride != null) sp = { ...sp, L: this.levelOverride, B: this.levelOverride, A: 0, F: 9000, chop: 1.4, mud: 0.3 };
+    const md = mood(this.moodT ?? t);
     const zen = lin(md.zenith), hor = lin(md.horizon), sunC = lin(md.sun);
 
     // sky / fog / lights
@@ -878,7 +880,7 @@ export class World {
         rx = amp * Math.sin(t * 13.1 + b.phase) * 0.6 + amp * 0.4 * Math.sin(t * 23.7 + b.phase * 2);
         rz = amp * Math.sin(t * 11.3 + b.phase * 1.7);
       }
-      if (b.collapse) {
+      if (b.collapse && !this.noQuake) {
         const k = easeOut(clamp((t - b.collapse.t0) / 1.4));
         rx += b.collapse.tiltX * k;
         rz += b.collapse.tiltZ * k;
@@ -904,7 +906,7 @@ export class World {
     for (const bt of this.boats) {
       let x = bt.x0, z = bt.z0, yaw = bt.yaw;
       const Fx = frontAt(sp.F, x);
-      if (Fx > z) { const run = Fx - z; z += run * 0.82; x += Math.sin(bt.phase) * run * 0.08; yaw += run * 0.012; }
+      if (Fx > z && this.levelOverride == null) { const run = Fx - z; z += run * 0.82; x += Math.sin(bt.phase) * run * 0.08; yaw += run * 0.012; }
       const w = waterH(x, z, t, sp);
       const ground = terrainY(x, z) + 0.6;
       const y = Math.max(w, ground);

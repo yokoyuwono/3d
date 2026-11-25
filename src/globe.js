@@ -71,7 +71,7 @@ export class Globe {
     const { color, mask } = landCanvases(rings);
     this.u = {
       uMap: { value: color }, uMask: { value: mask }, uSun: { value: this.sunDir.clone() },
-      uFrost: { value: 0 }, uHeat: { value: 0 }, uDrain: { value: 0 }, uEquator: { value: 0 }, uTime: { value: 0 }, uNightDark: { value: 1 },
+      uFrost: { value: 0 }, uHeat: { value: 0 }, uIceMelt: { value: 0 }, uIceGlow: { value: 0 }, uDrain: { value: 0 }, uEquator: { value: 0 }, uTime: { value: 0 }, uNightDark: { value: 1 },
     };
     this.earth = new THREE.Group();
     s.add(this.earth);
@@ -81,7 +81,7 @@ export class Globe {
         varying vec2 vUv; varying vec3 vN; varying vec3 vW; varying vec3 vL;
         void main(){ vUv = uv; vL = position; vN = normalize(mat3(modelMatrix) * normal); vec4 w = modelMatrix * vec4(position,1.0); vW = w.xyz; gl_Position = projectionMatrix * viewMatrix * w; }`,
       fragmentShader: /* glsl */ `
-        uniform sampler2D uMap, uMask; uniform vec3 uSun; uniform float uFrost, uHeat, uDrain, uEquator, uTime, uNightDark;
+        uniform sampler2D uMap, uMask; uniform vec3 uSun; uniform float uFrost, uHeat, uDrain, uEquator, uTime, uNightDark, uIceMelt, uIceGlow;
         varying vec2 vUv; varying vec3 vN; varying vec3 vW; varying vec3 vL;
         float h21(vec2 p){ return fract(sin(dot(p, vec2(127.1,311.7))) * 43758.5453); }
         float vn(vec2 p){ vec2 i=floor(p), f=fract(p); f=f*f*(3.0-2.0*f);
@@ -101,6 +101,11 @@ export class Globe {
           float floodLat = 90.0 - uDrain * (40.0 + 6.0 * n);
           float flooded = land * smoothstep(floodLat, floodLat + 3.0, alat) * step(0.001, uDrain);
           col = mix(col, lin(vec3(0.10, 0.30, 0.55)), flooded * 0.9);
+          // ice sheets (Antarctica, Greenland): glow to highlight, or melt to bare rock
+          float lon = (vUv.x - 0.5) * 360.0;
+          float sheet = land * (step(lat, -62.0) + step(60.0, lat) * step(-75.0, lon) * step(lon, -12.0));
+          col = mix(col, lin(vec3(0.55, 0.85, 1.0)), sheet * uIceGlow * (0.5 + 0.5 * sin(uTime * 4.0)));
+          col = mix(col, mix(lin(vec3(0.42, 0.38, 0.34)), lin(vec3(0.3, 0.45, 0.3)), n), sheet * smoothstep(n * 0.6, n * 0.6 + 0.3, uIceMelt));
           float water = (1.0 - land) * (1.0 - exposed) + flooded;
           // lighting
           vec3 N = normalize(vN);
@@ -187,6 +192,8 @@ export class Globe {
     mk('indo', -1, 118, 0xff3b30);
     mk('papua', -4.08, 137.16, 0xffffff);
     mk('venezuela', 8.55, -71.0, 0xffd23a);
+    mk('antarctica', -82, 60, 0xffffff);
+    mk('greenland', 74, -41, 0xffffff);
 
     // city lights: glow only on the night side (signs of people on Earth)
     const R4 = mulberry32(99), cp = [];
@@ -249,6 +256,8 @@ export class Globe {
     this.u.uFrost.value = o.frost || 0;
     this.u.uHeat.value = o.heat || 0;
     this.u.uDrain.value = o.drain || 0;
+    this.u.uIceMelt.value = o.iceMelt || 0;
+    this.u.uIceGlow.value = o.iceGlow || 0;
     this.u.uEquator.value = o.equator || 0;
     this.ring.material.opacity = o.equator || 0;
     this.cloudU.uTime.value = t;

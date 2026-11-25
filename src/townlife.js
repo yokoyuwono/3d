@@ -3,7 +3,8 @@
 // 'calm' | 'heat' | 'snow' | 'night' | 'storm' | 'none'.
 import * as THREE from 'three';
 import { mulberry32 } from './util.js';
-import { Person, Flock, makeCat, makeChicken, makeMotorbike, makeAngkot, makeSnowman, makeFire } from './life.js';
+import { Person, Flock, makeCat, makeChicken, makeMotorbike, makeAngkot, makeSnowman, makeFire, makeRowBoat, makeTent } from './life.js';
+import { HILL } from './timeline.js';
 
 export class TownLife {
   constructor(world) {
@@ -54,11 +55,25 @@ export class TownLife {
     this.firePos = new THREE.Vector3(-28, 0, 8); this.firePos.y = Y(-28, 8);
     this.fire = makeFire(); this.fire.position.copy(this.firePos); this.fire.scale.setScalar(1.6); s.add(this.fire);
     this.huddle = Array.from({ length: 9 }, (_, i) => { const p = new Person(R); s.add(p.root); return { p, a: (i / 9) * Math.PI * 2 + R() * 0.3, r: 2.4 + R() * 0.6, sit: i % 3 !== 0 }; });
+    // flood life: rowboats heading for the hill, refugee tents on the hill, a cat on a plank, birds around the monument
+    this.rowboats = Array.from({ length: 9 }, (_, i) => { const b = makeRowBoat(R, 2 + (i % 2)); s.add(b); return { b, x0: -40 + R() * 140, z0: 60 + R() * 70, ph: R() * 6, sp: 0.02 + R() * 0.015 }; });
+    this.tents = Array.from({ length: 8 }, (_, i) => { const tt = makeTent(R); const a = (i / 8) * Math.PI * 2, r = 9 + R() * 6; const x = HILL.x + 6 + Math.cos(a) * r, z = HILL.z - 8 + Math.sin(a) * r; tt.position.set(x, Y(x, z), z); tt.rotation.y = R() * 6; s.add(tt); return tt; });
+    this.refugees = Array.from({ length: 16 }, (_, i) => { const p = new Person(R); s.add(p.root); const a = R() * 6.28, r = 4 + R() * 12; return { p, x: HILL.x + 6 + Math.cos(a) * r, z: HILL.z - 8 + Math.sin(a) * r, role: ['wave', 'idle', 'point', 'sit', 'idle'][i % 5] }; });
+    this.plank = new THREE.Mesh(new THREE.BoxGeometry(3, 0.25, 1), new THREE.MeshLambertMaterial({ color: 0x7a5a3a })); s.add(this.plank);
+    this.plankCat = makeCat(R); this.plankCat.scale.setScalar(1.3); s.add(this.plankCat);
+    this.flock3 = new Flock(s, 12, { c: new THREE.Vector3(62, 0, 107), r: 16, h: 70, color: [0.95, 0.95, 0.95], size: 2.2, seed: 21 });
+    // a kid digging a hole on the beach (episode 4 teaser)
+    this.digger = new Person(R, { scale: 0.7 }); s.add(this.digger.root);
+    this.pile = new THREE.Mesh(new THREE.SphereGeometry(0.9, 12, 8, 0, Math.PI * 2, 0, Math.PI / 2), new THREE.MeshLambertMaterial({ color: 0xd9c08a })); s.add(this.pile);
+    this.hole = new THREE.Mesh(new THREE.CircleGeometry(0.8, 20), new THREE.MeshBasicMaterial({ color: 0x3a2a18 })); this.hole.rotation.x = -Math.PI / 2; s.add(this.hole);
     this.anchors = { plaza: this.plaza.clone().add(new THREE.Vector3(0, 4, 0)), fire: this.firePos.clone().add(new THREE.Vector3(0, 3.5, 0)) };
   }
 
   update(t, mode) {
     const Y = this.Y;
+    this.updateFlood(t, mode === 'flood');
+    this.updateDigger(t, !!this.w.showDigger);
+    if (mode === 'flood') mode = 'none';
     const none = mode === 'none' || mode === 'storm';
     const snow = mode === 'snow', heat = mode === 'heat', night = mode === 'night';
     const wrap = (v, a, b) => a + ((((v - a) % (b - a)) + (b - a)) % (b - a));
@@ -142,5 +157,46 @@ export class TownLife {
       h.p.root.rotation.y = Math.atan2(this.firePos.x - x, this.firePos.z - z);
       h.p.pose(t, h.sit ? 'sit' : 'shiver', 1);
     });
+  }
+
+  updateFlood(t, on) {
+    const lvl = this.w.levelOverride ?? 0;
+    for (const q of this.rowboats) {
+      q.b.visible = on;
+      if (!on) continue;
+      // drift toward the hill (evacuation)
+      const k = (t * q.sp + q.ph * 0.1) % 1;
+      const x = q.x0 + (HILL.x + 20 - q.x0) * k, z = q.z0 + (HILL.z - 30 - q.z0) * k;
+      q.b.position.set(x, lvl + 0.05 + 0.08 * Math.sin(t * 1.3 + q.ph), z);
+      q.b.rotation.set(0.03 * Math.sin(t * 1.1 + q.ph), Math.atan2(HILL.x + 20 - q.x0, HILL.z - 30 - q.z0), 0.04 * Math.sin(t * 0.9 + q.ph));
+      q.b.userData.crew.forEach((p, i) => p.pose(t, i === 0 ? 'row' : i === 1 ? 'sit' : 'wave', 1));
+      q.b.userData.oar.rotation.y = 0.5 * Math.sin((t + q.ph) * 4);
+    }
+    for (const tt of this.tents) tt.visible = on;
+    for (const r of this.refugees) {
+      r.p.root.visible = on;
+      if (!on) continue;
+      r.p.root.position.set(r.x, this.Y(r.x, r.z), r.z);
+      r.p.root.rotation.y = Math.atan2(62 - r.x, 107 - r.z);
+      r.p.pose(t, r.role, 1);
+    }
+    this.plank.visible = this.plankCat.visible = on;
+    if (on) {
+      const x = 70 + Math.sin(t * 0.2) * 4, z = 92 + Math.cos(t * 0.17) * 3;
+      this.plank.position.set(x, lvl + 0.1, z); this.plank.rotation.set(0.05 * Math.sin(t * 1.3), t * 0.05, 0.05 * Math.sin(t));
+      this.plankCat.position.set(x, lvl + 0.22, z); this.plankCat.rotation.y = t * 0.05 + 1.2;
+      this.plankCat.userData.tail.rotation.z = 0.6 * Math.sin(t * 3);
+    }
+    this.flock3.update(t, on ? 1 : 0);
+  }
+
+  updateDigger(t, on) {
+    this.digger.root.visible = this.pile.visible = this.hole.visible = on;
+    if (!on) return;
+    const x = 8, z = 9, y = this.Y(x, z);
+    this.digger.root.position.set(x, y, z); this.digger.root.rotation.y = Math.PI * 0.85;
+    this.digger.pose(t, 'dig', 1);
+    this.hole.position.set(x - 0.4, y + 0.04, z - 1.3);
+    this.pile.position.set(x + 1.6, y, z - 1.0);
   }
 }
