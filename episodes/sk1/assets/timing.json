@@ -1,0 +1,334 @@
+[
+ {
+  "id": 1,
+  "ch": 0,
+  "start": 1.7,
+  "dur": 11.569,
+  "end": 13.269,
+  "sentences": [
+   {
+    "text": "Tujuh perbandingan ukuran, dari yang bisa kamu lihat di sekitarmu, sampai yang tidak masuk akal.",
+    "start": 1.7,
+    "end": 7.438
+   },
+   {
+    "text": "Dan nomor satu, akan membuat Matahari terlihat seperti debu.",
+    "start": 7.658,
+    "end": 11.496
+   },
+   {
+    "text": "Tonton sampai habis.",
+    "start": 11.716,
+    "end": 13.269
+   }
+  ]
+ },
+ {
+  "id": 2,
+  "ch": 1,
+  "start": 14.069,
+  "dur": 14.047,
+  "end": 28.116,
+  "sentences": [
+   {
+    "text": "Nomor tujuh.",
+    "start": 14.069,
+    "end": 15.16
+   },
+   {
+    "text": "Tsunami Aceh tahun dua ribu empat.",
+    "start": 15.38,
+    "end": 17.67
+   },
+   {
+    "text": "Di beberapa tempat, gelombangnya naik lebih dari tiga puluh meter.",
+    "start": 17.89,
+    "end": 21.632
+   },
+   {
+    "text": "Itu setinggi gedung sepuluh lantai, dan manusia di depannya, hanya setinggi jendela lantai pertama.",
+    "start": 21.852,
+    "end": 28.116
+   }
+  ]
+ },
+ {
+  "id": 3,
+  "ch": 1,
+  "start": 28.916,
+  "dur": 17.646,
+  "end": 46.562,
+  "sentences": [
+   {
+    "text": "Nomor enam.",
+    "start": 28.916,
+    "end": 29.842
+   },
+   {
+    "text": "Indonesia itu lebar sekali.",
+    "start": 30.062,
+    "end": 31.911
+   },
+   {
+    "text": "Dari Sabang sampai Merauke, sekitar lima ribu seratus kilometer.",
+    "start": 32.131,
+    "end": 36.41
+   },
+   {
+    "text": "Kalau dipindahkan ke Eropa, Indonesia membentang lebih jauh dari Portugal ke Moskow.",
+    "start": 36.63,
+    "end": 42.062
+   },
+   {
+    "text": "Dan lebih lebar dari daratan Amerika Serikat, dari pantai ke pantai.",
+    "start": 42.282,
+    "end": 46.562
+   }
+  ]
+ },
+ {
+  "id": 4,
+  "ch": 2,
+  "start": 47.362,
+  "dur": 17.548,
+  "end": 64.91,
+  "sentences": [
+   {
+    "text": "Nomor lima.",
+    "start": 47.362,
+    "end": 48.382
+   },
+   {
+    "text": "Puncak Jaya, gunung tertinggi Indonesia, hampir lima kilometer.",
+    "start": 48.602,
+    "end": 53.017
+   },
+   {
+    "text": "Everest, hampir sembilan kilometer.",
+    "start": 53.237,
+    "end": 55.543
+   },
+   {
+    "text": "Tapi di Mars, ada gunung berapi bernama Olympus Mons.",
+    "start": 55.763,
+    "end": 59.084
+   },
+   {
+    "text": "Tingginya sekitar dua puluh dua kilometer, dan lebarnya sekitar enam ratus kilometer.",
+    "start": 59.304,
+    "end": 64.91
+   }
+  ]
+ },
+ {
+  "id": 5,
+  "ch": 2,
+  "start": 65.71,
+  "dur": 12.547,
+  "end": 78.257,
+  "sentences": [
+   {
+    "text": "Nomor empat.",
+    "start": 65.71,
+    "end": 66.627
+   },
+   {
+    "text": "Palung Mariana, tempat terdalam di lautan, hampir sebelas ribu meter.",
+    "start": 66.847,
+    "end": 71.424
+   },
+   {
+    "text": "Kalau Gunung Everest dimasukkan ke dalamnya, puncaknya masih tenggelam sekitar dua kilometer di bawah air.",
+    "start": 71.644,
+    "end": 78.257
+   }
+  ]
+ },
+ {
+  "id": 6,
+  "ch": 3,
+  "start": 79.057,
+  "dur": 11.988,
+  "end": 91.045,
+  "sentences": [
+   {
+    "text": "Nomor tiga.",
+    "start": 79.057,
+    "end": 80.067
+   },
+   {
+    "text": "Jupiter.",
+    "start": 80.287,
+    "end": 81.148
+   },
+   {
+    "text": "Di permukaannya ada badai raksasa yang disebut Bintik Merah Besar, yang sudah berputar selama ratusan tahun.",
+    "start": 81.368,
+    "end": 87.882
+   },
+   {
+    "text": "Badai itu lebih lebar dari seluruh planet Bumi.",
+    "start": 88.102,
+    "end": 91.045
+   }
+  ]
+ },
+ {
+  "id": 7,
+  "ch": 3,
+  "start": 91.845,
+  "dur": 10.724,
+  "end": 102.569,
+  "sentences": [
+   {
+    "text": "Nomor dua.",
+    "start": 91.845,
+    "end": 92.848
+   },
+   {
+    "text": "Matahari.",
+    "start": 93.068,
+    "end": 93.939
+   },
+   {
+    "text": "Diameternya sekitar seratus sembilan kali Bumi.",
+    "start": 94.159,
+    "end": 97.169
+   },
+   {
+    "text": "Kalau Matahari berongga, sekitar satu koma tiga juta Bumi bisa masuk ke dalamnya.",
+    "start": 97.389,
+    "end": 102.569
+   }
+  ]
+ },
+ {
+  "id": 8,
+  "ch": 4,
+  "start": 103.369,
+  "dur": 12.551,
+  "end": 115.92,
+  "sentences": [
+   {
+    "text": "Dan nomor satu.",
+    "start": 103.369,
+    "end": 104.55
+   },
+   {
+    "text": "Sebuah bintang raksasa merah bernama Stephenson dua delapan belas, salah satu bintang terbesar yang pernah diukur.",
+    "start": 104.77,
+    "end": 111.773
+   },
+   {
+    "text": "Jari-jarinya diperkirakan lebih dari dua ribu kali Matahari.",
+    "start": 111.993,
+    "end": 115.92
+   }
+  ]
+ },
+ {
+  "id": 9,
+  "ch": 4,
+  "start": 116.32,
+  "dur": 13.536,
+  "end": 129.856,
+  "sentences": [
+   {
+    "text": "Kalau bintang ini ditaruh di posisi Matahari kita, permukaannya akan menelan Merkurius, Venus, Bumi, Mars, Jupiter, dan melewati orbit Saturnus.",
+    "start": 116.32,
+    "end": 126.014
+   },
+   {
+    "text": "Dan di sebelahnya, Matahari kita hanya sebuah titik kecil.",
+    "start": 126.234,
+    "end": 129.856
+   }
+  ]
+ },
+ {
+  "id": 10,
+  "ch": 4,
+  "start": 130.256,
+  "dur": 8.998,
+  "end": 139.254,
+  "sentences": [
+   {
+    "text": "Ukurannya masih diperdebatkan para ilmuwan, karena jaraknya sulit diukur.",
+    "start": 130.256,
+    "end": 134.97
+   },
+   {
+    "text": "Tapi bahkan perkiraan terkecilnya, tetap membuat kepala pusing.",
+    "start": 135.19,
+    "end": 139.254
+   }
+  ]
+ },
+ {
+  "id": 11,
+  "ch": 5,
+  "start": 140.054,
+  "dur": 12.211,
+  "end": 152.265,
+  "sentences": [
+   {
+    "text": "Sekarang lihat lagi ke sekitarmu.",
+    "start": 140.054,
+    "end": 142.183
+   },
+   {
+    "text": "Rumahmu, kotamu, pulaumu.",
+    "start": 142.403,
+    "end": 144.415
+   },
+   {
+    "text": "Semua itu ada di sebuah planet kecil, yang mengelilingi bintang biasa, di tengah alam semesta yang luasnya tak terbayangkan.",
+    "start": 144.635,
+    "end": 152.265
+   }
+  ]
+ },
+ {
+  "id": 12,
+  "ch": 5,
+  "start": 152.765,
+  "dur": 5.727,
+  "end": 158.492,
+  "sentences": [
+   {
+    "text": "Kita kecil.",
+    "start": 152.765,
+    "end": 153.763
+   },
+   {
+    "text": "Tapi kita satu-satunya yang bisa memahami betapa besarnya semua ini.",
+    "start": 153.983,
+    "end": 158.492
+   }
+  ]
+ },
+ {
+  "id": 13,
+  "ch": 5,
+  "start": 159.092,
+  "dur": 8.799,
+  "end": 167.891,
+  "sentences": [
+   {
+    "text": "Perbandingan mana yang paling bikin kamu merinding?",
+    "start": 159.092,
+    "end": 161.798
+   },
+   {
+    "text": "Tulis di komentar.",
+    "start": 162.018,
+    "end": 163.214
+   },
+   {
+    "text": "Dan kasih tahu aku, video apa lagi yang ingin kamu lihat berikutnya.",
+    "start": 163.434,
+    "end": 167.891
+   }
+  ]
+ }
+]
