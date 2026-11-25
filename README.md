@@ -29,8 +29,8 @@ dengan subtitle per kata, penanda bab, dan desain suara prosedural.
 | S2E5 | `s2e5.html`: Andai Matahari tiba-tiba padam (3:04) | `episodes/s2e5/` | selesai (web) |
 | K1 | `k1.html`: Kalau kamu jatuh dari pesawat tanpa parasut (3:04) | `episodes/k1/` | selesai (web) |
 | K2 | `k2.html`: Kalau kamu tersambar petir (3:06) | `episodes/k2/` | selesai (web) |
-| K3 | Kalau kamu terjebak di dasar Palung Jawa | | berikutnya |
-| SK1 | Skala yang bikin merinding | | rencana |
+| K3 | `k3.html`: Kalau kamu terjebak di dasar Palung Jawa (2:56) | `episodes/k3/` | selesai (web) |
+| SK1 | Skala yang bikin merinding | | berikutnya |
 
 MP4 per episode: `EP=1 N=4 ./tools/render_ep.sh` (butuh `build/ep1_events.json`), hasil di `output/andai_ep1_9x16.mp4`.
 

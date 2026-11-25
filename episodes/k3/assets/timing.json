@@ -1,0 +1,352 @@
+[
+ {
+  "id": 1,
+  "ch": 0,
+  "start": 1.7,
+  "dur": 7.835,
+  "end": 9.535,
+  "sentences": [
+   {
+    "text": "Tujuh ribu meter di bawah laut, di selatan Pulau Jawa.",
+    "start": 1.7,
+    "end": 5.215
+   },
+   {
+    "text": "Gelap total.",
+    "start": 5.435,
+    "end": 6.39
+   },
+   {
+    "text": "Dan kapal selam kecilmu, tidak bisa naik.",
+    "start": 6.61,
+    "end": 9.535
+   }
+  ]
+ },
+ {
+  "id": 2,
+  "ch": 0,
+  "start": 9.985,
+  "dur": 10.911,
+  "end": 20.896,
+  "sentences": [
+   {
+    "text": "Di luar dinding kapal, tekanan air bisa meremukkan hampir apa pun.",
+    "start": 9.985,
+    "end": 14.326
+   },
+   {
+    "text": "Apa yang harus kamu lakukan?",
+    "start": 14.546,
+    "end": 16.28
+   },
+   {
+    "text": "Dan siapa sebenarnya tetanggamu di bawah sana?",
+    "start": 16.5,
+    "end": 19.213
+   },
+   {
+    "text": "Tonton sampai habis.",
+    "start": 19.433,
+    "end": 20.896
+   }
+  ]
+ },
+ {
+  "id": 3,
+  "ch": 1,
+  "start": 21.696,
+  "dur": 12.302,
+  "end": 33.998,
+  "sentences": [
+   {
+    "text": "Palung Jawa adalah bagian terdalam Samudra Hindia.",
+    "start": 21.696,
+    "end": 24.806
+   },
+   {
+    "text": "Ia terbentuk di tempat lempeng Indo-Australia menyusup ke bawah lempeng Eurasia.",
+    "start": 25.026,
+    "end": 30.154
+   },
+   {
+    "text": "Garis yang sama, yang membuat Indonesia sering diguncang gempa.",
+    "start": 30.374,
+    "end": 33.998
+   }
+  ]
+ },
+ {
+  "id": 4,
+  "ch": 1,
+  "start": 34.398,
+  "dur": 10.352,
+  "end": 44.75,
+  "sentences": [
+   {
+    "text": "Tahun dua ribu sembilan belas, penjelajah Victor Vescovo menjadi manusia pertama yang menyelam ke titik terdalamnya, sekitar tujuh ribu seratus sembilan puluh dua meter.",
+    "start": 34.398,
+    "end": 44.75
+   }
+  ]
+ },
+ {
+  "id": 5,
+  "ch": 1,
+  "start": 45.15,
+  "dur": 10.988,
+  "end": 56.138,
+  "sentences": [
+   {
+    "text": "Seberapa dalam itu?",
+    "start": 45.15,
+    "end": 46.624
+   },
+   {
+    "text": "Kalau Puncak Jaya, gunung tertinggi Indonesia, ditaruh di dasarnya, puncaknya masih tenggelam lebih dari dua kilometer di bawah permukaan laut.",
+    "start": 46.844,
+    "end": 56.138
+   }
+  ]
+ },
+ {
+  "id": 6,
+  "ch": 2,
+  "start": 56.938,
+  "dur": 13.693,
+  "end": 70.631,
+  "sentences": [
+   {
+    "text": "Setiap sepuluh meter ke bawah, tekanan air bertambah satu atmosfer.",
+    "start": 56.938,
+    "end": 61.313
+   },
+   {
+    "text": "Di dasar palung, tekanannya sekitar tujuh ratus kali tekanan di permukaan.",
+    "start": 61.533,
+    "end": 66.327
+   },
+   {
+    "text": "Rasanya seperti sebuah mobil kecil menekan setiap kuku jarimu.",
+    "start": 66.547,
+    "end": 70.631
+   }
+  ]
+ },
+ {
+  "id": 7,
+  "ch": 2,
+  "start": 71.031,
+  "dur": 9.632,
+  "end": 80.663,
+  "sentences": [
+   {
+    "text": "Gelas busa akan mengerut.",
+    "start": 71.031,
+    "end": 72.63
+   },
+   {
+    "text": "Kaleng kosong remuk seketika.",
+    "start": 72.85,
+    "end": 74.824
+   },
+   {
+    "text": "Karena itu, penumpang kapal selam dalam duduk di dalam bola titanium yang sangat tebal.",
+    "start": 75.044,
+    "end": 80.663
+   }
+  ]
+ },
+ {
+  "id": 8,
+  "ch": 3,
+  "start": 81.463,
+  "dur": 11.35,
+  "end": 92.813,
+  "sentences": [
+   {
+    "text": "Cahaya Matahari sudah hilang sejak kedalaman sekitar seribu meter.",
+    "start": 81.463,
+    "end": 85.582
+   },
+   {
+    "text": "Di bawahnya, malam abadi.",
+    "start": 85.802,
+    "end": 87.617
+   },
+   {
+    "text": "Suhunya hanya sekitar satu sampai dua derajat Celsius, sedingin isi kulkas.",
+    "start": 87.837,
+    "end": 92.813
+   }
+  ]
+ },
+ {
+  "id": 9,
+  "ch": 3,
+  "start": 93.213,
+  "dur": 14.144,
+  "end": 107.357,
+  "sentences": [
+   {
+    "text": "Tapi tempat ini tidak kosong.",
+    "start": 93.213,
+    "end": 95.077
+   },
+   {
+    "text": "Amfipoda, kerabat udang yang pucat, berkerumun memakan apa saja yang jatuh dari atas.",
+    "start": 95.297,
+    "end": 101.09
+   },
+   {
+    "text": "Ikan siput yang lembek melayang pelan.",
+    "start": 101.31,
+    "end": 103.559
+   },
+   {
+    "text": "Dan banyak makhluk laut dalam bisa membuat cahayanya sendiri.",
+    "start": 103.779,
+    "end": 107.357
+   }
+  ]
+ },
+ {
+  "id": 10,
+  "ch": 3,
+  "start": 107.757,
+  "dur": 8.77,
+  "end": 116.527,
+  "sentences": [
+   {
+    "text": "Ekspedisi tahun itu bahkan menemukan ekosistem luar biasa di dasar Samudra Hindia, termasuk makhluk yang belum pernah dikenal sebelumnya.",
+    "start": 107.757,
+    "end": 116.527
+   }
+  ]
+ },
+ {
+  "id": 11,
+  "ch": 4,
+  "start": 117.327,
+  "dur": 9.008,
+  "end": 126.335,
+  "sentences": [
+   {
+    "text": "Lalu, bagaimana kalau kapal selammu tidak bisa naik?",
+    "start": 117.327,
+    "end": 120.478
+   },
+   {
+    "text": "Pertama, jangan panik.",
+    "start": 120.698,
+    "end": 122.087
+   },
+   {
+    "text": "Panik membuat napasmu cepat, dan oksigen lebih cepat habis.",
+    "start": 122.307,
+    "end": 126.335
+   }
+  ]
+ },
+ {
+  "id": 12,
+  "ch": 4,
+  "start": 126.735,
+  "dur": 13.707,
+  "end": 140.442,
+  "sentences": [
+   {
+    "text": "Kapal selam dalam membawa cadangan oksigen untuk beberapa hari, dan punya cara darurat.",
+    "start": 126.735,
+    "end": 132.096
+   },
+   {
+    "text": "Melepas pemberat besi.",
+    "start": 132.316,
+    "end": 133.832
+   },
+   {
+    "text": "Kapal menjadi lebih ringan, dan perlahan naik sendiri.",
+    "start": 134.052,
+    "end": 137.389
+   },
+   {
+    "text": "Perjalanannya bisa memakan waktu berjam-jam.",
+    "start": 137.609,
+    "end": 140.442
+   }
+  ]
+ },
+ {
+  "id": 13,
+  "ch": 4,
+  "start": 140.842,
+  "dur": 7.136,
+  "end": 147.978,
+  "sentences": [
+   {
+    "text": "Kalau tetap tersangkut, tim di permukaan bisa menurunkan robot bawah laut, untuk melepaskan atau menarik kapalmu.",
+    "start": 140.842,
+    "end": 147.978
+   }
+  ]
+ },
+ {
+  "id": 14,
+  "ch": 5,
+  "start": 148.778,
+  "dur": 15.771,
+  "end": 164.549,
+  "sentences": [
+   {
+    "text": "Jadi, siapa tetanggamu di bawah sana?",
+    "start": 148.778,
+    "end": 151.219
+   },
+   {
+    "text": "Makhluk-makhluk kecil yang hidup dalam gelap, dingin, dan tekanan luar biasa.",
+    "start": 151.439,
+    "end": 156.392
+   },
+   {
+    "text": "Tempat yang mematikan bagi kita, adalah rumah bagi mereka.",
+    "start": 156.612,
+    "end": 160.215
+   },
+   {
+    "text": "Dan sebagian besar laut dalam kita, belum pernah dilihat manusia.",
+    "start": 160.435,
+    "end": 164.549
+   }
+  ]
+ },
+ {
+  "id": 15,
+  "ch": 5,
+  "start": 165.149,
+  "dur": 7.367,
+  "end": 172.516,
+  "sentences": [
+   {
+    "text": "Kalau diajak menyelam ke Palung Jawa, kamu berani?",
+    "start": 165.149,
+    "end": 168.114
+   },
+   {
+    "text": "Tulis di komentar.",
+    "start": 168.334,
+    "end": 169.434
+   },
+   {
+    "text": "Berikutnya.",
+    "start": 169.654,
+    "end": 170.618
+   },
+   {
+    "text": "Skala yang bikin merinding.",
+    "start": 170.838,
+    "end": 172.516
+   }
+  ]
+ }
+]
