@@ -16,6 +16,9 @@ for p in "${pids[@]}"; do wait $p; done
 : > $D/list.txt
 for i in $(seq 0 $((N-1))); do echo "file 'p$i.mp4'" >> $D/list.txt; done
 ffmpeg -y -loglevel error -f concat -safe 0 -i $D/list.txt -c copy $D/video.mp4
+# two-pass ~3.8 Mbps keeps a 3-minute episode under GitHub's 100 MB limit (fine for TikTok/Reels/Shorts)
+ffmpeg -y -loglevel error -i $D/video.mp4 -c:v libx264 -preset slow -b:v 3800k -pass 1 -passlogfile $D/pass -an -f null /dev/null
 ffmpeg -y -loglevel error -i $D/video.mp4 -i episodes/ep${EP}/assets/soundtrack.wav -map 0:v -map 1:a \
-  -c:v copy -c:a aac -b:a 192k -shortest -movflags +faststart output/andai_ep${EP}_9x16.mp4
+  -c:v libx264 -preset slow -b:v 3800k -pass 2 -passlogfile $D/pass -pix_fmt yuv420p \
+  -c:a aac -b:a 192k -shortest -movflags +faststart output/andai_ep${EP}_9x16.mp4
 ffprobe -v error -show_entries format=duration:stream=codec_name,width,height,r_frame_rate -of compact output/andai_ep${EP}_9x16.mp4
