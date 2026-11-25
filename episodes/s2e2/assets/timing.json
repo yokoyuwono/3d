@@ -1,0 +1,417 @@
+[
+ {
+  "id": 1,
+  "ch": 0,
+  "start": 1.7,
+  "dur": 4.623,
+  "end": 6.323,
+  "sentences": [
+   {
+    "text": "Lima detik.",
+    "start": 1.7,
+    "end": 2.512
+   },
+   {
+    "text": "Hanya lima detik, seluruh oksigen di udara Bumi hilang.",
+    "start": 2.732,
+    "end": 6.323
+   }
+  ]
+ },
+ {
+  "id": 2,
+  "ch": 0,
+  "start": 6.773,
+  "dur": 15.797,
+  "end": 22.57,
+  "sentences": [
+   {
+    "text": "Video viral bilang, langit akan gelap, kulit terbakar, telinga pecah, dan gedung runtuh.",
+    "start": 6.773,
+    "end": 12.75
+   },
+   {
+    "text": "Aku cek satu per satu.",
+    "start": 12.97,
+    "end": 14.709
+   },
+   {
+    "text": "Ada yang mitos, ada yang fakta.",
+    "start": 14.929,
+    "end": 16.919
+   },
+   {
+    "text": "Dan ada satu versi yang jauh lebih mengerikan dari yang viral.",
+    "start": 17.139,
+    "end": 20.918
+   },
+   {
+    "text": "Tonton sampai habis.",
+    "start": 21.138,
+    "end": 22.57
+   }
+  ]
+ },
+ {
+  "id": 3,
+  "ch": 1,
+  "start": 23.37,
+  "dur": 15.047,
+  "end": 38.417,
+  "sentences": [
+   {
+    "text": "Pertama, kita sendiri.",
+    "start": 23.37,
+    "end": 24.965
+   },
+   {
+    "text": "Lima detik itu pendek.",
+    "start": 25.185,
+    "end": 26.695
+   },
+   {
+    "text": "Kamu bisa menahan napas lebih lama dari itu.",
+    "start": 26.915,
+    "end": 29.989
+   },
+   {
+    "text": "Tapi jangan menarik napas.",
+    "start": 30.209,
+    "end": 32.101
+   },
+   {
+    "text": "Menghirup udara tanpa oksigen bisa membuat oksigen di darahmu ikut terbuang lewat paru-paru.",
+    "start": 32.321,
+    "end": 38.417
+   }
+  ]
+ },
+ {
+  "id": 4,
+  "ch": 1,
+  "start": 39.017,
+  "dur": 13.103,
+  "end": 52.12,
+  "sentences": [
+   {
+    "text": "Klaim pertama, langit akan gelap.",
+    "start": 39.017,
+    "end": 41.325
+   },
+   {
+    "text": "Mitos.",
+    "start": 41.545,
+    "end": 42.146
+   },
+   {
+    "text": "Langit biru karena cahaya Matahari dihamburkan oleh udara, dan sebagian besar udara adalah nitrogen.",
+    "start": 42.366,
+    "end": 49.009
+   },
+   {
+    "text": "Nitrogen masih ada.",
+    "start": 49.229,
+    "end": 50.749
+   },
+   {
+    "text": "Langit tetap biru.",
+    "start": 50.969,
+    "end": 52.12
+   }
+  ]
+ },
+ {
+  "id": 5,
+  "ch": 1,
+  "start": 52.72,
+  "dur": 12.524,
+  "end": 65.244,
+  "sentences": [
+   {
+    "text": "Klaim kedua, lapisan ozon hilang, dan kita terbakar sinar ultraviolet.",
+    "start": 52.72,
+    "end": 57.972
+   },
+   {
+    "text": "Mitos juga.",
+    "start": 58.192,
+    "end": 59.124
+   },
+   {
+    "text": "Di siang terik, kulit butuh sekitar sepuluh menit untuk mulai terbakar.",
+    "start": 59.344,
+    "end": 63.498
+   },
+   {
+    "text": "Lima detik terlalu singkat.",
+    "start": 63.718,
+    "end": 65.244
+   }
+  ]
+ },
+ {
+  "id": 6,
+  "ch": 2,
+  "start": 65.844,
+  "dur": 10.76,
+  "end": 76.604,
+  "sentences": [
+   {
+    "text": "Klaim ketiga, gendang telinga pecah.",
+    "start": 65.844,
+    "end": 68.006
+   },
+   {
+    "text": "Ini setengah benar.",
+    "start": 68.226,
+    "end": 69.389
+   },
+   {
+    "text": "Oksigen adalah sekitar dua puluh satu persen udara.",
+    "start": 69.609,
+    "end": 72.955
+   },
+   {
+    "text": "Kalau hilang, tekanan udara langsung turun seperlima.",
+    "start": 73.175,
+    "end": 76.604
+   }
+  ]
+ },
+ {
+  "id": 7,
+  "ch": 2,
+  "start": 77.004,
+  "dur": 10.258,
+  "end": 87.262,
+  "sentences": [
+   {
+    "text": "Rasanya seperti tiba-tiba dipindahkan dari pantai ke dataran tinggi Dieng, dalam sekejap.",
+    "start": 77.004,
+    "end": 82.507
+   },
+   {
+    "text": "Telinga berdengung dan bisa sakit, tapi kebanyakan orang tidak sampai pecah.",
+    "start": 82.727,
+    "end": 87.262
+   }
+  ]
+ },
+ {
+  "id": 8,
+  "ch": 2,
+  "start": 87.862,
+  "dur": 14.948,
+  "end": 102.81,
+  "sentences": [
+   {
+    "text": "Klaim keempat, semua api padam.",
+    "start": 87.862,
+    "end": 89.949
+   },
+   {
+    "text": "Ini fakta.",
+    "start": 90.169,
+    "end": 91.184
+   },
+   {
+    "text": "Api butuh oksigen.",
+    "start": 91.404,
+    "end": 92.945
+   },
+   {
+    "text": "Kompor di warung, lilin ulang tahun, sampai mesin motor dan mobil, semuanya mati serentak.",
+    "start": 93.165,
+    "end": 99.235
+   },
+   {
+    "text": "Lima detik kemudian, semuanya harus dinyalakan ulang.",
+    "start": 99.455,
+    "end": 102.81
+   }
+  ]
+ },
+ {
+  "id": 9,
+  "ch": 3,
+  "start": 103.41,
+  "dur": 12.437,
+  "end": 115.847,
+  "sentences": [
+   {
+    "text": "Klaim kelima, beton hancur dan gedung runtuh.",
+    "start": 103.41,
+    "end": 106.559
+   },
+   {
+    "text": "Untuk oksigen di udara, ini mitos.",
+    "start": 106.779,
+    "end": 109.413
+   },
+   {
+    "text": "Oksigen di dalam beton dan batuan terkunci kuat sebagai mineral, bukan gas yang bisa lepas begitu saja.",
+    "start": 109.633,
+    "end": 115.847
+   }
+  ]
+ },
+ {
+  "id": 10,
+  "ch": 3,
+  "start": 116.647,
+  "dur": 7.176,
+  "end": 123.823,
+  "sentences": [
+   {
+    "text": "Tapi, bagaimana kalau yang hilang adalah semua atom oksigen, termasuk yang terkunci?",
+    "start": 116.647,
+    "end": 121.957
+   },
+   {
+    "text": "Inilah versi yang mengerikan.",
+    "start": 122.177,
+    "end": 123.823
+   }
+  ]
+ },
+ {
+  "id": 11,
+  "ch": 3,
+  "start": 124.223,
+  "dur": 13.742,
+  "end": 137.965,
+  "sentences": [
+   {
+    "text": "Hampir setengah berat kerak Bumi adalah oksigen.",
+    "start": 124.223,
+    "end": 127.424
+   },
+   {
+    "text": "Batu, tanah, dan beton runtuh menjadi debu.",
+    "start": 127.644,
+    "end": 130.466
+   },
+   {
+    "text": "Air terbuat dari hidrogen dan oksigen.",
+    "start": 130.686,
+    "end": 133.246
+   },
+   {
+    "text": "Tanpa oksigen, lautan berubah menjadi gas hidrogen yang lepas ke langit.",
+    "start": 133.466,
+    "end": 137.965
+   }
+  ]
+ },
+ {
+  "id": 12,
+  "ch": 3,
+  "start": 138.365,
+  "dur": 8.996,
+  "end": 147.361,
+  "sentences": [
+   {
+    "text": "Dan tubuh kita, sekitar enam puluh lima persen beratnya adalah oksigen.",
+    "start": 138.365,
+    "end": 143.258
+   },
+   {
+    "text": "Di versi ini, tidak akan ada yang sempat menghitung sampai lima.",
+    "start": 143.478,
+    "end": 147.361
+   }
+  ]
+ },
+ {
+  "id": 13,
+  "ch": 4,
+  "start": 148.161,
+  "dur": 12.466,
+  "end": 160.627,
+  "sentences": [
+   {
+    "text": "Untungnya, oksigen tidak bisa hilang begitu saja.",
+    "start": 148.161,
+    "end": 151.197
+   },
+   {
+    "text": "Setiap hari, makhluk kecil di laut yang disebut plankton menghasilkan sekitar separuh oksigen Bumi.",
+    "start": 151.417,
+    "end": 157.853
+   },
+   {
+    "text": "Sisanya dari hutan dan tumbuhan di darat.",
+    "start": 158.073,
+    "end": 160.627
+   }
+  ]
+ },
+ {
+  "id": 14,
+  "ch": 4,
+  "start": 161.227,
+  "dur": 11.08,
+  "end": 172.307,
+  "sentences": [
+   {
+    "text": "Jadi skornya.",
+    "start": 161.227,
+    "end": 162.122
+   },
+   {
+    "text": "Langit gelap, mitos.",
+    "start": 162.342,
+    "end": 163.756
+   },
+   {
+    "text": "Terbakar, mitos.",
+    "start": 163.976,
+    "end": 165.149
+   },
+   {
+    "text": "Telinga pecah, setengah benar.",
+    "start": 165.369,
+    "end": 167.235
+   },
+   {
+    "text": "Api padam, fakta.",
+    "start": 167.455,
+    "end": 168.911
+   },
+   {
+    "text": "Gedung runtuh, mitos, kecuali di versi kiamat.",
+    "start": 169.131,
+    "end": 172.307
+   }
+  ]
+ },
+ {
+  "id": 15,
+  "ch": 4,
+  "start": 172.907,
+  "dur": 8.582,
+  "end": 181.489,
+  "sentences": [
+   {
+    "text": "Klaim viral apa lagi yang harus aku cek?",
+    "start": 172.907,
+    "end": 175.162
+   },
+   {
+    "text": "Tulis di komentar.",
+    "start": 175.382,
+    "end": 176.521
+   },
+   {
+    "text": "Episode berikutnya.",
+    "start": 176.741,
+    "end": 178.248
+   },
+   {
+    "text": "Andai semua orang Indonesia melompat bersamaan.",
+    "start": 178.468,
+    "end": 181.489
+   }
+  ]
+ }
+]
