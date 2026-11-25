@@ -76,7 +76,8 @@ const SHOTS = [
   // 1. 74,000 years ago
   { id: 'past', t0: S(3), t1: sn(3, 1).start, kind: 'toba', o: (t) => ({ collapse: 0, samosir: 0, fill: 0, erupt: sk(tBoom, tBoom + 2.5)(t), dark: 0.4 * sk(tBoom, sn(3, 1).start)(t) }), cam: (k) => ({ pos: V(lerp(-110, -90, k), lerp(45, 55, k), lerp(130, 110, k)), tgt: V(0, lerp(10, 25, k), 0), fov: 50 }), shake: (t) => 0.4 * sk(tBoom, tBoom + 0.3)(t) * (1 - sk(tBoom + 1, tBoom + 3)(t)) },
   { id: 'volume', t0: sn(3, 1).start, t1: S(4), kind: 'toba', o: () => ({ collapse: 0, samosir: 0, fill: 0, erupt: 1, flow: 0.5, dark: 0.55, ash: 0.4 }), cam: (k) => ({ pos: V(lerp(-80, -70, k), 30, lerp(120, 105, k)), tgt: V(0, 35, 0), fov: 52 }) },
-  { id: 'tambora', t0: S(4), t1: sn(4, 1).start, kind: 'toba', o: () => ({ cubes: 1 }), cam: (k) => ({ pos: toba.cubeBase.clone().add(V(lerp(-26, -22, k), lerp(18, 16, k), lerp(30, 26, k))), tgt: toba.cubeBase.clone().add(V(0, 5, 0)), fov: 45 }) },
+  { id: 'tambora', t0: S(4), t1: wT(4, /^kehilangan/) - 0.2, kind: 'toba', o: () => ({ cubes: 1 }), cam: (k) => ({ pos: toba.cubeBase.clone().add(V(lerp(-26, -22, k), lerp(18, 16, k), lerp(30, 26, k))), tgt: toba.cubeBase.clone().add(V(0, 5, 0)), fov: 45 }) },
+  { id: 'nosummer', t0: wT(4, /^kehilangan/) - 0.2, t1: sn(4, 1).start, kind: 'sawah', snow: 1, cam: (k) => ({ pos: V(lerp(-14, -12, k), 3, lerp(24, 22, k)), tgt: V(0, 1.5, 0), fov: 50 }) },
   { id: 'buckets', t0: sn(4, 1).start, t1: S(5), kind: 'toba', o: (t) => ({ cubes: 1 + 16 * sk(wT(4, /^Toba/) - 0.2, wT(4, /^Toba/) + 2.4)(t) }), cam: (k) => ({ pos: toba.cubeBase.clone().add(V(lerp(-34, -42, k), lerp(26, 32, k), lerp(42, 50, k))), tgt: toba.cubeBase.clone().add(V(0, 8, 0)), fov: 45 }) },
   { id: 'collapse', t0: S(5), t1: sn(5, 1).start, kind: 'toba', o: (t) => ({ collapse: sk(S(5) + 0.4, sn(5, 1).start - 0.2)(t), samosir: 0, fill: 0, erupt: 1 - sk(S(5), S(5) + 2)(t), dark: 0.4 * (1 - sk(S(5), sn(5, 1).start)(t)) }), cam: (k) => ({ pos: V(lerp(-70, -66, k), 55, lerp(80, 76, k)), tgt: V(0, 3, 0), fov: 45 }), shake: () => 0.2 },
   { id: 'hole', t0: sn(5, 1).start, t1: sn(5, 2).start, kind: 'toba', o: () => ({ samosir: 0, fill: 0 }), cam: (k) => ({ pos: V(lerp(-20, 10, k), 130, lerp(30, 25, k)), tgt: V(0, 0, 0), fov: 45 }) },
@@ -91,20 +92,27 @@ const SHOTS = [
   { id: 'india', t0: sn(8, 1).start, t1: sn(8, 3).start, kind: 'globe', g: (t, k) => ({ spin: face(lerp(100, 85, k)), plume: sk(sn(8, 1).start, sn(8, 2).start + 1.5)(t), markers: ['toba', 'india'], cam: { pos: V(0, 7, 30), tgt: V(0, 2, 0), fov: 45 }, zoom: 1.4 }) },
   { id: 'heavy', t0: sn(8, 3).start, t1: S(9), kind: 'world', filter: 'grayscale(0.85) brightness(0.72) sepia(0.25)', cam: (k) => ({ pos: V(lerp(-6, -4, k), 4, lerp(44, 48, k)), tgt: V(0, 2.4, 110), fov: 54 }) },
   // 3. sulphur haze, cooling, harvests
-  { id: 'sulfur', t0: S(9), t1: S(10), kind: 'globe', g: (t, k) => ({ spin: face(lerp(100, 70, k)), plume: 1, haze: sk(S(9) + 0.5, sn(9, 1).start + 2)(t), cam: { pos: V(0, 6, 30), tgt: V(0, 0, 0), fov: 45 } }) },
-  { id: 'pinatubo', t0: S(10), t1: sn(10, 2).start, kind: 'globe', g: (t, k) => ({ spin: face(lerp(60, 30, k)), plume: 1, haze: 1, dim: 0.75, cam: { pos: V(0, 6, 30), tgt: V(0, 0, 0), fov: 45 } }), panel: 'cool' },
+  { id: 'sulfur', t0: S(9), t1: sn(9, 1).start, kind: 'globe', g: (t, k) => ({ spin: face(lerp(100, 70, k)), plume: 1, haze: sk(S(9) + 0.5, sn(9, 1).start + 2)(t), cam: { pos: V(0, 6, 30), tgt: V(0, 0, 0), fov: 45 } }) },
+  { id: 'haze', t0: sn(9, 1).start, t1: S(10), kind: 'globe', g: (t, k) => ({ spin: face(lerp(120, 95, k)), plume: 1, haze: sk(S(9) + 0.5, sn(9, 1).start + 2)(t), dim: lerp(1, 0.8, k), cam: { pos: V(14, 3, 26), tgt: V(0, 0, 0), fov: 45 }, zoom: 1.3 }) },
+  { id: 'pinatubo', t0: S(10), t1: wT(10, /^selama/) - 0.1, kind: 'globe', g: (t, k) => ({ spin: face(lerp(60, 30, k)), plume: 1, haze: 1, dim: 0.75, cam: { pos: V(0, 6, 30), tgt: V(0, 0, 0), fov: 45 } }), panel: 'cool' },
+  { id: 'cold', t0: wT(10, /^selama/) - 0.1, t1: sn(10, 1).start, kind: 'world', panel: 'cool', filter: 'saturate(0.55) brightness(0.85) hue-rotate(-12deg)', cam: (k) => ({ pos: V(lerp(30, 26, k), 3, lerp(52, 48, k)), tgt: V(0, 4, 20), fov: 52 }) },
+  { id: 'bigger', t0: sn(10, 1).start, t1: sn(10, 2).start, kind: 'globe', g: (t, k) => ({ spin: face(lerp(110, 90, k)), plume: 1, haze: 1, dim: 0.6, cam: { pos: V(0, 6, 30), tgt: V(0, 0, 0), fov: 45 }, zoom: lerp(1.65, 1.3, k) }), panel: 'cool' },
   { id: 'harvest', t0: sn(10, 2).start, t1: S(11), kind: 'sawah', filter: 'grayscale(0.75) brightness(0.78) sepia(0.2)', cam: (k) => ({ pos: V(lerp(-18, -14, k), 4, lerp(30, 26, k)), tgt: V(0, 1.5, 0), fov: 50 }) },
   // 4. did humanity nearly die out?
   { id: 'theory', t0: S(11), t1: sn(11, 1).start, kind: 'africa', ash: 0.5, filter: 'grayscale(0.5) brightness(0.75)', cam: (k) => ({ pos: V(lerp(-14, -12, k), 4, lerp(18, 16, k)), tgt: V(0, 1.5, 0), fov: 50 }) },
   { id: 'newfind', t0: sn(11, 1).start, t1: S(12), kind: 'africa', ash: 0.3, cam: (k) => ({ pos: V(lerp(10, 8, k), 3, lerp(14, 12, k)), tgt: V(0, 1.5, 0), fov: 50 }) },
-  { id: 'shard', t0: S(12), t1: sn(12, 1).start, kind: 'africa', ash: 0.2, panel: 'shard', cam: (k) => ({ pos: V(lerp(-6, -4, k), 2.2, lerp(12, 10, k)), tgt: V(0, 1.4, 2), fov: 50 }) },
+  { id: 'shard', t0: S(12), t1: S(12) + 4.2, kind: 'africa', ash: 0.2, panel: 'shard', cam: (k) => ({ pos: V(lerp(-6, -4, k), 2.2, lerp(12, 10, k)), tgt: V(0, 1.4, 2), fov: 50 }) },
+  { id: 'shard2', t0: S(12) + 4.2, t1: sn(12, 1).start, kind: 'africa', ash: 0.2, panel: 'shard', cam: (k) => ({ pos: V(lerp(9, 7, k), 3.2, lerp(9, 8, k)), tgt: V(0, 1.4, 2), fov: 50 }) },
   { id: 'survive', t0: sn(12, 1).start, t1: S(13), kind: 'africa', ash: 0.15, cam: (k) => ({ pos: V(lerp(-8, -6, k), 2.0, lerp(4, 3, k)), tgt: V(-3, 1.2, -4), fov: 50 }) },
   // 5. should we be afraid?
   { id: 'afraid', t0: S(13), t1: sn(13, 1).start, kind: 'village', o: () => ({}), cam: (k) => ({ pos: V(lerp(20, 16, k), 3, lerp(-6, -4, k)), tgt: V(0, 4, 12), fov: 52 }) },
-  { id: 'samosir', t0: sn(13, 1).start, t1: S(14), kind: 'toba', o: (t) => ({ samosir: sk(sn(13, 2).start + 1.2, E(13) - 0.3)(t), steam: 1 }), cam: (k) => ({ pos: V(lerp(-55, -45, k), lerp(40, 34, k), lerp(55, 48, k)), tgt: V(-2, 3.6, 0), fov: 45 }) },
-  { id: 'rare', t0: S(14), t1: sn(14, 2).start, kind: 'toba', o: () => ({ steam: 1 }), cam: (k) => aerial(k, lerp(1, 0.85, k)) },
+  { id: 'samosir', t0: sn(13, 1).start, t1: wT(13, /^Samosir/) - 0.4, kind: 'toba', o: (t) => ({ samosir: sk(sn(13, 2).start + 1.2, E(13) - 0.3)(t), steam: 1 }), cam: (k) => ({ pos: V(lerp(-55, -45, k), lerp(40, 34, k), lerp(55, 48, k)), tgt: V(-2, 3.6, 0), fov: 45 }) },
+  { id: 'samosir', t0: wT(13, /^Samosir/) - 0.4, t1: S(14), kind: 'toba', o: (t) => ({ samosir: sk(sn(13, 2).start + 1.2, E(13) - 0.3)(t), steam: 1 }), cam: (k) => ({ pos: V(lerp(-30, -24, k), lerp(16, 13, k), lerp(26, 22, k)), tgt: V(-2, 4, 0), fov: 45 }) },
+  { id: 'rare', t0: S(14), t1: sn(14, 1).start, kind: 'toba', o: () => ({ steam: 1 }), cam: (k) => aerial(k, lerp(1, 0.85, k)) },
+  { id: 'calmlake', t0: sn(14, 1).start, t1: sn(14, 2).start, kind: 'village', o: () => ({}), cam: (k) => ({ pos: V(lerp(-24, -20, k), lerp(10, 12, k), lerp(34, 30, k)), tgt: V(lerp(-2, 2, k), 1, -40), fov: 52 }) },
   { id: 'local', t0: sn(14, 2).start, t1: S(15), kind: 'world', cam: (k) => ({ pos: V(lerp(-6, -4, k), 4, lerp(44, 48, k)), tgt: V(0, 2.4, 110), fov: 54 }) },
-  { id: 'swim', t0: S(15), t1: S(16), kind: 'village', o: () => ({}), cam: (k) => ({ pos: V(lerp(-6, -2, k), lerp(1.6, 6, k), lerp(-18, -24, k)), tgt: V(0, lerp(2, 1, k), 2), fov: 50 }) },
+  { id: 'swim', t0: S(15), t1: S(15) + 4, kind: 'village', o: () => ({}), cam: (k) => ({ pos: V(lerp(-6, -2, k), lerp(1.6, 6, k), lerp(-18, -24, k)), tgt: V(0, lerp(2, 1, k), 2), fov: 50 }) },
+  { id: 'swim2', t0: S(15) + 4, t1: S(16), kind: 'toba', o: () => ({}), cam: (k) => aerial(k, lerp(0.5, 1.1, k)) },
   { id: 'teaser', t0: S(16), t1: DURATION + 1, kind: 'world', filter: 'hue-rotate(160deg) saturate(1.4) contrast(1.15)', cam: (k) => ({ pos: V(lerp(-6, -4, k), 4, lerp(44, 50, k)), tgt: V(0, lerp(2.4, 8, k), 110), fov: 54 }) },
 ];
 const shotAt = (t) => SHOTS.find((s) => t >= s.t0 && t < s.t1) || SHOTS[SHOTS.length - 1];
@@ -178,14 +186,14 @@ function overlays(t, shot, g) {
     if (id === 'tambora') { $('volA').textContent = 'TAMBORA 1815'; $('volV').textContent = '1 ember'; $('volU').textContent = '±160 km³'; }
     if (id === 'buckets') { const n = Math.min(17, Math.floor(1 + 16 * smoothstep(wT(4, /^Toba/) - 0.2, wT(4, /^Toba/) + 2.4, t))); $('volA').textContent = 'TOBA'; $('volV').textContent = `${n} ember`; $('volU').textContent = '±2.800 km³'; }
   }
-  const ck = shot.panel === 'cool' ? pop(t, shot.t0 + 0.3, shot.t1, 0.3, 0.2) : 0;
+  const ck = shot.panel === 'cool' ? pop(t, S(10) + 0.3, sn(10, 2).start, 0.3, 0.2) : 0;
   show('cool', ck);
   if (ck) {
-    const a = smoothstep(shot.t0 + 0.4, shot.t0 + 1.6, t), b = smoothstep(shot.t0 + 1.4, shot.t0 + 2.6, t), cc = smoothstep(sn(10, 1).start, sn(10, 1).start + 1.2, t);
+    const a = smoothstep(S(10) + 0.4, S(10) + 1.6, t), b = smoothstep(S(10) + 1.4, S(10) + 2.6, t), cc = smoothstep(sn(10, 1).start, sn(10, 1).start + 1.2, t);
     $('c1').style.width = `${18 * a}%`; $('c2').style.width = `${36 * b}%`; $('c3').style.width = `${100 * cc}%`;
   }
   show('rice', id === 'harvest' ? pop(t, wT(10, /^harga/) - 0.3, shot.t1, 0.3, 0.2) : 0);
-  show('shard', shot.panel === 'shard' ? pop(t, shot.t0 + 0.8, shot.t1, 0.3, 0.2) : 0);
+  show('shard', shot.panel === 'shard' ? pop(t, S(12) + 0.8, sn(12, 1).start, 0.3, 0.2) : 0);
   show('teaser', pop(t, S(16), END, 0.3, 0.2));
   show('end', smoothstep(END, END + 0.4, t));
   show('note', shot.kind === 'toba' || shot.kind === 'globe' ? 0.9 : 0);
@@ -209,6 +217,7 @@ function overlays(t, shot, g) {
   if (id === 'whatif') tag('wf', 'ANDAI MELETUS LAGI?', V(0, 40, 0), 'yellow big', tin(0.6));
   if (id === 'answer') tag('ab', 'TOBA', globe.markerPos('toba', 1), 'red', tin());
   if (id === 'past') tag('ps', '±74.000 TAHUN LALU · ILUSTRASI', V(0, 20, 0), 'yellow', tin(0.5));
+  if (id === 'nosummer') tag('ns', '1816: TAHUN TANPA MUSIM PANAS', V(0, 5, 0), 'blue', tin(0.2));
   if (id === 'tambora') tag('tb', 'TAMBORA 1815', toba.cubeBase.clone().add(V(0, toba.groundAt(toba.cubeBase.x, toba.cubeBase.z) + 8, 0)), 'yellow', tin(0.5));
   if (id === 'buckets') tag('lk2', 'DANAU TOBA →', A.lake, 'blue', tin(0.5));
   if (id === 'hole') { tag('hl', '±100 km', A.rim, 'red big', tin()); tag('hw', '±30 km', A.pangururan, 'yellow', tin(0.8)); }
@@ -220,6 +229,7 @@ function overlays(t, shot, g) {
   if (id === 'india') { tag('in', 'ABU SAMPAI INDIA', globe.markerPos('india', 1), 'yellow', smoothstep(wT(8, /^India/) - 0.2, wT(8, /^India/) + 0.1, t)); tag('tb2', 'TOBA', globe.markerPos('toba', 1), 'red', tin()); }
   if (id === 'heavy') { tag('hv', 'ABU BASAH = BERAT', V(0, 12, 70), 'red', tin()); tag('ap', '✈ BANDARA DITUTUP', V(0, 22, 100), 'yellow', smoothstep(sn(8, 4).start, sn(8, 4).start + 0.3, t)); }
   if (id === 'sulfur') tag('sf', 'KABUT BELERANG MEMANTULKAN SINAR MATAHARI', V(0, 14, 0), 'yellow', tin(1.5));
+  if (id === 'bigger') tag('bg', 'TOBA ±17× TAMBORA', V(0, -12, 0), 'red', tin(0.2));
   if (id === 'theory') tag('th', 'TEORI LAMA: MANUSIA HAMPIR PUNAH?', africa.anchors.group, 'red', tin());
   if (id === 'newfind') tag('nf', '±74.000 TAHUN LALU · AFRIKA', africa.anchors.group, 'yellow', tin());
   if (id === 'survive') tag('sv', 'MEREKA BERTAHAN · MENANGKAP IKAN', africa.anchors.river, 'green', tin(0.6));
@@ -230,6 +240,7 @@ function overlays(t, shot, g) {
   }
   if (id === 'rare') tag('rr', 'LETUSAN SUPER: PULUHAN RIBU TAHUN SEKALI', A.lake, 'yellow', tin(0.5));
   if (id === 'local') tag('lc', 'KENALI GUNUNG API & JALUR EVAKUASI', V(0, 12, 80), 'green', tin(0.4));
+  if (id === 'swim2') tag('sw2', 'DANAU TOBA = KAWAH', toba.anchors.lake, 'blue', tin(0.5));
   if (id === 'swim') tag('sw', 'BERENANG DI KAWAH LETUSAN TERBESAR', village.anchors.swim, 'yellow', tin(1));
 }
 
