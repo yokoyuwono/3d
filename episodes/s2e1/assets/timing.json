@@ -1,0 +1,351 @@
+[
+ {
+  "id": 1,
+  "ch": 0,
+  "start": 1.7,
+  "dur": 6.675,
+  "end": 8.375,
+  "sentences": [
+   {
+    "text": "Danau seindah ini, sebenarnya adalah lubang bekas letusan gunung terbesar yang pernah disaksikan manusia.",
+    "start": 1.7,
+    "end": 8.375
+   }
+  ]
+ },
+ {
+  "id": 2,
+  "ch": 0,
+  "start": 8.825,
+  "dur": 10.053,
+  "end": 18.878,
+  "sentences": [
+   {
+    "text": "Dan gunungnya belum mati.",
+    "start": 8.825,
+    "end": 10.429
+   },
+   {
+    "text": "Andai Toba meletus lagi, apa yang terjadi pada Indonesia, dan dunia?",
+    "start": 10.649,
+    "end": 15.116
+   },
+   {
+    "text": "Apakah kita harus takut?",
+    "start": 15.336,
+    "end": 16.789
+   },
+   {
+    "text": "Jawabannya ada di akhir.",
+    "start": 17.009,
+    "end": 18.878
+   }
+  ]
+ },
+ {
+  "id": 3,
+  "ch": 1,
+  "start": 19.678,
+  "dur": 11.588,
+  "end": 31.266,
+  "sentences": [
+   {
+    "text": "Sekitar tujuh puluh empat ribu tahun lalu, di Sumatera Utara, sebuah gunung raksasa meledak.",
+    "start": 19.678,
+    "end": 25.999
+   },
+   {
+    "text": "Ia memuntahkan sekitar dua ribu delapan ratus kilometer kubik batuan dan abu.",
+    "start": 26.219,
+    "end": 31.266
+   }
+  ]
+ },
+ {
+  "id": 4,
+  "ch": 1,
+  "start": 31.666,
+  "dur": 11.417,
+  "end": 43.083,
+  "sentences": [
+   {
+    "text": "Supaya terbayang, ingat letusan Tambora tahun delapan belas lima belas, yang membuat dunia kehilangan musim panas.",
+    "start": 31.666,
+    "end": 38.813
+   },
+   {
+    "text": "Kalau Tambora itu satu ember, Toba kira-kira tujuh belas ember.",
+    "start": 39.033,
+    "end": 43.083
+   }
+  ]
+ },
+ {
+  "id": 5,
+  "ch": 1,
+  "start": 43.483,
+  "dur": 11.349,
+  "end": 54.832,
+  "sentences": [
+   {
+    "text": "Setelah isinya keluar, tanah di atasnya runtuh.",
+    "start": 43.483,
+    "end": 46.605
+   },
+   {
+    "text": "Terbentuklah lubang raksasa, panjangnya sekitar seratus kilometer.",
+    "start": 46.825,
+    "end": 51.028
+   },
+   {
+    "text": "Lama-lama terisi air hujan, dan menjadi Danau Toba.",
+    "start": 51.248,
+    "end": 54.832
+   }
+  ]
+ },
+ {
+  "id": 6,
+  "ch": 2,
+  "start": 55.632,
+  "dur": 9.425,
+  "end": 65.057,
+  "sentences": [
+   {
+    "text": "Sekarang bayangkan itu terjadi lagi, hari ini.",
+    "start": 55.632,
+    "end": 58.509
+   },
+   {
+    "text": "Dalam beberapa menit, tiang abu melesat puluhan kilometer ke langit.",
+    "start": 58.729,
+    "end": 62.922
+   },
+   {
+    "text": "Siang berubah menjadi malam.",
+    "start": 63.142,
+    "end": 65.057
+   }
+  ]
+ },
+ {
+  "id": 7,
+  "ch": 2,
+  "start": 65.457,
+  "dur": 7.564,
+  "end": 73.021,
+  "sentences": [
+   {
+    "text": "Di sekitarnya, awan panas mengalir menuruni lereng, lebih cepat dari mobil.",
+    "start": 65.457,
+    "end": 70.46
+   },
+   {
+    "text": "Tidak ada yang bisa berlari mengalahkannya.",
+    "start": 70.68,
+    "end": 73.021
+   }
+  ]
+ },
+ {
+  "id": 8,
+  "ch": 2,
+  "start": 73.421,
+  "dur": 13.762,
+  "end": 87.183,
+  "sentences": [
+   {
+    "text": "Abu jatuh seperti salju abu-abu.",
+    "start": 73.421,
+    "end": 75.682
+   },
+   {
+    "text": "Bukan cuma di Sumatera.",
+    "start": 75.902,
+    "end": 77.511
+   },
+   {
+    "text": "Abu Toba purba ditemukan sampai di India, ribuan kilometer jauhnya.",
+    "start": 77.731,
+    "end": 82.277
+   },
+   {
+    "text": "Abu yang basah itu berat.",
+    "start": 82.497,
+    "end": 84.077
+   },
+   {
+    "text": "Atap bisa runtuh, pesawat tidak bisa terbang.",
+    "start": 84.297,
+    "end": 87.183
+   }
+  ]
+ },
+ {
+  "id": 9,
+  "ch": 3,
+  "start": 87.983,
+  "dur": 7.812,
+  "end": 95.795,
+  "sentences": [
+   {
+    "text": "Lalu bagian yang paling luas.",
+    "start": 87.983,
+    "end": 89.962
+   },
+   {
+    "text": "Gas belerang naik sangat tinggi, membentuk selimut kabut tipis yang memantulkan sinar Matahari.",
+    "start": 90.182,
+    "end": 95.795
+   }
+  ]
+ },
+ {
+  "id": 10,
+  "ch": 3,
+  "start": 96.195,
+  "dur": 15.333,
+  "end": 111.528,
+  "sentences": [
+   {
+    "text": "Tahun sembilan belas sembilan puluh satu, Gunung Pinatubo saja membuat Bumi lebih dingin setengah derajat, selama hampir dua tahun.",
+    "start": 96.195,
+    "end": 104.176
+   },
+   {
+    "text": "Toba jauh lebih besar.",
+    "start": 104.396,
+    "end": 105.963
+   },
+   {
+    "text": "Musim tanam bisa kacau, panen gagal, dan harga beras melonjak di seluruh dunia.",
+    "start": 106.183,
+    "end": 111.528
+   }
+  ]
+ },
+ {
+  "id": 11,
+  "ch": 4,
+  "start": 112.328,
+  "dur": 6.565,
+  "end": 118.893,
+  "sentences": [
+   {
+    "text": "Dulu, ilmuwan menduga letusan ini hampir memusnahkan manusia.",
+    "start": 112.328,
+    "end": 116.299
+   },
+   {
+    "text": "Tapi penemuan baru bercerita lain.",
+    "start": 116.519,
+    "end": 118.893
+   }
+  ]
+ },
+ {
+  "id": 12,
+  "ch": 4,
+  "start": 119.293,
+  "dur": 13.047,
+  "end": 132.34,
+  "sentences": [
+   {
+    "text": "Di Afrika Selatan dan Ethiopia, ditemukan serpihan kaca abu Toba di lapisan tanah yang sama dengan jejak manusia purba.",
+    "start": 119.293,
+    "end": 127.568
+   },
+   {
+    "text": "Mereka bertahan.",
+    "start": 127.788,
+    "end": 128.904
+   },
+   {
+    "text": "Bahkan ada yang beralih menangkap ikan untuk makan.",
+    "start": 129.124,
+    "end": 132.34
+   }
+  ]
+ },
+ {
+  "id": 13,
+  "ch": 5,
+  "start": 133.14,
+  "dur": 9.837,
+  "end": 142.977,
+  "sentences": [
+   {
+    "text": "Jadi, apakah kita harus takut?",
+    "start": 133.14,
+    "end": 135.09
+   },
+   {
+    "text": "Toba memang masih hidup.",
+    "start": 135.31,
+    "end": 136.819
+   },
+   {
+    "text": "Di bawahnya masih ada magma, ada mata air panas, dan Pulau Samosir terangkat dari dasar danau.",
+    "start": 137.039,
+    "end": 142.977
+   }
+  ]
+ },
+ {
+  "id": 14,
+  "ch": 5,
+  "start": 143.377,
+  "dur": 14.704,
+  "end": 158.081,
+  "sentences": [
+   {
+    "text": "Tapi letusan super sangat jarang, jaraknya puluhan ribu tahun.",
+    "start": 143.377,
+    "end": 147.28
+   },
+   {
+    "text": "Para ilmuwan tidak melihat tanda Toba akan meletus dalam waktu dekat.",
+    "start": 147.5,
+    "end": 151.748
+   },
+   {
+    "text": "Yang lebih penting, kenali gunung api di dekat rumahmu, dan ikuti arahan saat ada peringatan.",
+    "start": 151.968,
+    "end": 158.081
+   }
+  ]
+ },
+ {
+  "id": 15,
+  "ch": 5,
+  "start": 158.581,
+  "dur": 7.51,
+  "end": 166.091,
+  "sentences": [
+   {
+    "text": "Jadi lain kali kamu berenang di Danau Toba, ingat, kamu sedang mengapung di kawah letusan terbesar dalam sejarah manusia.",
+    "start": 158.581,
+    "end": 166.091
+   }
+  ]
+ },
+ {
+  "id": 16,
+  "ch": 5,
+  "start": 166.691,
+  "dur": 4.967,
+  "end": 171.658,
+  "sentences": [
+   {
+    "text": "Episode berikutnya.",
+    "start": 166.691,
+    "end": 168.209
+   },
+   {
+    "text": "Andai Bumi kehilangan oksigen, hanya lima detik.",
+    "start": 168.429,
+    "end": 171.658
+   }
+  ]
+ }
+]

@@ -18,6 +18,22 @@ dengan subtitle per kata, penanda bab, dan desain suara prosedural.
 | 4 | `ep4.html`: Andai ada lubang tembus Bumi (2:37) | `episodes/ep4/` | selesai (web) |
 | 5 | `ep5.html`: Andai Bulan menghilang (2:22) | `episodes/ep5/` | selesai (web) |
 
+### Season 2 dan seri baru (satu per satu, tiap episode > 2 menit)
+
+| # | Halaman | Kode & aset | Status |
+|---|---|---|---|
+| S2E1 | `s2e1.html`: Andai Gunung Toba meletus lagi (2:55) | `episodes/s2e1/` (medan asli Toba: `tools/dem_region.py`, `tools/toba_mask.py`) | selesai (web) |
+| S2E2 | Andai Bumi kehilangan oksigen 5 detik | | berikutnya |
+| S2E3 | Andai semua orang Indonesia melompat bersamaan | | rencana |
+| S2E4 | Andai Jakarta tenggelam 2050 | | rencana |
+| S2E5 | Andai Matahari padam | | rencana |
+| K1 | Kalau kamu jatuh dari pesawat tanpa parasut | | rencana |
+| K2 | Kalau kamu tersambar petir | | rencana |
+| K3 | Kalau kamu terjebak di dasar Palung Jawa | | rencana |
+| SK1 | Skala yang bikin merinding | | rencana |
+
+MP4 per episode: `EP=1 N=4 ./tools/render_ep.sh` (butuh `build/ep1_events.json`), hasil di `output/andai_ep1_9x16.mp4`.
+
 Episode diputar langsung di browser (Three.js), jam animasinya mengikuti soundtrack. Bersama-sama memakai
 `src/kit.js` (pemutar, subtitle, label), `src/globe.js` (bola Bumi, data daratan Natural Earth) dan
 `tools/audiokit.py`. Membuat ulang audio Ep1: `node tools/render.mjs --page ep1.html --events build/ep1_events.json`
