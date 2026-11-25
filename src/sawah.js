@@ -2,6 +2,7 @@
 import * as THREE from 'three';
 import { mulberry32, lerp } from './util.js';
 import { particleMaterial } from './world.js';
+import { Person, Flock, makeKerbau, makeEgret, makeButterfly } from './life.js';
 
 const lin = (r, g, b) => new THREE.Color().setRGB(r, g, b, THREE.SRGBColorSpace);
 
@@ -68,7 +69,18 @@ export class SawahScene {
     this.flakes.frustumCulled = false;
     this.seeds = Array.from({ length: n }, () => ({ x: R() * 100 - 50, y: R() * 40, z: R() * 80 - 60, sp: 1 + R(), ph: R() * 6 }));
     s.add(this.flakes);
-    this.anchors = { rice: new THREE.Vector3(0, 4, -4), palm: new THREE.Vector3(-28, 11, 4) };
+    // life: farmers with caping, water buffalo, egrets, butterflies, birds
+    this.farmers = [[-6, 1.6, -9], [4, 1.6, -9.5], [12, 3.2, -18], [-14, 0, 0.5], [18, 0, -1]].map(([x, y, z], i) => {
+      const p = new Person(R, { hat: 'caping' });
+      p.root.position.set(x, y, z); p.root.rotation.y = R() * 6;
+      s.add(p.root);
+      return { p, i };
+    });
+    this.kerbau = [[-20, 1.6, -9], [22, 3.2, -18.5]].map(([x, y, z]) => { const k = makeKerbau(); k.position.set(x, y, z); k.rotation.y = 1.2; s.add(k); return { k, x, y, z }; });
+    this.egrets = Array.from({ length: 7 }, (_, i) => { const e = makeEgret(); const x = -30 + R() * 60, ti = Math.floor(R() * 4); e.position.set(x, ti * 1.6, -ti * 9 + (R() - 0.5) * 5); e.rotation.y = R() * 6; s.add(e); return { e, ph: R() * 6 }; });
+    this.butterflies = Array.from({ length: 12 }, () => { const b = makeButterfly(R); s.add(b); return { b, x: -20 + R() * 40, y: 1.5 + R() * 3, z: -10 + R() * 18, ph: R() * 6 }; });
+    this.flock = new Flock(s, 9, { c: new THREE.Vector3(0, 0, -40), r: 30, h: 18, color: [0.96, 0.96, 0.96], size: 2.2, seed: 5 });
+    this.anchors = { rice: new THREE.Vector3(0, 4, -4), palm: new THREE.Vector3(-28, 11, 4), farmer: new THREE.Vector3(-6, 4.4, -9), kerbau: new THREE.Vector3(-20, 4.5, -9) };
   }
   update(t, snow, scaleY) {
     const k = Math.min(1, snow);
@@ -84,5 +96,19 @@ export class SawahScene {
     pos.needsUpdate = al.needsUpdate = true;
     this.flakes.material.uniforms.uScale.value = scaleY;
     this.flakes.material.uniforms.uFogCol.value.copy(this.bg);
+    const cold = k > 0.5;
+    for (const f of this.farmers) { f.p.winter(cold); f.p.pose(t, cold ? 'shiver' : f.i < 3 ? 'bend' : f.i === 3 ? 'idle' : 'wave', 1); }
+    this.kerbau.forEach((q, i) => {
+      q.k.position.x = q.x + (cold ? 0 : Math.sin(t * 0.15 + i) * 2);
+      q.k.userData.head.rotation.x = cold ? 0.4 : 0.25 * Math.max(0, Math.sin(t * 0.8 + i));
+      q.k.userData.snow.visible = cold;
+    });
+    for (const e of this.egrets) { e.e.visible = !cold; e.e.userData.neck.rotation.x = Math.max(0, Math.sin(t * 1.3 + e.ph)) * 1.1; }
+    for (const b of this.butterflies) {
+      b.b.visible = !cold;
+      b.b.position.set(b.x + Math.sin(t * 0.7 + b.ph) * 3, b.y + Math.sin(t * 1.9 + b.ph) * 0.6, b.z + Math.cos(t * 0.5 + b.ph) * 3);
+      const a = 1.1 * Math.sin(t * 18 + b.ph); b.b.userData.w1.rotation.y = a; b.b.userData.w2.rotation.y = -a;
+    }
+    this.flock.update(t, cold ? 0 : 1);
   }
 }

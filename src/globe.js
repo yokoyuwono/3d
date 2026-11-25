@@ -4,6 +4,7 @@
 // (illustration after Witold Fraczek's Esri model).
 import * as THREE from 'three';
 import { mulberry32 } from './util.js';
+import { CITIES } from './life.js';
 
 export const R = 10;
 const lin = (r, g, b) => new THREE.Color().setRGB(r, g, b, THREE.SRGBColorSpace);
@@ -187,6 +188,16 @@ export class Globe {
     mk('papua', -4.08, 137.16, 0xffffff);
     mk('venezuela', 8.55, -71.0, 0xffd23a);
 
+    // city lights: glow only on the night side (signs of people on Earth)
+    const R4 = mulberry32(99), cp = [];
+    for (const [la, lo] of CITIES) for (let i = 0; i < 14; i++) { const v = ll(la + (R4() - 0.5) * 2.2, lo + (R4() - 0.5) * 2.2, R * 1.004); cp.push(v.x, v.y, v.z); }
+    const cg = new THREE.BufferGeometry(); cg.setAttribute('position', new THREE.Float32BufferAttribute(cp, 3));
+    this.lights = new THREE.Points(cg, new THREE.ShaderMaterial({
+      uniforms: { uSun: this.u.uSun, uOn: { value: 1 } }, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending,
+      vertexShader: 'uniform vec3 uSun; varying float vA; void main(){ vec3 n = normalize(mat3(modelMatrix)*position); vA = 1.0 - smoothstep(-0.15, 0.05, dot(n, normalize(uSun))); vec4 mv = modelViewMatrix*vec4(position,1.0); gl_PointSize = 3.0; gl_Position = projectionMatrix*mv; }',
+      fragmentShader: 'uniform float uOn; varying float vA; void main(){ float r = length(gl_PointCoord-0.5); gl_FragColor = vec4(1.0, 0.78, 0.4, smoothstep(0.5, 0.0, r) * vA * uOn); }',
+    }));
+    this.earth.add(this.lights);
     // the Moon and a tidal bulge (episode outro)
     this.moon = new THREE.Mesh(new THREE.SphereGeometry(2.7, 48, 24), new THREE.MeshLambertMaterial({ color: 0xc9c9c9 }));
     this.moon.visible = false;
@@ -241,6 +252,7 @@ export class Globe {
     this.u.uEquator.value = o.equator || 0;
     this.ring.material.opacity = o.equator || 0;
     this.cloudU.uTime.value = t;
+    this.lights.material.uniforms.uOn.value = o.frost ? 1 - o.frost * 0.85 : 1; // a frozen night dims the cities
     this.cloudU.uAlpha.value = o.clouds ?? 0.5;
     this.clouds.rotation.y = t * 0.01;
     const b = o.bulge || 0;

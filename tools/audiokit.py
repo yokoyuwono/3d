@@ -78,6 +78,65 @@ class Mix:
         self.place(self.sfx, self.tone(lambda t: 70 + 40 * np.exp(-t * 8), 1.2, 2.8, 0.003), t0, 0.35)
         self.place(self.sfx, self.tone(1760, 0.5, 9) * 0.3 + self.tone(2637, 0.5, 11) * 0.2, t0 + 0.02, 0.12)
 
+    # ---------------------------------------------------------------- signs of life
+    def chirp(self, f0, f1, dur=0.12):
+        t = np.arange(int(dur * SR)) / SR
+        f = f0 + (f1 - f0) * (t / dur) + 300 * np.sin(2 * np.pi * 35 * t)
+        return np.sin(2 * np.pi * np.cumsum(f) / SR) * np.sin(np.pi * t / dur) ** 2
+
+    def motorbike(self, dur=3.0):
+        t = np.arange(int(dur * SR)) / SR
+        f = 95 + 25 * np.tanh((t - dur / 2) * 3) * -1  # doppler: higher approaching, lower leaving
+        ph = np.cumsum(f) / SR
+        saw = 2 * (ph % 1) - 1
+        env = np.exp(-((t - dur / 2) / (dur / 4)) ** 2)
+        return (saw * 0.6 + self.noise(200, 3000, n=len(t)) * 0.3) * env
+
+    def life(self, windows):
+        """windows: [[t0, t1, mode], ...] with mode calm|heat|snow|night|storm|none|sawah|dieng|bus"""
+        R = self.rng
+        murmur = self.noise(250, 1400, -0.3)
+        for t0, t1, mode in windows:
+            if mode in ('storm', 'none') or t1 - t0 < 0.2:
+                continue
+            w = self.win(t0, t1, 0.15, 0.15)
+            if mode in ('calm', 'heat', 'bus', 'sawah', 'dieng'):
+                rate = {'calm': 0.35, 'heat': 0.9, 'bus': 0.5, 'sawah': 0.3, 'dieng': 0.7}[mode]
+                tt = t0 + R.random() * rate
+                while tt < t1 - 0.2:
+                    f = 2600 + R.random() * 2600
+                    for j in range(1 + int(R.random() * 3)):
+                        self.place(self.sfx, self.chirp(f, f * (1.2 + R.random() * 0.4)), tt + j * 0.14, 0.035)
+                    tt += rate * (0.6 + R.random())
+            if mode in ('calm', 'heat', 'snow'):
+                self.sfx += murmur * (0.035 if mode != 'snow' else 0.02) * w
+            if mode in ('calm', 'bus'):
+                tt = t0 + 0.4 + R.random()
+                while tt < t1 - 1.0:
+                    self.place(self.sfx, self.motorbike(2.6), tt - 1.3, 0.05)
+                    tt += 2.5 + R.random() * 2
+            if mode == 'heat':
+                self.sfx += self.noise(3000, 7000) * 0.03 * (0.5 + 0.5 * np.sign(np.sin(2 * np.pi * 6.5 * self.T))) * w  # cicadas
+            if mode == 'snow':
+                tt = t0 + 0.3
+                while tt < t1 - 0.3:  # playful kids: little rising "whee" chimes
+                    f = 900 + R.random() * 600
+                    self.place(self.sfx, self.tone(lambda x: f + 700 * x, 0.25, 6), tt, 0.03)
+                    tt += 0.7 + R.random() * 1.2
+            if mode == 'night':
+                tt = t0
+                while tt < t1:
+                    self.place(self.sfx, self.burst(1500, 9000, 0.04, 90), tt, 0.06 + R.random() * 0.05)  # fire crackle
+                    tt += 0.05 + R.random() * 0.25
+                self.sfx += self.noise(60, 400, -0.6) * 0.06 * w
+            if mode == 'sawah':
+                tt = t0 + 0.2
+                while tt < t1 - 0.3:  # frogs
+                    croak = self.tone(420 + R.random() * 200, 0.09, 25) * (0.5 + 0.5 * np.sign(np.sin(2 * np.pi * 40 * np.arange(int(0.09 * SR)) / SR)))
+                    self.place(self.sfx, croak, tt, 0.05)
+                    tt += 0.18 + R.random() * 0.4
+                self.place(self.sfx, self.tone(lambda x: 140 - 40 * x, 1.2, 1.5, 0.1) + self.tone(lambda x: 280 - 80 * x, 1.2, 2, 0.1) * 0.4, t0 + 0.5, 0.08)  # buffalo low
+
     # ---------------------------------------------------------------- final mix
     def finish(self, timing_json, voice_dir, out_wav, external_music=None, music_gain_db=-4.0, edit=None):
         N, T = self.N, self.T

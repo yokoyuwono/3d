@@ -1,6 +1,7 @@
 // "Bus brakes suddenly" analogy: the bus stops, the passengers keep moving forward.
 import * as THREE from 'three';
 import { clamp, easeOut, mulberry32 } from './util.js';
+import { Person, makeChicken } from './life.js';
 
 const lin = (r, g, b) => new THREE.Color().setRGB(r, g, b, THREE.SRGBColorSpace);
 
@@ -66,6 +67,11 @@ export class BusScene {
       this.pax.push({ p, x0: p.position.x, ph: i * 0.7 });
     }
     s.add(B);
+    // roadside life: people waiting/waving, chickens by the road
+    this.side = [];
+    const R2 = mulberry32(44);
+    for (let i = 0; i < 10; i++) { const p = new Person(R2); const x = -120 + i * 26 + R2() * 8; p.root.position.set(x, 0, -6 - R2() * 3); p.root.rotation.y = R2() * 1.2; s.add(p.root); this.side.push({ p, role: ['wave', 'idle', 'walk', 'idle', 'fan'][i % 5] }); }
+    this.hens = Array.from({ length: 6 }, (_, i) => { const c = makeChicken(R2); c.scale.setScalar(1.4); c.position.set(-60 + i * 22, 0, -5.4); s.add(c); return { c, ph: R2() * 6 }; });
     this.anchors = { bus: new THREE.Vector3(), pax: new THREE.Vector3() };
   }
 
@@ -85,6 +91,8 @@ export class BusScene {
       q.p.rotation.z = -0.55 * lurch;
       q.p.position.y = 1.1 + (tBrake < 0 ? 0.03 * Math.abs(Math.sin(t * 9 + q.ph)) : 0);
     }
+    for (const q of this.side) q.p.pose(t, q.role, 1);
+    for (const h of this.hens) { h.c.userData.head.rotation.x = Math.max(0, Math.sin(t * 4 + h.ph)) * 0.9; h.c.rotation.y = Math.sin(t * 0.6 + h.ph); }
     this.anchors.bus.set(x + 6.5, 4.6, 0);
     this.anchors.pax.set(x + 1, 4.4, 0.5);
     return x;

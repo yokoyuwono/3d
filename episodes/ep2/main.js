@@ -26,7 +26,7 @@ const [rings, T] = await Promise.all([(await fetch('./episodes/ep1/assets/land.j
 const { S, E, wT, sentence: sn, CAPS } = T;
 const globe = new Globe(rings);
 globe.addOutline(ISLANDS, ELLIPSES);
-const world = new World({ monument: true });
+const world = new World({ monument: true, life: true });
 const jaya = new MountainScene('jaya');
 const dieng = new MountainScene('dieng');
 const beams = new BeamScene();
@@ -56,8 +56,8 @@ const SHOTS = [
   { id: 'm2', t0: 0.6, t1: 1.15, kind: 'jaya', ice: 0.35, cam: () => ({ pos: V(-95, 68, 135), tgt: V(0, 40, 0), fov: 45 }), glitch: true },
   { id: 'm3', t0: 1.15, t1: 1.7, kind: 'sawah', snow: 1, cam: () => ({ pos: V(10, 16, 26), tgt: V(0, 4, -20), fov: 50 }), glitch: true },
   // S1 snowy city, S2 "impossible?" then a hidden location
-  { id: 'city', t0: 1.7, t1: S(2), kind: 'world', snow: 1, cover: (t) => smoothstep(1.7, 3.5, t), wt: (t) => 3 + t * 0.2, cam: (k) => snowTown(k) },
-  { id: 'tropic', t0: S(2), t1: sn(2, 1).start, kind: 'world', wt: () => 4, cam: (k) => ({ pos: V(lerp(100, 90, k), 45, lerp(40, 50, k)), tgt: V(55, 26, 110), fov: 52 }) },
+  { id: 'city', t0: 1.7, t1: S(2), kind: 'world', snow: 1, cover: (t) => smoothstep(1.7, 3.5, t), wt: (t) => 3 + t * 0.2, cam: (k) => ({ pos: V(lerp(86, 83, k), lerp(4.2, 6.5, k), lerp(84, 80, k)), tgt: V(lerp(72, 66, k), lerp(3, 22, easeInOut(k)), lerp(96, 104, k)), fov: 56 }) },
+  { id: 'tropic', t0: S(2), t1: sn(2, 1).start, kind: 'world', life: 'heat', wt: () => 4, cam: (k) => ({ pos: V(lerp(-6, -4, k), 4, lerp(44, 48, k)), tgt: V(0, 2.4, 110), fov: 54 }) },
   { id: 'hidden', t0: sn(2, 1).start, t1: sn(2, 3).start, kind: 'jaya', ice: (t) => lerp(0.6, 0.3, smoothstep(sn(2, 2).start, sn(2, 3).start, t)), blur: true, cam: (k) => ({ pos: V(lerp(-150, -110, k), lerp(70, 62, k), lerp(150, 120, k)), tgt: V(0, 38, 0), fov: 45 }) },
   { id: 'where', t0: sn(2, 3).start, t1: S(3), kind: 'globe', g: (t, k) => ({ zoom: 1.4, spin: face(lerp(60, 118, easeInOut(k))), cam: { pos: V(0, 2, 30), tgt: V(0, 0, 0), fov: 45 } }) },
   // why no snow: sun angle
@@ -69,12 +69,12 @@ const SHOTS = [
   { id: 'orbitZoom', t0: sn(6, 2).start, t1: S(7), kind: 'orbit', a: (t) => (sn(6, 2).start - S(6)) * 0.55 + (t - sn(6, 2).start) * 0.1, follow: true },
   // what if Indonesia moved north
   { id: 'shift', t0: S(7), t1: S(8), kind: 'globe', g: (t, k) => ({ spin: face(125), cam: { pos: V(0, lerp(4, 10, k), 30), tgt: V(0, lerp(0, 3, k), 0), fov: 45 }, outline: smoothstep(S(7), S(7) + 0.6, t), shift: 36 * easeInOut(smoothstep(S(7) + 1.2, E(7), t)), markers: ['tokyo'] }) },
-  { id: 'winter', t0: S(8), t1: sn(8, 2).start, kind: 'world', snow: (t) => smoothstep(S(8), S(8) + 1.5, t), cover: (t) => smoothstep(S(8) + 1, sn(8, 2).start + 1.5, t), wt: (t) => 4, cam: (k) => ({ pos: V(lerp(40, 20, k), lerp(28, 18, k), lerp(20, 40, k)), tgt: V(-10, 6, 90), fov: 54 }) },
+  { id: 'winter', t0: S(8), t1: sn(8, 2).start, kind: 'world', life: 'snow', snow: (t) => smoothstep(S(8), S(8) + 1.5, t), cover: (t) => smoothstep(S(8) + 1, sn(8, 2).start + 1.5, t), wt: (t) => 4, cam: (k) => ({ pos: V(lerp(-5, -3, k), lerp(3.8, 4.4, k), lerp(42, 50, k)), tgt: V(0, lerp(2.4, 7, k), 110), fov: 54 }) },
   { id: 'roofs', t0: sn(8, 2).start, t1: wT(8, /^sawah/), kind: 'world', snow: 1, cover: 1, wt: () => 4, cam: (k) => ({ pos: V(lerp(60, 70, k), lerp(70, 60, k), lerp(140, 150, k)), tgt: V(40, 10, 90), fov: 52 }) },
   { id: 'sawahSnow', t0: wT(8, /^sawah/), t1: S(9), kind: 'sawah', snow: (t) => smoothstep(wT(8, /^sawah/) - 0.3, S(9), t), cam: (k) => ({ pos: V(lerp(0, 6, k), 14, lerp(30, 24, k)), tgt: V(0, 4, -20), fov: 50 }) },
   { id: 'palms', t0: S(9), t1: sn(9, 1).start, kind: 'sawah', snow: 1, cam: (k) => ({ pos: V(lerp(-14, -18, k), 9, lerp(22, 18, k)), tgt: V(-28, 9, 3), fov: 50 }) },
-  { id: 'harvest', t0: sn(9, 1).start, t1: tMos, kind: 'sawah', snow: (t) => 1 - smoothstep(sn(9, 1).start, sn(9, 1).start + 1.5, t) * 0.0, cam: (k) => ({ pos: V(lerp(20, 0, k), lerp(20, 12, k), 34), tgt: V(0, 3, -22), fov: 50 }) },
-  { id: 'mosq', t0: tMos, t1: S(10), kind: 'world', snow: 1, cover: 1, wt: () => 4, cam: (k) => ({ pos: V(lerp(-60, -40, k), 30, lerp(30, 40, k)), tgt: V(20, 6, 100), fov: 52 }) },
+  { id: 'harvest', t0: sn(9, 1).start, t1: tMos, kind: 'sawah', snow: (t) => smoothstep(wT(9, /^kini/) - 0.4, wT(9, /^kini/) + 0.6, t), cam: (k) => ({ pos: V(lerp(6, 2, k), lerp(5, 4.4, k), lerp(5, 2, k)), tgt: V(-10, 2, -10), fov: 52 }) },
+  { id: 'mosq', t0: tMos, t1: S(10), kind: 'world', life: 'snow', snow: 1, cover: 1, wt: () => 4, cam: (k) => ({ pos: V(lerp(78, 80, k), lerp(5, 4.4, k), lerp(86, 88, k)), tgt: V(72, 2.2, 97), fov: 50 }) },
   { id: 'poll', t0: S(10), t1: tBack, kind: 'world', snow: 1, cover: 1, wt: () => 4, cam: (k) => snowTown(0.6 + 0.4 * k) },
   { id: 'back', t0: tBack, t1: S(11), kind: 'globe', g: (t, k) => ({ spin: face(125), cam: { pos: V(0, lerp(10, 4, k), 30), tgt: V(0, lerp(3, 0, k), 0), fov: 45 }, outline: 1, shift: 36 * (1 - easeInOut(smoothstep(tBack, tBack + 2.2, t))), markers: ['papua'] }) },
   // altitude: lapse rate, Dieng frost, Puncak Jaya
@@ -93,7 +93,7 @@ const SHOTS = [
   { id: 'hero', t0: S(17), t1: sn(17, 1).start, kind: 'jaya', ice: 0.08, warm: 1, cam: (k) => ({ pos: V(lerp(-160, -120, k), lerp(70, 64, k), lerp(-60, -30, k)), tgt: V(0, 40, 0), fov: 45 }) },
   { id: 'notnorth', t0: sn(17, 1).start, t1: sn(17, 2).start, kind: 'world', snow: 1, cover: 1, wt: () => 4, fadeOut: true, cam: (k) => snowTown(k) },
   { id: 'vanish', t0: sn(17, 2).start, t1: tTeaser, kind: 'jaya', ice: (t) => lerp(0.08, 0.0, smoothstep(sn(17, 2).start, tTeaser, t)), warm: 1, cam: (k) => ({ pos: V(lerp(-60, -35, k), lerp(78, 72, k), lerp(85, 70, k)), tgt: V(0, 45, 0), fov: 45 }) },
-  { id: 'teaser', t0: tTeaser, t1: DURATION + 1, kind: 'world', wt: (t) => lerp(44, 49, smoothstep(tTeaser, END, t)), tint: 'blue', cam: (k) => ({ pos: V(lerp(95, 70, k), lerp(58, 50, k), lerp(-35, -10, k)), tgt: V(-5, 2, 90), fov: 52 }) },
+  { id: 'teaser', t0: tTeaser, t1: DURATION + 1, kind: 'world', life: 'none', wt: (t) => lerp(44, 49, smoothstep(tTeaser, END, t)), tint: 'blue', cam: (k) => ({ pos: V(lerp(95, 70, k), lerp(58, 50, k), lerp(-35, -10, k)), tgt: V(-5, 2, 90), fov: 52 }) },
 ];
 const shotAt = (t) => SHOTS.find((s) => t >= s.t0 && t < s.t1) || SHOTS[SHOTS.length - 1];
 const val = (v, t) => (typeof v === 'function' ? v(t) : v ?? 0);
@@ -116,6 +116,7 @@ function renderAt(t) {
     c = shot.cam(k);
     world.snow = val(shot.snow, t);
     world.snowCover = val(shot.cover, t);
+    world.lifeMode = shot.life || (world.snow > 0.3 ? 'snow' : 'calm');
     scene = world.scene;
   } else if (shot.kind === 'jaya' || shot.kind === 'dieng') {
     const m = shot.kind === 'jaya' ? jaya : dieng;
@@ -215,7 +216,9 @@ function overlays(t, shot, g) {
   show('fade', 1 - smoothstep(0, 0.12, t));
 
   // tags
-  if (id === 'city' && world.anchors.monument) tag('mon', 'MONAS BERSALJU?', world.anchors.monument, 'blue', smoothstep(2.4, 2.8, t));
+  if (id === 'city' && world.anchors.monument) tag('mon', 'MONAS BERSALJU?', world.anchors.monument, 'blue', smoothstep(3.6, 4.0, t));
+  if (id === 'mosq') tag('kid', 'ANAK-ANAK MAIN SALJU', world.life.anchors.plaza, 'blue', smoothstep(tMos + 1.2, tMos + 1.5, t));
+  if (id === 'harvest') tag('farm', 'PETANI', sawah.anchors.farmer, 'yellow', smoothstep(shot.t0 + 0.4, shot.t0 + 0.7, t));
   if (id === 'hidden') tag('q', '???', V(0, 62, 0), 'yellow big', 1);
   if (id === 'where') tag('w', 'DI MANA?', globe.markerPos('indo', 1.5), 'red big', smoothstep(shot.t0 + 0.3, shot.t0 + 0.6, t));
   if (id === 'rays') tag('sun', 'SUDUT SINAR MATAHARI', globe.sun.position.clone().multiplyScalar(0.11), 'yellow', pop(t, sn(3, 1).start, shot.t1));
@@ -244,6 +247,7 @@ $('fields').innerHTML = Array.from({ length: 12 }, () => '<div></div>').join('')
 
 startPlayer({ renderAt, duration: DURATION, audioUrl: BASE + 'assets/soundtrack.mp3', chapters: [S(3), S(7), S(11), S(14), S(17)].map((x) => x - 0.4) });
 window.EVENTS = {
+  life: SHOTS.filter((s) => s.kind === 'world' || s.kind === 'sawah' || s.kind === 'bus' || s.kind === 'dieng').map((s) => [s.t0, s.t1, s.kind === 'world' ? (s.life || (s.snow ? 'snow' : 'calm')) : s.kind]),
   duration: DURATION, montage: [0, 0.6, 1.15, 1.7], snow: tSnowStart, answer: tAnswer, back: tBack, frost: tFrost, shrink: tShrink, fields: tFields, ven: tVen, indoNext: tIndoNext,
   teaser: tTeaser, end: END, poll: S(10), beams: sn(4, 1).start, orbit: S(6), shift: S(7), lapse: S(11), mosq: tMos, hidden: sn(2, 1).start, vanish: sn(17, 2).start,
   chapters: [S(3), S(7), S(11), S(14), S(17)].map((x) => x - 0.4), shots: SHOTS.map((s) => s.t0),

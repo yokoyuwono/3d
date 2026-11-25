@@ -87,6 +87,8 @@ m.place(m.sfx, m.boom(35, 30, 2.2, 1.5), EV['indoNext'], 0.4)
 # teaser: rising water
 m.sfx += m.noise(100, 2000, -0.5) * 0.18 * m.win(EV['teaser'], m.dur, 1.0, 1.0)
 
+m.life(EV['life'])  # birds, ojek, crowd, kids, fire, frogs: the town is alive
+
 ext = sorted(glob.glob(os.path.join(EP, 'assets', 'music.*')))
 edit_p = os.path.join(EP, 'assets', 'music_edit.json')
 m.finish(os.path.join(EP, 'assets', 'timing.json'), os.path.join(EP, 'assets', 'voice'), os.path.join(EP, 'assets', 'soundtrack.wav'),

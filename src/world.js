@@ -2,6 +2,7 @@
 import * as THREE from 'three';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 import { axis, clamp, fbm, kf, lerp, mulberry32, smoothstep, easeOut, canvasTexture } from './util.js';
+import { TownLife } from './townlife.js';
 import {
   baseH, hillH, HILL, seaParams, waterH, mood, shakeAt, frontAt, GLSL_TERRAIN, GLSL_WATER, T_QUAKE,
 } from './timeline.js';
@@ -173,6 +174,13 @@ export class World {
     this.buildParticles();
     this.buildWeather();
     if (opts.monument) this.buildMonument();
+    this.terrainY = terrainY;
+    this.lifeMode = 'calm';
+    if (opts.life) {
+      this.life = new TownLife(this);
+      // the old tsunami extras are replaced by the new townsfolk
+      for (const p of [...this.beachPeople, ...this.hillPeople, ...this.evac]) p.g.visible = false;
+    }
   }
 
   // ---------------------------------------------------------------- sky
@@ -994,6 +1002,10 @@ export class World {
     }
     const scale = canvasH / (2 * Math.tan(THREE.MathUtils.degToRad(camera.fov) / 2));
     this.updateWeather(t, camera);
+    if (this.life) {
+      this.life.update(t, this.lifeMode);
+      for (const p of [...this.beachPeople, ...this.hillPeople, ...this.evac]) p.g.visible = false;
+    }
     for (const ps of [this.dust, this.spray, this.snowSys]) {
       ps.material.uniforms.uScale.value = scale;
       ps.material.uniforms.uFogCol.value.copy(hor);

@@ -105,6 +105,8 @@ for t0 in np.arange(CH[4] + 9.0, EV['clock2'] + 5.0, 0.5):
 # teaser: soft wind with snow
 m.sfx += m.noise(300, 3000, -0.3) * 0.07 * m.win(EV['teaser'], m.dur, 0.5, 1.0)
 
+m.life(EV['life'])  # birds, ojek, crowd, kids, fire, frogs: the town is alive
+
 ext = sorted(glob.glob(os.path.join(EP, 'assets', 'music.*')))
 edit_p = os.path.join(EP, 'assets', 'music_edit.json')
 m.finish(os.path.join(EP, 'assets', 'timing.json'), os.path.join(EP, 'assets', 'voice'), os.path.join(EP, 'assets', 'soundtrack.wav'),

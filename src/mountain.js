@@ -4,6 +4,7 @@
 // Units: 1 unit = 100 m of altitude.
 import * as THREE from 'three';
 import { fbm, mulberry32, axis } from './util.js';
+import { Person } from './life.js';
 
 const lin = (r, g, b) => new THREE.Color().setRGB(r, g, b, THREE.SRGBColorSpace);
 
@@ -134,6 +135,21 @@ export class MountainScene {
         roof.rotation.y = Math.PI / 4; roof.position.set(x, diengH(x, z) + 2.7, z);
         s.add(hut, roof);
       }
+      // farmers in the potato fields, chimney smoke, tourists photographing the frost
+      this.people = [];
+      const R2 = mulberry32(17);
+      for (let i = 0; i < 10; i++) {
+        const x = -50 + R2() * 90, z = 10 + R2() * 60;
+        const p = new Person(R2, { hat: i % 2 ? 'caping' : 'hair', scale: 1.8 });
+        p.root.position.set(x, diengH(x, z), z); p.root.rotation.y = R2() * 6;
+        s.add(p.root);
+        this.people.push({ p, role: i < 6 ? 'farmer' : 'tourist' });
+      }
+      const smokeTex = (() => { const c = document.createElement('canvas'); c.width = c.height = 64; const x = c.getContext('2d'); const gr = x.createRadialGradient(32, 32, 0, 32, 32, 32); gr.addColorStop(0, 'rgba(230,230,230,0.7)'); gr.addColorStop(1, 'rgba(230,230,230,0)'); x.fillStyle = gr; x.fillRect(0, 0, 64, 64); return new THREE.CanvasTexture(c); })();
+      this.smoke = [];
+      s.children.filter((o) => o.geometry && o.geometry.type === 'ConeGeometry').slice(0, 6).forEach((roof, j) => {
+        for (let i = 0; i < 5; i++) { const sp = new THREE.Sprite(new THREE.SpriteMaterial({ map: smokeTex, transparent: true, depthWrite: false })); s.add(sp); this.smoke.push({ sp, base: roof.position.clone(), ph: i / 5 + j * 0.13 }); }
+      });
       s.add(new THREE.HemisphereLight(0xffffff, 0x445533, 1.2));
       const dl = new THREE.DirectionalLight(0xffffff, 1.5); dl.position.copy(this.sunDir).multiplyScalar(100); s.add(dl);
     } else {
@@ -156,6 +172,22 @@ export class MountainScene {
         this.mist.push({ sp, x0: sp.position.x, sp0: 0.6 + R() });
       }
     }
+    if (mode === 'jaya') {
+      // a rope team near the summit with a red-and-white flag
+      this.people = [];
+      const R3 = mulberry32(23);
+      this._summitTeam = true;
+      for (let i = 0; i < 3; i++) { const p = new Person(R3, { hat: 'helmet', scale: 1.8 }); p.winter(true); s.add(p.root); this.people.push({ p, role: 'climber', i }); }
+      const pole = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 4.5, 6), new THREE.MeshLambertMaterial({ color: 0xdddddd }));
+      const fg = new THREE.PlaneGeometry(2.4, 1.6, 8, 2); fg.translate(1.2, 0, 0);
+      const ft = (() => { const c = document.createElement('canvas'); c.width = 64; c.height = 64; const x = c.getContext('2d'); x.fillStyle = '#e5281b'; x.fillRect(0, 0, 64, 32); x.fillStyle = '#fff'; x.fillRect(0, 32, 64, 32); const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; return t; })();
+      this.flag = new THREE.Mesh(fg, new THREE.MeshLambertMaterial({ map: ft, side: THREE.DoubleSide }));
+      this.flagBase = fg.attributes.position.array.slice();
+      this.flagPole = pole;
+      s.add(pole, this.flag);
+      s.add(new THREE.HemisphereLight(0xffffff, 0x556655, 0.4));
+      const dl = new THREE.DirectionalLight(0xffffff, 1.2); dl.position.copy(this.sunDir).multiplyScalar(100); s.add(dl);
+    }
     // climber marker for the altitude explanation
     this.climber = new THREE.Mesh(new THREE.SphereGeometry(1.6, 16, 12), new THREE.MeshBasicMaterial({ color: 0xff3b30 }));
     this.climber.visible = false;
@@ -164,6 +196,12 @@ export class MountainScene {
     let best = [0, 0, 0];
     for (let i = 0; i < pos.length; i += 3) if (pos[i + 1] > best[1]) best = [pos[i], pos[i + 1], pos[i + 2]];
     this.summit = new THREE.Vector3(...best);
+    if (mode === 'jaya') {
+      const sm = this.summit;
+      this.flagPole.position.set(sm.x, sm.y + 2.0, sm.z);
+      this.flag.position.set(sm.x, sm.y + 3.6, sm.z);
+      this.people.forEach((q) => { const x = sm.x - 4 - q.i * 3.2, z = sm.z + 2 + q.i * 2.4; q.p.root.position.set(x, this.H(x, z), z); q.p.root.rotation.y = -0.6; });
+    }
   }
 
   // climber path from the foot to the summit, k = 0..1
@@ -178,6 +216,22 @@ export class MountainScene {
     this.u.uSnowLine.value = o.snowLine ?? 999;
     this.u.uWarm.value = o.warm || 0;
     for (const m of this.mist) m.sp.position.x = m.x0 + Math.sin(t * 0.05 * m.sp0) * 30 + t * 0.8 * m.sp0;
+    if (this.people) for (const q of this.people) {
+      if (q.role === 'climber') q.p.pose(t, q.i === 0 ? 'cheer' : q.i === 1 ? 'wave' : 'idle', 1);
+      else if (q.role === 'farmer') { q.p.winter(o.frost > 0.5); q.p.pose(t, o.frost > 0.5 ? (q.p.root.position.x > 0 ? 'shiver' : 'bend') : 'bend', 1); }
+      else { q.p.winter(true); q.p.pose(t, o.frost > 0.3 ? 'point' : 'idle', 1); }
+    }
+    if (this.flag) {
+      const p = this.flag.geometry.attributes.position;
+      for (let i = 0; i < p.count; i++) { const x = this.flagBase[i * 3]; p.setZ(i, Math.sin(x * 2.5 - t * 7) * 0.18 * (x / 2.4)); }
+      p.needsUpdate = true;
+    }
+    if (this.smoke) for (const q of this.smoke) {
+      const k = (t * 0.25 + q.ph) % 1;
+      q.sp.position.copy(q.base).add(new THREE.Vector3(k * 3, 1.5 + k * 9, 0));
+      q.sp.scale.setScalar(1.5 + k * 5);
+      q.sp.material.opacity = 0.6 * (1 - k);
+    }
     this.climber.visible = o.climber !== undefined;
     if (this.climber.visible) this.climber.position.copy(this.climberAt(o.climber));
   }
