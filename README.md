@@ -8,6 +8,21 @@ dengan subtitle per kata, penanda bab, dan desain suara prosedural.
 - **Versi pendek (60 dtk):** `output/gempa_tsunami_9x16.mp4` (dari commit sebelumnya)
 - **Prompt backsound Gemini:** `docs/gemini_music_prompt.md`
 
+## Seri ANDAI… (web langsung, tiap episode halaman terpisah)
+
+| Ep | Halaman | Kode & aset | Status |
+|---|---|---|---|
+| 1 | `ep1.html`: Andai Bumi berhenti berputar (2:43) | `episodes/ep1/` | selesai (web) |
+| 2 | `ep2.html`: Andai Indonesia bersalju | `episodes/ep2/` | berikutnya |
+| 3 | Andai semua es mencair | | rencana |
+| 4 | Andai ada lubang tembus Bumi dari Jakarta | | rencana |
+| 5 | Andai Bulan menghilang | | rencana |
+
+Episode diputar langsung di browser (Three.js), jam animasinya mengikuti soundtrack. Bersama-sama memakai
+`src/kit.js` (pemutar, subtitle, label), `src/globe.js` (bola Bumi, data daratan Natural Earth) dan
+`tools/audiokit.py`. Membuat ulang audio Ep1: `node tools/render.mjs --page ep1.html --events build/ep1_events.json`
+lalu `python3 episodes/ep1/audio.py`. Render ke MP4 nanti: `node tools/render.mjs --page ep1.html --from 0 --to 163 --out build/ep1.mp4`.
+
 ## Alur 7 bab
 
 | Waktu | Bab | Visual | Inti penjelasan |

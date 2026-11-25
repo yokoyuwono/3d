@@ -2,3 +2,4 @@ node_modules/
 build/
 output/preview_*
 web/video.mp4
+episodes/*/assets/soundtrack.wav

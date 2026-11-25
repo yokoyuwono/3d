@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Andai Bumi Berhenti Berputar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800;900&display=swap" rel="stylesheet">
+<script>
+  // three.js: local copy when previewing/rendering here, CDN when published
+  {
+    const local = /^(localhost|127\.)/.test(location.hostname);
+    const base = local ? './node_modules/three/' : 'https://cdn.jsdelivr.net/npm/three@0.170.0/';
+    const im = document.createElement('script');
+    im.type = 'importmap';
+    im.textContent = JSON.stringify({ imports: { three: base + 'build/three.module.js', 'three/addons/': base + 'examples/jsm/' } });
+    document.currentScript.after(im);
+  }
+</script>
+<style>
+  /* VOICE: curious, cinematic science short. IDEA: a 9:16 phone video with broadcast overlays.
+     PICTURE: the live 3D scene fills the frame. COLOUR and TYPE: deep space black, white ink,
+     signal red + amber accents; Inter black. LAYOUT: centred 9:16 stage, player bar at the bottom. */
+  html, body { margin: 0; height: 100%; background: #05070b; overflow: hidden; font-family: Inter, system-ui, sans-serif; }
+  #wrap { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); }
+  #stage { position: relative; width: 1080px; height: 1920px; overflow: hidden; color: #fff; transform-origin: 0 0; cursor: pointer; }
+  #stage canvas { position: absolute; inset: 0; width: 1080px !important; height: 1920px !important; }
+  .ov { position: absolute; pointer-events: none; }
+  #vignette { inset: 0; background: radial-gradient(ellipse at 50% 45%, rgba(0,0,0,0) 55%, rgba(0,0,0,0.55) 100%); }
+  #scan { inset: 0; opacity: 0; background: repeating-linear-gradient(0deg, rgba(0,0,0,0.2) 0 3px, rgba(0,0,0,0) 3px 7px); }
+  #flash { inset: 0; background: #fff; opacity: 0; }
+  #fade { inset: 0; background: #000; opacity: 0; }
+
+  #brand { top: 70px; left: 60px; font-weight: 900; font-size: 34px; letter-spacing: 3px; background: #ffd400; color: #111; padding: 8px 18px; border-radius: 10px; }
+  #chap { top: 150px; left: 50%; transform: translateX(-50%); white-space: nowrap; font-weight: 900; font-size: 40px; letter-spacing: 1px;
+    background: rgba(10,10,12,0.66); border: 3px solid rgba(255,255,255,0.2); padding: 12px 30px; border-radius: 60px; }
+  #chap b { color: #ff5a48; margin-right: 14px; }
+  #chcard { left: 0; right: 0; top: 640px; text-align: center; }
+  #chcard .n { display: inline-block; font-weight: 900; font-size: 46px; letter-spacing: 6px; background: #e5281b; padding: 8px 26px; border-radius: 12px; }
+  #chcard .t { font-weight: 900; font-size: 112px; line-height: 1.0; margin: 22px 50px 0; -webkit-text-stroke: 14px #000; paint-order: stroke fill; text-shadow: 0 10px 40px rgba(0,0,0,0.7); }
+
+  #cap { left: 60px; right: 60px; top: 1190px; text-align: center; font-weight: 900; font-size: 80px; line-height: 1.12; letter-spacing: -1px; }
+  #cap span { display: inline-block; margin: 0 8px; color: #fff; -webkit-text-stroke: 12px #000; paint-order: stroke fill; text-shadow: 0 8px 22px rgba(0,0,0,0.65); }
+  #cap span.key { color: #ff5a48; }
+  #cap span.on { color: #ffe14d; transform: scale(1.1); }
+
+  .tag { position: absolute; transform: translate(-50%, -100%); white-space: nowrap; font-weight: 900; font-size: 34px;
+    padding: 10px 20px; border-radius: 12px; background: rgba(12,14,18,0.78); border: 3px solid rgba(255,255,255,0.85); }
+  .tag::after { content: ''; position: absolute; left: 50%; bottom: -26px; width: 4px; height: 24px; background: rgba(255,255,255,0.85); transform: translateX(-50%); }
+  .tag.red { background: #e5281b; border-color: #fff; }
+  .tag.green { background: #0d9b4a; border-color: #fff; }
+  .tag.blue { background: #1f6fd1; border-color: #fff; }
+  .tag.yellow { background: #ffd400; color: #111; border-color: #111; }
+  .tag.yellow::after { background: #111; }
+  .tag.big { font-size: 60px; padding: 14px 30px; }
+
+  #counter { left: 0; right: 0; top: 300px; text-align: center; }
+  #counter .v { font-weight: 900; font-size: 190px; line-height: 1; letter-spacing: -4px; -webkit-text-stroke: 12px #000; paint-order: stroke fill; text-shadow: 0 0 50px rgba(255,90,40,0.6); font-variant-numeric: tabular-nums; }
+  #counter .u { font-weight: 900; font-size: 56px; color: #ffd400; -webkit-text-stroke: 8px #000; paint-order: stroke fill; }
+
+  .panel { background: rgba(10,12,16,0.8); border: 3px solid rgba(255,255,255,0.25); border-radius: 22px; padding: 24px 30px; }
+  #bars { left: 60px; right: 60px; top: 330px; }
+  #bars .row { margin: 10px 0 22px; }
+  #bars .l { display: flex; justify-content: space-between; font-weight: 800; font-size: 34px; margin-bottom: 10px; }
+  #bars .b { height: 40px; border-radius: 10px; background: rgba(255,255,255,0.12); overflow: hidden; }
+  #bars .f { height: 100%; width: 0; border-radius: 10px; }
+
+  #days { left: 0; right: 0; top: 320px; text-align: center; }
+  #days .a { display: inline-block; font-weight: 900; font-size: 38px; letter-spacing: 2px; padding: 8px 20px; border-radius: 10px; background: #ff8a00; color: #111; }
+  #days .v { font-weight: 900; font-size: 150px; line-height: 1.05; -webkit-text-stroke: 10px #000; paint-order: stroke fill; font-variant-numeric: tabular-nums; }
+
+  #clock { left: 70px; right: 70px; top: 330px; display: flex; gap: 30px; justify-content: center; }
+  #clock .c { flex: 1; text-align: center; }
+  #clock .c .h { font-weight: 900; font-size: 120px; line-height: 1; -webkit-text-stroke: 8px #000; paint-order: stroke fill; }
+  #clock .c .s { font-weight: 800; font-size: 32px; margin-top: 10px; }
+  #clock svg { width: 230px; height: 230px; display: block; margin: 0 auto 10px; }
+
+  #teaser { left: 60px; right: 60px; top: 360px; text-align: center; }
+  #teaser .a { display: inline-block; font-weight: 900; font-size: 40px; letter-spacing: 4px; background: #ffd400; color: #111; padding: 8px 22px; border-radius: 10px; }
+  #teaser .b { font-weight: 900; font-size: 104px; line-height: 1.02; margin-top: 18px; -webkit-text-stroke: 12px #00334d; paint-order: stroke fill; text-shadow: 0 0 40px rgba(140,220,255,0.8); }
+  #end { inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; background: rgba(0,0,0,0.75); }
+  #end .a { font-size: 48px; font-weight: 900; color: #ffd400; letter-spacing: 6px; }
+  #end .b { font-size: 120px; font-weight: 900; line-height: 1.0; margin: 18px 60px; }
+  #end .c { font-size: 44px; font-weight: 700; opacity: 0.9; margin-top: 24px; }
+  #note { right: 40px; bottom: 420px; font-weight: 700; font-size: 26px; opacity: 0.85; background: rgba(0,0,0,0.45); padding: 6px 14px; border-radius: 8px; }
+
+  /* player */
+  #player { left: 40px; right: 40px; bottom: 34px; pointer-events: auto; display: flex; align-items: center; gap: 22px; cursor: default; }
+  #playBtn { width: 92px; height: 92px; border-radius: 50%; border: 0; background: rgba(255,255,255,0.92); color: #111; font-size: 38px; font-weight: 900; cursor: pointer; }
+  #pBar { position: relative; flex: 1; height: 16px; background: rgba(255,255,255,0.25); border-radius: 10px; cursor: pointer; }
+  #pBar i { position: absolute; top: -6px; width: 4px; height: 28px; background: rgba(255,255,255,0.7); border-radius: 2px; }
+  #pFill { position: absolute; left: 0; top: 0; bottom: 0; background: #ff5a48; border-radius: 10px; }
+  #pTime { font-weight: 800; font-size: 32px; font-variant-numeric: tabular-nums; min-width: 190px; text-align: right; }
+  #bigPlay { inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 34px; pointer-events: auto; background: rgba(0,0,0,0.45); cursor: pointer; }
+  #bigPlay .btn { width: 240px; height: 240px; border-radius: 50%; background: #ffd400; display: grid; place-items: center; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
+  #bigPlay .btn::before { content: ''; margin-left: 24px; border-left: 90px solid #111; border-top: 56px solid transparent; border-bottom: 56px solid transparent; }
+  #bigPlay .t { font-weight: 900; font-size: 70px; text-align: center; line-height: 1.05; padding: 0 60px; text-shadow: 0 6px 30px #000; }
+  #bigPlay .s { font-weight: 700; font-size: 34px; opacity: 0.9; }
+  #playBtn:focus-visible, #bigPlay:focus-visible { outline: 6px solid #ffd400; outline-offset: 4px; }
+</style>
+</head>
+<body>
+<div id="wrap"><div id="stage">
+  <div class="ov" id="vignette"></div>
+  <div class="ov" id="scan"></div>
+  <div class="ov" id="tags"></div>
+  <div class="ov" id="counter"><div class="v" id="cntV">0</div><div class="u" id="cntU">KM/JAM</div></div>
+  <div class="ov panel" id="bars">
+    <div class="row"><div class="l"><span>Badai Patricia 2015 (terkuat tercatat)</span><span>±345 km/jam</span></div><div class="b"><div class="f" id="bar1" style="background:#ffb020"></div></div></div>
+    <div class="row"><div class="l"><span>Angin saat Bumi berhenti</span><span>±1.670 km/jam</span></div><div class="b"><div class="f" id="bar2" style="background:#ff3b30"></div></div></div>
+  </div>
+  <div class="ov" id="days"><div class="a" id="daysA">SIANG TANPA HENTI</div><div class="v" id="daysV">HARI KE-1</div></div>
+  <div class="ov" id="clock">
+    <div class="c" id="clk1"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="44" fill="#111" stroke="#fff" stroke-width="5"/><path id="clkA1" d="" fill="#ffb020"/><circle cx="50" cy="50" r="4" fill="#fff"/></svg><div class="h">18 jam</div><div class="s">1,4 miliar tahun lalu</div></div>
+    <div class="c" id="clk2"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="44" fill="#111" stroke="#fff" stroke-width="5"/><path id="clkA2" d="" fill="#3aa0ff"/><circle cx="50" cy="50" r="4" fill="#fff"/></svg><div class="h">24 jam</div><div class="s">sekarang</div></div>
+  </div>
+  <div class="ov" id="teaser"><div class="a">EPISODE BERIKUTNYA</div><div class="b">ANDAI INDONESIA BERSALJU</div></div>
+  <div class="ov" id="note">Ilustrasi · skala tidak sebenarnya</div>
+  <div class="ov" id="brand">ANDAI… · EP 1</div>
+  <div class="ov" id="chap"><b id="chapN"></b><span id="chapT"></span></div>
+  <div class="ov" id="cap"></div>
+  <div class="ov" id="chcard"><div class="n" id="ccN"></div><div class="t" id="ccT"></div></div>
+  <div class="ov" id="end"><div class="a">SERI ANDAI… · EPISODE 1</div><div class="b">Bumi Berhenti Berputar</div><div class="c">Episode 2: Andai Indonesia Bersalju</div></div>
+  <div class="ov" id="flash"></div>
+  <div class="ov" id="fade"></div>
+  <div class="ov" id="bigPlay" tabindex="0" role="button" aria-label="Putar video" style="display:none"><div class="btn"></div><div class="t">Andai Bumi Berhenti Berputar</div><div class="s">Seri ANDAI… · Episode 1 · 2:42 · nyalakan suara</div><div class="s" id="loadMsg">Memuat suara…</div></div>
+  <div class="ov" id="player" style="display:none"><button id="playBtn" type="button" aria-label="Putar atau jeda">▶</button><div id="pBar"><div id="pFill"></div></div><div id="pTime">0:00 / 0:00</div></div>
+</div></div>
+<script type="module" src="./episodes/ep1/main.js"></script>
+</body>
+</html>

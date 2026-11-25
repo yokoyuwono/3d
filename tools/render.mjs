@@ -27,7 +27,7 @@ const browser = await chromium.launch({ args: ['--use-gl=angle', '--use-angle=sw
 const page = await browser.newPage({ viewport: { width: 1080, height: 1920 }, deviceScaleFactor: 1 });
 page.on('console', (m) => console.log('[page]', m.text()));
 page.on('pageerror', (e) => { console.log('[pageerror]', e.message); process.exit(1); });
-await page.goto(`http://localhost:${port}/index.html?render=1&scale=${scale}`);
+await page.goto(`http://localhost:${port}/${args.page || 'index.html'}?render=1&scale=${scale}`);
 await page.waitForFunction(() => window.READY === true, null, { timeout: 180000 });
 
 async function frame(t) {
@@ -37,7 +37,7 @@ async function frame(t) {
 
 to = +(to ?? (await page.evaluate(() => window.DURATION)));
 if (args.events) {
-  const ev = await page.evaluate(() => ({ ...window.EVENTS, shots: window.SHOT_TIMES }));
+  const ev = await page.evaluate(() => ({ ...window.EVENTS, shots: window.SHOT_TIMES ?? window.EVENTS.shots }));
   fs.writeFileSync(args.events, JSON.stringify(ev, null, 1));
   console.log(JSON.stringify(ev));
 } else if (args.stills) {

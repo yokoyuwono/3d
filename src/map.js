@@ -36,14 +36,22 @@ export class MapScene {
     s.add(d);
 
     // ocean with lat/lon grid and depth glow near the trench
-    this.oceanU = { uTime: { value: 0 } };
+    this.oceanU = { uTime: { value: 0 }, uDry: { value: 0 } };
     const ocean = new THREE.Mesh(new THREE.PlaneGeometry(3000, 3000), new THREE.ShaderMaterial({
       uniforms: this.oceanU,
       vertexShader: 'varying vec3 vW; void main(){ vW = (modelMatrix*vec4(position,1.0)).xyz; gl_Position = projectionMatrix*viewMatrix*vec4(vW,1.0); }',
       fragmentShader: /* glsl */ `
-        uniform float uTime; varying vec3 vW;
+        uniform float uTime, uDry; varying vec3 vW;
+        float h21(vec2 p){ return fract(sin(dot(p, vec2(127.1,311.7))) * 43758.5453); }
+        float vn(vec2 p){ vec2 i=floor(p), f=fract(p); f=f*f*(3.0-2.0*f);
+          return mix(mix(h21(i),h21(i+vec2(1,0)),f.x), mix(h21(i+vec2(0,1)),h21(i+vec2(1,1)),f.x), f.y); }
         void main(){
           vec3 c = vec3(0.035, 0.12, 0.22);
+          // exposed seabed (illustrative): sandy plains with darker channels
+          float n = vn(vW.xz * 0.02) * 0.6 + vn(vW.xz * 0.08) * 0.4;
+          vec3 bed = mix(vec3(0.42, 0.33, 0.2), vec3(0.62, 0.5, 0.32), n);
+          float dryMask = smoothstep(n - 0.06, n + 0.06, uDry * 1.3 - 0.15);
+          c = mix(c, bed, dryMask);
           vec2 g = abs(fract(vW.xz / 50.0 + 0.5) - 0.5) * 50.0;
           float line = 1.0 - smoothstep(0.0, 0.45, min(g.x, g.y));
           c += line * vec3(0.05, 0.10, 0.14);
@@ -56,6 +64,7 @@ export class MapScene {
     ocean.rotation.x = -Math.PI / 2;
     s.add(ocean);
 
+    this.tectonic = [];
     // islands
     const landMat = new THREE.MeshLambertMaterial({ color: lin(0.42, 0.62, 0.32) });
     const sideMat = new THREE.MeshLambertMaterial({ color: lin(0.80, 0.70, 0.48) });
@@ -85,8 +94,9 @@ export class MapScene {
     this.trenchMat = new THREE.MeshBasicMaterial({ color: 0xff3a1f, transparent: true, opacity: 0.95 });
     this.glowMat = new THREE.MeshBasicMaterial({ color: 0xff5a20, transparent: true, opacity: 0.25, blending: THREE.AdditiveBlending, depthWrite: false });
     for (const tr of [TRENCH, TRENCH2]) {
-      s.add(new THREE.Mesh(tube(tr, 0.9), this.trenchMat));
-      s.add(new THREE.Mesh(tube(tr, 3.2), this.glowMat));
+      const a = new THREE.Mesh(tube(tr, 0.9), this.trenchMat), b = new THREE.Mesh(tube(tr, 3.2), this.glowMat);
+      s.add(a, b);
+      this.tectonic.push(a, b);
     }
     // teeth marks along the Sunda trench (subduction symbol)
     const curve = new THREE.CatmullRomCurve3(TRENCH.map(([lo, la]) => geo(lo, la, 0.6)));
@@ -99,6 +109,7 @@ export class MapScene {
       const n = new THREE.Vector3(-tg.z, 0, tg.x); // points landward (to the left of travel)
       m.lookAt(p.clone().add(n));
       s.add(m);
+      this.tectonic.push(m);
     }
 
     // plate motion arrows (Indo-Australia moves NNE)
@@ -128,8 +139,13 @@ export class MapScene {
   }
 
   // mode: 'plates' (ch1) or 'simeulue' (ch7). k: 0..1 progress inside the shot
-  update(t, mode, k) {
+  setTectonics(on) {
+    for (const o of this.tectonic) o.visible = on;
+  }
+
+  update(t, mode, k, dry = 0) {
     this.oceanU.uTime.value = t;
+    this.oceanU.uDry.value = dry;
     const pulse = 0.5 + 0.5 * Math.sin(t * 5);
     this.glowMat.opacity = 0.18 + 0.2 * pulse;
     for (const a of this.arrows) {

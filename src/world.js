@@ -170,6 +170,7 @@ export class World {
     this.buildCracks();
     this.buildSigns();
     this.buildParticles();
+    this.buildWeather();
   }
 
   // ---------------------------------------------------------------- sky
@@ -729,6 +730,75 @@ export class World {
     this.scene.add(this.spray);
   }
 
+  // ---------------------------------------------------------------- weather (ANDAI episodes)
+  buildWeather() {
+    const R = mulberry32(77);
+    this.wind = 0; this.windAge = 0; this.snow = 0;
+    // fast streaks blowing east (+x)
+    const n = 4000;
+    this.streakSeeds = [];
+    const pos = new Float32Array(n * 6);
+    for (let i = 0; i < n; i++) this.streakSeeds.push({ x: R() * 600 - 300, y: 0.5 + R() * 45, z: -60 + R() * 240, len: 10 + R() * 22, sp: 0.7 + R() * 0.6 });
+    const g = new THREE.BufferGeometry();
+    g.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+    this.streaks = new THREE.LineSegments(g, new THREE.LineBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0, depthWrite: false }));
+    this.streaks.frustumCulled = false;
+    this.scene.add(this.streaks);
+    // flying roof tiles / branches
+    this.flyers = [];
+    const geos = [new THREE.BoxGeometry(2.2, 0.15, 1.4), new THREE.BoxGeometry(3, 0.25, 0.25), new THREE.BoxGeometry(1.2, 0.6, 0.8)];
+    const cols = [[0.7, 0.3, 0.18], [0.45, 0.32, 0.2], [0.3, 0.45, 0.2], [0.9, 0.9, 0.9]];
+    for (let i = 0; i < 120; i++) {
+      const m = new THREE.Mesh(geos[i % 3], new THREE.MeshLambertMaterial({ color: lin(cols[i % 4]) }));
+      m.visible = false;
+      this.scene.add(m);
+      this.flyers.push({ m, x: -140 + R() * 260, z: 25 + R() * 130, delay: R() * 2.5, sp: 40 + R() * 60, up: 4 + R() * 18, spin: (R() - 0.5) * 12 });
+    }
+    // snow
+    const ns = 4000;
+    this.snowSys = particleSystem(ns, [1, 1, 1]);
+    this.snowSeeds = [];
+    for (let i = 0; i < ns; i++) this.snowSeeds.push({ x: R() * 400 - 200, y: R() * 80, z: -60 + R() * 220, sp: 1.5 + R(), size: 0.25 + R() * 0.35, ph: R() * 6.28 });
+    this.scene.add(this.snowSys);
+  }
+
+  updateWeather(t, camera) {
+    // wind streaks
+    const w = this.wind;
+    this.streaks.visible = w > 0.01;
+    if (this.streaks.visible) {
+      const p = this.streaks.geometry.attributes.position;
+      this.streakSeeds.forEach((s, i) => {
+        const x = ((s.x + t * 260 * s.sp + 300) % 600) - 300;
+        p.setXYZ(i * 2, x, s.y, s.z);
+        p.setXYZ(i * 2 + 1, x + s.len * (0.4 + w), s.y - 0.3, s.z);
+      });
+      p.needsUpdate = true;
+      this.streaks.material.opacity = 0.75 * w;
+    }
+    for (const f of this.flyers) {
+      const a = this.windAge - f.delay;
+      f.m.visible = w > 0.3 && a > 0 && a < 5;
+      if (!f.m.visible) continue;
+      f.m.position.set(f.x + a * f.sp, terrainY(f.x, f.z) + 3 + f.up * Math.sin(Math.min(a, 2.5) * 0.6) + a * 2, f.z + Math.sin(a * 2 + f.x) * 3);
+      f.m.rotation.set(a * f.spin, a * f.spin * 0.7, a * f.spin * 0.3);
+    }
+    if (w > 0) for (const pm of this.palms) { pm.g.rotation.z = -w * (0.9 + 0.15 * Math.sin(t * 9 + pm.phase)); pm.cr.rotation.y = t * 3 * w; }
+    // snow
+    this.snowSys.visible = this.snow > 0.01;
+    if (this.snowSys.visible) {
+      const pos = this.snowSys.geometry.attributes.position, al = this.snowSys.geometry.attributes.aAlpha, sz = this.snowSys.geometry.attributes.aSize;
+      this.snowSeeds.forEach((s, i) => {
+        const y = 80 - ((s.y + t * s.sp * 3) % 80);
+        pos.setXYZ(i, s.x + Math.sin(t * 0.8 + s.ph) * 2, y, s.z);
+        al.setX(i, 0.9 * this.snow);
+        sz.setX(i, s.size);
+      });
+      pos.needsUpdate = al.needsUpdate = sz.needsUpdate = true;
+      this.snowSys.material.uniforms.uScale.value = this.dust.material.uniforms.uScale.value;
+    }
+  }
+
   // ================================================================ update
   update(t, camera, canvasH) {
     const sp = seaParams(t);
@@ -889,7 +959,8 @@ export class World {
       pos.needsUpdate = al.needsUpdate = sz.needsUpdate = true;
     }
     const scale = canvasH / (2 * Math.tan(THREE.MathUtils.degToRad(camera.fov) / 2));
-    for (const ps of [this.dust, this.spray]) {
+    this.updateWeather(t, camera);
+    for (const ps of [this.dust, this.spray, this.snowSys]) {
       ps.material.uniforms.uScale.value = scale;
       ps.material.uniforms.uFogCol.value.copy(hor);
       ps.material.uniforms.uFogDen.value = md.fog;
