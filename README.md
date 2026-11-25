@@ -25,8 +25,8 @@ dengan subtitle per kata, penanda bab, dan desain suara prosedural.
 | S2E1 | `s2e1.html`: Andai Gunung Toba meletus lagi (2:55) | `episodes/s2e1/` (medan asli Toba: `tools/dem_region.py`, `tools/toba_mask.py`) | selesai (web) |
 | S2E2 | `s2e2.html`: Andai Bumi kehilangan oksigen 5 detik (3:05) | `episodes/s2e2/` | selesai (web) |
 | S2E3 | `s2e3.html`: Andai semua orang Indonesia melompat bersamaan (3:04) | `episodes/s2e3/` | selesai (web) |
-| S2E4 | Andai Jakarta tenggelam 2050 | | berikutnya |
-| S2E5 | Andai Matahari padam | | rencana |
+| S2E4 | `s2e4.html`: Andai Jakarta tenggelam 2050 (3:06) | `episodes/s2e4/` | selesai (web) |
+| S2E5 | Andai Matahari padam | | berikutnya |
 | K1 | Kalau kamu jatuh dari pesawat tanpa parasut | | rencana |
 | K2 | Kalau kamu tersambar petir | | rencana |
 | K3 | Kalau kamu terjebak di dasar Palung Jawa | | rencana |

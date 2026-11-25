@@ -1,0 +1,339 @@
+[
+ {
+  "id": 1,
+  "ch": 0,
+  "start": 1.7,
+  "dur": 8.238,
+  "end": 9.938,
+  "sentences": [
+   {
+    "text": "Di Muara Baru, Jakarta Utara, ada sebuah masjid yang kini berdiri di tengah genangan air laut.",
+    "start": 1.7,
+    "end": 7.727
+   },
+   {
+    "text": "Dulu, ia berdiri di daratan.",
+    "start": 7.947,
+    "end": 9.938
+   }
+  ]
+ },
+ {
+  "id": 2,
+  "ch": 0,
+  "start": 10.388,
+  "dur": 19.29,
+  "end": 29.678,
+  "sentences": [
+   {
+    "text": "Peneliti ITB memperkirakan, kalau penurunan tanah terus seperti dulu, sekitar sembilan puluh persen Jakarta Utara bisa terendam pada tahun dua ribu lima puluh.",
+    "start": 10.388,
+    "end": 20.758
+   },
+   {
+    "text": "Bagaimana itu bisa terjadi?",
+    "start": 20.978,
+    "end": 22.905
+   },
+   {
+    "text": "Dan apa yang bisa menyelamatkannya?",
+    "start": 23.125,
+    "end": 25.247
+   },
+   {
+    "text": "Jawabannya ada di bawah kaki kita.",
+    "start": 25.467,
+    "end": 28.017
+   },
+   {
+    "text": "Tonton sampai habis.",
+    "start": 28.237,
+    "end": 29.678
+   }
+  ]
+ },
+ {
+  "id": 3,
+  "ch": 1,
+  "start": 30.478,
+  "dur": 16.725,
+  "end": 47.203,
+  "sentences": [
+   {
+    "text": "Banyak orang mengira masalahnya hanya air laut yang naik.",
+    "start": 30.478,
+    "end": 34.075
+   },
+   {
+    "text": "Itu benar, tapi kecil.",
+    "start": 34.295,
+    "end": 36.322
+   },
+   {
+    "text": "Permukaan laut naik beberapa milimeter per tahun.",
+    "start": 36.542,
+    "end": 39.738
+   },
+   {
+    "text": "Tanah di bagian Jakarta Utara yang paling parah, turun sekitar sepuluh sentimeter per tahun.",
+    "start": 39.958,
+    "end": 45.433
+   },
+   {
+    "text": "Puluhan kali lebih cepat.",
+    "start": 45.653,
+    "end": 47.203
+   }
+  ]
+ },
+ {
+  "id": 4,
+  "ch": 1,
+  "start": 47.603,
+  "dur": 9.037,
+  "end": 56.64,
+  "sentences": [
+   {
+    "text": "Di beberapa tempat, tanah sudah turun sekitar empat meter sejak tahun tujuh puluhan.",
+    "start": 47.603,
+    "end": 52.691
+   },
+   {
+    "text": "Itu lebih tinggi dari dua orang dewasa yang berdiri bertumpuk.",
+    "start": 52.911,
+    "end": 56.64
+   }
+  ]
+ },
+ {
+  "id": 5,
+  "ch": 2,
+  "start": 57.44,
+  "dur": 15.019,
+  "end": 72.459,
+  "sentences": [
+   {
+    "text": "Kenapa tanahnya turun?",
+    "start": 57.44,
+    "end": 59.044
+   },
+   {
+    "text": "Bayangkan lapisan tanah di bawah Jakarta seperti spons yang basah.",
+    "start": 59.264,
+    "end": 63.383
+   },
+   {
+    "text": "Saat airnya disedot keluar, spons itu memampat, dan permukaannya turun.",
+    "start": 63.603,
+    "end": 68.525
+   },
+   {
+    "text": "Dan begitu memampat, ia tidak bisa kembali seperti semula.",
+    "start": 68.745,
+    "end": 72.459
+   }
+  ]
+ },
+ {
+  "id": 6,
+  "ch": 2,
+  "start": 72.859,
+  "dur": 13.812,
+  "end": 86.671,
+  "sentences": [
+   {
+    "text": "Selama puluhan tahun, sumur bor di rumah, pabrik, dan gedung tinggi menyedot air tanah setiap hari, karena belum semua warga mendapat air bersih dari pipa.",
+    "start": 72.859,
+    "end": 82.936
+   },
+   {
+    "text": "Ditambah lagi, berat bangunan yang terus bertambah di atasnya.",
+    "start": 83.156,
+    "end": 86.671
+   }
+  ]
+ },
+ {
+  "id": 7,
+  "ch": 3,
+  "start": 87.471,
+  "dur": 16.508,
+  "end": 103.979,
+  "sentences": [
+   {
+    "text": "Kalau ini terus berlanjut, seperti apa Jakarta tahun dua ribu lima puluh?",
+    "start": 87.471,
+    "end": 92.031
+   },
+   {
+    "text": "Banjir rob datang bukan sesekali, tapi setiap kali air pasang.",
+    "start": 92.251,
+    "end": 96.57
+   },
+   {
+    "text": "Pelabuhan, jalan pesisir, dan rumah-rumah di utara, berada di bawah permukaan laut, dan hanya dilindungi tanggul.",
+    "start": 96.79,
+    "end": 103.979
+   }
+  ]
+ },
+ {
+  "id": 8,
+  "ch": 3,
+  "start": 104.379,
+  "dur": 11.068,
+  "end": 115.447,
+  "sentences": [
+   {
+    "text": "Dan tanggul pun bisa bocor.",
+    "start": 104.379,
+    "end": 106.27
+   },
+   {
+    "text": "Tahun dua ribu sembilan belas, dan lagi akhir tahun dua ribu dua puluh lima, tanggul di Muara Baru gagal menahan air laut yang merembes ke rumah warga.",
+    "start": 106.49,
+    "end": 115.447
+   }
+  ]
+ },
+ {
+  "id": 9,
+  "ch": 4,
+  "start": 116.247,
+  "dur": 17.723,
+  "end": 133.97,
+  "sentences": [
+   {
+    "text": "Tapi ada kabar baik.",
+    "start": 116.247,
+    "end": 117.752
+   },
+   {
+    "text": "Tokyo pernah mengalami hal yang sama.",
+    "start": 117.972,
+    "end": 120.334
+   },
+   {
+    "text": "Sebagian kotanya turun sampai sekitar empat meter.",
+    "start": 120.554,
+    "end": 123.956
+   },
+   {
+    "text": "Lalu Jepang membatasi pengambilan air tanah, dan menggantinya dengan air dari sungai dan waduk.",
+    "start": 124.176,
+    "end": 130.12
+   },
+   {
+    "text": "Hasilnya, penurunan tanah di Tokyo hampir berhenti.",
+    "start": 130.34,
+    "end": 133.97
+   }
+  ]
+ },
+ {
+  "id": 10,
+  "ch": 4,
+  "start": 134.37,
+  "dur": 16.152,
+  "end": 150.522,
+  "sentences": [
+   {
+    "text": "Jakarta sedang menempuh jalan yang sama.",
+    "start": 134.37,
+    "end": 136.878
+   },
+   {
+    "text": "Memperluas air pipa, mengawasi sumur, dan membangun tanggul laut.",
+    "start": 137.098,
+    "end": 141.398
+   },
+   {
+    "text": "Targetnya, semua warga Jakarta mendapat air pipa pada tahun dua ribu tiga puluh.",
+    "start": 141.618,
+    "end": 147.006
+   },
+   {
+    "text": "Dan di beberapa titik, penurunan tanah mulai melambat.",
+    "start": 147.226,
+    "end": 150.522
+   }
+  ]
+ },
+ {
+  "id": 11,
+  "ch": 4,
+  "start": 150.922,
+  "dur": 7.38,
+  "end": 158.302,
+  "sentences": [
+   {
+    "text": "Tapi ingat, tanah yang sudah turun tidak bisa naik lagi.",
+    "start": 150.922,
+    "end": 154.279
+   },
+   {
+    "text": "Yang bisa kita lakukan adalah menghentikannya, secepat mungkin.",
+    "start": 154.499,
+    "end": 158.302
+   }
+  ]
+ },
+ {
+  "id": 12,
+  "ch": 5,
+  "start": 159.102,
+  "dur": 13.398,
+  "end": 172.5,
+  "sentences": [
+   {
+    "text": "Jadi, apakah Jakarta pasti tenggelam tahun dua ribu lima puluh?",
+    "start": 159.102,
+    "end": 162.945
+   },
+   {
+    "text": "Tidak pasti.",
+    "start": 163.165,
+    "end": 164.04
+   },
+   {
+    "text": "Angka itu adalah perkiraan, kalau kita tidak berubah.",
+    "start": 164.26,
+    "end": 167.65
+   },
+   {
+    "text": "Masa depan Jakarta, ditentukan oleh keputusan yang kita ambil hari ini.",
+    "start": 167.87,
+    "end": 172.5
+   }
+  ]
+ },
+ {
+  "id": 13,
+  "ch": 5,
+  "start": 173.1,
+  "dur": 9.628,
+  "end": 182.728,
+  "sentences": [
+   {
+    "text": "Kamu tinggal di daerah mana, dan pakai air tanah atau air pipa?",
+    "start": 173.1,
+    "end": 177.099
+   },
+   {
+    "text": "Tulis di komentar.",
+    "start": 177.319,
+    "end": 178.587
+   },
+   {
+    "text": "Episode berikutnya.",
+    "start": 178.807,
+    "end": 180.255
+   },
+   {
+    "text": "Andai Matahari tiba-tiba padam.",
+    "start": 180.475,
+    "end": 182.728
+   }
+  ]
+ }
+]
