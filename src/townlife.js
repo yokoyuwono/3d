@@ -75,6 +75,8 @@ export class TownLife {
     this.updateDigger(t, !!this.w.showDigger);
     if (mode === 'flood') mode = 'none';
     const none = mode === 'none' || mode === 'storm';
+    const moon = mode === 'moon';
+    if (moon) mode = 'calm';
     const snow = mode === 'snow', heat = mode === 'heat', night = mode === 'night';
     const wrap = (v, a, b) => a + ((((v - a) % (b - a)) + (b - a)) % (b - a));
     // pedestrians
@@ -84,21 +86,21 @@ export class TownLife {
       if (!vis) return;
       w.p.winter(snow);
       const sp = w.sp * (heat ? 0.55 : snow ? 0.6 : 1);
-      const still = snow ? w.kind < 0.3 : heat ? w.kind < 0.25 : w.kind < 0.12;
+      const still = moon ? w.kind < 0.8 : snow ? w.kind < 0.3 : heat ? w.kind < 0.25 : w.kind < 0.12;
       const d = still ? 0 : wrap(w.off + t * sp * w.dir, 0, w.b - w.a);
       const s = w.a + d;
       const x = w.alongZ ? w.x : s, z = w.alongZ ? s : w.z;
       w.p.root.position.set(x, Y(x, z), z);
-      w.p.root.rotation.y = still ? w.ph : w.alongZ ? (w.dir > 0 ? 0 : Math.PI) : (w.dir > 0 ? Math.PI / 2 : -Math.PI / 2);
+      w.p.root.rotation.y = still && moon ? Math.PI : still ? w.ph : w.alongZ ? (w.dir > 0 ? 0 : Math.PI) : (w.dir > 0 ? Math.PI / 2 : -Math.PI / 2);
       let pose = 'walk';
-      if (still) pose = snow ? 'lookUp' : heat ? 'fan' : (w.kind < 0.06 ? 'wave' : 'idle');
+      if (still) pose = moon ? (w.kind < 0.25 ? 'point' : 'lookUp') : snow ? 'lookUp' : heat ? 'fan' : (w.kind < 0.06 ? 'wave' : 'idle');
       else if (heat && w.kind > 0.55) pose = 'umbrella';
       else if (snow && w.kind > 0.85) pose = 'shiver';
       w.p.pose(t, pose, sp);
     });
     // vehicles
     for (const q of this.vehicles) {
-      const vis = !none && !night && !(snow && !q.bike) && !(heat && q.off % 3 < 1);
+      const vis = !none && !night && !moon && !(snow && !q.bike) && !(heat && q.off % 3 < 1);
       q.v.visible = vis;
       if (!vis) continue;
       const sp = q.sp * (snow ? 0.35 : heat ? 0.8 : 1);

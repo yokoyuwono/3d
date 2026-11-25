@@ -1,0 +1,317 @@
+[
+ {
+  "id": 1,
+  "ch": 0,
+  "start": 1.7,
+  "dur": 9.543,
+  "end": 11.243,
+  "sentences": [
+   {
+    "text": "Kalau kamu menggali lubang lurus ke bawah dari Jakarta, terus, dan terus, sampai tembus ke sisi lain Bumi, kamu akan keluar di sebuah negara yang tidak kamu duga.",
+    "start": 1.7,
+    "end": 11.243
+   }
+  ]
+ },
+ {
+  "id": 2,
+  "ch": 0,
+  "start": 11.693,
+  "dur": 10.26,
+  "end": 21.953,
+  "sentences": [
+   {
+    "text": "Perjalanannya hanya sekitar empat puluh menit.",
+    "start": 11.693,
+    "end": 14.45
+   },
+   {
+    "text": "Tapi ada satu masalah besar, yang membuat perjalanan ini tidak pernah benar-benar selesai.",
+    "start": 14.67,
+    "end": 20.241
+   },
+   {
+    "text": "Tonton sampai habis.",
+    "start": 20.461,
+    "end": 21.953
+   }
+  ]
+ },
+ {
+  "id": 3,
+  "ch": 1,
+  "start": 22.753,
+  "dur": 8.051,
+  "end": 30.804,
+  "sentences": [
+   {
+    "text": "Lubang terdalam yang pernah digali manusia adalah Sumur Superdalam Kola, di Rusia.",
+    "start": 22.753,
+    "end": 28.112
+   },
+   {
+    "text": "Kedalamannya dua belas kilometer lebih.",
+    "start": 28.332,
+    "end": 30.804
+   }
+  ]
+ },
+ {
+  "id": 4,
+  "ch": 1,
+  "start": 31.204,
+  "dur": 9.751,
+  "end": 40.955,
+  "sentences": [
+   {
+    "text": "Kedengarannya dalam?",
+    "start": 31.204,
+    "end": 32.667
+   },
+   {
+    "text": "Itu bahkan tidak sampai sepersepuluh persen jalan menembus Bumi.",
+    "start": 32.887,
+    "end": 36.881
+   },
+   {
+    "text": "Dan di dasarnya, suhunya sudah seratus delapan puluh derajat.",
+    "start": 37.101,
+    "end": 40.955
+   }
+  ]
+ },
+ {
+  "id": 5,
+  "ch": 2,
+  "start": 41.755,
+  "dur": 10.546,
+  "end": 52.301,
+  "sentences": [
+   {
+    "text": "Sekarang, bayangkan sebuah lubang ajaib yang tahan panas.",
+    "start": 41.755,
+    "end": 45.312
+   },
+   {
+    "text": "Kamu melompat.",
+    "start": 45.532,
+    "end": 46.458
+   },
+   {
+    "text": "Beberapa detik pertama, kamu menembus kerak Bumi, lapisan tipis tempat kita semua hidup.",
+    "start": 46.678,
+    "end": 52.301
+   }
+  ]
+ },
+ {
+  "id": 6,
+  "ch": 2,
+  "start": 52.701,
+  "dur": 5.92,
+  "end": 58.621,
+  "sentences": [
+   {
+    "text": "Lalu mantel, batuan panas yang bergerak sangat pelan, hampir tiga ribu kilometer tebalnya.",
+    "start": 52.701,
+    "end": 58.621
+   }
+  ]
+ },
+ {
+  "id": 7,
+  "ch": 2,
+  "start": 59.021,
+  "dur": 10.638,
+  "end": 69.659,
+  "sentences": [
+   {
+    "text": "Kemudian inti luar, lautan besi cair.",
+    "start": 59.021,
+    "end": 61.667
+   },
+   {
+    "text": "Dan di pusatnya, inti dalam.",
+    "start": 61.887,
+    "end": 63.769
+   },
+   {
+    "text": "Bola besi padat bersuhu lebih dari lima ribu derajat, hampir sepanas permukaan Matahari.",
+    "start": 63.989,
+    "end": 69.659
+   }
+  ]
+ },
+ {
+  "id": 8,
+  "ch": 2,
+  "start": 70.109,
+  "dur": 8.519,
+  "end": 78.628,
+  "sentences": [
+   {
+    "text": "Di titik pusat Bumi, kecepatanmu mencapai hampir delapan kilometer per detik.",
+    "start": 70.109,
+    "end": 75.204
+   },
+   {
+    "text": "Lebih dari dua puluh delapan ribu kilometer per jam.",
+    "start": 75.424,
+    "end": 78.628
+   }
+  ]
+ },
+ {
+  "id": 9,
+  "ch": 3,
+  "start": 79.428,
+  "dur": 9.957,
+  "end": 89.385,
+  "sentences": [
+   {
+    "text": "Setelah melewati pusat, gravitasi justru menarikmu ke belakang.",
+    "start": 79.428,
+    "end": 83.457
+   },
+   {
+    "text": "Kamu melambat, dan terus melambat, sampai tiba di sisi lain Bumi, tepat saat kecepatanmu nol.",
+    "start": 83.677,
+    "end": 89.385
+   }
+  ]
+ },
+ {
+  "id": 10,
+  "ch": 3,
+  "start": 89.835,
+  "dur": 9.752,
+  "end": 99.587,
+  "sentences": [
+   {
+    "text": "Sekitar tiga puluh delapan menit setelah melompat dari Jakarta, kepalamu muncul di Kolombia.",
+    "start": 89.835,
+    "end": 95.884
+   },
+   {
+    "text": "Di pegunungan Andes, tidak jauh dari kota Bucaramanga.",
+    "start": 96.104,
+    "end": 99.587
+   }
+  ]
+ },
+ {
+  "id": 11,
+  "ch": 3,
+  "start": 99.987,
+  "dur": 13.43,
+  "end": 113.417,
+  "sentences": [
+   {
+    "text": "Indonesia memang istimewa.",
+    "start": 99.987,
+    "end": 101.848
+   },
+   {
+    "text": "Kebanyakan tempat di Bumi, kalau ditembus, keluarnya di tengah laut.",
+    "start": 102.068,
+    "end": 105.878
+   },
+   {
+    "text": "Tapi Jakarta dan Surabaya tembus ke daratan Amerika Selatan.",
+    "start": 106.098,
+    "end": 110.167
+   },
+   {
+    "text": "Sedangkan Medan, tembus ke Samudra Pasifik.",
+    "start": 110.387,
+    "end": 113.417
+   }
+  ]
+ },
+ {
+  "id": 12,
+  "ch": 4,
+  "start": 114.217,
+  "dur": 11.417,
+  "end": 125.634,
+  "sentences": [
+   {
+    "text": "Tapi ini masalahnya.",
+    "start": 114.217,
+    "end": 115.827
+   },
+   {
+    "text": "Kalau kamu tidak segera berpegangan, kamu akan jatuh lagi.",
+    "start": 116.047,
+    "end": 119.652
+   },
+   {
+    "text": "Kembali ke Jakarta, lalu ke Kolombia lagi, bolak-balik seperti bandul, selamanya.",
+    "start": 119.872,
+    "end": 125.634
+   }
+  ]
+ },
+ {
+  "id": 13,
+  "ch": 4,
+  "start": 126.034,
+  "dur": 11.3,
+  "end": 137.334,
+  "sentences": [
+   {
+    "text": "Dan di dunia nyata, putaran Bumi akan membuatmu menabrak dinding lubang.",
+    "start": 126.034,
+    "end": 130.445
+   },
+   {
+    "text": "Panas dan tekanan akan menghancurkan apa pun.",
+    "start": 130.665,
+    "end": 133.663
+   },
+   {
+    "text": "Jadi lubang ini, hanya bisa ada dalam imajinasi.",
+    "start": 133.883,
+    "end": 137.334
+   }
+  ]
+ },
+ {
+  "id": 14,
+  "ch": 5,
+  "start": 138.134,
+  "dur": 9.388,
+  "end": 147.522,
+  "sentences": [
+   {
+    "text": "Tapi ada sesuatu yang benar-benar nyata, dan bisa kamu lihat setiap malam.",
+    "start": 138.134,
+    "end": 142.888
+   },
+   {
+    "text": "Ia perlahan meninggalkan kita, hampir empat sentimeter setiap tahun.",
+    "start": 143.108,
+    "end": 147.522
+   }
+  ]
+ },
+ {
+  "id": 15,
+  "ch": 5,
+  "start": 148.022,
+  "dur": 5.478,
+  "end": 153.5,
+  "sentences": [
+   {
+    "text": "Apa yang terjadi jika Bulan menghilang?",
+    "start": 148.022,
+    "end": 150.252
+   },
+   {
+    "text": "Jawabannya, di episode terakhir seri ini.",
+    "start": 150.472,
+    "end": 153.5
+   }
+  ]
+ }
+]

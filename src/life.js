@@ -49,6 +49,7 @@ export class Person {
     this.hat = hat;
     if (hat === 'hijab') this.head.add(new THREE.Mesh(G.hijab, mat(SHIRTS[Math.floor(R() * SHIRTS.length)])));
     else if (hat === 'caping') { const c = new THREE.Mesh(G.caping, mat([0.85, 0.72, 0.45])); c.position.y = 0.17; this.head.add(c); }
+    else if (hat === 'sombrero') { const br = new THREE.Mesh(new THREE.CylinderGeometry(0.42, 0.42, 0.03, 18), mat([0.92, 0.85, 0.65])); br.position.y = 0.1; const cr = new THREE.Mesh(new THREE.CylinderGeometry(0.15, 0.19, 0.2, 14), mat([0.92, 0.85, 0.65])); cr.position.y = 0.2; const band = new THREE.Mesh(new THREE.CylinderGeometry(0.195, 0.195, 0.05, 14), mat([0.1, 0.1, 0.1])); band.position.y = 0.14; this.head.add(br, cr, band); }
     else if (hat === 'helmet') { const c = new THREE.Mesh(G.helmet, mat([0.1, 0.5, 0.2])); c.position.y = 0.02; this.head.add(c); }
     else { const h = new THREE.Mesh(G.hair, mat([0.08, 0.06, 0.05])); h.rotation.x = -0.3; this.head.add(h); }
     this.beanie = new THREE.Mesh(G.beanie, mat(JACKETS[Math.floor(R() * JACKETS.length)])); this.beanie.position.y = 0.04; this.beanie.visible = false; this.head.add(this.beanie);

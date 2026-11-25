@@ -214,6 +214,13 @@ export class Globe {
     s.add(this.light, new THREE.AmbientLight(0x404050, 0.6));
   }
 
+  addMarker(name, lat, lon, color = 0xffffff) {
+    const m = new THREE.Mesh(new THREE.SphereGeometry(0.16, 16, 12), new THREE.MeshBasicMaterial({ color }));
+    m.position.copy(ll(lat, lon, R * 1.01));
+    this.earth.add(m);
+    this.markers[name] = m;
+  }
+
   // glowing outline of the Indonesian islands that can be slid north (Episode 2)
   addOutline(islands, ellipses) {
     this.outline = new THREE.Group();
