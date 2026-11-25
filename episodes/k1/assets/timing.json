@@ -1,0 +1,367 @@
+[
+ {
+  "id": 1,
+  "ch": 0,
+  "start": 1.7,
+  "dur": 6.771,
+  "end": 8.471,
+  "sentences": [
+   {
+    "text": "Sepuluh ribu meter di atas Bumi.",
+    "start": 1.7,
+    "end": 3.93
+   },
+   {
+    "text": "Tiba-tiba, kamu terlempar keluar dari pesawat.",
+    "start": 4.15,
+    "end": 7.373
+   },
+   {
+    "text": "Tanpa parasut.",
+    "start": 7.593,
+    "end": 8.471
+   }
+  ]
+ },
+ {
+  "id": 2,
+  "ch": 0,
+  "start": 8.921,
+  "dur": 12.399,
+  "end": 21.32,
+  "sentences": [
+   {
+    "text": "Kamu punya sekitar tiga menit sebelum menyentuh tanah.",
+    "start": 8.921,
+    "end": 12.299
+   },
+   {
+    "text": "Mungkinkah selamat?",
+    "start": 12.519,
+    "end": 13.696
+   },
+   {
+    "text": "Ternyata, ada orang yang benar-benar pernah selamat dari ketinggian ini.",
+    "start": 13.916,
+    "end": 18.04
+   },
+   {
+    "text": "Bagaimana caranya?",
+    "start": 18.26,
+    "end": 19.533
+   },
+   {
+    "text": "Tonton sampai habis.",
+    "start": 19.753,
+    "end": 21.32
+   }
+  ]
+ },
+ {
+  "id": 3,
+  "ch": 1,
+  "start": 22.12,
+  "dur": 9.493,
+  "end": 31.613,
+  "sentences": [
+   {
+    "text": "Bahaya pertama justru bukan jatuhnya, tapi udaranya.",
+    "start": 22.12,
+    "end": 25.647
+   },
+   {
+    "text": "Di ketinggian ini, suhunya sekitar minus lima puluh derajat, dan udaranya sangat tipis.",
+    "start": 25.867,
+    "end": 31.613
+   }
+  ]
+ },
+ {
+  "id": 4,
+  "ch": 1,
+  "start": 32.013,
+  "dur": 12.944,
+  "end": 44.957,
+  "sentences": [
+   {
+    "text": "Tanpa masker oksigen, kebanyakan orang hanya tetap sadar sekitar setengah sampai satu menit, lalu pingsan.",
+    "start": 32.013,
+    "end": 38.735
+   },
+   {
+    "text": "Kabar baiknya, kamu terus jatuh ke udara yang lebih tebal, dan di bawah sana, kamu bisa sadar kembali.",
+    "start": 38.955,
+    "end": 44.957
+   }
+  ]
+ },
+ {
+  "id": 5,
+  "ch": 2,
+  "start": 45.757,
+  "dur": 12.096,
+  "end": 57.853,
+  "sentences": [
+   {
+    "text": "Sekarang kecepatanmu.",
+    "start": 45.757,
+    "end": 47.304
+   },
+   {
+    "text": "Dalam sekitar dua belas detik, tubuhmu mencapai kecepatan maksimum jatuh, sekitar dua ratus kilometer per jam.",
+    "start": 47.524,
+    "end": 54.933
+   },
+   {
+    "text": "Lebih cepat dari mobil yang ngebut di jalan tol.",
+    "start": 55.153,
+    "end": 57.853
+   }
+  ]
+ },
+ {
+  "id": 6,
+  "ch": 2,
+  "start": 58.253,
+  "dur": 15.712,
+  "end": 73.965,
+  "sentences": [
+   {
+    "text": "Kecepatan ini tidak bertambah lagi, karena udara menahanmu.",
+    "start": 58.253,
+    "end": 61.894
+   },
+   {
+    "text": "Tapi kamu bisa memanfaatkannya.",
+    "start": 62.114,
+    "end": 64.285
+   },
+   {
+    "text": "Rentangkan tangan dan kakimu, seperti penerjun payung.",
+    "start": 64.505,
+    "end": 67.777
+   },
+   {
+    "text": "Tubuhmu jadi lebih lebar, jatuh sedikit lebih lambat, dan kamu bisa sedikit mengarahkan jatuhmu.",
+    "start": 67.997,
+    "end": 73.965
+   }
+  ]
+ },
+ {
+  "id": 7,
+  "ch": 3,
+  "start": 74.765,
+  "dur": 8.168,
+  "end": 82.933,
+  "sentences": [
+   {
+    "text": "Pertanyaan terpenting, mendarat di mana?",
+    "start": 74.765,
+    "end": 77.199
+   },
+   {
+    "text": "Air terdengar aman.",
+    "start": 77.419,
+    "end": 78.743
+   },
+   {
+    "text": "Tapi dari kecepatan ini, permukaan air terasa sekeras beton.",
+    "start": 78.963,
+    "end": 82.933
+   }
+  ]
+ },
+ {
+  "id": 8,
+  "ch": 3,
+  "start": 83.333,
+  "dur": 10.345,
+  "end": 93.678,
+  "sentences": [
+   {
+    "text": "Yang lebih baik adalah sesuatu yang memperlambatmu sedikit demi sedikit.",
+    "start": 83.333,
+    "end": 87.524
+   },
+   {
+    "text": "Lereng bersalju, rawa, semak lebat, atau hutan dengan dahan yang bisa meredam jatuhmu.",
+    "start": 87.744,
+    "end": 93.678
+   }
+  ]
+ },
+ {
+  "id": 9,
+  "ch": 3,
+  "start": 94.078,
+  "dur": 9.412,
+  "end": 103.49,
+  "sentences": [
+   {
+    "text": "Saat mendekati tanah, rapatkan kaki, tekuk lutut, mendarat dengan kaki lebih dulu, lalu berguling.",
+    "start": 94.078,
+    "end": 101.218
+   },
+   {
+    "text": "Lindungi kepalamu dengan tangan.",
+    "start": 101.438,
+    "end": 103.49
+   }
+  ]
+ },
+ {
+  "id": 10,
+  "ch": 4,
+  "start": 104.29,
+  "dur": 12.895,
+  "end": 117.185,
+  "sentences": [
+   {
+    "text": "Dan sekarang, kisah nyatanya.",
+    "start": 104.29,
+    "end": 106.342
+   },
+   {
+    "text": "Tahun sembilan belas tujuh puluh dua, Vesna Vulović, seorang pramugari, jatuh dari ketinggian sekitar sepuluh ribu meter, saat pesawatnya pecah di udara.",
+    "start": 106.562,
+    "end": 117.185
+   }
+  ]
+ },
+ {
+  "id": 11,
+  "ch": 4,
+  "start": 117.585,
+  "dur": 15.818,
+  "end": 133.403,
+  "sentences": [
+   {
+    "text": "Ia selamat, dan tercatat di Guinness sebagai jatuh tertinggi tanpa parasut.",
+    "start": 117.585,
+    "end": 122.007
+   },
+   {
+    "text": "Kuncinya, ia terjepit di dalam potongan badan pesawat, yang jatuh ke lereng berhutan.",
+    "start": 122.227,
+    "end": 127.482
+   },
+   {
+    "text": "Potongan pesawat itu menjadi pelindungnya.",
+    "start": 127.702,
+    "end": 130.442
+   },
+   {
+    "text": "Tulangnya patah di banyak tempat, tapi ia hidup.",
+    "start": 130.662,
+    "end": 133.403
+   }
+  ]
+ },
+ {
+  "id": 12,
+  "ch": 4,
+  "start": 133.803,
+  "dur": 14.452,
+  "end": 148.255,
+  "sentences": [
+   {
+    "text": "Lalu Juliane Koepcke, tujuh belas tahun, jatuh sekitar tiga kilometer, masih terikat di kursinya, ke hutan hujan Amazon.",
+    "start": 133.803,
+    "end": 142.63
+   },
+   {
+    "text": "Ia selamat, lalu berjalan sebelas hari di hutan, sampai ditemukan oleh nelayan.",
+    "start": 142.85,
+    "end": 148.255
+   }
+  ]
+ },
+ {
+  "id": 13,
+  "ch": 5,
+  "start": 149.055,
+  "dur": 11.246,
+  "end": 160.301,
+  "sentences": [
+   {
+    "text": "Jadi apa rahasia mereka?",
+    "start": 149.055,
+    "end": 150.821
+   },
+   {
+    "text": "Bukan kekuatan super.",
+    "start": 151.041,
+    "end": 152.527
+   },
+   {
+    "text": "Mereka jatuh bersama sesuatu yang memperlambat, dan mendarat di tempat yang lunak.",
+    "start": 152.747,
+    "end": 157.528
+   },
+   {
+    "text": "Ditambah, keberuntungan yang luar biasa.",
+    "start": 157.748,
+    "end": 160.301
+   }
+  ]
+ },
+ {
+  "id": 14,
+  "ch": 5,
+  "start": 160.801,
+  "dur": 11.801,
+  "end": 172.602,
+  "sentences": [
+   {
+    "text": "Dan tenang.",
+    "start": 160.801,
+    "end": 161.623
+   },
+   {
+    "text": "Pesawat adalah salah satu cara bepergian paling aman di dunia.",
+    "start": 161.843,
+    "end": 165.802
+   },
+   {
+    "text": "Kejadian seperti ini sangat, sangat jarang.",
+    "start": 166.022,
+    "end": 168.45
+   },
+   {
+    "text": "Jadi pakai sabuk pengamanmu, dan dengarkan arahan pramugari.",
+    "start": 168.67,
+    "end": 172.602
+   }
+  ]
+ },
+ {
+  "id": 15,
+  "ch": 5,
+  "start": 173.202,
+  "dur": 7.006,
+  "end": 180.208,
+  "sentences": [
+   {
+    "text": "Menurutmu, kamu akan mendarat di mana?",
+    "start": 173.202,
+    "end": 175.803
+   },
+   {
+    "text": "Tulis di komentar.",
+    "start": 176.023,
+    "end": 177.101
+   },
+   {
+    "text": "Berikutnya.",
+    "start": 177.321,
+    "end": 178.232
+   },
+   {
+    "text": "Kalau kamu, tersambar petir.",
+    "start": 178.452,
+    "end": 180.208
+   }
+  ]
+ }
+]

@@ -27,8 +27,8 @@ dengan subtitle per kata, penanda bab, dan desain suara prosedural.
 | S2E3 | `s2e3.html`: Andai semua orang Indonesia melompat bersamaan (3:04) | `episodes/s2e3/` | selesai (web) |
 | S2E4 | `s2e4.html`: Andai Jakarta tenggelam 2050 (3:06) | `episodes/s2e4/` | selesai (web) |
 | S2E5 | `s2e5.html`: Andai Matahari tiba-tiba padam (3:04) | `episodes/s2e5/` | selesai (web) |
-| K1 | Kalau kamu jatuh dari pesawat tanpa parasut | | berikutnya |
-| K2 | Kalau kamu tersambar petir | | rencana |
+| K1 | `k1.html`: Kalau kamu jatuh dari pesawat tanpa parasut (3:04) | `episodes/k1/` | selesai (web) |
+| K2 | Kalau kamu tersambar petir | | berikutnya |
 | K3 | Kalau kamu terjebak di dasar Palung Jawa | | rencana |
 | SK1 | Skala yang bikin merinding | | rencana |
 

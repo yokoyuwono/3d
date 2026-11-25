@@ -118,6 +118,10 @@ export class Person {
       const c = (w * 1.1) % 1;
       B.rotation.x = 0.7 + 0.25 * Math.sin(c * Math.PI * 2); Hd.rotation.x = -0.4;
       A[0].rotation.x = -0.9 + 0.8 * Math.sin(c * Math.PI * 2); A[1].rotation.x = A[0].rotation.x; L[0].rotation.x = -0.6; L[1].rotation.x = 0.3; B.position.y = 0.75;
+    } else if (p === 'spread') {
+      A[0].rotation.set(0, 0, 1.45 + 0.08 * Math.sin(w * 9)); A[1].rotation.set(0, 0, -1.45 - 0.08 * Math.sin(w * 9 + 1)); L[0].rotation.z = 0.35; L[1].rotation.z = -0.35; L[0].rotation.x = -0.2; L[1].rotation.x = -0.2; Hd.rotation.x = 0.4;
+    } else if (p === 'brace') {
+      B.position.y = 0.75; L[0].rotation.x = -0.6; L[1].rotation.x = -0.6; A[0].rotation.set(-2.6, 0, -0.5); A[1].rotation.set(-2.6, 0, 0.5); Hd.rotation.x = 0.3;
     } else if (p === 'crouch') {
       B.position.y = 0.7; B.rotation.x = 0.35; L[0].rotation.x = -0.9; L[1].rotation.x = -0.9; A[0].rotation.set(0.7, 0, 0.2); A[1].rotation.set(0.7, 0, -0.2);
     } else if (p === 'air') {
