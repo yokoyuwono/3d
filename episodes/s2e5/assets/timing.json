@@ -1,0 +1,377 @@
+[
+ {
+  "id": 1,
+  "ch": 0,
+  "start": 1.7,
+  "dur": 8.238,
+  "end": 9.938,
+  "sentences": [
+   {
+    "text": "Bayangkan Matahari padam, tepat sekarang.",
+    "start": 1.7,
+    "end": 4.343
+   },
+   {
+    "text": "Kamu tidak akan tahu.",
+    "start": 4.563,
+    "end": 5.914
+   },
+   {
+    "text": "Selama delapan menit, langit tetap terang seperti biasa.",
+    "start": 6.134,
+    "end": 9.938
+   }
+  ]
+ },
+ {
+  "id": 2,
+  "ch": 0,
+  "start": 10.388,
+  "dur": 10.039,
+  "end": 20.427,
+  "sentences": [
+   {
+    "text": "Lalu kegelapan datang.",
+    "start": 10.388,
+    "end": 11.849
+   },
+   {
+    "text": "Bumi membeku.",
+    "start": 12.069,
+    "end": 13.303
+   },
+   {
+    "text": "Tapi Indonesia ternyata punya senjata rahasia untuk bertahan.",
+    "start": 13.523,
+    "end": 17.513
+   },
+   {
+    "text": "Apa itu?",
+    "start": 17.733,
+    "end": 18.638
+   },
+   {
+    "text": "Tonton sampai habis.",
+    "start": 18.858,
+    "end": 20.427
+   }
+  ]
+ },
+ {
+  "id": 3,
+  "ch": 1,
+  "start": 21.227,
+  "dur": 12.313,
+  "end": 33.54,
+  "sentences": [
+   {
+    "text": "Kenapa delapan menit?",
+    "start": 21.227,
+    "end": 22.438
+   },
+   {
+    "text": "Cahaya Matahari butuh sekitar delapan menit dua puluh detik untuk sampai ke Bumi.",
+    "start": 22.658,
+    "end": 27.651
+   },
+   {
+    "text": "Cahaya yang kamu lihat sekarang, sebenarnya sudah berangkat dari Matahari delapan menit yang lalu.",
+    "start": 27.871,
+    "end": 33.54
+   }
+  ]
+ },
+ {
+  "id": 4,
+  "ch": 1,
+  "start": 33.94,
+  "dur": 15.896,
+  "end": 49.836,
+  "sentences": [
+   {
+    "text": "Tarikan gravitasi Matahari juga merambat secepat cahaya.",
+    "start": 33.94,
+    "end": 37.65
+   },
+   {
+    "text": "Jadi selama delapan menit itu, Bumi masih mengelilingi Matahari yang sudah tidak ada.",
+    "start": 37.87,
+    "end": 43.345
+   },
+   {
+    "text": "Setelah itu, Bumi melesat lurus ke ruang angkasa, seperti batu yang lepas dari putaran tali.",
+    "start": 43.565,
+    "end": 49.836
+   }
+  ]
+ },
+ {
+  "id": 5,
+  "ch": 1,
+  "start": 50.236,
+  "dur": 11.851,
+  "end": 62.087,
+  "sentences": [
+   {
+    "text": "Sedetik kemudian, Bulan ikut menghilang.",
+    "start": 50.236,
+    "end": 52.89
+   },
+   {
+    "text": "Bulan tidak bersinar sendiri, ia hanya memantulkan cahaya Matahari.",
+    "start": 53.11,
+    "end": 57.423
+   },
+   {
+    "text": "Yang tersisa di langit hanya bintang, yang tiba-tiba terlihat jauh lebih banyak.",
+    "start": 57.643,
+    "end": 62.087
+   }
+  ]
+ },
+ {
+  "id": 6,
+  "ch": 2,
+  "start": 62.887,
+  "dur": 9.459,
+  "end": 72.346,
+  "sentences": [
+   {
+    "text": "Tanpa cahaya, tumbuhan berhenti membuat makanan.",
+    "start": 62.887,
+    "end": 65.93
+   },
+   {
+    "text": "Sawah, kebun, dan plankton di laut tidak lagi tumbuh.",
+    "start": 66.15,
+    "end": 69.572
+   },
+   {
+    "text": "Rantai makanan mulai runtuh dari bawah.",
+    "start": 69.792,
+    "end": 72.346
+   }
+  ]
+ },
+ {
+  "id": 7,
+  "ch": 2,
+  "start": 72.746,
+  "dur": 14.56,
+  "end": 87.306,
+  "sentences": [
+   {
+    "text": "Lalu dinginnya.",
+    "start": 72.746,
+    "end": 73.853
+   },
+   {
+    "text": "Bumi masih menyimpan panas, jadi suhunya turun perlahan.",
+    "start": 74.073,
+    "end": 77.775
+   },
+   {
+    "text": "Dalam sekitar seminggu, rata-rata suhu permukaan Bumi sudah di bawah nol derajat.",
+    "start": 77.995,
+    "end": 83.123
+   },
+   {
+    "text": "Dalam setahun, sekitar minus tujuh puluh derajat Celsius.",
+    "start": 83.343,
+    "end": 87.306
+   }
+  ]
+ },
+ {
+  "id": 8,
+  "ch": 2,
+  "start": 87.706,
+  "dur": 8.687,
+  "end": 96.393,
+  "sentences": [
+   {
+    "text": "Indonesia yang biasanya tiga puluh derajat, berubah menjadi negeri es.",
+    "start": 87.706,
+    "end": 92.325
+   },
+   {
+    "text": "Sungai dan danau membeku, dan embun pagi menjadi kristal es.",
+    "start": 92.545,
+    "end": 96.393
+   }
+  ]
+ },
+ {
+  "id": 9,
+  "ch": 3,
+  "start": 97.193,
+  "dur": 10.973,
+  "end": 108.166,
+  "sentences": [
+   {
+    "text": "Tapi lautan tidak membeku seluruhnya.",
+    "start": 97.193,
+    "end": 99.627
+   },
+   {
+    "text": "Permukaannya menjadi lapisan es, yang justru berfungsi seperti selimut.",
+    "start": 99.847,
+    "end": 104.171
+   },
+   {
+    "text": "Di bawahnya, air laut dalam bisa tetap cair sangat lama.",
+    "start": 104.391,
+    "end": 108.166
+   }
+  ]
+ },
+ {
+  "id": 10,
+  "ch": 3,
+  "start": 108.566,
+  "dur": 10.373,
+  "end": 118.939,
+  "sentences": [
+   {
+    "text": "Dan jauh di dasar laut, di sumber air panas yang keluar dari kerak Bumi, ada makhluk yang tidak butuh Matahari sama sekali.",
+    "start": 108.566,
+    "end": 115.826
+   },
+   {
+    "text": "Mereka hidup dari panas dan zat kimia Bumi.",
+    "start": 116.046,
+    "end": 118.939
+   }
+  ]
+ },
+ {
+  "id": 11,
+  "ch": 4,
+  "start": 119.739,
+  "dur": 16.708,
+  "end": 136.447,
+  "sentences": [
+   {
+    "text": "Lalu bagaimana dengan manusia?",
+    "start": 119.739,
+    "end": 121.667
+   },
+   {
+    "text": "Inilah senjata rahasia Indonesia.",
+    "start": 121.887,
+    "end": 124.168
+   },
+   {
+    "text": "Kita berdiri di atas cincin api.",
+    "start": 124.388,
+    "end": 126.623
+   },
+   {
+    "text": "Panas di dalam Bumi tidak bergantung pada Matahari.",
+    "start": 126.843,
+    "end": 129.966
+   },
+   {
+    "text": "Dan Indonesia punya salah satu potensi panas bumi terbesar di dunia, seperti di Kamojang dan Dieng.",
+    "start": 130.186,
+    "end": 136.447
+   }
+  ]
+ },
+ {
+  "id": 12,
+  "ch": 4,
+  "start": 136.847,
+  "dur": 9.792,
+  "end": 146.639,
+  "sentences": [
+   {
+    "text": "Dengan panas bumi, manusia bisa membuat listrik, menghangatkan ruangan, dan menanam makanan dengan lampu, di bawah tanah.",
+    "start": 136.847,
+    "end": 144.17
+   },
+   {
+    "text": "Hidupnya sangat sulit, tapi mungkin.",
+    "start": 144.39,
+    "end": 146.639
+   }
+  ]
+ },
+ {
+  "id": 13,
+  "ch": 5,
+  "start": 147.439,
+  "dur": 13.424,
+  "end": 160.863,
+  "sentences": [
+   {
+    "text": "Tenang.",
+    "start": 147.439,
+    "end": 148.043
+   },
+   {
+    "text": "Matahari tidak akan padam tiba-tiba.",
+    "start": 148.263,
+    "end": 150.552
+   },
+   {
+    "text": "Ia masih akan bersinar sekitar lima miliar tahun lagi.",
+    "start": 150.772,
+    "end": 154.487
+   },
+   {
+    "text": "Bahkan di akhir hidupnya, Matahari tidak padam begitu saja, tapi membesar menjadi raksasa merah.",
+    "start": 154.707,
+    "end": 160.863
+   }
+  ]
+ },
+ {
+  "id": 14,
+  "ch": 5,
+  "start": 161.363,
+  "dur": 9.469,
+  "end": 170.832,
+  "sentences": [
+   {
+    "text": "Jadi besok pagi, saat Matahari terbit, ingat.",
+    "start": 161.363,
+    "end": 164.243
+   },
+   {
+    "text": "Cahaya yang menyentuh wajahmu, sudah menempuh perjalanan delapan menit, hanya untuk sampai ke sini.",
+    "start": 164.463,
+    "end": 170.832
+   }
+  ]
+ },
+ {
+  "id": 15,
+  "ch": 5,
+  "start": 171.432,
+  "dur": 9.548,
+  "end": 180.98,
+  "sentences": [
+   {
+    "text": "Kalau Matahari padam, kamu mau berlindung di mana?",
+    "start": 171.432,
+    "end": 174.766
+   },
+   {
+    "text": "Tulis di komentar.",
+    "start": 174.986,
+    "end": 176.201
+   },
+   {
+    "text": "Episode berikutnya.",
+    "start": 176.421,
+    "end": 177.913
+   },
+   {
+    "text": "Kalau kamu jatuh dari pesawat, tanpa parasut.",
+    "start": 178.133,
+    "end": 180.98
+   }
+  ]
+ }
+]

@@ -78,6 +78,7 @@ export class OrbitScene {
     const glow = new THREE.Sprite(new THREE.SpriteMaterial({ map: glowTex(), blending: THREE.AdditiveBlending, depthWrite: false }));
     glow.scale.setScalar(26); sun.add(glow);
     s.add(sun);
+    this.sun = sun; this.glow = glow;
     s.add(new THREE.PointLight(0xffffff, 3.2, 0, 0), new THREE.AmbientLight(0x303040, 0.5));
     const ring = new THREE.Mesh(new THREE.TorusGeometry(30, 0.08, 6, 160), new THREE.MeshBasicMaterial({ color: 0x5a7aa0 }));
     ring.rotation.x = Math.PI / 2;
