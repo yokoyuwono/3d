@@ -1,0 +1,392 @@
+[
+ {
+  "id": 1,
+  "ch": 0,
+  "start": 1.7,
+  "dur": 7.276,
+  "end": 8.976,
+  "sentences": [
+   {
+    "text": "Dua ratus delapan puluh lima juta orang.",
+    "start": 1.7,
+    "end": 4.315
+   },
+   {
+    "text": "Satu aba-aba.",
+    "start": 4.535,
+    "end": 5.498
+   },
+   {
+    "text": "Semua orang Indonesia melompat, di detik yang sama.",
+    "start": 5.718,
+    "end": 8.976
+   }
+  ]
+ },
+ {
+  "id": 2,
+  "ch": 0,
+  "start": 9.426,
+  "dur": 12.746,
+  "end": 22.172,
+  "sentences": [
+   {
+    "text": "Apakah pulau-pulau kita bergeser?",
+    "start": 9.426,
+    "end": 11.378
+   },
+   {
+    "text": "Akan ada gempa?",
+    "start": 11.598,
+    "end": 12.792
+   },
+   {
+    "text": "Atau tidak terjadi apa-apa?",
+    "start": 13.012,
+    "end": 14.712
+   },
+   {
+    "text": "Jawabannya mengejutkan.",
+    "start": 14.932,
+    "end": 16.656
+   },
+   {
+    "text": "Dan bagian paling berbahaya, justru bukan lompatannya.",
+    "start": 16.876,
+    "end": 20.493
+   },
+   {
+    "text": "Tonton sampai habis.",
+    "start": 20.713,
+    "end": 22.172
+   }
+  ]
+ },
+ {
+  "id": 3,
+  "ch": 1,
+  "start": 22.972,
+  "dur": 15.408,
+  "end": 38.38,
+  "sentences": [
+   {
+    "text": "Masalah pertama, jam.",
+    "start": 22.972,
+    "end": 24.431
+   },
+   {
+    "text": "Indonesia punya tiga zona waktu.",
+    "start": 24.651,
+    "end": 26.943
+   },
+   {
+    "text": "Jam dua belas siang WIB, adalah jam satu siang WITA, dan jam dua siang WIT.",
+    "start": 27.163,
+    "end": 32.551
+   },
+   {
+    "text": "Jadi aba-abanya harus disiarkan serentak, lewat radio, televisi, dan ponsel.",
+    "start": 32.771,
+    "end": 38.38
+   }
+  ]
+ },
+ {
+  "id": 4,
+  "ch": 1,
+  "start": 38.98,
+  "dur": 2.8,
+  "end": 41.78,
+  "sentences": [
+   {
+    "text": "Tiga.",
+    "start": 38.98,
+    "end": 39.506
+   },
+   {
+    "text": "Dua.",
+    "start": 39.726,
+    "end": 40.307
+   },
+   {
+    "text": "Satu.",
+    "start": 40.527,
+    "end": 41.126
+   },
+   {
+    "text": "Lompat!",
+    "start": 41.346,
+    "end": 41.78
+   }
+  ]
+ },
+ {
+  "id": 5,
+  "ch": 1,
+  "start": 42.38,
+  "dur": 8.844,
+  "end": 51.224,
+  "sentences": [
+   {
+    "text": "Kalau rata-rata berat kita sekitar lima puluh kilogram, ada sekitar empat belas juta ton manusia melayang di udara, kurang dari setengah detik.",
+    "start": 42.38,
+    "end": 51.224
+   }
+  ]
+ },
+ {
+  "id": 6,
+  "ch": 2,
+  "start": 52.024,
+  "dur": 15.009,
+  "end": 67.033,
+  "sentences": [
+   {
+    "text": "Apakah Bumi terdorong?",
+    "start": 52.024,
+    "end": 53.462
+   },
+   {
+    "text": "Ya, tapi sedikit sekali.",
+    "start": 53.682,
+    "end": 55.776
+   },
+   {
+    "text": "Bumi sekitar empat ratus triliun kali lebih berat dari kita semua.",
+    "start": 55.996,
+    "end": 60.157
+   },
+   {
+    "text": "Bumi hanya bergeser lebih kecil dari inti sebuah atom.",
+    "start": 60.377,
+    "end": 63.805
+   },
+   {
+    "text": "Dan saat kita mendarat, Bumi kembali ke tempatnya.",
+    "start": 64.025,
+    "end": 67.033
+   }
+  ]
+ },
+ {
+  "id": 7,
+  "ch": 2,
+  "start": 67.633,
+  "dur": 14.498,
+  "end": 82.131,
+  "sentences": [
+   {
+    "text": "Bagaimana dengan gempa?",
+    "start": 67.633,
+    "end": 69.128
+   },
+   {
+    "text": "Total energi lompatan kita, kira-kira setara belasan ton bahan peledak.",
+    "start": 69.348,
+    "end": 74.14
+   },
+   {
+    "text": "Kedengarannya besar.",
+    "start": 74.36,
+    "end": 75.672
+   },
+   {
+    "text": "Tapi energi itu tersebar di ribuan pulau, dan sebagian besar terserap otot, sendi, dan tanah.",
+    "start": 75.892,
+    "end": 82.131
+   }
+  ]
+ },
+ {
+  "id": 8,
+  "ch": 2,
+  "start": 82.731,
+  "dur": 18.876,
+  "end": 101.607,
+  "sentences": [
+   {
+    "text": "Di dekat kerumunan, alat pencatat gempa memang bisa bergetar.",
+    "start": 82.731,
+    "end": 86.621
+   },
+   {
+    "text": "Tahun dua ribu dua puluh tiga, penonton konser yang melompat dan menari di sebuah stadion di Amerika, tercatat seperti gempa kecil, sekitar magnitudo dua koma tiga.",
+    "start": 86.841,
+    "end": 97.931
+   },
+   {
+    "text": "Terlihat di alat, tapi hampir tidak terasa oleh orang.",
+    "start": 98.151,
+    "end": 101.607
+   }
+  ]
+ },
+ {
+  "id": 9,
+  "ch": 2,
+  "start": 102.007,
+  "dur": 8.808,
+  "end": 110.815,
+  "sentences": [
+   {
+    "text": "Sebagai perbandingan, gempa magnitudo enam yang bisa merusak rumah, melepaskan energi ratusan ribu kali lebih besar dari getaran konser itu.",
+    "start": 102.007,
+    "end": 110.815
+   }
+  ]
+ },
+ {
+  "id": 10,
+  "ch": 3,
+  "start": 111.615,
+  "dur": 5.559,
+  "end": 117.174,
+  "sentences": [
+   {
+    "text": "Jadi, apa bahaya sebenarnya?",
+    "start": 111.615,
+    "end": 113.461
+   },
+   {
+    "text": "Bukan Bumi.",
+    "start": 113.681,
+    "end": 114.597
+   },
+   {
+    "text": "Tapi bangunan, dan kita sendiri.",
+    "start": 114.817,
+    "end": 117.174
+   }
+  ]
+ },
+ {
+  "id": 11,
+  "ch": 3,
+  "start": 117.574,
+  "dur": 18.073,
+  "end": 135.647,
+  "sentences": [
+   {
+    "text": "Kalau banyak orang melompat dengan irama yang sama di jembatan atau lantai atas gedung, getarannya bisa saling menguatkan.",
+    "start": 117.574,
+    "end": 124.665
+   },
+   {
+    "text": "Tahun dua ribu, Jembatan Millennium di London bergoyang, hanya karena orang-orang berjalan dengan langkah yang tanpa sadar seirama.",
+    "start": 124.885,
+    "end": 132.354
+   },
+   {
+    "text": "Jembatan itu sampai ditutup untuk diperbaiki.",
+    "start": 132.574,
+    "end": 135.647
+   }
+  ]
+ },
+ {
+  "id": 12,
+  "ch": 3,
+  "start": 136.047,
+  "dur": 11.03,
+  "end": 147.077,
+  "sentences": [
+   {
+    "text": "Lalu ada orang yang mendarat dengan salah.",
+    "start": 136.047,
+    "end": 138.447
+   },
+   {
+    "text": "Pergelangan kaki terkilir, orang tua terjatuh, anak kecil terdorong.",
+    "start": 138.667,
+    "end": 143.056
+   },
+   {
+    "text": "Dan bayangkan yang sedang naik motor, atau berdiri di atas perahu.",
+    "start": 143.276,
+    "end": 147.077
+   }
+  ]
+ },
+ {
+  "id": 13,
+  "ch": 4,
+  "start": 147.877,
+  "dur": 10.249,
+  "end": 158.126,
+  "sentences": [
+   {
+    "text": "Jadi jawabannya.",
+    "start": 147.877,
+    "end": 149.051
+   },
+   {
+    "text": "Pulau tidak bergeser.",
+    "start": 149.271,
+    "end": 150.625
+   },
+   {
+    "text": "Tidak ada gempa besar.",
+    "start": 150.845,
+    "end": 152.38
+   },
+   {
+    "text": "Yang paling terasa, adalah keramaiannya, dan antrean ke tukang urut keesokan harinya.",
+    "start": 152.6,
+    "end": 158.126
+   }
+  ]
+ },
+ {
+  "id": 14,
+  "ch": 4,
+  "start": 158.626,
+  "dur": 12.039,
+  "end": 170.665,
+  "sentences": [
+   {
+    "text": "Tapi ada satu hal yang benar-benar istimewa.",
+    "start": 158.626,
+    "end": 161.406
+   },
+   {
+    "text": "Dua ratus delapan puluh lima juta orang, melakukan hal yang sama, di detik yang sama.",
+    "start": 161.626,
+    "end": 167.241
+   },
+   {
+    "text": "Mungkin itu momen paling kompak dalam sejarah kita.",
+    "start": 167.461,
+    "end": 170.665
+   }
+  ]
+ },
+ {
+  "id": 15,
+  "ch": 4,
+  "start": 171.265,
+  "dur": 9.429,
+  "end": 180.694,
+  "sentences": [
+   {
+    "text": "Kalau kamu ikut, kamu melompat dari mana?",
+    "start": 171.265,
+    "end": 173.906
+   },
+   {
+    "text": "Tulis di komentar.",
+    "start": 174.126,
+    "end": 175.276
+   },
+   {
+    "text": "Episode berikutnya.",
+    "start": 175.496,
+    "end": 177.003
+   },
+   {
+    "text": "Andai Jakarta tenggelam, tahun dua ribu lima puluh.",
+    "start": 177.223,
+    "end": 180.694
+   }
+  ]
+ }
+]

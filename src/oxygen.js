@@ -2,7 +2,7 @@
 // with candles and motorbikes passing — every flame and engine depends on oxygen.
 import * as THREE from 'three';
 import { clamp, lerp, mulberry32 } from './util.js';
-import { Person, makeMotorbike, makeCat, makeChicken } from './life.js';
+import { Person, makeMotorbike, makeCat, makeChicken, jumpState } from './life.js';
 
 const lin = (r, g, b) => new THREE.Color().setRGB(r, g, b, THREE.SRGBColorSpace);
 const M = (c) => new THREE.MeshLambertMaterial({ color: lin(...c) });
@@ -72,6 +72,10 @@ export class WarungScene {
     this.seller.pose(t, jump ? 'cheer' : ears ? 'ears' : on > 0.5 ? 'fan' : 'point', 1);
     this.customers.forEach((p, i) => p.pose(t + i * 0.1, jump ? 'cheer' : ears ? 'ears' : 'sit', 1));
     this.kids.forEach((p, i) => p.pose(t + i * 0.1, jump ? 'cheer' : ears ? 'ears' : on > 0.5 ? 'clap' : 'lookUp', 1));
+    if (o.jumpP != null) {
+      const J = jumpState(o.jumpP);
+      [this.seller, ...this.customers, ...this.kids].forEach((p, i) => { p.root.position.y = J.y * (i > 3 ? 0.8 : 1); if (J.pose) p.pose(t, J.pose, 1); });
+    } else [this.seller, ...this.customers, ...this.kids].forEach((p) => (p.root.position.y = 0));
     for (const q of this.bikes) {
       // engines: cruise when on; with no oxygen the engine dies and the bike rolls to a stop
       const x = ((q.x0 + q.dir * q.sp * (o.travel ?? t)) % 70 + 70) % 70 - 35;

@@ -118,6 +118,10 @@ export class Person {
       const c = (w * 1.1) % 1;
       B.rotation.x = 0.7 + 0.25 * Math.sin(c * Math.PI * 2); Hd.rotation.x = -0.4;
       A[0].rotation.x = -0.9 + 0.8 * Math.sin(c * Math.PI * 2); A[1].rotation.x = A[0].rotation.x; L[0].rotation.x = -0.6; L[1].rotation.x = 0.3; B.position.y = 0.75;
+    } else if (p === 'crouch') {
+      B.position.y = 0.7; B.rotation.x = 0.35; L[0].rotation.x = -0.9; L[1].rotation.x = -0.9; A[0].rotation.set(0.7, 0, 0.2); A[1].rotation.set(0.7, 0, -0.2);
+    } else if (p === 'air') {
+      A[0].rotation.z = 2.7; A[1].rotation.z = -2.7; L[0].rotation.x = -0.35; L[1].rotation.x = -0.25; Hd.rotation.x = -0.15;
     } else if (p === 'ears') {
       A[0].rotation.set(-0.6, 0, 2.25); A[1].rotation.set(-0.6, 0, -2.25); Hd.rotation.z = 0.12 * Math.sin(w * 9); B.rotation.x = 0.15;
     } else if (p === 'clap') {
@@ -127,6 +131,14 @@ export class Person {
       B.position.y = 0.9 + 0.012 * Math.sin(w * 2); Hd.rotation.y = 0.3 * Math.sin(w * 0.4);
     }
   }
+}
+
+// synchronized jump: p in [0,1) -> crouch, take-off, ~0.45 m in the air, landing
+export function jumpState(p, h = 0.45) {
+  if (p < 0 || p >= 1) return { y: 0, pose: null };
+  if (p < 0.3) return { y: 0, pose: 'crouch' };
+  if (p < 0.7) { const u = (p - 0.3) / 0.4; return { y: h * 4 * u * (1 - u), pose: 'air' }; }
+  return { y: 0, pose: 'crouch' };
 }
 
 // ------------------------------------------------------------------ animals

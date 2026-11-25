@@ -3,7 +3,7 @@
 // 'calm' | 'heat' | 'snow' | 'night' | 'storm' | 'none'.
 import * as THREE from 'three';
 import { mulberry32 } from './util.js';
-import { Person, Flock, makeCat, makeChicken, makeMotorbike, makeAngkot, makeSnowman, makeFire, makeRowBoat, makeTent } from './life.js';
+import { jumpState, Person, Flock, makeCat, makeChicken, makeMotorbike, makeAngkot, makeSnowman, makeFire, makeRowBoat, makeTent } from './life.js';
 import { HILL } from './timeline.js';
 
 export class TownLife {
@@ -87,7 +87,7 @@ export class TownLife {
       w.p.winter(snow);
       const sp = w.sp * (heat ? 0.55 : snow ? 0.6 : 1);
       const still = moon ? w.kind < 0.8 : snow ? w.kind < 0.3 : heat ? w.kind < 0.25 : w.kind < 0.12;
-      const d = still ? 0 : wrap(w.off + t * sp * w.dir, 0, w.b - w.a);
+      const d = still ? 0 : wrap(w.off + (this.w.freezeT ?? t) * sp * w.dir, 0, w.b - w.a);
       const s = w.a + d;
       const x = w.alongZ ? w.x : s, z = w.alongZ ? s : w.z;
       w.p.root.position.set(x, Y(x, z), z);
@@ -96,6 +96,8 @@ export class TownLife {
       if (still) pose = moon ? (w.kind < 0.25 ? 'point' : 'lookUp') : snow ? 'lookUp' : heat ? 'fan' : (w.kind < 0.06 ? 'wave' : 'idle');
       else if (heat && w.kind > 0.55) pose = 'umbrella';
       else if (snow && w.kind > 0.85) pose = 'shiver';
+      const J = this.w.jumpP != null ? jumpState(this.w.jumpP) : null;
+      if (J && J.pose) { w.p.root.position.y += J.y; w.p.root.rotation.y = w.ph; pose = J.pose; }
       w.p.pose(t, pose, sp);
     });
     // vehicles
