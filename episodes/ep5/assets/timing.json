@@ -1,0 +1,318 @@
+[
+ {
+  "id": 1,
+  "ch": 0,
+  "start": 1.7,
+  "dur": 4.591,
+  "end": 6.291,
+  "sentences": [
+   {
+    "text": "Bayangkan suatu malam, kamu menatap langit, dan Bulan tidak ada di sana.",
+    "start": 1.7,
+    "end": 6.291
+   }
+  ]
+ },
+ {
+  "id": 2,
+  "ch": 0,
+  "start": 6.741,
+  "dur": 12.488,
+  "end": 19.229,
+  "sentences": [
+   {
+    "text": "Tidak ada ledakan.",
+    "start": 6.741,
+    "end": 7.963
+   },
+   {
+    "text": "Tidak ada suara.",
+    "start": 8.183,
+    "end": 9.325
+   },
+   {
+    "text": "Tapi pelan-pelan, hidup kita berubah.",
+    "start": 9.545,
+    "end": 12.079
+   },
+   {
+    "text": "Dan salah satu perubahan terbesarnya, akan terasa saat Lebaran.",
+    "start": 12.299,
+    "end": 16.565
+   },
+   {
+    "text": "Kenapa?",
+    "start": 16.785,
+    "end": 17.523
+   },
+   {
+    "text": "Tonton sampai habis.",
+    "start": 17.743,
+    "end": 19.229
+   }
+  ]
+ },
+ {
+  "id": 3,
+  "ch": 1,
+  "start": 20.029,
+  "dur": 6.222,
+  "end": 26.251,
+  "sentences": [
+   {
+    "text": "Pertama, laut.",
+    "start": 20.029,
+    "end": 21.139
+   },
+   {
+    "text": "Pasang dan surut terjadi karena tarikan gravitasi Bulan, dibantu Matahari.",
+    "start": 21.359,
+    "end": 26.251
+   }
+  ]
+ },
+ {
+  "id": 4,
+  "ch": 1,
+  "start": 26.651,
+  "dur": 11.386,
+  "end": 38.037,
+  "sentences": [
+   {
+    "text": "Tanpa Bulan, pasang surut tinggal kurang dari setengahnya.",
+    "start": 26.651,
+    "end": 29.94
+   },
+   {
+    "text": "Hutan bakau dan makhluk pesisir kehilangan ritme hidupnya.",
+    "start": 30.16,
+    "end": 33.679
+   },
+   {
+    "text": "Nelayan yang membaca pasang untuk melaut, harus belajar dari awal.",
+    "start": 33.899,
+    "end": 38.037
+   }
+  ]
+ },
+ {
+  "id": 5,
+  "ch": 2,
+  "start": 38.837,
+  "dur": 6.78,
+  "end": 45.617,
+  "sentences": [
+   {
+    "text": "Kedua, malam menjadi jauh lebih gelap.",
+    "start": 38.837,
+    "end": 41.398
+   },
+   {
+    "text": "Purnama yang biasa menerangi kampung, tidak akan pernah datang lagi.",
+    "start": 41.618,
+    "end": 45.617
+   }
+  ]
+ },
+ {
+  "id": 6,
+  "ch": 2,
+  "start": 46.017,
+  "dur": 8.509,
+  "end": 54.526,
+  "sentences": [
+   {
+    "text": "Tukik, bayi penyu yang baru menetas, berjalan ke arah cakrawala laut yang lebih terang.",
+    "start": 46.017,
+    "end": 51.427
+   },
+   {
+    "text": "Tanpa cahaya Bulan, lebih banyak yang tersesat.",
+    "start": 51.647,
+    "end": 54.526
+   }
+  ]
+ },
+ {
+  "id": 7,
+  "ch": 2,
+  "start": 54.926,
+  "dur": 7.977,
+  "end": 62.903,
+  "sentences": [
+   {
+    "text": "Dan di Great Barrier Reef, karang bertelur serentak, beberapa malam setelah bulan purnama.",
+    "start": 54.926,
+    "end": 60.179
+   },
+   {
+    "text": "Tanpa Bulan, jam alam itu hilang.",
+    "start": 60.399,
+    "end": 62.903
+   }
+  ]
+ },
+ {
+  "id": 8,
+  "ch": 3,
+  "start": 63.703,
+  "dur": 9.151,
+  "end": 72.854,
+  "sentences": [
+   {
+    "text": "Ketiga, sesuatu yang lebih besar.",
+    "start": 63.703,
+    "end": 66.179
+   },
+   {
+    "text": "Bulan membantu menjaga kemiringan sumbu Bumi tetap stabil, sekitar dua puluh tiga setengah derajat.",
+    "start": 66.399,
+    "end": 72.854
+   }
+  ]
+ },
+ {
+  "id": 9,
+  "ch": 3,
+  "start": 73.254,
+  "dur": 11.58,
+  "end": 84.834,
+  "sentences": [
+   {
+    "text": "Tanpa Bulan, kemiringan itu bisa bergoyang lebih besar.",
+    "start": 73.254,
+    "end": 76.841
+   },
+   {
+    "text": "Perkiraan ilmuwan berbeda, dari sekitar sepuluh derajat, sampai jauh lebih liar.",
+    "start": 77.061,
+    "end": 82.831
+   },
+   {
+    "text": "Musim bisa menjadi ekstrem.",
+    "start": 83.051,
+    "end": 84.834
+   }
+  ]
+ },
+ {
+  "id": 10,
+  "ch": 4,
+  "start": 85.634,
+  "dur": 11.573,
+  "end": 97.207,
+  "sentences": [
+   {
+    "text": "Dan inilah yang paling terasa bagi kita.",
+    "start": 85.634,
+    "end": 88.124
+   },
+   {
+    "text": "Kalender Hijriah dihitung dari peredaran Bulan.",
+    "start": 88.344,
+    "end": 91.403
+   },
+   {
+    "text": "Awal Ramadan dan Idul Fitri ditentukan dengan melihat hilal, bulan sabit pertama.",
+    "start": 91.623,
+    "end": 97.207
+   }
+  ]
+ },
+ {
+  "id": 11,
+  "ch": 4,
+  "start": 97.657,
+  "dur": 10.268,
+  "end": 107.925,
+  "sentences": [
+   {
+    "text": "Tanpa Bulan, tidak ada hilal yang bisa diamati.",
+    "start": 97.657,
+    "end": 100.776
+   },
+   {
+    "text": "Sidang isbat kehilangan pegangannya.",
+    "start": 100.996,
+    "end": 103.311
+   },
+   {
+    "text": "Cara menentukan Ramadan dan Lebaran, harus diciptakan ulang dari nol.",
+    "start": 103.531,
+    "end": 107.925
+   }
+  ]
+ },
+ {
+  "id": 12,
+  "ch": 5,
+  "start": 108.725,
+  "dur": 14.579,
+  "end": 123.304,
+  "sentences": [
+   {
+    "text": "Tenang.",
+    "start": 108.725,
+    "end": 109.258
+   },
+   {
+    "text": "Bulan tidak akan hilang tiba-tiba.",
+    "start": 109.478,
+    "end": 111.766
+   },
+   {
+    "text": "Ia hanya menjauh, hampir empat sentimeter setiap tahun.",
+    "start": 111.986,
+    "end": 115.677
+   },
+   {
+    "text": "Menurut perkiraan ilmuwan, sekitar enam ratus juta tahun lagi, gerhana matahari total tidak akan terjadi lagi.",
+    "start": 115.897,
+    "end": 123.304
+   }
+  ]
+ },
+ {
+  "id": 13,
+  "ch": 5,
+  "start": 123.804,
+  "dur": 6.791,
+  "end": 130.595,
+  "sentences": [
+   {
+    "text": "Jadi malam ini, saat purnama datang, lihatlah ke atas.",
+    "start": 123.804,
+    "end": 128.174
+   },
+   {
+    "text": "Kita beruntung masih memilikinya.",
+    "start": 128.394,
+    "end": 130.595
+   }
+  ]
+ },
+ {
+  "id": 14,
+  "ch": 5,
+  "start": 131.195,
+  "dur": 7.618,
+  "end": 138.813,
+  "sentences": [
+   {
+    "text": "Ini adalah akhir seri Andai.",
+    "start": 131.195,
+    "end": 133.243
+   },
+   {
+    "text": "Kalau kamu suka, tulis di komentar.",
+    "start": 133.463,
+    "end": 135.752
+   },
+   {
+    "text": "Andai apa lagi, yang ingin kamu lihat berikutnya?",
+    "start": 135.972,
+    "end": 138.813
+   }
+  ]
+ }
+]

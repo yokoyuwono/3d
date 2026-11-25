@@ -97,7 +97,8 @@ export class OrbitScene {
     this.anchors = { earth: new THREE.Vector3(), sun: new THREE.Vector3(0, 6, 0) };
   }
   // a: orbit angle (rad); spin: Earth rotation
-  update(t, a, spin = 0) {
+  update(t, a, spin = 0, tiltDeg = 23.4) {
+    this.tilt.rotation.z = THREE.MathUtils.degToRad(tiltDeg);
     this.holder.position.set(Math.cos(a) * 30, 0, Math.sin(a) * 30);
     this.earth.rotation.y = -Math.PI / 2 + spin;
     this.anchors.earth.copy(this.holder.position).add(new THREE.Vector3(0, 5.6, 0));
