@@ -184,6 +184,8 @@ export class Globe {
     mk('canada', 62, -100, 0x3aa0ff);
     mk('russia', 66, 90, 0x3aa0ff);
     mk('indo', -1, 118, 0xff3b30);
+    mk('papua', -4.08, 137.16, 0xffffff);
+    mk('venezuela', 8.55, -71.0, 0xffd23a);
 
     // the Moon and a tidal bulge (episode outro)
     this.moon = new THREE.Mesh(new THREE.SphereGeometry(2.7, 48, 24), new THREE.MeshLambertMaterial({ color: 0xc9c9c9 }));
@@ -192,6 +194,33 @@ export class Globe {
     this.light = new THREE.DirectionalLight(0xffffff, 2.5);
     this.light.position.copy(this.sunDir).multiplyScalar(100);
     s.add(this.light, new THREE.AmbientLight(0x404050, 0.6));
+  }
+
+  // glowing outline of the Indonesian islands that can be slid north (Episode 2)
+  addOutline(islands, ellipses) {
+    this.outline = new THREE.Group();
+    const mat = new THREE.LineBasicMaterial({ color: 0xffd23a, transparent: true, opacity: 0 });
+    const dotPos = [];
+    const ring = (pts) => {
+      const v = pts.map(([lon, lat]) => ll(lat, lon, R * 1.012));
+      v.push(v[0]);
+      this.outline.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(v), mat));
+      for (let i = 0; i < v.length - 1; i++) for (let k = 0; k < 6; k++) { const p = v[i].clone().lerp(v[i + 1], k / 6); dotPos.push(p.x, p.y, p.z); }
+    };
+    for (const pts of Object.values(islands)) ring(pts);
+    for (const [lo, la, rx, ry, rot] of ellipses) {
+      const pts = [];
+      for (let i = 0; i < 16; i++) { const a = (i / 16) * Math.PI * 2, x = Math.cos(a) * rx, y = Math.sin(a) * ry; pts.push([lo + x * Math.cos(rot) - y * Math.sin(rot), la + x * Math.sin(rot) + y * Math.cos(rot)]); }
+      ring(pts);
+    }
+    this.outlineMat = mat;
+    const dg = new THREE.BufferGeometry();
+    dg.setAttribute('position', new THREE.Float32BufferAttribute(dotPos, 3));
+    this.outlineDots = new THREE.Points(dg, new THREE.PointsMaterial({ color: 0xffd23a, size: 5, sizeAttenuation: false, transparent: true, opacity: 0 }));
+    this.outline.add(this.outlineDots);
+    this.earth.add(this.outline);
+    // rotate about the east-west axis through lon 118 so the outline slides along its meridian
+    this.outlineAxis = ll(0, 118 + 90, 1).normalize();
   }
 
   // world position of a named marker (for HTML tags)
@@ -219,6 +248,11 @@ export class Globe {
     this.bulge.scale.set(1 + 0.12 * Math.max(0, b), 1 - 0.12 * Math.max(0, b) + 0.16 * Math.max(0, -b), 1 + 0.12 * Math.max(0, b));
     if (b < 0) this.bulge.scale.set(1 - 0.06 * -b, 1 + 0.16 * -b, 1 - 0.06 * -b);
     for (const [n, m] of Object.entries(this.markers)) m.visible = (o.markers || []).includes(n);
+    if (this.outline) {
+      this.outlineMat.opacity = o.outline || 0;
+      this.outlineDots.material.opacity = o.outline || 0;
+      this.outline.quaternion.setFromAxisAngle(this.outlineAxis, -THREE.MathUtils.degToRad(o.shift || 0));
+    }
     this.moon.visible = !!o.moon;
     if (o.moon) {
       const a = o.moonAngle || 0;

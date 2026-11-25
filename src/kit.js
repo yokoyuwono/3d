@@ -107,6 +107,8 @@ export function tagger(container, camera) {
 
 // chapter pill + title cards
 export function chapters(names, starts) {
+  // chapter pill/cards are optional: pages without #chap/#chcard simply skip them
+  if (!$('chap') || !$('chcard')) return () => {};
   return (t, endT) => {
     let chap = 0;
     starts.forEach((c, i) => { if (t >= c + 0.6) chap = i + 1; });

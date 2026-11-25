@@ -13,8 +13,8 @@ dengan subtitle per kata, penanda bab, dan desain suara prosedural.
 | Ep | Halaman | Kode & aset | Status |
 |---|---|---|---|
 | 1 | `ep1.html`: Andai Bumi berhenti berputar (2:50) | `episodes/ep1/` | selesai (web) |
-| 2 | `ep2.html`: Andai Indonesia bersalju | `episodes/ep2/` | berikutnya |
-| 3 | Andai semua es mencair | | rencana |
+| 2 | `ep2.html`: Andai Indonesia bersalju (2:58) | `episodes/ep2/` | selesai (web) |
+| 3 | Andai semua es mencair | | berikutnya |
 | 4 | Andai ada lubang tembus Bumi dari Jakarta | | rencana |
 | 5 | Andai Bulan menghilang | | rencana |
 

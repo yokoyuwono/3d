@@ -1,0 +1,404 @@
+[
+ {
+  "id": 1,
+  "ch": 0,
+  "start": 1.7,
+  "dur": 3.947,
+  "end": 5.647,
+  "sentences": [
+   {
+    "text": "Bayangkan bangun pagi, dan seluruh kotamu tertutup salju.",
+    "start": 1.7,
+    "end": 5.647
+   }
+  ]
+ },
+ {
+  "id": 2,
+  "ch": 0,
+  "start": 6.097,
+  "dur": 11.838,
+  "end": 17.935,
+  "sentences": [
+   {
+    "text": "Mustahil?",
+    "start": 6.097,
+    "end": 7.068
+   },
+   {
+    "text": "Faktanya, Indonesia sudah punya salju sungguhan.",
+    "start": 7.288,
+    "end": 10.464
+   },
+   {
+    "text": "Tapi salju itu hampir hilang, dan kamu mungkin belum pernah melihatnya.",
+    "start": 10.684,
+    "end": 15.14
+   },
+   {
+    "text": "Di mana?",
+    "start": 15.36,
+    "end": 16.166
+   },
+   {
+    "text": "Tonton sampai habis.",
+    "start": 16.386,
+    "end": 17.935
+   }
+  ]
+ },
+ {
+  "id": 3,
+  "ch": 1,
+  "start": 18.735,
+  "dur": 6.164,
+  "end": 24.899,
+  "sentences": [
+   {
+    "text": "Pertama, kenapa Indonesia tidak pernah bersalju?",
+    "start": 18.735,
+    "end": 21.908
+   },
+   {
+    "text": "Jawabannya ada pada sudut sinar matahari.",
+    "start": 22.128,
+    "end": 24.899
+   }
+  ]
+ },
+ {
+  "id": 4,
+  "ch": 1,
+  "start": 25.249,
+  "dur": 12.017,
+  "end": 37.266,
+  "sentences": [
+   {
+    "text": "Indonesia berada di garis khatulistiwa.",
+    "start": 25.249,
+    "end": 27.898
+   },
+   {
+    "text": "Sepanjang tahun, matahari bersinar hampir tegak lurus di atas kepala.",
+    "start": 28.118,
+    "end": 32.723
+   },
+   {
+    "text": "Energinya terkumpul di area yang sempit, jadi panasnya terasa penuh.",
+    "start": 32.943,
+    "end": 37.266
+   }
+  ]
+ },
+ {
+  "id": 5,
+  "ch": 1,
+  "start": 37.616,
+  "dur": 8.114,
+  "end": 45.73,
+  "sentences": [
+   {
+    "text": "Di Jepang atau Eropa, sinar matahari datang miring.",
+    "start": 37.616,
+    "end": 41.184
+   },
+   {
+    "text": "Energi yang sama tersebar ke area yang lebih luas, jadi jauh lebih dingin.",
+    "start": 41.404,
+    "end": 45.73
+   }
+  ]
+ },
+ {
+  "id": 6,
+  "ch": 1,
+  "start": 46.08,
+  "dur": 13.151,
+  "end": 59.231,
+  "sentences": [
+   {
+    "text": "Dan karena sumbu Bumi miring, sudut itu berubah sepanjang tahun.",
+    "start": 46.08,
+    "end": 50.287
+   },
+   {
+    "text": "Itulah yang menciptakan empat musim.",
+    "start": 50.507,
+    "end": 52.84
+   },
+   {
+    "text": "Di Indonesia, perubahannya sangat kecil.",
+    "start": 53.06,
+    "end": 55.963
+   },
+   {
+    "text": "Hasilnya, hanya ada musim hujan dan kemarau.",
+    "start": 56.183,
+    "end": 59.231
+   }
+  ]
+ },
+ {
+  "id": 7,
+  "ch": 2,
+  "start": 60.031,
+  "dur": 4.723,
+  "end": 64.754,
+  "sentences": [
+   {
+    "text": "Sekarang, bayangkan Indonesia digeser ke utara, sejajar dengan Jepang.",
+    "start": 60.031,
+    "end": 64.754
+   }
+  ]
+ },
+ {
+  "id": 8,
+  "ch": 2,
+  "start": 65.154,
+  "dur": 6.933,
+  "end": 72.087,
+  "sentences": [
+   {
+    "text": "Musim dingin datang.",
+    "start": 65.154,
+    "end": 66.328
+   },
+   {
+    "text": "Suhu turun mendekati nol.",
+    "start": 66.548,
+    "end": 68.376
+   },
+   {
+    "text": "Salju turun di jalanan, di atap rumah, dan di sawah.",
+    "start": 68.596,
+    "end": 72.087
+   }
+  ]
+ },
+ {
+  "id": 9,
+  "ch": 2,
+  "start": 72.487,
+  "dur": 11.523,
+  "end": 84.01,
+  "sentences": [
+   {
+    "text": "Pohon kelapa mati membeku.",
+    "start": 72.487,
+    "end": 74.53
+   },
+   {
+    "text": "Sawah yang biasanya panen dua atau tiga kali setahun, kini hanya sekali.",
+    "start": 74.75,
+    "end": 79.416
+   },
+   {
+    "text": "Tapi ada kabar baik, nyamuk demam berdarah sulit bertahan di musim dingin.",
+    "start": 79.636,
+    "end": 84.01
+   }
+  ]
+ },
+ {
+  "id": 10,
+  "ch": 2,
+  "start": 84.46,
+  "dur": 10.323,
+  "end": 94.783,
+  "sentences": [
+   {
+    "text": "Jadi, kamu pilih yang mana?",
+    "start": 84.46,
+    "end": 86.464
+   },
+   {
+    "text": "Tulis di kolom komentar.",
+    "start": 86.684,
+    "end": 88.414
+   },
+   {
+    "text": "Tapi tunggu dulu.",
+    "start": 88.634,
+    "end": 89.901
+   },
+   {
+    "text": "Indonesia sebenarnya tidak perlu pindah, untuk merasakan suhu di bawah nol.",
+    "start": 90.121,
+    "end": 94.783
+   }
+  ]
+ },
+ {
+  "id": 11,
+  "ch": 3,
+  "start": 95.583,
+  "dur": 6.698,
+  "end": 102.281,
+  "sentences": [
+   {
+    "text": "Rahasianya adalah ketinggian.",
+    "start": 95.583,
+    "end": 97.514
+   },
+   {
+    "text": "Setiap naik seribu meter, suhu udara turun sekitar enam derajat.",
+    "start": 97.734,
+    "end": 102.281
+   }
+  ]
+ },
+ {
+  "id": 12,
+  "ch": 3,
+  "start": 102.681,
+  "dur": 11.365,
+  "end": 114.046,
+  "sentences": [
+   {
+    "text": "Di Dataran Tinggi Dieng, sekitar dua ribu meter, saat kemarau, suhu di permukaan rumput bisa jatuh di bawah nol.",
+    "start": 102.681,
+    "end": 110.161
+   },
+   {
+    "text": "Embun pun membeku.",
+    "start": 110.381,
+    "end": 111.859
+   },
+   {
+    "text": "Warga menyebutnya embun upas.",
+    "start": 112.079,
+    "end": 114.046
+   }
+  ]
+ },
+ {
+  "id": 13,
+  "ch": 3,
+  "start": 114.546,
+  "dur": 10.282,
+  "end": 124.828,
+  "sentences": [
+   {
+    "text": "Tapi salju sungguhan ada jauh lebih tinggi.",
+    "start": 114.546,
+    "end": 117.326
+   },
+   {
+    "text": "Di Puncak Jaya, Papua, hampir lima ribu meter.",
+    "start": 117.546,
+    "end": 121.089
+   },
+   {
+    "text": "Di sana ada gletser, es abadi di garis khatulistiwa.",
+    "start": 121.309,
+    "end": 124.828
+   }
+  ]
+ },
+ {
+  "id": 14,
+  "ch": 4,
+  "start": 125.628,
+  "dur": 7.28,
+  "end": 132.908,
+  "sentences": [
+   {
+    "text": "Tahun seribu sembilan ratus delapan puluh delapan, es di puncaknya masih seluas sekitar empat kilometer persegi.",
+    "start": 125.628,
+    "end": 132.908
+   }
+  ]
+ },
+ {
+  "id": 15,
+  "ch": 4,
+  "start": 133.308,
+  "dur": 13.456,
+  "end": 146.764,
+  "sentences": [
+   {
+    "text": "Tahun dua ribu dua puluh lima, tersisa kurang dari sepersepuluh kilometer persegi.",
+    "start": 133.308,
+    "end": 138.863
+   },
+   {
+    "text": "Hanya seluas belasan lapangan sepak bola.",
+    "start": 139.083,
+    "end": 141.791
+   },
+   {
+    "text": "Kini, sisa es itu bahkan terlalu kecil untuk bergerak sebagai gletser.",
+    "start": 142.011,
+    "end": 146.764
+   }
+  ]
+ },
+ {
+  "id": 16,
+  "ch": 4,
+  "start": 147.214,
+  "dur": 5.406,
+  "end": 152.62,
+  "sentences": [
+   {
+    "text": "Venezuela sudah kehilangan gletser terakhirnya.",
+    "start": 147.214,
+    "end": 150.36
+   },
+   {
+    "text": "Indonesia, mungkin berikutnya.",
+    "start": 150.58,
+    "end": 152.62
+   }
+  ]
+ },
+ {
+  "id": 17,
+  "ch": 5,
+  "start": 153.42,
+  "dur": 10.486,
+  "end": 163.906,
+  "sentences": [
+   {
+    "text": "Jadi, Indonesia memang punya salju.",
+    "start": 153.42,
+    "end": 155.867
+   },
+   {
+    "text": "Bukan karena kita pindah ke utara, tapi karena gunung tertinggi kita.",
+    "start": 156.087,
+    "end": 160.289
+   },
+   {
+    "text": "Dan salju itu sedang menghilang, di depan mata kita.",
+    "start": 160.509,
+    "end": 163.906
+   }
+  ]
+ },
+ {
+  "id": 18,
+  "ch": 5,
+  "start": 164.406,
+  "dur": 10.061,
+  "end": 174.467,
+  "sentences": [
+   {
+    "text": "Kalau es sekecil ini saja bisa hilang, bagaimana jika semua es di Bumi mencair?",
+    "start": 164.406,
+    "end": 169.824
+   },
+   {
+    "text": "Kota mana yang akan tenggelam?",
+    "start": 170.044,
+    "end": 171.737
+   },
+   {
+    "text": "Jawabannya, di episode berikutnya.",
+    "start": 171.957,
+    "end": 174.467
+   }
+  ]
+ }
+]

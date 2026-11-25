@@ -152,7 +152,8 @@ function signTexture(lines, bg = '#0b7a3b') {
 
 // ================================================================== World
 export class World {
-  constructor() {
+  constructor(opts = {}) {
+    this.opts = opts;
     this.scene = new THREE.Scene();
     this.scene.fog = new THREE.FogExp2(0xffffff, 0.0006);
     this.rand = mulberry32(1337);
@@ -171,6 +172,7 @@ export class World {
     this.buildSigns();
     this.buildParticles();
     this.buildWeather();
+    if (opts.monument) this.buildMonument();
   }
 
   // ---------------------------------------------------------------- sky
@@ -760,6 +762,33 @@ export class World {
     this.snowSeeds = [];
     for (let i = 0; i < ns; i++) this.snowSeeds.push({ x: R() * 400 - 200, y: R() * 80, z: -60 + R() * 220, sp: 1.5 + R(), size: 0.25 + R() * 0.35, ph: R() * 6.28 });
     this.scene.add(this.snowSys);
+    // snow cover: a white skin over the terrain + whitening roofs and palm leaves
+    this.snowCover = 0;
+    this.snowSkin = new THREE.Mesh(this.terrain.geometry, new THREE.MeshLambertMaterial({ color: 0xf4f7fb, transparent: true, opacity: 0, polygonOffset: true, polygonOffsetFactor: -2, polygonOffsetUnits: -2 }));
+    this.snowSkin.visible = false;
+    this.scene.add(this.snowSkin);
+    this.roofBase = this.roofMats.map((m) => m.color.clone());
+  }
+
+  // a Monas-like national monument in a plaza (illustrative), only for episodes that ask for it
+  buildMonument() {
+    const cx = 62, cz = 107, g0 = terrainY(cx, cz);
+    for (const b of this.buildings) if (Math.hypot(b.x - cx, b.z - cz) < 20) b.group.visible = false;
+    const G = new THREE.Group();
+    G.position.set(cx, g0, cz);
+    const stone = new THREE.MeshLambertMaterial({ color: lin([0.93, 0.92, 0.88]) });
+    const gold = new THREE.MeshLambertMaterial({ color: lin([1.0, 0.78, 0.25]), emissive: lin([0.35, 0.22, 0.0]) });
+    const plaza = new THREE.Mesh(new THREE.BoxGeometry(34, 0.6, 34), new THREE.MeshLambertMaterial({ color: lin([0.75, 0.73, 0.68]) }));
+    plaza.position.y = 0.3;
+    const cup1 = new THREE.Mesh(new THREE.BoxGeometry(18, 4, 18), stone); cup1.position.y = 2.6;
+    const cup2 = new THREE.Mesh(new THREE.CylinderGeometry(6.5, 9, 3, 4), stone); cup2.rotation.y = Math.PI / 4; cup2.position.y = 6;
+    const shaft = new THREE.Mesh(new THREE.CylinderGeometry(1.6, 3.4, 48, 4), stone); shaft.rotation.y = Math.PI / 4; shaft.position.y = 31.5;
+    const bowl = new THREE.Mesh(new THREE.CylinderGeometry(3.2, 1.5, 2.4, 12), stone); bowl.position.y = 56.6;
+    const flame = new THREE.Mesh(new THREE.ConeGeometry(1.8, 5.5, 12), gold); flame.position.y = 60.4;
+    for (const m of [plaza, cup1, cup2, shaft, bowl, flame]) { m.castShadow = m.receiveShadow = true; G.add(m); }
+    this.scene.add(G);
+    this.monument = G;
+    this.anchors.monument = new THREE.Vector3(cx, g0 + 66, cz);
   }
 
   updateWeather(t, camera) {
@@ -784,6 +813,11 @@ export class World {
       f.m.rotation.set(a * f.spin, a * f.spin * 0.7, a * f.spin * 0.3);
     }
     if (w > 0) for (const pm of this.palms) { pm.g.rotation.z = -w * (0.9 + 0.15 * Math.sin(t * 9 + pm.phase)); pm.cr.rotation.y = t * 3 * w; }
+    // snow cover
+    const sc = this.snowCover || 0;
+    this.snowSkin.visible = sc > 0.01;
+    this.snowSkin.material.opacity = 0.88 * sc;
+    this.roofMats.forEach((m, i) => m.color.copy(this.roofBase[i]).lerp(new THREE.Color(0.9, 0.92, 0.95), sc * 0.85));
     // snow
     this.snowSys.visible = this.snow > 0.01;
     if (this.snowSys.visible) {
