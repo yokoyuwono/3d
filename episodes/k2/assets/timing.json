@@ -1,0 +1,372 @@
+[
+ {
+  "id": 1,
+  "ch": 0,
+  "start": 1.7,
+  "dur": 7.866,
+  "end": 9.566,
+  "sentences": [
+   {
+    "text": "Satu kilatan.",
+    "start": 1.7,
+    "end": 2.691
+   },
+   {
+    "text": "Ratusan juta volt listrik menyambar, dan tubuhmu ada di jalurnya.",
+    "start": 2.911,
+    "end": 7.311
+   },
+   {
+    "text": "Kamu baru saja tersambar petir.",
+    "start": 7.531,
+    "end": 9.566
+   }
+  ]
+ },
+ {
+  "id": 2,
+  "ch": 0,
+  "start": 10.016,
+  "dur": 13.817,
+  "end": 23.833,
+  "sentences": [
+   {
+    "text": "Anehnya, sekitar sembilan dari sepuluh orang yang tersambar petir, selamat.",
+    "start": 10.016,
+    "end": 14.817
+   },
+   {
+    "text": "Bagaimana bisa?",
+    "start": 15.037,
+    "end": 16.263
+   },
+   {
+    "text": "Dan ada satu kebiasaan yang sering kita lakukan saat hujan, yang justru sangat berbahaya.",
+    "start": 16.483,
+    "end": 22.16
+   },
+   {
+    "text": "Tonton sampai habis.",
+    "start": 22.38,
+    "end": 23.833
+   }
+  ]
+ },
+ {
+  "id": 3,
+  "ch": 1,
+  "start": 24.633,
+  "dur": 12.285,
+  "end": 36.918,
+  "sentences": [
+   {
+    "text": "Petir adalah loncatan listrik raksasa antara awan dan tanah.",
+    "start": 24.633,
+    "end": 28.28
+   },
+   {
+    "text": "Suhunya bisa mencapai sekitar dua puluh tujuh ribu derajat Celsius.",
+    "start": 28.5,
+    "end": 33.011
+   },
+   {
+    "text": "Sekitar lima kali lebih panas dari permukaan Matahari.",
+    "start": 33.231,
+    "end": 36.918
+   }
+  ]
+ },
+ {
+  "id": 4,
+  "ch": 1,
+  "start": 37.318,
+  "dur": 12.121,
+  "end": 49.439,
+  "sentences": [
+   {
+    "text": "Udara di sekitarnya memuai begitu cepat, sampai meledak.",
+    "start": 37.318,
+    "end": 41.03
+   },
+   {
+    "text": "Itulah suara guntur.",
+    "start": 41.25,
+    "end": 42.535
+   },
+   {
+    "text": "Hitung detik antara kilat dan guntur, lalu bagi tiga.",
+    "start": 42.755,
+    "end": 46.129
+   },
+   {
+    "text": "Hasilnya adalah jarak petir, dalam kilometer.",
+    "start": 46.349,
+    "end": 49.439
+   }
+  ]
+ },
+ {
+  "id": 5,
+  "ch": 1,
+  "start": 49.839,
+  "dur": 13.042,
+  "end": 62.881,
+  "sentences": [
+   {
+    "text": "Indonesia adalah negeri petir.",
+    "start": 49.839,
+    "end": 51.973
+   },
+   {
+    "text": "Bogor dan Depok termasuk wilayah dengan petir terbanyak di Indonesia.",
+    "start": 52.193,
+    "end": 56.207
+   },
+   {
+    "text": "Pada satu hari di tahun dua ribu dua belas, petir menyambar kawasan Bogor lebih dari dua puluh ribu kali.",
+    "start": 56.427,
+    "end": 62.881
+   }
+  ]
+ },
+ {
+  "id": 6,
+  "ch": 2,
+  "start": 63.681,
+  "dur": 15.293,
+  "end": 78.974,
+  "sentences": [
+   {
+    "text": "Lalu apa yang terjadi saat petir menyambar tubuh?",
+    "start": 63.681,
+    "end": 66.705
+   },
+   {
+    "text": "Arusnya sangat besar, tapi sangat singkat, hanya sepersekian detik.",
+    "start": 66.925,
+    "end": 70.872
+   },
+   {
+    "text": "Sebagian besar arus justru mengalir di permukaan kulit, bukan menembus ke dalam.",
+    "start": 71.092,
+    "end": 76.055
+   },
+   {
+    "text": "Itulah salah satu alasan banyak orang selamat.",
+    "start": 76.275,
+    "end": 78.974
+   }
+  ]
+ },
+ {
+  "id": 7,
+  "ch": 2,
+  "start": 79.374,
+  "dur": 8.641,
+  "end": 88.015,
+  "sentences": [
+   {
+    "text": "Yang paling berbahaya adalah jantung.",
+    "start": 79.374,
+    "end": 81.635
+   },
+   {
+    "text": "Sambaran bisa membuat jantung berhenti berdetak.",
+    "start": 81.855,
+    "end": 84.685
+   },
+   {
+    "text": "Inilah penyebab utama kematian akibat petir.",
+    "start": 84.905,
+    "end": 88.015
+   }
+  ]
+ },
+ {
+  "id": 8,
+  "ch": 2,
+  "start": 88.415,
+  "dur": 12.082,
+  "end": 100.497,
+  "sentences": [
+   {
+    "text": "Korban yang selamat bisa mengalami luka bakar, telinga berdenging, sampai pola merah bercabang di kulit, seperti akar pohon.",
+    "start": 88.415,
+    "end": 96.024
+   },
+   {
+    "text": "Namanya figur Lichtenberg, dan biasanya memudar dalam beberapa hari.",
+    "start": 96.244,
+    "end": 100.497
+   }
+  ]
+ },
+ {
+  "id": 9,
+  "ch": 3,
+  "start": 101.297,
+  "dur": 9.149,
+  "end": 110.446,
+  "sentences": [
+   {
+    "text": "Faktanya, hanya sedikit korban yang tersambar langsung.",
+    "start": 101.297,
+    "end": 104.539
+   },
+   {
+    "text": "Kebanyakan terkena arus yang merambat di tanah, atau loncatan listrik dari benda di dekatnya.",
+    "start": 104.759,
+    "end": 110.446
+   }
+  ]
+ },
+ {
+  "id": 10,
+  "ch": 3,
+  "start": 110.846,
+  "dur": 11.495,
+  "end": 122.341,
+  "sentences": [
+   {
+    "text": "Dan inilah kebiasaan berbahaya itu.",
+    "start": 110.846,
+    "end": 113.462
+   },
+   {
+    "text": "Berteduh di bawah pohon saat hujan petir.",
+    "start": 113.682,
+    "end": 116.42
+   },
+   {
+    "text": "Pohon yang tinggi menarik sambaran, lalu listriknya meloncat ke orang yang berteduh di bawahnya.",
+    "start": 116.64,
+    "end": 122.341
+   }
+  ]
+ },
+ {
+  "id": 11,
+  "ch": 3,
+  "start": 122.741,
+  "dur": 9.089,
+  "end": 131.83,
+  "sentences": [
+   {
+    "text": "Petani di sawah terbuka, pemain bola di lapangan, dan pemancing di perahu juga sangat berisiko, karena mereka menjadi titik tertinggi di sekitarnya.",
+    "start": 122.741,
+    "end": 131.83
+   }
+  ]
+ },
+ {
+  "id": 12,
+  "ch": 4,
+  "start": 132.63,
+  "dur": 14.033,
+  "end": 146.663,
+  "sentences": [
+   {
+    "text": "Jadi, apa yang harus dilakukan?",
+    "start": 132.63,
+    "end": 134.663
+   },
+   {
+    "text": "Kalau mendengar guntur, segera masuk ke bangunan, atau mobil beratap logam.",
+    "start": 134.883,
+    "end": 139.521
+   },
+   {
+    "text": "Jauhi pohon tinggi, tiang, dan air.",
+    "start": 139.741,
+    "end": 142.29
+   },
+   {
+    "text": "Tunggu tiga puluh menit setelah guntur terakhir, sebelum keluar lagi.",
+    "start": 142.51,
+    "end": 146.663
+   }
+  ]
+ },
+ {
+  "id": 13,
+  "ch": 4,
+  "start": 147.063,
+  "dur": 13.66,
+  "end": 160.723,
+  "sentences": [
+   {
+    "text": "Kalau ada orang tersambar petir, jangan takut menolongnya.",
+    "start": 147.063,
+    "end": 150.735
+   },
+   {
+    "text": "Tubuhnya tidak menyimpan listrik.",
+    "start": 150.955,
+    "end": 152.882
+   },
+   {
+    "text": "Segera panggil bantuan, dan kalau jantungnya berhenti, lakukan pijat jantung.",
+    "start": 153.102,
+    "end": 157.986
+   },
+   {
+    "text": "Pertolongan cepat bisa menyelamatkan nyawa.",
+    "start": 158.206,
+    "end": 160.723
+   }
+  ]
+ },
+ {
+  "id": 14,
+  "ch": 5,
+  "start": 161.523,
+  "dur": 12.565,
+  "end": 174.088,
+  "sentences": [
+   {
+    "text": "Jadi, kenapa banyak orang selamat?",
+    "start": 161.523,
+    "end": 163.544
+   },
+   {
+    "text": "Karena sambarannya sangat singkat, sebagian besar arus lewat di kulit, dan pertolongan datang cepat.",
+    "start": 163.764,
+    "end": 169.445
+   },
+   {
+    "text": "Tapi cara terbaik selamat dari petir, adalah tidak tersambar sama sekali.",
+    "start": 169.665,
+    "end": 174.088
+   }
+  ]
+ },
+ {
+  "id": 15,
+  "ch": 5,
+  "start": 174.688,
+  "dur": 7.33,
+  "end": 182.018,
+  "sentences": [
+   {
+    "text": "Di daerahmu sering ada petir?",
+    "start": 174.688,
+    "end": 176.515
+   },
+   {
+    "text": "Tulis di komentar.",
+    "start": 176.735,
+    "end": 177.873
+   },
+   {
+    "text": "Berikutnya.",
+    "start": 178.093,
+    "end": 179.036
+   },
+   {
+    "text": "Kalau kamu, terjebak di dasar Palung Jawa.",
+    "start": 179.256,
+    "end": 182.018
+   }
+  ]
+ }
+]
