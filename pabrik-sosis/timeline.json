@@ -1,0 +1,253 @@
+{
+ "bpm": 112,
+ "beat": 0.5357142857142857,
+ "end": 102.3214,
+ "sections": [
+  {
+   "id": "plate",
+   "t0": 0.0,
+   "v0": 0.9,
+   "v1": 8.299,
+   "t1": 8.8393
+  },
+  {
+   "id": "farm",
+   "t0": 8.8393,
+   "v0": 9.339,
+   "v1": 16.206,
+   "t1": 16.6071
+  },
+  {
+   "id": "truck",
+   "t0": 16.6071,
+   "v0": 16.907,
+   "v1": 23.722,
+   "t1": 24.1071
+  },
+  {
+   "id": "gate",
+   "t0": 24.1071,
+   "v0": 24.407,
+   "v1": 31.944,
+   "t1": 32.4107
+  },
+  {
+   "id": "grind",
+   "t0": 32.4107,
+   "v0": 33.611,
+   "v1": 38.074,
+   "t1": 38.5714
+  },
+  {
+   "id": "mix",
+   "t0": 38.5714,
+   "v0": 39.371,
+   "v1": 47.87,
+   "t1": 48.4821
+  },
+  {
+   "id": "fill",
+   "t0": 48.4821,
+   "v0": 49.282,
+   "v1": 54.421,
+   "t1": 55.1786
+  },
+  {
+   "id": "oven",
+   "t0": 55.1786,
+   "v0": 55.979,
+   "v1": 62.652,
+   "t1": 63.2143
+  },
+  {
+   "id": "cool",
+   "t0": 63.2143,
+   "v0": 64.014,
+   "v1": 68.02,
+   "t1": 68.3036
+  },
+  {
+   "id": "pack",
+   "t0": 68.3036,
+   "v0": 69.104,
+   "v1": 78.986,
+   "t1": 79.5536
+  },
+  {
+   "id": "dist",
+   "t0": 79.5536,
+   "v0": 80.454,
+   "v1": 87.454,
+   "t1": 88.125
+  },
+  {
+   "id": "home",
+   "t0": 88.125,
+   "v0": 88.625,
+   "v1": 91.825,
+   "t1": 92.1429
+  },
+  {
+   "id": "end",
+   "t0": 92.1429,
+   "v0": 93.543,
+   "v1": 99.143,
+   "t1": 102.3214
+  }
+ ],
+ "voice": [
+  {
+   "id": "a01_1",
+   "sec": "plate",
+   "t0": 0.9,
+   "t1": 5.311,
+   "dur": 4.411,
+   "missing": false,
+   "text": "Sosis goreng di piring sarapan. Renyah di luar, lembut di dalam."
+  },
+  {
+   "id": "a01_2",
+   "sec": "plate",
+   "t0": 5.631,
+   "t1": 8.299,
+   "dur": 2.668,
+   "missing": false,
+   "text": "Tapi... dari mana SEBENARNYA sosis ini berasal?"
+  },
+  {
+   "id": "a02_1",
+   "sec": "farm",
+   "t0": 9.339,
+   "t1": 11.431,
+   "dur": 2.092,
+   "missing": false,
+   "text": "Semuanya dimulai di peternakan sapi dan ayam."
+  },
+  {
+   "id": "a02_2",
+   "sec": "farm",
+   "t0": 11.751,
+   "t1": 16.206,
+   "dur": 4.455,
+   "missing": false,
+   "text": "Hewan disembelih di rumah potong bersertifikat HALAL, lalu dagingnya diperiksa dokter hewan."
+  },
+  {
+   "id": "a02_3",
+   "sec": "truck",
+   "t0": 16.907,
+   "t1": 23.722,
+   "dur": 6.815,
+   "missing": false,
+   "text": "Truk berpendingin membawanya, di bawah EMPAT derajat Celsius. Ikut juga tapioka, bawang putih, lada, garam, dan selongsong."
+  },
+  {
+   "id": "a03_1",
+   "sec": "gate",
+   "t0": 24.407,
+   "t1": 28.072,
+   "dur": 3.665,
+   "missing": false,
+   "text": "Di gerbang pabrik, petugas mutu mengecek suhu, warna, bau, dan beratnya."
+  },
+  {
+   "id": "a03_2",
+   "sec": "gate",
+   "t0": 28.392,
+   "t1": 31.944,
+   "dur": 3.552,
+   "missing": false,
+   "text": "Lolos, masuk. <short pause> Gagal, dikembalikan."
+  },
+  {
+   "id": "a04_1",
+   "sec": "grind",
+   "t0": 33.611,
+   "t1": 38.074,
+   "dur": 4.463,
+   "missing": false,
+   "text": "Daging digiling halus, di mesin yang dijaga tetap DINGIN supaya lemaknya tidak meleleh."
+  },
+  {
+   "id": "a05_1",
+   "sec": "mix",
+   "t0": 39.371,
+   "t1": 47.87,
+   "dur": 8.499,
+   "missing": false,
+   "text": "Lalu dicampur: daging, tapioka, bumbu, garam, dan es, sampai jadi adonan kenyal. Takarannya presisi, jadi rasanya SELALU sama."
+  },
+  {
+   "id": "a06_1",
+   "sec": "fill",
+   "t0": 49.282,
+   "t1": 54.421,
+   "dur": 5.139,
+   "missing": false,
+   "text": "Bagian paling seru! Adonan didorong ke selongsong, lalu dipelintir... jadi rantai sosis!"
+  },
+  {
+   "id": "a07_1",
+   "sec": "oven",
+   "t0": 55.979,
+   "t1": 62.652,
+   "dur": 6.673,
+   "missing": false,
+   "text": "Sosis dimasak di oven uap sampai bagian dalamnya TUJUH PULUH DUA derajat. Kuman tidak bisa bertahan. Sebagian juga diasap."
+  },
+  {
+   "id": "a08_1",
+   "sec": "cool",
+   "t0": 64.014,
+   "t1": 68.02,
+   "dur": 4.006,
+   "missing": false,
+   "text": "Setelah matang, disiram air dingin, lalu didinginkan agar teksturnya terkunci."
+  },
+  {
+   "id": "a09_1",
+   "sec": "pack",
+   "t0": 69.104,
+   "t1": 75.15,
+   "dur": 6.046,
+   "missing": false,
+   "text": "Dipotong, ditimbang, dikemas vakum, dan diberi label: tanggal, logo halal, dan izin BPOM."
+  },
+  {
+   "id": "a09_2",
+   "sec": "pack",
+   "t0": 75.47,
+   "t1": 78.986,
+   "dur": 3.516,
+   "missing": false,
+   "text": "Detektor logam memastikan tidak ada benda asing. Masuk kardus, susun di palet."
+  },
+  {
+   "id": "a10_1",
+   "sec": "dist",
+   "t0": 80.454,
+   "t1": 87.454,
+   "dur": 7.0,
+   "missing": true,
+   "text": "Dari gudang beku, truk berpendingin mengantarnya ke distributor, supermarket, minimarket, warung, restoran, sampai toko online!"
+  },
+  {
+   "id": "a11_1",
+   "sec": "home",
+   "t0": 88.625,
+   "t1": 91.825,
+   "dur": 3.2,
+   "missing": true,
+   "text": "Dan akhirnya... kembali ke piring sarapanmu."
+  },
+  {
+   "id": "a11_2",
+   "sec": "end",
+   "t0": 93.543,
+   "t1": 99.143,
+   "dur": 5.6,
+   "missing": true,
+   "text": "Dari peternakan sampai ke piring, setiap langkah dijaga: AMAN, HALAL, dan LEZAT."
+  }
+ ]
+}

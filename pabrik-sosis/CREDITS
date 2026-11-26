@@ -1,0 +1,20 @@
+Dari Peternakan ke Piring — film pendek (Isometric Infographic), 1080×1920
+Seluruh gambar dibuat dengan kode (Canvas 2D). Tidak ada gambar hasil generator atau foto.
+Merek "Sosis Pagi Ceria" adalah fiktif.
+
+Suara narasi
+- Google Gemini TTS, model gemini-3.8-flash-tts, suara "Sulafat" — dibuat lewat Gemini API dengan akun pengguna (voice/gemini_tts.py, naskah di voice/narration.json). Tunduk pada ketentuan layanan Gemini API.
+
+Musik (komposisi orisinal, tools/score.py) — instrumen sampel lewat core/audio/sampler.py dari pustaka Lemo-Opuscar
+- Versilian Community Sample Library (VCSL, Versilian Studios): marimba, glockenspiel, shaker, cajon, conga, woodblock — CC0 1.0
+- Karoryfer Samples / sfzinstruments: jazz_bass — CC0 1.0
+
+Efek suara & suasana
+- Semua disintesis di tools/mix.py (numpy/scipy), dengan core/audio/sfx.py.
+
+Font
+- Jost (indestructible type*), SIL Open Font License 1.1 — fonts/Jost.ttf, lisensi di fonts/OFL.txt
+
+Kode
+- Engine isometrik (engine.js) disalin dari contoh gaya "Isometric Infographic" di pustaka Lemo-Opuscar (github.com/lemomo-ai/lemo-opuscar); lisensi pustaka berlaku untuk bagian itu.
+- Referensi tata bahasa visual Isotype: Otto Neurath & Gerd Arntz. Semua ikon di film ini orisinal.

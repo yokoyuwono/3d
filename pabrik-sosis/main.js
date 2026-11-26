@@ -1,0 +1,11 @@
+const cv = document.getElementById('c');
+cv.width = innerWidth || 1080; cv.height = innerHeight || 1920;
+const g = cv.getContext('2d');
+for (const w of [400, 500, 600, 700]) await document.fonts.load(`${w} 40px Jost`);
+const film = await import('./film.js');
+await film.load(cv.width, cv.height);
+const Q = new URLSearchParams(location.search);
+window.DUR = film.DUR(); window.EV = film.events();
+window.render = t => { g.setTransform(1, 0, 0, 1, 0, 0); film.render(g, t, Q); };
+window.TEXTS = t => { g.setTransform(1, 0, 0, 1, 0, 0); return film.render(g, t, Q, true); };
+window.READY = true;
