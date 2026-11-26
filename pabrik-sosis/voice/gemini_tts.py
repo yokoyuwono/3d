@@ -1,37 +1,103 @@
 #!/usr/bin/env python3
-"""Generate narration lines with Gemini TTS.
-Usage: gemini_tts.py <narration.json> <outdir> <voice> [id ...]
-The API key is added by the environment's network proxy (header x-goog-api-key)."""
-import base64, json, os, sys, time, urllib.request, urllib.error
-src, outdir, voice = sys.argv[1], sys.argv[2], sys.argv[3]
-only = set(sys.argv[4:])
-lines = json.load(open(src))
-os.makedirs(outdir, exist_ok=True)
-URL = "https://generativelanguage.googleapis.com/v1beta/interactions"
-for ln in lines:
-    if only and ln["id"] not in only: continue
-    out = os.path.join(outdir, ln["id"] + ".wav")
-    if os.path.exists(out) and not only: continue
-    item = {"type": "text", "text": ln["text"]}
-    if ln.get("style"):
-        item["annotations"] = [{"type": "speech_metadata", "style": ln["style"]}]
-    body = {"model": os.environ.get("TTS_MODEL", "gemini-3.8-flash-tts"),
-            "input": [{"type": "user_input", "content": [item]}],
-            "response_format": {"type": "audio"},
-            "generation_config": {"speech_config": [{"voice": voice}]}}
+"""Gemini TTS with a free-first quota scheme.
+
+Usage:
+  gemini_tts.py <narration.json> <outdir> <voice> [--batch N] [--only id,id] [--model M] [--force]
+
+How keys are used
+- FREE key: saved as a network secret on the cloud environment (header x-goog-api-key, prefix empty);
+  the proxy adds it to every request, so this script never sees it.
+- PAID key (optional): environment variable GEMINI_PAID_API_KEY. It is only used after the free daily
+  quota is exhausted; it is sent as ?key=… (which takes precedence over the header) and never printed.
+
+How requests are saved
+- --batch N puts up to N lines (each with its own style) into ONE request; the returned audio is cut
+  back into one WAV per line at the pauses between lines. --batch 0 = the whole script in one request.
+  One request per video means the free tier (10 requests/day for gemini-3.8-flash-tts) covers ~10 videos/day.
+- Lines whose WAV already exists are skipped (use --force or --only to redo specific lines).
+- Every request is logged in <outdir>/../quota_log.json (date, model, tier, lines, seconds of audio)."""
+import base64, io, json, os, sys, time, urllib.request, urllib.error, wave, datetime
+import numpy as np
+
+URL = 'https://generativelanguage.googleapis.com/v1beta/interactions'
+args = sys.argv[1:]
+def opt(name, default=None):
+    if name in args: i = args.index(name); v = args[i + 1]; del args[i:i + 2]; return v
+    return default
+batch = int(opt('--batch', '1')); only = opt('--only'); model = opt('--model', 'gemini-3.8-flash-tts')
+force = '--force' in args; args = [a for a in args if a != '--force']
+src, outdir, voice = args[0], args[1], args[2]
+PAID = os.environ.get('GEMINI_PAID_API_KEY', '').strip()
+lines = json.load(open(src)); os.makedirs(outdir, exist_ok=True)
+want = [l for l in lines if (only and l['id'] in only.split(',')) or (not only and (force or not os.path.exists(os.path.join(outdir, l['id'] + '.wav'))))]
+LOG = os.path.join(os.path.dirname(os.path.abspath(outdir)), 'quota_log.json')
+log = json.load(open(LOG)) if os.path.exists(LOG) else []
+tier = 'free'
+
+def request(items):
+    """One TTS request for a list of lines → (wav bytes, tier used). Free first, paid on daily quota."""
+    global tier
+    content = [{'type': 'text', 'text': l['text'], **({'annotations': [{'type': 'speech_metadata', 'style': l['style']}]} if l.get('style') else {})} for l in items]
+    body = json.dumps({'model': model, 'input': [{'type': 'user_input', 'content': content}], 'response_format': {'type': 'audio'},
+                       'generation_config': {'speech_config': [{'voice': voice}]}}).encode()
     for attempt in range(6):
-        req = urllib.request.Request(URL, json.dumps(body).encode(), {"Content-Type": "application/json"})
+        url = URL + ('?key=' + PAID if tier == 'paid' else '')
         try:
-            d = json.load(urllib.request.urlopen(req, timeout=120))
-            if isinstance(d, list): d = d[0]
-            audio = [c for s in d["steps"] for c in s.get("content", []) if c.get("type") == "audio"]
-            open(out, "wb").write(base64.b64decode(audio[-1]["data"]))
-            print("ok", ln["id"]); break
+            d = json.load(urllib.request.urlopen(urllib.request.Request(url, body, {'Content-Type': 'application/json'}), timeout=180))
+            d = d[0] if isinstance(d, list) else d
+            audio = [c for s in d['steps'] for c in s.get('content', []) if c.get('type') == 'audio']
+            return base64.b64decode(audio[-1]['data'])
         except urllib.error.HTTPError as e:
-            msg = e.read().decode()[:300]
+            msg = e.read().decode(errors='replace')
+            daily = e.code == 429 and ('per day' in msg or 'requests per day' in msg)
+            if (daily or e.code == 402) and tier == 'free':
+                if PAID: print(f'  free quota exhausted ({e.code}) → switching to the paid key'); tier = 'paid'; continue
+                sys.exit(f'STOP: free daily quota for {model} is used up and no GEMINI_PAID_API_KEY is set.\n  {msg[:220]}')
             if e.code == 429 or e.code >= 500:
-                wait = 20 * (attempt + 1); print("retry", ln["id"], e.code, "in", wait, "s"); time.sleep(wait)
-            else:
-                sys.exit(f"error {ln['id']}: {e.code} {msg}")
-    else:
-        sys.exit(f"gave up on {ln['id']}")
+                w = 15 * (attempt + 1); print(f'  busy ({e.code}), retry in {w}s'); time.sleep(w); continue
+            sys.exit(f'error {e.code}: {msg[:300]}')
+    sys.exit('gave up after retries')
+
+def pcm(b):
+    w = wave.open(io.BytesIO(b)); sr = w.getframerate()
+    return np.frombuffer(w.readframes(w.getnframes()), np.int16).astype(np.float32) / 32768, sr
+def write(path, x, sr):
+    w = wave.open(path, 'wb'); w.setnchannels(1); w.setsampwidth(2); w.setframerate(sr); w.writeframes((np.clip(x, -1, 1) * 32767).astype(np.int16).tobytes()); w.close()
+
+def split(x, sr, items):
+    """Cut one batch take into len(items) lines: pick the pauses closest to where each line should end
+    (by its share of the characters), preferring longer pauses."""
+    n = len(items)
+    if n == 1: return [x]
+    env = np.convolve(np.abs(x), np.ones(480) / 480, 'same'); quiet = 20 * np.log10(np.maximum(env, 1e-6)) < -40
+    gaps = []; i = 0
+    while i < len(quiet):
+        if quiet[i]:
+            j = i
+            while j < len(quiet) and quiet[j]: j += 1
+            if (j - i) / sr >= .12: gaps.append(((i + j) / 2 / sr, (j - i) / sr))
+            i = j
+        else: i += 1
+    L = len(x) / sr; ch = np.cumsum([len(l['text']) for l in items]) / sum(len(l['text']) for l in items)
+    cuts = []; last = 0
+    for k in range(n - 1):
+        exp = ch[k] * L
+        cand = [(g, d) for g, d in gaps if g > last + .3]
+        if not cand: sys.exit('could not split the batch: too few pauses (try a smaller --batch)')
+        g = max(cand, key=lambda c: c[1] * 2.0 - abs(c[0] - exp) / max(L, 1) * 6)
+        cuts.append(g[0]); last = g[0]
+    edges = [0] + [int(c * sr) for c in cuts] + [len(x)]
+    return [x[edges[k]:edges[k + 1]] for k in range(n)]
+
+groups = [want] if batch == 0 else [want[i:i + batch] for i in range(0, len(want), max(1, batch))]
+for grp in groups:
+    if not grp: continue
+    b = request(grp); x, sr = pcm(b)
+    parts = split(x, sr, grp)
+    for l, p in zip(grp, parts): write(os.path.join(outdir, l['id'] + '.wav'), p, sr); print('ok', l['id'], f'{len(p) / sr:.2f}s')
+    log.append({'date': datetime.date.today().isoformat(), 'model': model, 'tier': tier, 'lines': [l['id'] for l in grp], 'seconds': round(len(x) / sr, 2)})
+    json.dump(log, open(LOG, 'w'), indent=1)
+today = datetime.date.today().isoformat()
+free_today = sum(1 for r in log if r['date'] == today and r['tier'] == 'free' and r['model'] == model)
+paid_sec = sum(r['seconds'] for r in log if r['tier'] == 'paid')
+print(f'requests today on the free tier ({model}): {free_today} · paid audio so far: {paid_sec:.0f}s ≈ ${paid_sec * 25 * 9e-6:.3f} (2026 rate)')

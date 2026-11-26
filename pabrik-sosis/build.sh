@@ -6,7 +6,7 @@ HERE=$(cd "$(dirname "$0")" && pwd)
 export LIB
 [ -f "$LIB/core/render/video.mjs" ] || { echo "set LIB to the library folder"; exit 1; }
 PY="$LIB/.venv/bin/python"
-# 0. (optional) narration with Gemini TTS — needs a Gemini API key on the network: python3 voice/gemini_tts.py voice/narration.json voice/lines Sulafat
+# 0. (optional) narration, free tier first: python3 voice/gemini_tts.py voice/narration.json voice/lines Sulafat --batch 0   (GEMINI_PAID_API_KEY = fallback)
 "$PY" "$HERE/tools/prep.py"                                   # 1. trim voice, timeline.json
 "$PY" "$LIB/core/audio/sampler.py" --need vcsl karoryfer || true
 cd "$LIB"
