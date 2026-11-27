@@ -23,8 +23,16 @@ SIL = (CUE['silence'], CUE['drop']); HALF = CUE['half']; GROOVE = CUE['groove']
 def quiet(t): return SIL[0] <= t < SIL[1]
 # intro: marimba motif + closed hats (sparse), groove from the #### (enter 3) on
 en = sorted(e['t'] for e in EV if e['type'] == 'enter'); groove0 = en[2]
+HK = {e['type']: e for e in EV if e['type'] in ('slam', 'rewind')}
+SLAM = HK['slam']['t']; RW = HK['rewind']
+# hook: rising xylophone during the count-up, a full stab on the slam, a falling marimba run on the Ctrl+Z
+for e in EV:
+    if e['type'] == 'count': note('xylophone', ['C5','D5','E5','G5','A5','C6','D6','E6','G6','A6','C7','D7','E7','G7'][e['n']], e['t'], .3 + .02 * e['n'], .2, .2, .7)
+for p_ in ['C3', 'G3', 'C4', 'E4', 'G4', 'C5']: note('marimba', p_, SLAM, .75, 1.6, 0)
+kick(SLAM, .9); hit('snare2', 'on', SLAM, .7, 0, .8); hit('claps', 'group', SLAM, .6, 0, .6); note('glockenspiel', 'C7', SLAM, .6, 2.0, .2, .8); note('jazz_bass', 'C2', SLAM, .7, 1.2)
+for q, p_ in enumerate(['C6','A5','G5','E5','D5','C5','A4','G4','E4','D4','C4']): note('marimba', p_, RW['t'] + q * RW['dur'] / 11, .45, .25, -.2)
 for t in grid(0, END - 2.2, E8):
-    if quiet(t): continue
+    if quiet(t) or t < SLAM + .1 or RW['t'] <= t < RW['t'] + RW['dur']: continue
     i = int(round(t / E8)); beat = (i // 2) % 4; on = i % 2 == 0; c = ch(t)
     half = HALF <= t < GROOVE
     full = t >= groove0 and not half

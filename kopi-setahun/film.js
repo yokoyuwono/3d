@@ -8,6 +8,8 @@ const seg = (t, a, b) => clamp((t - a) / (b - a), 0, 1);
 const eio = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2, eo = t => 1 - Math.pow(1 - t, 3), ss = t => t * t * (3 - 2 * t);
 const hash = (i, j) => { let h = (i * 374761393 + j * 668265263) | 0; h = (h ^ (h >>> 13)) * 1274126177 | 0; return ((h ^ (h >>> 16)) >>> 0) / 4294967296; };
 const UI = "'Inter',sans-serif";
+const hexRGB = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16));
+const mix = (a, b, t) => { const A = hexRGB(a), B = hexRGB(b); return '#' + A.map((v, i) => Math.round(v + (B[i] - v) * clamp(t, 0, 1)).toString(16).padStart(2, '0')).join(''); };
 
 // ---------------- palette (colour = a rule fired) ----------------
 const INK = '#17120a', AMBER = '#ffb21f', CUP = ['#ffb21f', '#ffc95a', '#f29a12', '#ffd27a', '#e88b0c'];  // one shade per year
@@ -31,6 +33,7 @@ const M = {
   L5: [0, 2, 9, 10], V5: [3, 3, 9, 10],
   LS: [0, 2, 12, 13], VS: [3, 3, 12, 13],
   CARD: [0, 3, 15, 24],
+  HOOK_L: [3, 3, 3, 5], HOOK_V: [3, 3, 6, 17],
 };
 const ROWS = [
   { l: 'L1', v: 'V1', label: 'Kopi / hari', fx: '=25000', val: 25000 },
@@ -39,6 +42,7 @@ const ROWS = [
   { l: 'L4', v: 'V4', label: 'Setahun (tiap hari)', fx: '=D2*365', val: 9125000 },
   { l: 'L5', v: 'V5', label: '5 tahun', fx: '=D8*5', val: 45625000 },
 ];
+const HOOK_FX = '=25000*365*5', HOOK_VAL = 45625000;
 const SAVE_ROW = { l: 'LS', v: 'VS', label: 'Hemat (2× seminggu)', fx: '=D2*5*52', val: 6500000 };
 
 // ---------------- timing (from the narration) ----------------
@@ -48,7 +52,8 @@ function buildTiming() {
   const v = id => VO[id];
   T = {
     // row 1: typed before the hook line, result on the word
-    ty1: [0.25, 0.75], en1: 0.85,
+    hk: { ty: [0.02, 0.42], slam: 0.6, rw: [3.0, 3.55] },
+    ty1: [3.55, 3.55], en1: 3.55,
     hop2: 4.85, ty2: [5.55, 6.35], en2: wordT('l02', .6),
     hop3: v('l03').t0 - .35, ty3: [v('l03').t0 - .2, v('l03').t1], en3: v('l03').t1 + .1,
     wid: [v('l04').t0 - .45, v('l04').t0 + .15],
@@ -63,7 +68,10 @@ function buildTiming() {
   // paint order: day by day (rows from the top), one ring of light per cell
   EV = [];
   const keys = (s, a, b) => { const n = [...s].length; for (let q = 0; q < n; q++) EV.push({ t: +(a + (b - a) * q / n).toFixed(3), type: 'key' }); };
-  ROWS.forEach((r, i) => keys(r.fx, ...T['ty' + (i + 1)]));
+  ROWS.forEach((r, i) => { if (i) keys(r.fx, ...T['ty' + (i + 1)]); });
+  keys(HOOK_FX, ...T.hk.ty);
+  for (let q = 0; q < 14; q++) EV.push({ t: +(T.hk.ty[1] + q * (T.hk.slam - T.hk.ty[1]) / 14).toFixed(3), type: 'count', n: q });
+  EV.push({ t: T.hk.slam, type: 'slam' }, { t: T.hk.rw[0], type: 'rewind', dur: T.hk.rw[1] - T.hk.rw[0] });
   keys(SAVE_ROW.fx, ...T.tyS);
   [T.en1, T.en2, T.en3, T.en4, T.en5, T.enS].forEach((t, n) => EV.push({ t, type: 'enter', n }));
   [T.hop2, T.hop3, T.hop4, T.hop5].forEach(t => EV.push({ t, type: 'hop' }));
@@ -85,7 +93,10 @@ const saveT = d => T.sweep[0] + (T.sweep[1] - T.sweep[0]) * (Math.floor(d / WALL
 // ---------------- column layout ----------------
 const NC = 40; let CX = new Float64Array(NC + 2);
 function layout(t) { let x = 0; for (let i = 0; i <= NC; i++) { CX[i] = x; x += colWt(i, t); } CX[NC + 1] = x; }
-function colWt(i, t) { if (i === VAL) return lerp(VAL_W0, VAL_W1, eio(seg(t, T.wid[0], T.wid[1]))); return CWID; }
+function colWt(i, t) {
+  if (i === VAL) { if (t < T.hk.rw[1]) return lerp(VAL_W1, VAL_W0, eio(seg(t, T.hk.rw[0], T.hk.rw[1]))); return lerp(VAL_W0, VAL_W1, eio(seg(t, T.wid[0], T.wid[1]))); }
+  return CWID;
+}
 let TNOW = 0;
 const colX = i => i <= NC ? CX[Math.max(0, i)] : CX[NC] + (i - NC) * CWID;
 const colW = i => colWt(i, TNOW);
@@ -96,8 +107,10 @@ let CK = [];
 function buildCam() {
   const v = id => VO[id];
   CK = [
-    { t: 0, at: [2.2, 1.8], z: 2.75 },
-    { t: 3.6, at: [2.2, 2.4], z: 2.45, e: 'ss' },
+    { t: 0, at: [3.5, 10.6], z: 2.95 },
+    { t: T.hk.rw[0], at: [3.5, 10.6], z: 3.08, e: 'ss' },
+    { t: T.hk.rw[1] + .05, at: [2.2, 1.8], z: 2.75, e: 'eio' },
+    { t: 4.3, at: [2.2, 2.4], z: 2.45, e: 'ss' },
     { t: T.hop2 + .4, at: [2.3, 3.6], z: 2.25, e: 'eio' },
     { t: T.hop3 + .3, at: [2.4, 5.4], z: 2.2, e: 'eio' },
     { t: T.wid[1] + .3, at: [3.18, 5.8], z: 1.88, e: 'eio' },
@@ -165,6 +178,7 @@ function drawSheet(t) {
           }
         }
       }
+      if (!fill) { const dt = t - T.hk.slam; if (dt >= 0 && dt < .9) { const d = Math.max(Math.abs(i + .5 - 3.5) * 1.6, Math.abs(j + .5 - 11.5) * .9); const e = Math.exp(-(((d - dt * 18) / 1.6) ** 2)) * (1 - dt / .9); if (e > .06) fill = mix('#ffffff', ['#ffd0c9', '#ffe2a3', '#ffd0c9'][Math.floor(d / 4) % 3], Math.round(e * 4) / 4); } }
       if (fill) rect(x, y, w, h, fill);
       if (flash > 0) rect(x, y, w, h, `rgba(255,255,255,${flash})`);
       const p = painted ? dark : light; p.moveTo(x + w + .5, y); p.lineTo(x + w + .5, y + h); p.moveTo(x, y + h + .5); p.lineTo(x + w, y + h + .5);
@@ -191,8 +205,35 @@ function labelCell(k, s, opts = {}) {
   cellBox(x, y, w, h, opts.fill || '#f6f5f0', INK, 1.5);
   text(s, x + 10 * z, y + h / 2 + 1, `${opts.weight || 600} ${Math.round((opts.size || 15) * z)}px ${UI}`, opts.ink || '#3a3a34');
 }
+function hookVal(t) {
+  const h = T.hk; if (t < h.ty[1]) return null;
+  if (t < h.slam) return Math.round(HOOK_VAL * Math.pow(seg(t, h.ty[1], h.slam), .55) / 25000) * 25000;
+  if (t < h.rw[0]) return HOOK_VAL;
+  return Math.max(25000, Math.round(HOOK_VAL * Math.pow(1 - seg(t, h.rw[0], h.rw[1] - .1), 2.2) / 25000) * 25000);
+}
+function drawHook(t) {
+  const z = CAM.z, h = T.hk, v = hookVal(t), [x, y, w, hh] = mrect('HOOK_V');
+  const slamK = t >= h.slam ? Math.max(0, 1 - (t - h.slam) / .35) : 0, out = seg(t, h.rw[0], h.rw[1] - .05);
+  const fill = t < h.slam ? '#ffffff' : mix(NO, '#ffffff', out);
+  cellBox(x, y, w, hh, fill, INK, 3);
+  if (slamK > 0) rect(x, y, w, hh, `rgba(255,255,255,${slamK * .85})`);
+  if (v !== null && out < 1) {      // custom number format: Rp#,0 "JUTA" on two lines
+    const s1 = 'Rp' + (v / 1e6).toFixed(1).replace('.', ','), s2 = 'JUTA', pk = popK(t, h.slam, .25, .1);
+    g.font = `800 100px ${UI}`; const fs = Math.min(hh * .36, (w * .84) / g.measureText('Rp45,6').width * 100) * pk;
+    const col = t < h.slam ? INK : mix('#ffffff', INK, out);
+    text(s1, x + w / 2, y + hh * .37, `800 ${fs}px ${UI}`, col, 'center');
+    text(s2, x + w / 2, y + hh * .72, `800 ${fs * .82}px ${UI}`, col, 'center');
+  }
+  if (t >= h.slam && out < 1) {
+    const [lx, ly, lw, lh] = mrect('HOOK_L'), k = popK(t, h.slam + .05, .25, .06);
+    g.save(); g.globalAlpha = 1 - out; cellBox(lx, ly, lw, lh, INK, INK, 3);
+    g.font = `800 100px ${UI}`; const ls = '5 TAHUN NGOPI', lf = Math.min(lh * .55, (lw * .8) / g.measureText(ls).width * 100) * k;
+    text(ls, lx + lw / 2, ly + lh / 2 + 2, `800 ${lf}px ${UI}`, AMBER, 'center'); g.restore();
+  }
+}
 function drawMerged(t) {
   const z = CAM.z;
+  if (t < T.hk.rw[1]) { drawHook(t); return; }
   // header row
   labelCell('HDR_L', 'Kebiasaan', { fill: HEAD, ink: '#fff', size: 13, weight: 700 });
   labelCell('HDR_V', 'Biaya', { fill: HEAD, ink: '#fff', size: 13, weight: 700 });
@@ -238,6 +279,8 @@ function drawYearTags(t) {
 // ---------------- selection (the amber active cell) ----------------
 function editingRow(t) { for (let i = 0; i < 5; i++) { const ty = T['ty' + (i + 1)]; if (t >= ty[0] && t < enterAt(i)) return i; } return -1; }
 function selBox(t) {
+  if (t < T.hk.rw[0]) return M.HOOK_V;
+  if (t < T.hk.rw[1]) return null;
   if (t >= T.card[0] - .1) return M.CARD;
   if (t >= T.tyS[0] - .2) return M.VS;
   if (t >= T.pull[0]) return null;
@@ -290,6 +333,10 @@ function drawHeaders(t) {
 }
 // ---------------- shell ----------------
 function formulaLine(t) {
+  const h = T.hk;
+  if (t < h.slam) return { s: typed(HOOK_FX, t, ...h.ty), caret: true, name: 'D8' };
+  if (t < h.rw[0]) return { s: HOOK_FX, after: '= ' + rp(HOOK_VAL), name: 'D8' };
+  if (t < h.rw[1]) return { s: 'Ctrl+Z', after: 'urungkan · mulai dari 1 gelas', name: 'D8' };
   const nm = b => b ? colName(b[0]) + (b[2] + 1) : '';
   const er = editingRow(t);
   if (er >= 0) return { s: typed(ROWS[er].fx, t, ...T['ty' + (er + 1)]), caret: true, name: nm(M[ROWS[er].v]) };
@@ -340,14 +387,17 @@ function drawChrome(t) {
   const sy = by + TABS_H, sm = sy + STAT_H / 2 + 1; rect(0, sy, W, STAT_H, INK);
   let mode = 'Siap', msg = '';
   const nP = t >= T.paint[0] ? Math.min(DAYS, Math.floor(DAYS * seg(t, T.paint[0], T.paint[1] - .15))) : 0;
-  if (editingRow(t) >= 0 || (t >= T.tyS[0] && t < T.enS)) mode = 'Edit';
+  if (t < T.hk.slam) { mode = 'Hitung'; msg = 'Menghitung…'; }
+  else if (t < T.hk.rw[0]) msg = 'Rp25.000 × 365 hari × 5 tahun';
+  else if (t < T.hk.rw[1]) { mode = 'Urung'; msg = 'Urungkan semua (Ctrl+Z)'; }
+  else if (editingRow(t) >= 0 || (t >= T.tyS[0] && t < T.enS)) mode = 'Edit';
   else if (t >= T.en3 && t < T.wid[1]) { mode = 'Lebar'; msg = 'Kolom D terlalu sempit untuk angkanya'; }
   else if (t >= T.paint[0] && t < T.paint[1] + .2) { mode = 'Hitung'; msg = `Mewarnai  ${nP.toLocaleString('de-DE')} / 1.825 gelas`; }
   else if (t >= T.paint[1] + .2 && t < T.sweep[0]) msg = '1 kotak = 1 gelas  ·  5 tahun = 1.825 gelas';
   else if (t >= T.sweep[0] && t < T.sweep[1] + .2) { mode = 'Hitung'; msg = 'Aturan: 5 dari 7 hari → hijau (hemat)'; }
   else if (t >= T.enS) msg = '25.000 × 5 gelas × 52 minggu';
-  rect(0, sy, 104, STAT_H, mode === 'Hitung' || mode === 'Lebar' ? AMBER : mode === 'Siap' ? INK : '#3a3326');
-  text(mode, 52, sm, `700 18px ${UI}`, mode === 'Hitung' || mode === 'Lebar' ? INK : '#fff', 'center');
+  rect(0, sy, 104, STAT_H, mode === 'Hitung' || mode === 'Lebar' || mode === 'Urung' ? AMBER : mode === 'Siap' ? INK : '#3a3326');
+  text(mode, 52, sm, `700 18px ${UI}`, mode === 'Hitung' || mode === 'Lebar' || mode === 'Urung' ? INK : '#fff', 'center');
   text(msg, 120, sm, `500 18px ${UI}`, 'rgba(255,255,255,0.85)');
   text(Math.round(CAM.z * 100) + '%', W - 18, sm, `700 18px ${UI}`, '#fff', 'right');
 }
@@ -377,6 +427,7 @@ function drawSubs(t) {
 }
 function setup(t) {
   TNOW = t; layout(t); CAM = camera(t);
+  { const d = t - T.hk.slam; if (d >= 0 && d < .3) { const a = (1 - d / .3) * 9 / CAM.z; CAM.x += Math.sin(d * 95) * a; CAM.y += Math.cos(d * 77) * a; } }
   HDR = Math.round(34 * clamp(Math.sqrt(CAM.z), 1, 1.35));
   SHEET_Y = TITLE_H + TOOL_H + FBAR_H + HDR; VW = W - ROWH_W; VH = SHEET_B - SHEET_Y;
   VCX = ROWH_W + VW / 2; VCY = SHEET_Y + (SHEET_B - 130 - SHEET_Y) / 2;
@@ -399,6 +450,7 @@ export function render(t) {
 export function texts(t) {
   t = clamp(t, 0, TL.end - 1e-3); setup(t); const out = [];
   const put = (id, s, k) => { const [x, y, w, h] = mrect(k); const inside = x >= ROWH_W - 1 && y >= SHEET_Y - 1 && x + w <= W + 1 && y + h <= SHEET_B + 1; out.push({ id, text: s, x0: inside ? x : -1, y0: y, x1: x + w, y1: y + h }); };
+  if (t >= T.hk.slam && t < T.hk.rw[0]) { put('hookV', 'Rp45,6 JUTA', 'HOOK_V'); put('hookL', '5 TAHUN NGOPI', 'HOOK_L'); }
   ROWS.forEach((r, i) => { if (t >= enterAt(i) && !(i === 2 && t < T.wid[1])) put('v' + i, rp(r.val), r.v); });
   if (t >= T.enS) put('save', rp(SAVE_ROW.val), 'VS');
   if (t >= T.card[0] + .8) put('card', 'HEMAT / TAHUN Rp6.500.000 tanpa berhenti ngopi', 'CARD');

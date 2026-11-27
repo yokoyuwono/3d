@@ -30,6 +30,11 @@ for e in EV:
     elif k == 'whoosh': x = whoosh(min(e.get('dur', 1), 1.6), .5); pan = 0
     elif k in ('ding', 'win'): x = ding(.45); pan = .1
     elif k == 'pop': x = pop(.4); pan = 0
+    elif k == 'count': x = click(2.4 + e['n'] * .08, .2); pan = 0
+    elif k == 'slam': x = layer(thump(.9, 55), bp(noise(.5), 800, 6000) * env_exp(.5, .12) * .35, clack(.6, .4)); pan = 0
+    elif k == 'rewind':
+        d = e.get('dur', .5); tt = t_(d); f = 1800 * (1 - .8 * tt / d)
+        x = np.sin(2 * np.pi * np.cumsum(f) / SR) * .06 * (np.sin(2 * np.pi * 22 * tt) > 0) + hp(noise(d), 2500) * .02; pan = 0
     elif k == 'card': x = layer(clack(.7, .3), pop(.3)); pan = 0
     else: continue
     add(fx, np.asarray(x, np.float32), t, 1.0, float(np.clip(pan, -1, 1)))
