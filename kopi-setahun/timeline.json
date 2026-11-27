@@ -1,0 +1,65 @@
+{
+ "end": 36.652,
+ "voice": [
+  {
+   "id": "l01",
+   "t0": 1.0,
+   "t1": 4.219,
+   "text": "Kopi dua puluh lima ribu sehari. Kecil, kan?"
+  },
+  {
+   "id": "l02",
+   "t0": 4.669,
+   "t1": 9.114,
+   "text": "Coba kita hitung. Sebulan, hari kerja saja: lima ratus lima puluh ribu."
+  },
+  {
+   "id": "l03",
+   "t0": 9.464,
+   "t1": 9.952,
+   "text": "Setahun?"
+  },
+  {
+   "id": "l04",
+   "t0": 10.952,
+   "t1": 12.682,
+   "text": "Enam koma enam JUTA rupiah."
+  },
+  {
+   "id": "l05",
+   "t0": 13.182,
+   "t1": 16.217,
+   "text": "Kalau tiap hari, termasuk akhir pekan: sembilan koma satu juta."
+  },
+  {
+   "id": "l06",
+   "t0": 16.767,
+   "t1": 17.3,
+   "text": "Lima tahun?"
+  },
+  {
+   "id": "l07",
+   "t0": 17.75,
+   "t1": 21.473,
+   "text": "Empat puluh lima juta lebih. Satu kotak, satu gelas kopi."
+  },
+  {
+   "id": "l08",
+   "t0": 23.073,
+   "t1": 25.253,
+   "text": "Tenang, bukan berarti berhenti ngopi."
+  },
+  {
+   "id": "l09",
+   "t0": 25.703,
+   "t1": 30.065,
+   "text": "Cukup jadi dua kali seminggu. Hematnya enam setengah juta setahun."
+  },
+  {
+   "id": "l10",
+   "t0": 31.065,
+   "t1": 34.052,
+   "text": "Kebiasaan kecil apa yang mau kita hitung berikutnya? Tulis di komen."
+  }
+ ]
+}

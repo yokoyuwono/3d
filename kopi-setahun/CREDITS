@@ -1,0 +1,15 @@
+Kopi 25 Ribu Sehari — channel "Uang & Kerja", episode 1 (Spreadsheet Film), 1080×1920, 36,7 detik
+Seluruh gambar dibuat dengan kode (Canvas 2D). Tampilan spreadsheet digambar sendiri dan generik; bukan antarmuka produk mana pun.
+Angka: hitungan sederhana (25.000 × 22 × 12; 25.000 × 365 × 5; 25.000 × 5 × 52). Bukan saran keuangan.
+
+Suara narasi
+- Google Gemini TTS, model gemini-3.8-flash-tts, suara "id-id-podcaster-1" — dibuat lewat Gemini API dengan akun pengguna (1 request batch; voice/narration.json). Tunduk pada ketentuan layanan Gemini API.
+
+Musik (komposisi orisinal, tools/score.py), instrumen sampel lewat core/audio/sampler.py (pustaka Lemo-Opuscar)
+- Versilian Community Sample Library (VCSL): marimba, xylophone, glockenspiel, hihat, snare2, claps — CC0 1.0
+- Karoryfer Samples: jazz_bass — CC0 1.0
+- Kick drum disintesis (core/audio/sfx.py).
+
+Efek suara: semua disintesis di tools/mix.py.
+Font: Inter (The Inter Project Authors), SIL Open Font License 1.1 — fonts/Inter.ttf, lisensi di fonts/OFL.txt
+Gaya dan teknik shell spreadsheet dipelajari dari contoh gaya "Spreadsheet Film" di pustaka Lemo-Opuscar (github.com/lemomo-ai/lemo-opuscar).

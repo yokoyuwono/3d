@@ -1,0 +1,19 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Kopi 25 Ribu Sehari</title>
+<style>
+@font-face{font-family:'Inter';src:url('fonts/Inter.ttf') format('truetype');font-weight:100 900;font-display:block}
+html,body{margin:0;background:#1a1a1a;overflow:hidden}canvas{display:block}
+</style></head>
+<body><canvas id="c" width="1080" height="1920"></canvas>
+<script type="module">
+const cv = document.getElementById('c'), g = cv.getContext('2d');
+for (const w of [500, 600, 700, 800]) await document.fonts.load(`${w} 30px Inter`, 'Ab12');
+await document.fonts.load(`italic 500 30px Inter`, 'I');
+const film = await import('./film.js');
+const Q = new URLSearchParams(location.search);
+await film.load(g, Q);
+window.DUR = film.DUR(); window.EV = film.events();
+window.render = t => film.render(t);
+window.TEXTS = t => film.texts(t);
+window.READY = true;
+</script></body></html>
