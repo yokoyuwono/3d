@@ -5,7 +5,7 @@ import numpy as np, soundfile as sf
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); V = os.path.join(HERE, 'voice')
 LINES = json.load(open(os.path.join(V, 'narration.json')))
 # seconds of picture before each line (room for the action that line needs), and the hold after the last line
-GAP = {'l01': 1.0, 'l02': 0.45, 'l03': 0.35, 'l04': 1.0, 'l05': 0.5, 'l06': 0.55, 'l07': 0.45, 'l08': 1.6, 'l09': 0.45, 'l10': 1.0}
+GAP = {'l01': 1.0, 'l02': 0.45, 'l03': 0.35, 'l04': 1.0, 'l05': 0.5, 'l06': 0.55, 'l07': 0.45, 'l08': 1.6, 'l09': 0.45, 'l10': 1.0, 'l11': 0.35}
 TAIL = 2.6
 os.makedirs(os.path.join(V, 'trim'), exist_ok=True)
 t = 0.0; out = []

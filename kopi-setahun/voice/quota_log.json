@@ -16,5 +16,14 @@
    "l10"
   ],
   "seconds": 33.18
+ },
+ {
+  "date": "2026-11-27",
+  "model": "gemini-3.8-flash-tts",
+  "tier": "free",
+  "lines": [
+   "l11"
+  ],
+  "seconds": 3.91
  }
 ]

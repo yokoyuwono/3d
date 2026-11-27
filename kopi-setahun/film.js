@@ -32,7 +32,7 @@ const M = {
   L4: [0, 2, 7, 8], V4: [3, 3, 7, 8],
   L5: [0, 2, 9, 10], V5: [3, 3, 9, 10],
   LS: [0, 2, 12, 13], VS: [3, 3, 12, 13],
-  CARD: [0, 3, 15, 24],
+  CARD: [0, 3, 15, 24], SHARE: [0, 3, 26, 30],
   HOOK_L: [3, 3, 3, 5], HOOK_V: [3, 3, 6, 17],
 };
 const ROWS = [
@@ -43,6 +43,7 @@ const ROWS = [
   { l: 'L5', v: 'V5', label: '5 tahun', fx: '=D8*5', val: 45625000 },
 ];
 const HOOK_FX = '=25000*365*5', HOOK_VAL = 45625000;
+const SHARE_FX = '=BAGIKAN(@pasangan, @teman)';
 const SAVE_ROW = { l: 'LS', v: 'VS', label: 'Hemat (2× seminggu)', fx: '=D2*5*52', val: 6500000 };
 
 // ---------------- timing (from the narration) ----------------
@@ -64,6 +65,7 @@ function buildTiming() {
     sweep: [v('l09').t0 + .3, wordT('l09', .45)],
     tyS: [wordT('l09', .42), wordT('l09', .56)], enS: wordT('l09', .62),
     card: [v('l10').t0 - .6, v('l10').t0 + .5],
+    share: [v('l11').t0 - .35, v('l11').t0 + .9],
   };
   // paint order: day by day (rows from the top), one ring of light per cell
   EV = [];
@@ -73,6 +75,8 @@ function buildTiming() {
   for (let q = 0; q < 14; q++) EV.push({ t: +(T.hk.ty[1] + q * (T.hk.slam - T.hk.ty[1]) / 14).toFixed(3), type: 'count', n: q });
   EV.push({ t: T.hk.slam, type: 'slam' }, { t: T.hk.rw[0], type: 'rewind', dur: T.hk.rw[1] - T.hk.rw[0] });
   keys(SAVE_ROW.fx, ...T.tyS);
+  keys(SHARE_FX, T.share[0], T.share[0] + .75);
+  EV.push({ t: T.share[0] + .8, type: 'enter', n: 6 }, { t: T.share[0] + 1.0, type: 'pop' }, { t: T.share[0] + 1.25, type: 'pop' });
   [T.en1, T.en2, T.en3, T.en4, T.en5, T.enS].forEach((t, n) => EV.push({ t, type: 'enter', n }));
   [T.hop2, T.hop3, T.hop4, T.hop5].forEach(t => EV.push({ t, type: 'hop' }));
   EV.push({ t: T.en3 + .05, type: 'hash' });
@@ -125,7 +129,9 @@ function buildCam() {
     { t: T.enS - .1, at: [3.05, 12.0], z: 1.9, e: 'eio' },
     { t: T.card[0] + .1, at: [3.05, 13.0], z: 1.9, e: 'ss' },
     { t: T.card[1] + .3, at: [3.05, 18.2], z: 1.85, e: 'eio' },
-    { t: TL.end, at: [3.05, 18.6], z: 1.95, e: 'ss' },
+    { t: T.share[0] + .1, at: [3.05, 18.6], z: 1.9, e: 'ss' },
+    { t: T.share[0] + .9, at: [3.05, 17.2], z: 1.48, e: 'eio' },
+    { t: TL.end, at: [3.05, 17.0], z: 1.52, e: 'ss' },
   ];
 }
 const EASE = { eio, ss, eo, lin: x => x };
@@ -186,7 +192,7 @@ function drawSheet(t) {
     }
   }
   g.lineWidth = 1; g.strokeStyle = '#dad9d3'; g.stroke(light); g.strokeStyle = 'rgba(6,4,18,0.42)'; g.stroke(dark);
-  drawMerged(t); drawYearTags(t); drawSelection(t);
+  drawMerged(t); drawShare(t); drawYearTags(t); drawSelection(t);
   g.restore();
 }
 function cellBox(x, y, w, h, fill, border = INK, lw = 1.5) { rect(x, y, w, h, fill); g.lineWidth = lw; g.strokeStyle = border; g.strokeRect(x + lw / 2, y + lw / 2, w - lw, h - lw); }
@@ -265,6 +271,17 @@ function drawMerged(t) {
     }
   }
 }
+function chip(x, y, s, fs) { g.font = `700 ${fs}px ${UI}`; const w = g.measureText(s).width + fs * .7, h = fs * 1.45; g.fillStyle = '#dbe6ff'; g.beginPath(); g.roundRect(x, y - h / 2, w, h, h / 2); g.fill(); text(s, x + fs * .35, y + 1, `700 ${fs}px ${UI}`, '#1d4ed8'); return w; }
+function drawShare(t) {
+  if (t < T.share[0] + .8) return;
+  const z = CAM.z, [x, y, w, h] = mrect('SHARE'), k = eo(seg(t, T.share[0] + .8, T.share[0] + 1.05));
+  cellBox(x, y, w, h * k, '#fffaf0', AMBER, 4); if (k < 1) return;
+  const fs = 23 * z, l1 = y + h * .32, l2 = y + h * .72;
+  let cx = x + 16 * z; text('Kirim ke', cx, l1, `700 ${fs}px ${UI}`, INK); cx += tw('Kirim ke', `700 ${fs}px ${UI}`) + 10 * z;
+  if (t >= T.share[0] + 1.0) cx += chip(cx, l1, '@pasangan', fs * popK(t, T.share[0] + 1.0, .2, .2)) + 8 * z;
+  if (t >= T.share[0] + 1.25) { text('/', cx, l1, `700 ${fs}px ${UI}`, INK); cx += tw('/ ', `700 ${fs}px ${UI}`); chip(cx, l1, '@teman', fs * popK(t, T.share[0] + 1.25, .2, .2)); }
+  text(typed('yang tiap hari ngopi', t, T.share[0] + 1.3, T.share[0] + 1.8), x + 16 * z, l2, `700 ${fs}px ${UI}`, INK);
+}
 function drawYearTags(t) {
   if (t < T.paint[0]) return;
   const z = CAM.z;
@@ -279,6 +296,7 @@ function drawYearTags(t) {
 // ---------------- selection (the amber active cell) ----------------
 function editingRow(t) { for (let i = 0; i < 5; i++) { const ty = T['ty' + (i + 1)]; if (t >= ty[0] && t < enterAt(i)) return i; } return -1; }
 function selBox(t) {
+  if (t >= T.share[0] - .05) return M.SHARE;
   if (t < T.hk.rw[0]) return M.HOOK_V;
   if (t < T.hk.rw[1]) return null;
   if (t >= T.card[0] - .1) return M.CARD;
@@ -341,6 +359,7 @@ function formulaLine(t) {
   const er = editingRow(t);
   if (er >= 0) return { s: typed(ROWS[er].fx, t, ...T['ty' + (er + 1)]), caret: true, name: nm(M[ROWS[er].v]) };
   if (t >= T.tyS[0] && t < T.enS) return { s: typed(SAVE_ROW.fx, t, ...T.tyS), caret: true, name: 'D13' };
+  if (t >= T.share[0]) return { s: typed(SHARE_FX, t, T.share[0], T.share[0] + .75), caret: t < T.share[0] + .8, name: 'A27' };
   if (t >= T.card[0]) return { s: typed('Hemat Rp6.500.000 / tahun', t, T.card[0] + .2, T.card[1]), caret: t < T.card[1], name: 'A16' };
   if (t >= T.enS) return { s: SAVE_ROW.fx, after: '= ' + rp(SAVE_ROW.val), name: 'D13' };
   if (t >= T.sweep[0]) return { s: '=COUNTIF(kopi, "hemat")', after: '5 dari 7 hari', name: 'kopi' };
@@ -364,6 +383,7 @@ function drawChrome(t) {
   const cfOn = (t >= T.paint[0] - .1 && t < T.paint[1]) || (t >= T.sweep[0] && t < T.sweep[1]);
   btn(250, a => { [INK, AMBER, SAVE, NO, HEAD].forEach((c, n) => rect(a + 10 + n * 6, m - 10, 6, 20, c)); text('Format bersyarat', a + 52, m + 1, `600 19px ${UI}`, '#222'); tri(a + 236, m, 5, '#666'); }, cfOn);
   btn(150, a => { g.strokeStyle = '#333'; g.lineWidth = 1.5; g.strokeRect(a + 10.5, m - 9.5, 26, 19); line(a + 10, m - 3, a + 36, m - 3, '#333', 1.5); text('Lebar', a + 46, m + 1, `600 19px ${UI}`, '#222'); }, t >= T.wid[0] && t < T.wid[1] + .1);
+  btn(150, a => { g.strokeStyle = '#1d4ed8'; g.lineWidth = 2; g.beginPath(); g.arc(a + 22, m, 7, 0, 7); g.stroke(); text('Bagikan', a + 38, m + 1, `700 19px ${UI}`, '#1d4ed8'); }, t >= T.share[0] && t < TL.end);
   line(0, ty + TOOL_H - .5, W, ty + TOOL_H - .5, '#c8c7c1');
   // formula bar: the line of the film
   const fy = TITLE_H + TOOL_H, fm = fy + FBAR_H / 2 + 1; rect(0, fy, W, FBAR_H, '#f8f7f3');
@@ -395,9 +415,10 @@ function drawChrome(t) {
   else if (t >= T.paint[0] && t < T.paint[1] + .2) { mode = 'Hitung'; msg = `Mewarnai  ${nP.toLocaleString('de-DE')} / 1.825 gelas`; }
   else if (t >= T.paint[1] + .2 && t < T.sweep[0]) msg = '1 kotak = 1 gelas  ·  5 tahun = 1.825 gelas';
   else if (t >= T.sweep[0] && t < T.sweep[1] + .2) { mode = 'Hitung'; msg = 'Aturan: 5 dari 7 hari → hijau (hemat)'; }
+  else if (t >= T.share[0]) { mode = 'Bagikan'; msg = 'Kirim ke orang yang tiap hari ngopi'; }
   else if (t >= T.enS) msg = '25.000 × 5 gelas × 52 minggu';
-  rect(0, sy, 104, STAT_H, mode === 'Hitung' || mode === 'Lebar' || mode === 'Urung' ? AMBER : mode === 'Siap' ? INK : '#3a3326');
-  text(mode, 52, sm, `700 18px ${UI}`, mode === 'Hitung' || mode === 'Lebar' || mode === 'Urung' ? INK : '#fff', 'center');
+  rect(0, sy, 104, STAT_H, mode === 'Hitung' || mode === 'Lebar' || mode === 'Urung' || mode === 'Bagikan' ? AMBER : mode === 'Siap' ? INK : '#3a3326');
+  text(mode, 52, sm, `700 ${mode.length > 6 ? 15 : 18}px ${UI}`, mode === 'Hitung' || mode === 'Lebar' || mode === 'Urung' || mode === 'Bagikan' ? INK : '#fff', 'center');
   text(msg, 120, sm, `500 18px ${UI}`, 'rgba(255,255,255,0.85)');
   text(Math.round(CAM.z * 100) + '%', W - 18, sm, `700 18px ${UI}`, '#fff', 'right');
 }
@@ -410,6 +431,7 @@ function buildCues() {
     const chunks = []; let cur = '';
     for (const p of parts) { const tt = cur ? cur + ' ' + p : p; if (g.measureText(tt).width > maxW && cur) { chunks.push(cur); cur = p; } else cur = tt; }
     if (cur) chunks.push(cur);
+    for (let q = 0; q < chunks.length; q++) if (g.measureText(chunks[q]).width > maxW) { const ws = chunks[q].split(' '); let a = ''; const parts2 = []; for (const w of ws) { const tt = a ? a + ' ' + w : w; if (g.measureText(tt).width > maxW && a) { parts2.push(a); a = w; } else a = tt; } if (a) parts2.push(a); if (parts2.length === 2 || true) { const all = parts2; if (all.length > 1) { const mid = Math.ceil(ws.length / 2); const A = ws.slice(0, mid).join(' '), B = ws.slice(mid).join(' '); chunks.splice(q, 1, ...(g.measureText(A).width <= maxW && g.measureText(B).width <= maxW ? [A, B] : all)); } } }
     const total = chunks.reduce((a, c) => a + c.length, 0); let t = v.t0;
     chunks.forEach((c, i) => { const d = (v.t1 - v.t0) * c.length / total; CUES.push({ t0: t, t1: t + d, text: c, id: v.id }); t += d; });
   }
@@ -454,6 +476,7 @@ export function texts(t) {
   ROWS.forEach((r, i) => { if (t >= enterAt(i) && !(i === 2 && t < T.wid[1])) put('v' + i, rp(r.val), r.v); });
   if (t >= T.enS) put('save', rp(SAVE_ROW.val), 'VS');
   if (t >= T.card[0] + .8) put('card', 'HEMAT / TAHUN Rp6.500.000 tanpa berhenti ngopi', 'CARD');
+  if (t >= T.share[0] + 1.85) put('share', 'Kirim ke @pasangan / @teman yang tiap hari ngopi', 'SHARE');
   if (t >= T.card[1] + .95) put('q', 'Kebiasaan apa yang kita hitung berikutnya?', 'CARD');
   return out;
 }

@@ -1,5 +1,5 @@
 {
- "end": 36.652,
+ "end": 40.556,
  "voice": [
   {
    "id": "l01",
@@ -60,6 +60,12 @@
    "t0": 31.065,
    "t1": 34.052,
    "text": "Kebiasaan kecil apa yang mau kita hitung berikutnya? Tulis di komen."
+  },
+  {
+   "id": "l11",
+   "t0": 34.402,
+   "t1": 37.956,
+   "text": "Kirim video ini ke pasangan atau temanmu yang tiap hari ngopi!"
   }
  ]
 }
