@@ -206,8 +206,8 @@ function labelCell(k, s, opts = {}) {
   text(s, x + 10 * z, y + h / 2 + 1, `${opts.weight || 600} ${Math.round((opts.size || 15) * z)}px ${UI}`, opts.ink || '#3a3a34');
 }
 function hookVal(t) {
-  const h = T.hk; if (t < h.ty[1]) return null;
-  if (t < h.slam) return Math.round(HOOK_VAL * Math.pow(seg(t, h.ty[1], h.slam), .55) / 25000) * 25000;
+  const h = T.hk;
+  if (t < h.slam) return Math.max(25000, Math.round(HOOK_VAL * Math.pow(seg(t, 0, h.slam), .55) / 25000) * 25000);
   if (t < h.rw[0]) return HOOK_VAL;
   return Math.max(25000, Math.round(HOOK_VAL * Math.pow(1 - seg(t, h.rw[0], h.rw[1] - .1), 2.2) / 25000) * 25000);
 }
