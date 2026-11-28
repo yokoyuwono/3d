@@ -11,8 +11,8 @@ for l in L:
     r = None
     for k in range(4):
         try:
-            r = json.load(urllib.request.urlopen(urllib.request.Request("https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-transcribe:generateContent", json.dumps(body).encode(), {"Content-Type": "application/json"}), timeout=60)); break
+            r = json.load(urllib.request.urlopen(urllib.request.Request("https://generativelanguage.googleapis.com/v1beta/models/" + os.environ.get("VMODEL", "gemini-3.5-transcribe") + ":generateContent", json.dumps(body).encode(), {"Content-Type": "application/json"}), timeout=60)); break
         except Exception as e: print('   retry:', str(e)[:80], flush=True); time.sleep(20)
     if r is None: print(l['id'], '| FAILED'); continue
     print(f"{l['id']} | {r['candidates'][0]['content']['parts'][0]['text'].strip()}\n    | {l['text']}", flush=True)
-    time.sleep(7)
+    time.sleep(12)

@@ -43,7 +43,7 @@ def snap(v=1.):
 CH = [('A', ['A3', 'C4', 'E4']), ('F', ['F3', 'A3', 'C4']), ('G', ['G3', 'B3', 'D4']), ('E', ['E3', 'G#3', 'B3'])]
 ROOT = {'A': 'A1', 'F': 'F1', 'G': 'G1', 'E': 'E1'}
 SIL0, STAMP, OUT = CUE['silence'], CUE['stamp'], CUE['outro']
-S2 = VO['l03']['t0'] - .3     # first exhibit: the full groove starts
+S2 = VO['l03a']['t0'] - .3     # first exhibit: the full groove starts
 grid = lambda a, b, s: [i * s for i in range(int(np.ceil(a / s - 1e-6)), int(np.floor(b / s)))]
 chord = lambda t: CH[int(t // BAR) % 4]
 # --- groove ---

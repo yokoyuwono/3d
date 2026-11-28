@@ -1,6 +1,6 @@
 # Paket Publikasi — "Kasus: Diskon yang Menipu Mata" (Uang & Kerja, episode 3)
 
-File video: `kasus-diskon.mp4` (1080×1920, 58,6 detik) · subtitle: `subtitles_id.srt` · thumbnail: `poster.jpg` (frame detik ±3: label "DISKON 50%+50%" + "= GRATIS?").
+File video: `kasus-diskon.mp4` (1080×1920, 59,6 detik) · subtitle: `subtitles_id.srt` · thumbnail: `poster.jpg` (frame detik ±1,6: "BELANJA DISKON, MALAH BONCOS?").
 Ganti `@uangdankerja` dengan nama akun finalmu. Checklist umum (label konten AI, disclaimer, pin komentar) sama seperti di `kopi-setahun/PUBLISH.md`.
 
 Angka yang dipakai (semua hitungan contoh): Rp100.000 → diskon 50% → Rp50.000 → diskon 50% lagi → Rp25.000 (total diskon 75%) · beli 2 gratis 1 = diskon 33% · belanja Rp80.000 + barang tak perlu Rp30.000 demi gratis ongkir Rp10.000 = keluar Rp20.000 lebih banyak.
@@ -11,15 +11,17 @@ Angka yang dipakai (semua hitungan contoh): Rp100.000 → diskon 50% → Rp50.00
 
 **Judul (≤100 karakter):**
 ```
-Diskon 50% + 50% = GRATIS? Ternyata Cuma 75% 🕵️ #Shorts
+Belanja Diskon, Kok Malah Boncos? 3 Jebakan Promo 🕵️ #Shorts
 ```
 Alternatif:
-- `3 Jebakan Diskon yang Bikin Kamu Rugi Tanpa Sadar #Shorts`
+- `Diskon yang Menipu Mata: Kenapa Kamu Malah Boncos? #Shorts`
+- `Diskon 50% + 50% = Gratis? Ternyata Cuma 75% #Shorts`
 - `"Beli 2 Gratis 1" Itu Bukan Setengah Harga! #Shorts`
 
 **Deskripsi:**
 ```
-Kasus #1: diskon yang menipu mata. 🕵️
+Belanja pas diskon, tapi kok malah boncos? 🕵️
+Kasus #1: diskon yang menipu mata.
 
 🔎 Barang bukti 1: diskon 50% + 50%
 Rp100.000 → Rp50.000 → Rp25.000. Totalnya diskon 75%, bukan gratis.
@@ -53,8 +55,8 @@ Jujur: promo apa yang paling sering bikin kamu checkout barang yang nggak perlu?
 
 **Caption utama:**
 ```
-Diskon 50% + 50% itu BUKAN gratis 😳 Totalnya cuma 75%.
-Plus 2 jebakan promo lain yang bikin kamu rugi tanpa sadar 🕵️
+Belanja diskon, kok malah boncos? 😳
+3 jebakan promo yang menipu mata, salah satunya: diskon 50% + 50% itu cuma 75% 🕵️
 Tag temanmu yang kalap tiap ada promo 👇
 
 #diskon #keuangan #belanjaonline #literasikeuangan #fyp
@@ -66,7 +68,7 @@ Hitung bareng, siapa yang sebenarnya untung? Tulis promo favoritmu di komen!
 
 #gratisongkir #diskon #hemat #keuangan #fyp
 ```
-**Teks cover:** `DISKON 50%+50% = GRATIS?`
+**Teks cover:** `BELANJA DISKON, MALAH BONCOS?`
 Catatan: kata kunci ("diskon", "promo", "gratis ongkir") ada di kalimat caption, bukan hanya hashtag. 3–5 hashtag cukup.
 
 ---
@@ -75,7 +77,8 @@ Catatan: kata kunci ("diskon", "promo", "gratis ongkir") ada di kalimat caption,
 
 **Caption:**
 ```
-Diskon 50% + 50% = gratis? Coba hitung dulu. 🕵️
+Belanja pas diskon, tapi kok malah boncos? 🕵️
+Ini 3 diskon yang menipu mata:
 
 🔎 Diskon bertumpuk: Rp100.000 → Rp50.000 → Rp25.000
 → totalnya diskon 75%, bukan 100%
@@ -96,7 +99,7 @@ Konten edukasi, bukan saran keuangan.
 
 #keuangan #diskon #belanjaonline #literasikeuangan #tipshemat
 ```
-**Teks cover Reels:** `DISKON 50%+50% = GRATIS?`
+**Teks cover Reels:** `BELANJA DISKON, MALAH BONCOS?`
 
 ---
 
@@ -104,9 +107,9 @@ Konten edukasi, bukan saran keuangan.
 
 **Post utama (dengan video), maks. 500 karakter, 1 topik:**
 ```
-Diskon 50% + 50% itu bukan gratis.
+Belanja diskon, kok malah boncos?
 
-Rp100rb → diskon 50% → Rp50rb → diskon 50% lagi → Rp25rb.
+Diskon 50% + 50% itu bukan gratis: Rp100rb → diskon 50% → Rp50rb → diskon 50% lagi → Rp25rb.
 Totalnya cuma 75%.
 
 "Beli 2 gratis 1" juga bukan setengah harga, cuma 33%.

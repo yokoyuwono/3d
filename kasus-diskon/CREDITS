@@ -1,8 +1,8 @@
-Kasus: Diskon yang Menipu Mata — channel "Uang & Kerja", episode 3 (Halftone Dossier), 1080×1920, 30 fps, 58,6 detik
+Kasus: Diskon yang Menipu Mata — channel "Uang & Kerja", episode 3 (Halftone Dossier), 1080×1920, 30 fps, 59,6 detik
 Seluruh gambar dibuat dengan kode (Canvas 2D). Angka adalah contoh hitungan; edukasi, bukan saran keuangan.
 
 Suara narasi
-- Google Gemini TTS, model gemini-3.8-flash-tts, suara "id-id-podcaster-1" — 1 request batch (voice/narration.json); batas baris diselaraskan dengan gemini-3.8-flash (--align) dan dicek dengan gemini-3.5-transcribe. Tunduk pada ketentuan layanan Gemini API.
+- Google Gemini TTS, model gemini-3.8-flash-tts, suara "id-id-podcaster-1" — 1 request batch (voice/narration.json); batas baris diselaraskan dengan gemini-3.8-flash (tools/realign.py); dipercepat 6 % (ffmpeg atempo) dan dicek dengan gemini-3.5-transcribe. Tunduk pada ketentuan layanan Gemini API.
 
 Musik: komposisi orisinal, seluruhnya disintesis di tools/score.py (kick, snare, clap, hat, bass kotak, pad segitiga, pluck mirip marimba, pizzicato, lonceng).
 Efek suara: disintesis di tools/mix.py.

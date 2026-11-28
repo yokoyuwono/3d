@@ -161,27 +161,28 @@ function plane(x, y, s, rot) {
 const M = 90;
 function sceneHook(t) {
   const burst = ht('burst', W, 1100, 26, .26, C.yellow, radial(.5, .5, .08, .55));
-  g.save(); g.globalCompositeOperation = 'multiply'; g.drawImage(burst, 0, 180); g.restore();
+  g.save(); g.globalCompositeOperation = 'multiply'; g.drawImage(burst, 0, 300); g.restore();
   // mugshot height chart
-  g.save(); g.strokeStyle = C.navy; g.globalAlpha = .55; g.lineWidth = 3;
-  for (let i = 0; i < 11; i++) { const y = 400 + i * 78; g.beginPath(); g.moveTo(M - 30, y); g.lineTo(W - M + 30, y); g.stroke(); g.font = font(MONO, 22, 700); g.fillStyle = C.navy; g.fillText(String(200 - i * 10), M - 30, y - 8); g.textAlign = 'right'; g.fillText(String(200 - i * 10), W - M + 30, y - 8); g.textAlign = 'left'; }
+  g.save(); g.strokeStyle = C.navy; g.globalAlpha = .5; g.lineWidth = 3;
+  for (let i = 0; i < 9; i++) { const y = 560 + i * 78; g.beginPath(); g.moveTo(M - 30, y); g.lineTo(W - M + 30, y); g.stroke(); g.font = font(MONO, 22, 700); g.fillStyle = C.navy; g.fillText(String(180 - i * 10), M - 30, y - 8); g.textAlign = 'right'; g.fillText(String(180 - i * 10), W - M + 30, y - 8); g.textAlign = 'left'; }
   g.restore();
+  // the title, readable from frame 0
+  chip(t, 'KASUS #1 · DISKON YANG MENIPU MATA', 540, 320, { t0: -.6, align: 'center', size: 28, bg: C.navy, col: C.yellow, padX: 28 });
+  pop(t, 'BELANJA DISKON,', 540, 480, { size: 92, t0: -.55, st: .02, align: 'center', sh: C.pink });
   // the suspect: a price tag
-  const k = popS(t + .08), sw = Math.sin(t * 2.2) * .9;
-  g.save(); g.translate(540, 700); g.rotate((-4 + sw) * Math.PI / 180); g.scale(k, k);
+  const k = popS(t + .25) * .78, sw = Math.sin(t * 2.2) * .9;
+  g.save(); g.translate(540, 760); g.rotate((-4 + sw) * Math.PI / 180); g.scale(k, k);
   g.strokeStyle = C.navy; g.lineWidth = 5; g.beginPath(); g.moveTo(-372, -6); g.bezierCurveTo(-470, -120, -430, -300, -330, -330); g.stroke();
   g.globalCompositeOperation = 'multiply'; g.drawImage(ht('tagsh', 840, 460, 12, .5, C.navy, flat(.6)), -420 + 16, -230 + 16); g.globalCompositeOperation = 'source-over';
   tagShape(-420, -230, 840, 460, 30); g.fillStyle = C.pink; g.fill();
   g.save(); tagShape(-420, -230, 840, 460, 30); g.clip(); g.globalCompositeOperation = 'multiply'; g.drawImage(ht('tagdots', 840, 460, 14, .78, '#C93A6A', diag(0, .85)), -420, -230); g.restore();
   tagShape(-420, -230, 840, 460, 30); g.strokeStyle = C.navy; g.lineWidth = 8; g.stroke();
   g.fillStyle = C.paper; g.beginPath(); g.arc(-372, -6, 22, 0, 7); g.fill(); g.stroke();
+  g.font = font(SLAB, 92); g.fillStyle = C.cream; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText('DISKON', 30, -70);
+  g.font = font(BAGEL, 190); g.fillText('%', 30, 100);
   g.restore();
-  // text on the tag (kept upright for legibility)
-  pop(t, 'DISKON', 560, 580, { size: 76, col: C.cream, sh: C.navy, t0: -.5, st: .03, align: 'center', track: 4 });
-  pop(t, '50%+50%', 550, 785, { fam: BAGEL, size: 158, col: C.cream, sh: C.navy, off: 10, t0: -.3, st: .03, align: 'center' });
-  // mugshot placard
-  chip(t, 'TERSANGKA: PROMO', 540, 1030, { t0: .35, align: 'center', size: 36, bg: C.navy, col: C.cream, padX: 34, h: 76 });
-  pop(t, '= GRATIS?', 540, 1290, { fam: BAGEL, size: 190, col: C.yellow, sh: C.navy, off: 11, t0: T.gratis, st: .035, align: 'center' });
+  pop(t, 'MALAH', 540, 1150, { size: 88, t0: T.boncos - .25, align: 'center', track: 6, sh: C.pink });
+  pop(t, 'BONCOS?', 540, 1345, { fam: BAGEL, size: 196, col: C.yellow, sh: C.navy, off: 12, t0: T.boncos, st: .04, align: 'center' });
 }
 function sceneTitle(t) {
   const t0 = T.s1;
@@ -197,8 +198,8 @@ function sceneTitle(t) {
   // eye with a % pupil, blinking
   const bl = t - t0, open = 1 - .92 * Math.max(0, 1 - Math.abs(bl - 1.9) / .09) * (bl > 1.8 && bl < 2.0 ? 1 : 0);
   eye(540, 700, popS(bl - .15) * 1.05, open);
-  pop(t, 'DISKON YANG', 540, 990, { size: 96, t0: T.s1 + .2, align: 'center', sh: C.pink });
-  pop(t, 'MENIPU MATA', 540, 1120, { size: 112, t0: T.s1 + .45, align: 'center', col: C.navy, sh: C.yellow, off: 9 });
+  pop(t, 'DISKON YANG', 540, 990, { size: 86, t0: T.s1, align: 'center', sh: C.pink });
+  pop(t, 'MENIPU MATA', 540, 1115, { size: 98, t0: T.s1 + .18, align: 'center', col: C.navy, sh: C.yellow, off: 9 });
 }
 function header(t, t0, n, title) {
   chip(t, 'BARANG BUKTI 0' + n, M, 340, { t0, size: 30 });
@@ -207,7 +208,17 @@ function header(t, t0, n, title) {
 }
 function sceneEx1(t) {
   header(t, T.s2 + .1, 1, 'DISKON BERTUMPUK');
-  const tP1 = wAt('l03', 'Harga') - .05, tC1 = wAt('l03', 'diskon'), tP2 = wAt('l03', 'lima puluh ribu', true) - .05, tC2 = wAt('l04', 'Diskon'), tP3 = wAt('l04', 'dua puluh') - .05, tTot = wAt('l05', 'Totalnya');
+  // the riddle first: 50% + 50% = free?
+  const tq0 = wAt('l03a', 'diskon') - .1, tq1 = wAt('l03a', 'tambah') + .25, out = VO.l03.t0 + .1;
+  if (t < out + .2) {
+    const ko = 1 - ss(seg(t, out, out + .18));
+    g.save(); g.translate(540, 900); g.scale(ko, ko); g.translate(-540, -900);
+    pop(t, '50% + 50%', 540, 820, { fam: BAGEL, size: 150, t0: tq0, st: .04, align: 'center', col: C.navy, sh: C.pink, off: 9, rec: ko > .99 });
+    pop(t, '= GRATIS?', 540, 1010, { fam: BAGEL, size: 150, t0: tq1, st: .04, align: 'center', col: C.yellow, sh: C.navy, off: 9, rec: ko > .99 });
+    g.restore();
+    if (t < out) return;
+  }
+  const tP1 = VO.l03.t0 + .2, tC1 = wAt('l03', 'diskon'), tP2 = wAt('l03', 'lima puluh ribu', true) - .05, tC2 = wAt('l04', 'Diskon'), tP3 = wAt('l04', 'dua puluh') - .05, tTot = wAt('l05', 'Totalnya');
   pop(t, 'Rp100.000', M, 670, { fam: BAGEL, size: 118, t0: tP1, st: .03, sh: C.blue, off: 8 });
   inkLine(M - 10, 630, M + 600, 640, seg(t, tC1 + .35, tC1 + .6), C.pink, 14);
   chip(t, '−50%', 760, 630, { t0: tC1, bg: C.pink, col: C.cream, size: 46, fam: BAGEL, w: 400, padX: 26, sh: C.navy });
@@ -340,7 +351,7 @@ function sceneQuestion(t) {
   pop(t, 'YANG PERNAH', 540, 770, { size: 92, t0: tq + .2, align: 'center', col: C.cream, sh: null });
   pop(t, 'BIKIN KAMU', 540, 890, { size: 92, t0: tq + .4, align: 'center', col: C.cream, sh: null });
   pop(t, 'KALAP?', 540, 1000, { fam: BAGEL, size: 120, t0: tq + .65, align: 'center', col: C.yellow, sh: C.pink, off: 7 });
-  const tc = tq + .72;
+  const tc = tq + .55;
   chip(t, 'TULIS DI KOMEN', 540, 1250, { t0: tc, align: 'center', size: 40, bg: C.pink, col: C.cream, padX: 40, h: 88, sh: C.navy });
   if (t > tc + .2) { const b = Math.sin((t - tc) * 8) * 6; g.save(); g.strokeStyle = C.navy; g.lineWidth = 9; g.lineCap = 'round'; g.lineJoin = 'round'; g.beginPath(); g.moveTo(540, 1310 + b); g.lineTo(540, 1360 + b); g.moveTo(515, 1338 + b); g.lineTo(540, 1364 + b); g.lineTo(565, 1338 + b); g.stroke(); g.restore(); }
 }
@@ -357,7 +368,7 @@ function sceneCTA(t) {
   [['@teman', C.navy, C.cream], ['@pasangan', C.blue, C.cream], ['@grupkantor', C.yellow, C.navy]].forEach(([s, bg, col], i) => { x += chip(t, s, x, 1130, { t0: tc + i * .14, size: 34, bg, col, padX: 26, h: 72, sh: i === 2 ? C.navy : null }) + 18; });
   if (t > tc + .4) { const u = seg(t, tc + .4, tc + 1.5); if (u < 1) plane(lerp(-80, 1180, u), 370 - Math.sin(u * Math.PI) * 50 + Math.sin(u * 14) * 10, 1.0, -.15 + Math.cos(u * 14) * .12); }
   txt('ANGKA CONTOH  ·  EDUKASI, BUKAN SARAN KEUANGAN', 540, 1260, { size: 22, w: 700, align: 'center', col: C.navy, a: t > VO.l13.t0 + .4 ? 1 : 0 });
-  stamp(t, TL.end - 2.75, 'tutup', ['BERKAS DITUTUP'], 50, 540, 1420, -6);
+  stamp(t, TL.end - 2.8, 'tutup', ['BERKAS DITUTUP'], 50, 540, 1420, -6);
 }
 // ---------------- HUD + subtitles ----------------
 const CH = ['TERSANGKA', 'KASUS #1', 'BUKTI 1/3', 'BUKTI 2/3', 'BUKTI 3/3', 'PUTUSAN', 'KOMENTAR', 'BAGIKAN'];
@@ -377,7 +388,7 @@ function buildCueLines() {
     return out; });
   g.restore();
 }
-const isKey = w => /[0-9%#]/.test(w) || /^(gratis|menjebak|kalap|terbukti)/i.test(w.replace(/[^\w]/g, ''));
+const isKey = w => /[0-9%#]/.test(w) || /^(gratis|menjebak|kalap|terbukti|boncos)/i.test(w.replace(/[^\w]/g, ''));
 function subs(t) {
   const i = CUES.findIndex(c => t >= c.t0 && t < c.t1); if (i < 0) return;
   const c = CUES[i], ls = LINES[i], k = Math.min(1, .86 + .14 * popS(t - c.t0)), size = 46, lh = 60;
@@ -414,24 +425,25 @@ function beatK(t) { if (t > T.silence[0] && t < T.silence[1] || t > TL.end - 1.6
 export async function load(ctx) {
   g = ctx; TL = await (await fetch('timeline.json')).json(); for (const v of TL.voice) VO[v.id] = v; CUES = TL.cues;
   buildPaper(); buildCueLines();
-  T.s1 = VO.l02.t0 - .2; T.s2 = VO.l03.t0 - .3; T.s3 = VO.l06.t0 - .3; T.s4 = VO.l08.t0 - .3; T.s5 = VO.l11.t0 - .3; T.s6 = VO.l12.t0 - .25; T.s7 = VO.l13.t0 - .15;
+  T.s1 = VO.l02.t0 - .2; T.s2 = VO.l03a.t0 - .3; T.s3 = VO.l06.t0 - .3; T.s4 = VO.l08.t0 - .3; T.s5 = VO.l11.t0 - .3; T.s6 = VO.l12.t0 - .25; T.s7 = VO.l13.t0 - .15;
   T.cuts = [0, T.s1, T.s2, T.s3, T.s4, T.s5, T.s6, T.s7];
-  T.gratis = wAt('l01', 'tambah') + .45; T.stamp = wAt('l11', 'terbukti') - .04; T.silence = [VO.l11.t0 - .5, T.stamp];
+  T.boncos = .5; T.stamp = wAt('l11', 'terbukti') - .04; T.silence = [VO.l11.t0 - .5, T.stamp];
   T.v3stamp = wAt('l10', 'dua puluh') + .05;
   const wc = [C.navy, C.pink, C.blue, C.yellow, C.navy, C.pink, C.blue];
   T.wipes = T.cuts.slice(1).map((c, i) => [c, wc[i]]);
   T.b1 = wAt('l05', 'Totalnya') + 1.0; T.b2 = wAt('l07', 'cuma') - .05;
-  const st = { b1: T.b1, b2: T.b2, b3: T.v3stamp, end: TL.end - 2.75 };
-  T.shakes = [[T.gratis + .1, 16], [st.b1, 10], [st.b2, 10], [st.b3, 10], [T.stamp, 28], [st.end, 6]];
-  T.flashes = [[T.gratis + .1, .25], [T.stamp, .55]];
+  const st = { b1: T.b1, b2: T.b2, b3: T.v3stamp, end: TL.end - 2.8 };
+  T.shakes = [[T.boncos + .1, 16], [st.b1, 10], [st.b2, 10], [st.b3, 10], [T.stamp, 28], [st.end, 6]];
+  T.flashes = [[T.boncos + .1, .25], [T.stamp, .55]];
   // sound events
   const ev = (t, type, o = {}) => EV.push({ t: +t.toFixed(3), type, ...o });
-  ev(0, 'hit'); ev(.35, 'pop'); ev(T.gratis, 'pops', { n: 9 }); ev(T.gratis + .1, 'slam');
+  ev(0, 'hit'); ev(T.boncos - .25, 'pops', { n: 5 }); ev(T.boncos, 'pops', { n: 7 }); ev(T.boncos + .1, 'slam');
+  ev(wAt('l03a', 'diskon') - .1, 'pops', { n: 9 }); ev(wAt('l03a', 'tambah') + .25, 'pops', { n: 9 }); ev(VO.l03.t0 + .1, 'whoosh');
   T.wipes.forEach(([c]) => ev(c - .3, 'wipe'));
   ev(T.s1 + .02, 'flap'); ev(T.s1 + .15 + 1.75, 'blink');
-  ev(T.s1 + .2, 'pops', { n: 11 }); ev(T.s1 + .45, 'pops', { n: 11 });
+  ev(T.s1, 'pops', { n: 11 }); ev(T.s1 + .18, 'pops', { n: 11 });
   for (const s of [T.s2, T.s3, T.s4]) { ev(s + .1, 'pop'); ev(s + .25, 'pops', { n: 14 }); }
-  ev(wAt('l03', 'Harga') - .05, 'pops', { n: 9 }); ev(wAt('l03', 'diskon'), 'pop'); ev(wAt('l03', 'diskon') + .12, 'slash'); ev(wAt('l03', 'diskon') + .4, 'drop');
+  ev(VO.l03.t0 + .2, 'pops', { n: 9 }); ev(wAt('l03', 'diskon'), 'pop'); ev(wAt('l03', 'diskon') + .12, 'slash'); ev(wAt('l03', 'diskon') + .4, 'drop');
   ev(wAt('l03', 'lima puluh ribu', true) - .05, 'pops', { n: 8 }); ev(wAt('l04', 'Diskon'), 'pop'); ev(wAt('l04', 'Diskon') + .12, 'slash'); ev(wAt('l04', 'Diskon') + .4, 'drop');
   ev(wAt('l04', 'dua puluh') - .05, 'pops', { n: 8 }); ev(wAt('l05', 'Totalnya') + .15, 'pops', { n: 10 }); ev(st.b1, 'stamp');
   [0, 1, 2].forEach(i => ev(wAt('l06', 'Beli') - .1 + i * .16, 'plop', { i }));
@@ -443,7 +455,7 @@ export async function load(ctx) {
   ev(VO.l10.t0 + .45, 'print'); ev(wAt('l10', 'tapi'), 'whoosh'); ev(wAt('l10', 'keluar') - .1, 'pops', { n: 15 }); ev(st.b3, 'stamp');
   ev(T.s5 + .2, 'shutter'); ev(T.s5 + .35, 'shutter'); ev(T.s5 + .5, 'shutter'); ev(VO.l11.t0 - .1, 'pops', { n: 7 });
   ev(T.stamp, 'bigstamp');
-  ev(T.s6 + .05, 'pop'); ev(VO.l12.t0 + .6, 'pops', { n: 6 }); ev(VO.l12.t0 + .67, 'pop');
+  ev(T.s6 + .05, 'pop'); ev(VO.l12.t0 + .6, 'pops', { n: 6 }); ev(VO.l12.t0 + .5, 'pop');
   ev(VO.l13.t0 - .1, 'pops', { n: 8 }); ev(VO.l13.t0 + .15, 'pops', { n: 6 }); ev(VO.l13.t0 + .7, 'share'); ev(VO.l13.t0 + 1.1, 'whoosh'); ev(st.end, 'stamp');
   ev(T.silence[0], 'cue', { name: 'silence' }); ev(T.stamp, 'cue', { name: 'stamp' }); ev(T.s6, 'cue', { name: 'outro' });
   EV.sort((a, b) => a.t - b.t);

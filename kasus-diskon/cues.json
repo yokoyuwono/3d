@@ -1,102 +1,107 @@
 [
  {
-  "t0": 0.2,
-  "t1": 4.896,
-  "text": "Diskon 50% + 50%. Berarti gratis, kan?"
+  "t0": 0.15,
+  "t1": 3.578,
+  "text": "Belanja pas diskon, tapi kok malah boncos?"
  },
  {
-  "t0": 5.146,
-  "t1": 8.273,
-  "text": "Kasus #1: diskon yang menipu mata."
+  "t0": 3.598,
+  "t1": 5.999,
+  "text": "Ini kasus diskon yang menipu mata."
  },
  {
-  "t0": 8.523,
-  "t1": 9.697,
-  "text": "Barang bukti 1."
+  "t0": 6.649,
+  "t1": 10.899,
+  "text": "Barang bukti 1: diskon 50% + 50%."
  },
  {
-  "t0": 9.717,
-  "t1": 13.994,
+  "t0": 10.919,
+  "t1": 12.177,
+  "text": "Berarti gratis?"
+ },
+ {
+  "t0": 12.197,
+  "t1": 16.195,
   "text": "Harga Rp100 ribu, diskon 50%: Rp50 ribu."
  },
  {
-  "t0": 14.014,
-  "t1": 17.023,
+  "t0": 16.215,
+  "t1": 19.091,
   "text": "Diskon 50% lagi: Rp25 ribu."
  },
  {
-  "t0": 17.043,
-  "t1": 20.54,
+  "t0": 19.111,
+  "t1": 22.426,
   "text": "Totalnya diskon 75%. Bukan gratis."
  },
  {
-  "t0": 21.19,
-  "t1": 23.932,
+  "t0": 23.076,
+  "t1": 25.753,
   "text": "Barang bukti 2. Beli 2, gratis 1."
  },
  {
-  "t0": 23.952,
-  "t1": 26.286,
+  "t0": 25.773,
+  "t1": 28.058,
   "text": "Kedengarannya setengah harga."
  },
  {
-  "t0": 26.306,
-  "t1": 28.034,
+  "t0": 28.078,
+  "t1": 29.993,
   "text": "Padahal bayar 2, dapat 3."
  },
  {
-  "t0": 28.054,
-  "t1": 30.619,
+  "t0": 30.013,
+  "t1": 32.814,
   "text": "Diskonnya cuma 33%."
  },
  {
-  "t0": 31.369,
-  "t1": 34.217,
+  "t0": 33.564,
+  "t1": 36.285,
   "text": "Barang bukti 3. Gratis ongkir Rp10 ribu,"
  },
  {
-  "t0": 34.237,
-  "t1": 36.453,
+  "t0": 36.305,
+  "t1": 38.434,
   "text": "minimal belanja Rp100 ribu."
  },
  {
-  "t0": 36.473,
-  "t1": 37.926,
+  "t0": 38.454,
+  "t1": 39.903,
   "text": "Belanjaanmu Rp80 ribu."
  },
  {
-  "t0": 37.946,
-  "t1": 40.697,
+  "t0": 39.923,
+  "t1": 42.667,
   "text": "Kamu tambah barang Rp30 ribu yang tidak perlu."
  },
  {
-  "t0": 40.717,
-  "t1": 41.926,
+  "t0": 42.687,
+  "t1": 43.966,
   "text": "Hemat ongkir Rp10 ribu,"
  },
  {
-  "t0": 41.946,
-  "t1": 44.487,
+  "t0": 43.986,
+  "t1": 46.653,
   "text": "tapi keluar uang Rp20 ribu lebih banyak."
  },
  {
-  "t0": 45.737,
-  "t1": 48.977,
+  "t0": 47.903,
+  "t1": 49.945,
   "text": "Putusan: terbukti menjebak."
  },
  {
-  "t0": 50.027,
-  "t1": 52.211,
+  "t0": 51.645,
+  "t1": 53.307,
   "text": "Promo apa yang pernah bikin kamu kalap?"
  },
  {
-  "t0": 52.231,
-  "t1": 53.431,
+  "t0": 53.327,
+  "t1": 54.527,
   "text": "Tulis di komen."
  },
  {
-  "t0": 53.679,
-  "t1": 55.941,
+  "t0": 55.074,
+  "t1": 57.249,
   "text": "Kirim ke temanmu yang kalap tiap ada promo!"
  }
 ]
