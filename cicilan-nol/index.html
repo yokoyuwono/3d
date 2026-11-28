@@ -1,0 +1,15 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Kasus #2: Cicilan 0% yang Nggak Pernah 0%</title>
+<style>@font-face{font-family:Inter;src:url(fonts/Inter.ttf) format('truetype');font-weight:100 900}
+html,body{margin:0;background:#F4F1EA;overflow:hidden}canvas{display:block}</style></head>
+<body><canvas id="c" width="1080" height="1920"></canvas>
+<script type="module">
+const cv = document.getElementById('c'), g = cv.getContext('2d');
+await Promise.all([600, 700, 800, 900].map(w => document.fonts.load(`${w} 40px Inter`)));
+const film = await import('./film.js'); const Q = new URLSearchParams(location.search);
+await film.load(g);
+window.DUR = film.DUR(); window.EV = film.events();
+window.render = t => film.render(t, Q);
+window.TEXTS = t => film.render(t, Q, true);
+window.READY = true;
+</script></body></html>

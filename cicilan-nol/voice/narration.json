@@ -1,0 +1,16 @@
+[
+ {"id":"l01","style":"dry, flat, slightly sarcastic, curious","text":"Cicilan nol persen, tapi kok bayarnya tiga koma tiga enam juta?","sub":"Cicilan 0%, tapi kok bayarnya Rp3,36 juta?"},
+ {"id":"l02","style":"flat, deadpan, like a manual narrator","text":"Ini kasus cicilan nol persen yang nggak pernah nol persen. Kita bongkar kotaknya.","sub":"Ini kasus cicilan 0% yang nggak pernah 0%. Kita bongkar kotaknya."},
+ {"id":"l03","style":"flat, brisk report","text":"Di sampul: HP tiga juta, dua belas kali cicilan, nol persen.","sub":"Di sampul: HP Rp3 juta, 12× cicilan, 0%."},
+ {"id":"l04","style":"flat, low, a little suspicious","text":"Tapi di dalamnya ada tiga komponen yang nggak tertulis. Yang terakhir paling licik.","sub":"Tapi di dalamnya ada 3 komponen yang nggak tertulis. Yang terakhir paling licik."},
+ {"id":"l05","style":"flat, brisk report","text":"Komponen satu: biaya layanan. Satu persen sebulan, tiga puluh ribu.","sub":"Komponen 1: biaya layanan. 1% sebulan, Rp30 ribu."},
+ {"id":"l06","style":"flat, firm","text":"Dua belas bulan: tiga ratus enam puluh ribu.","sub":"12 bulan: Rp360 ribu."},
+ {"id":"l07","style":"flat, brisk report","text":"Komponen dua: selisih harga. Kalau bayar cash, cuma dua koma tujuh juta.","sub":"Komponen 2: selisih harga. Kalau bayar cash, cuma Rp2,7 juta."},
+ {"id":"l08","style":"flat, dry","text":"Tiga ratus ribunya diam-diam ikut dicicil.","sub":"Rp300 ribunya diam-diam ikut dicicil."},
+ {"id":"l09","style":"flat, dry, a little ominous","text":"Komponen tiga, yang paling licik: denda. Telat sekali, lima puluh ribu. Dan biasanya baru ketahuan pas tagihan datang.","sub":"Komponen 3, yang paling licik: denda. Telat sekali, Rp50 ribu. Dan biasanya baru ketahuan pas tagihan datang."},
+ {"id":"l10","style":"flat, firm, slower","text":"Totalnya: tiga koma tiga enam juta. Dua puluh empat persen lebih mahal dari harga cash.","sub":"Totalnya: Rp3,36 juta. 24% lebih mahal dari harga cash."},
+ {"id":"l11","style":"slow, serious, authoritative","text":"Kesimpulan: bukan nol persen.","sub":"Kesimpulan: bukan 0%."},
+ {"id":"l12","style":"calm, helpful, brisk","text":"Rumusnya gampang: harga cicilan, tambah semua biaya, lalu bandingkan dengan harga cash.","sub":"Rumusnya gampang: harga cicilan + semua biaya, lalu bandingkan dengan harga cash."},
+ {"id":"l13","style":"warm, curious","text":"Simpan video ini sebelum checkout, dan tulis di komen: kamu pernah kena?","sub":"Simpan video ini sebelum checkout, dan tulis di komen: kamu pernah kena?"},
+ {"id":"l14","style":"warm, playful, inviting","text":"Kirim ke temanmu yang lagi mau checkout cicilan!","sub":"Kirim ke temanmu yang lagi mau checkout cicilan!"}
+]

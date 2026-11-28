@@ -1,0 +1,13 @@
+Kasus #2: Cicilan 0% yang Nggak Pernah 0% — channel "Uang & Kerja" (Instruction Manual Art), 1080×1920, 30 fps, 58,6 detik
+Seluruh gambar dibuat dengan kode (Canvas 2D). Angka adalah contoh hitungan; edukasi, bukan saran keuangan. Tidak menyebut merek atau layanan apa pun.
+
+Suara narasi
+- Google Gemini TTS, model gemini-3.8-flash-tts, suara "id-id-podcaster-1" — 1 request batch (voice/narration.json, take utuh di voice/full_take.wav); batas baris diselaraskan dengan gemini-3.8-flash (tools/realign.py); dipercepat 1,2× tanpa mengubah pitch (ffmpeg atempo). Tunduk pada ketentuan layanan Gemini API.
+
+Musik: komposisi orisinal (tools/score.py), instrumen sampel lewat core/audio/sampler.py (pustaka Lemo-Opuscar)
+- VS Chamber Orchestra: Community Edition (Versilian Studios / Sam Gossner): violins_pizz, contrabass_pizz — CC0 1.0
+- Versilian Community Sample Library (VCSL): glockenspiel, marimba, vibraphone, tubular_bells — CC0 1.0
+- Piano: "Salamander Grand Piano V3" by Alexander Holm, licensed under CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/)
+Efek suara: disintesis di tools/mix.py.
+Font: Inter (Rasmus Andersson), SIL Open Font License 1.1 — fonts/Inter.ttf, lisensi di fonts/OFL-inter.txt
+Kode: engine/iso.js, engine/rig.js, engine/hand.js, engine/page.js dari demo gaya "Instruction Manual Art" di pustaka Lemo-Opuscar (github.com/lemomo-ai/lemo-opuscar), © Lemomo (LemoLab), MIT License (engine/LICENSE-MIT.txt).

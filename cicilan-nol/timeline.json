@@ -1,0 +1,225 @@
+{
+ "end": 58.593,
+ "voice": [
+  {
+   "id": "l01",
+   "t0": 0.15,
+   "t1": 3.661,
+   "text": "Cicilan nol persen, tapi kok bayarnya tiga koma tiga enam juta?",
+   "sub": "Cicilan 0%, tapi kok bayarnya Rp3,36 juta?"
+  },
+  {
+   "id": "l02",
+   "t0": 3.961,
+   "t1": 7.55,
+   "text": "Ini kasus cicilan nol persen yang nggak pernah nol persen. Kita bongkar kotaknya.",
+   "sub": "Ini kasus cicilan 0% yang nggak pernah 0%. Kita bongkar kotaknya."
+  },
+  {
+   "id": "l03",
+   "t0": 7.95,
+   "t1": 11.28,
+   "text": "Di sampul: HP tiga juta, dua belas kali cicilan, nol persen.",
+   "sub": "Di sampul: HP Rp3 juta, 12× cicilan, 0%."
+  },
+  {
+   "id": "l04",
+   "t0": 11.48,
+   "t1": 15.372,
+   "text": "Tapi di dalamnya ada tiga komponen yang nggak tertulis. Yang terakhir paling licik.",
+   "sub": "Tapi di dalamnya ada 3 komponen yang nggak tertulis. Yang terakhir paling licik."
+  },
+  {
+   "id": "l05",
+   "t0": 15.872,
+   "t1": 19.644,
+   "text": "Komponen satu: biaya layanan. Satu persen sebulan, tiga puluh ribu.",
+   "sub": "Komponen 1: biaya layanan. 1% sebulan, Rp30 ribu."
+  },
+  {
+   "id": "l06",
+   "t0": 19.844,
+   "t1": 21.787,
+   "text": "Dua belas bulan: tiga ratus enam puluh ribu.",
+   "sub": "12 bulan: Rp360 ribu."
+  },
+  {
+   "id": "l07",
+   "t0": 22.637,
+   "t1": 25.949,
+   "text": "Komponen dua: selisih harga. Kalau bayar cash, cuma dua koma tujuh juta.",
+   "sub": "Komponen 2: selisih harga. Kalau bayar cash, cuma Rp2,7 juta."
+  },
+  {
+   "id": "l08",
+   "t0": 26.149,
+   "t1": 28.047,
+   "text": "Tiga ratus ribunya diam-diam ikut dicicil.",
+   "sub": "Rp300 ribunya diam-diam ikut dicicil."
+  },
+  {
+   "id": "l09",
+   "t0": 28.847,
+   "t1": 35.156,
+   "text": "Komponen tiga, yang paling licik: denda. Telat sekali, lima puluh ribu. Dan biasanya baru ketahuan pas tagihan datang.",
+   "sub": "Komponen 3, yang paling licik: denda. Telat sekali, Rp50 ribu. Dan biasanya baru ketahuan pas tagihan datang."
+  },
+  {
+   "id": "l10",
+   "t0": 35.656,
+   "t1": 40.397,
+   "text": "Totalnya: tiga koma tiga enam juta. Dua puluh empat persen lebih mahal dari harga cash.",
+   "sub": "Totalnya: Rp3,36 juta. 24% lebih mahal dari harga cash."
+  },
+  {
+   "id": "l11",
+   "t0": 40.797,
+   "t1": 42.93,
+   "text": "Kesimpulan: bukan nol persen.",
+   "sub": "Kesimpulan: bukan 0%."
+  },
+  {
+   "id": "l12",
+   "t0": 43.73,
+   "t1": 49.3,
+   "text": "Rumusnya gampang: harga cicilan, tambah semua biaya, lalu bandingkan dengan harga cash.",
+   "sub": "Rumusnya gampang: harga cicilan + semua biaya, lalu bandingkan dengan harga cash."
+  },
+  {
+   "id": "l13",
+   "t0": 49.7,
+   "t1": 54.127,
+   "text": "Simpan video ini sebelum checkout, dan tulis di komen: kamu pernah kena?",
+   "sub": "Simpan video ini sebelum checkout, dan tulis di komen: kamu pernah kena?"
+  },
+  {
+   "id": "l14",
+   "t0": 54.427,
+   "t1": 56.193,
+   "text": "Kirim ke temanmu yang lagi mau checkout cicilan!",
+   "sub": "Kirim ke temanmu yang lagi mau checkout cicilan!"
+  }
+ ],
+ "cues": [
+  {
+   "t0": 0.15,
+   "t1": 3.941,
+   "text": "Cicilan 0%, tapi kok bayarnya Rp3,36 juta?"
+  },
+  {
+   "t0": 3.961,
+   "t1": 6.543,
+   "text": "Ini kasus cicilan 0% yang nggak pernah 0%."
+  },
+  {
+   "t0": 6.563,
+   "t1": 7.9,
+   "text": "Kita bongkar kotaknya."
+  },
+  {
+   "t0": 7.95,
+   "t1": 11.46,
+   "text": "Di sampul: HP Rp3 juta, 12× cicilan, 0%."
+  },
+  {
+   "t0": 11.48,
+   "t1": 14.07,
+   "text": "Tapi di dalamnya ada 3 komponen yang nggak tertulis."
+  },
+  {
+   "t0": 14.09,
+   "t1": 15.722,
+   "text": "Yang terakhir paling licik."
+  },
+  {
+   "t0": 15.872,
+   "t1": 17.477,
+   "text": "Komponen 1: biaya layanan."
+  },
+  {
+   "t0": 17.497,
+   "t1": 19.824,
+   "text": "1% sebulan, Rp30 ribu."
+  },
+  {
+   "t0": 19.844,
+   "t1": 22.137,
+   "text": "12 bulan: Rp360 ribu."
+  },
+  {
+   "t0": 22.637,
+   "t1": 23.894,
+   "text": "Komponen 2: selisih harga."
+  },
+  {
+   "t0": 23.914,
+   "t1": 26.129,
+   "text": "Kalau bayar cash, cuma Rp2,7 juta."
+  },
+  {
+   "t0": 26.149,
+   "t1": 28.397,
+   "text": "Rp300 ribunya diam-diam ikut dicicil."
+  },
+  {
+   "t0": 28.847,
+   "t1": 30.967,
+   "text": "Komponen 3, yang paling licik: denda."
+  },
+  {
+   "t0": 30.987,
+   "t1": 32.612,
+   "text": "Telat sekali, Rp50 ribu."
+  },
+  {
+   "t0": 32.632,
+   "t1": 35.506,
+   "text": "Dan biasanya baru ketahuan pas tagihan datang."
+  },
+  {
+   "t0": 35.656,
+   "t1": 37.532,
+   "text": "Totalnya: Rp3,36 juta."
+  },
+  {
+   "t0": 37.552,
+   "t1": 40.747,
+   "text": "24% lebih mahal dari harga cash."
+  },
+  {
+   "t0": 40.797,
+   "t1": 43.28,
+   "text": "Kesimpulan: bukan 0%."
+  },
+  {
+   "t0": 43.73,
+   "t1": 44.811,
+   "text": "Rumusnya gampang:"
+  },
+  {
+   "t0": 44.831,
+   "t1": 46.797,
+   "text": "harga cicilan + semua biaya,"
+  },
+  {
+   "t0": 46.817,
+   "t1": 49.65,
+   "text": "lalu bandingkan dengan harga cash."
+  },
+  {
+   "t0": 49.7,
+   "t1": 51.8,
+   "text": "Simpan video ini sebelum checkout,"
+  },
+  {
+   "t0": 51.82,
+   "t1": 54.407,
+   "text": "dan tulis di komen: kamu pernah kena?"
+  },
+  {
+   "t0": 54.427,
+   "t1": 56.543,
+   "text": "Kirim ke temanmu yang lagi mau checkout cicilan!"
+  }
+ ]
+}

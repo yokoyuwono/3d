@@ -75,7 +75,7 @@ def align_cuts(x, sr, items):
         prompt = (f"The audio is a narrator reading these {len(items)} numbered lines in order:\n" + script +
                   f"\n\nFor each line, give the time in seconds (two decimals, from the start of the audio) when the narrator FINISHES saying it. Reply with JSON only: a list of {len(items)} numbers.")
         body = {"contents": [{"parts": [{"inline_data": {"mime_type": "audio/wav", "data": base64.b64encode(buf.getvalue()).decode()}}, {"text": prompt}]}], "generationConfig": {"responseMimeType": "application/json"}}
-        d = json.load(urllib.request.urlopen(urllib.request.Request('https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent' + ('?key=' + PAID if tier == 'paid' else ''), json.dumps(body).encode(), {'Content-Type': 'application/json'}), timeout=180))
+        d = json.load(urllib.request.urlopen(urllib.request.Request('https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent' + ('?key=' + PAID if tier == 'paid' else ''), json.dumps(body).encode(), {'Content-Type': 'application/json'}), timeout=600))
         ends = json.loads(d['candidates'][0]['content']['parts'][-1]['text'])[:len(items) - 1]
         env = np.convolve(np.abs(x), np.ones(480) / 480, 'same'); q = 20 * np.log10(np.maximum(env, 1e-6)) < -40
         gaps = []; i = 0
@@ -139,6 +139,7 @@ groups = [want] if batch == 0 else [want[i:i + batch] for i in range(0, len(want
 for grp in groups:
     if not grp: continue
     b = request(grp); x, sr = pcm(b)
+    write(os.path.join(os.path.dirname(os.path.abspath(outdir)), 'full_take.wav'), x, sr)   # keep the whole take: lets realign.py recut without a new request
     parts = split(x, sr, grp)
     for l, p in zip(grp, parts): write(os.path.join(outdir, l['id'] + '.wav'), p, sr); print('ok', l['id'], f'{len(p) / sr:.2f}s')
     log.append({'date': datetime.date.today().isoformat(), 'model': model, 'tier': tier, 'lines': [l['id'] for l in grp], 'seconds': round(len(x) / sr, 2)})

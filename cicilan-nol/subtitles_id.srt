@@ -1,0 +1,95 @@
+1
+00:00:00,150 --> 00:00:03,941
+Cicilan 0%, tapi kok bayarnya Rp3,36 juta?
+
+2
+00:00:03,961 --> 00:00:06,543
+Ini kasus cicilan 0% yang nggak pernah 0%.
+
+3
+00:00:06,563 --> 00:00:07,900
+Kita bongkar kotaknya.
+
+4
+00:00:07,950 --> 00:00:11,460
+Di sampul: HP Rp3 juta, 12× cicilan, 0%.
+
+5
+00:00:11,480 --> 00:00:14,070
+Tapi di dalamnya ada 3 komponen yang nggak tertulis.
+
+6
+00:00:14,090 --> 00:00:15,722
+Yang terakhir paling licik.
+
+7
+00:00:15,872 --> 00:00:17,477
+Komponen 1: biaya layanan.
+
+8
+00:00:17,497 --> 00:00:19,824
+1% sebulan, Rp30 ribu.
+
+9
+00:00:19,844 --> 00:00:22,137
+12 bulan: Rp360 ribu.
+
+10
+00:00:22,637 --> 00:00:23,894
+Komponen 2: selisih harga.
+
+11
+00:00:23,914 --> 00:00:26,129
+Kalau bayar cash, cuma Rp2,7 juta.
+
+12
+00:00:26,149 --> 00:00:28,397
+Rp300 ribunya diam-diam ikut dicicil.
+
+13
+00:00:28,847 --> 00:00:30,967
+Komponen 3, yang paling licik: denda.
+
+14
+00:00:30,987 --> 00:00:32,612
+Telat sekali, Rp50 ribu.
+
+15
+00:00:32,632 --> 00:00:35,506
+Dan biasanya baru ketahuan pas tagihan datang.
+
+16
+00:00:35,656 --> 00:00:37,532
+Totalnya: Rp3,36 juta.
+
+17
+00:00:37,552 --> 00:00:40,747
+24% lebih mahal dari harga cash.
+
+18
+00:00:40,797 --> 00:00:43,280
+Kesimpulan: bukan 0%.
+
+19
+00:00:43,730 --> 00:00:44,811
+Rumusnya gampang:
+
+20
+00:00:44,831 --> 00:00:46,797
+harga cicilan + semua biaya,
+
+21
+00:00:46,817 --> 00:00:49,650
+lalu bandingkan dengan harga cash.
+
+22
+00:00:49,700 --> 00:00:51,800
+Simpan video ini sebelum checkout,
+
+23
+00:00:51,820 --> 00:00:54,407
+dan tulis di komen: kamu pernah kena?
+
+24
+00:00:54,427 --> 00:00:56,543
+Kirim ke temanmu yang lagi mau checkout cicilan!
