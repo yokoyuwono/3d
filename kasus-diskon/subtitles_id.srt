@@ -1,0 +1,79 @@
+1
+00:00:00,200 --> 00:00:04,896
+Diskon 50% + 50%. Berarti gratis, kan?
+
+2
+00:00:05,146 --> 00:00:08,273
+Kasus #1: diskon yang menipu mata.
+
+3
+00:00:08,523 --> 00:00:09,697
+Barang bukti 1.
+
+4
+00:00:09,717 --> 00:00:13,994
+Harga Rp100 ribu, diskon 50%: Rp50 ribu.
+
+5
+00:00:14,014 --> 00:00:17,023
+Diskon 50% lagi: Rp25 ribu.
+
+6
+00:00:17,043 --> 00:00:20,540
+Totalnya diskon 75%. Bukan gratis.
+
+7
+00:00:21,190 --> 00:00:23,932
+Barang bukti 2. Beli 2, gratis 1.
+
+8
+00:00:23,952 --> 00:00:26,286
+Kedengarannya setengah harga.
+
+9
+00:00:26,306 --> 00:00:28,034
+Padahal bayar 2, dapat 3.
+
+10
+00:00:28,054 --> 00:00:30,619
+Diskonnya cuma 33%.
+
+11
+00:00:31,369 --> 00:00:34,217
+Barang bukti 3. Gratis ongkir Rp10 ribu,
+
+12
+00:00:34,237 --> 00:00:36,453
+minimal belanja Rp100 ribu.
+
+13
+00:00:36,473 --> 00:00:37,926
+Belanjaanmu Rp80 ribu.
+
+14
+00:00:37,946 --> 00:00:40,697
+Kamu tambah barang Rp30 ribu yang tidak perlu.
+
+15
+00:00:40,717 --> 00:00:41,926
+Hemat ongkir Rp10 ribu,
+
+16
+00:00:41,946 --> 00:00:44,487
+tapi keluar uang Rp20 ribu lebih banyak.
+
+17
+00:00:45,737 --> 00:00:48,977
+Putusan: terbukti menjebak.
+
+18
+00:00:50,027 --> 00:00:52,211
+Promo apa yang pernah bikin kamu kalap?
+
+19
+00:00:52,231 --> 00:00:53,431
+Tulis di komen.
+
+20
+00:00:53,679 --> 00:00:55,941
+Kirim ke temanmu yang kalap tiap ada promo!

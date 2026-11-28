@@ -1,0 +1,80 @@
+[
+ {
+  "id": "l01",
+  "style": "dry, deadpan, slightly sarcastic",
+  "text": "Diskon lima puluh persen, tambah lima puluh persen. Berarti gratis, kan?",
+  "sub": "Diskon 50% + 50%. Berarti gratis, kan?"
+ },
+ {
+  "id": "l02",
+  "style": "dry, deadpan report",
+  "text": "Kasus nomor satu: diskon yang menipu mata.",
+  "sub": "Kasus #1: diskon yang menipu mata."
+ },
+ {
+  "id": "l03",
+  "style": "dry, deadpan report, brisk",
+  "text": "Barang bukti satu. Harga seratus ribu, diskon lima puluh persen: lima puluh ribu.",
+  "sub": "Barang bukti 1. Harga Rp100 ribu, diskon 50%: Rp50 ribu."
+ },
+ {
+  "id": "l04",
+  "style": "dry, deadpan report, brisk",
+  "text": "Diskon lima puluh persen lagi: dua puluh lima ribu.",
+  "sub": "Diskon 50% lagi: Rp25 ribu."
+ },
+ {
+  "id": "l05",
+  "style": "dry, firm",
+  "text": "Totalnya diskon tujuh puluh lima persen. Bukan gratis.",
+  "sub": "Totalnya diskon 75%. Bukan gratis."
+ },
+ {
+  "id": "l06",
+  "style": "dry, deadpan report, brisk",
+  "text": "Barang bukti dua. Beli dua, gratis satu. Kedengarannya setengah harga.",
+  "sub": "Barang bukti 2. Beli 2, gratis 1. Kedengarannya setengah harga."
+ },
+ {
+  "id": "l07",
+  "style": "dry, firm",
+  "text": "Padahal bayar dua, dapat tiga. Diskonnya cuma tiga puluh tiga persen.",
+  "sub": "Padahal bayar 2, dapat 3. Diskonnya cuma 33%."
+ },
+ {
+  "id": "l08",
+  "style": "dry, deadpan report, brisk",
+  "text": "Barang bukti tiga. Gratis ongkir sepuluh ribu, minimal belanja seratus ribu.",
+  "sub": "Barang bukti 3. Gratis ongkir Rp10 ribu, minimal belanja Rp100 ribu."
+ },
+ {
+  "id": "l09",
+  "style": "dry, deadpan report, brisk",
+  "text": "Belanjaanmu delapan puluh ribu. Kamu tambah barang tiga puluh ribu yang tidak perlu.",
+  "sub": "Belanjaanmu Rp80 ribu. Kamu tambah barang Rp30 ribu yang tidak perlu."
+ },
+ {
+  "id": "l10",
+  "style": "dry, firm",
+  "text": "Hemat ongkir sepuluh ribu, tapi keluar uang dua puluh ribu lebih banyak.",
+  "sub": "Hemat ongkir Rp10 ribu, tapi keluar uang Rp20 ribu lebih banyak."
+ },
+ {
+  "id": "l11",
+  "style": "slow, serious, authoritative",
+  "text": "Putusan: terbukti menjebak.",
+  "sub": "Putusan: terbukti menjebak."
+ },
+ {
+  "id": "l12",
+  "style": "warm, curious",
+  "text": "Promo apa yang pernah bikin kamu kalap? Tulis di komen.",
+  "sub": "Promo apa yang pernah bikin kamu kalap? Tulis di komen."
+ },
+ {
+  "id": "l13",
+  "style": "warm, playful, inviting",
+  "text": "Kirim ke temanmu yang kalap tiap ada promo!",
+  "sub": "Kirim ke temanmu yang kalap tiap ada promo!"
+ }
+]

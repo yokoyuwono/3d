@@ -1,0 +1,14 @@
+Kasus: Diskon yang Menipu Mata — channel "Uang & Kerja", episode 3 (Halftone Dossier), 1080×1920, 30 fps, 58,6 detik
+Seluruh gambar dibuat dengan kode (Canvas 2D). Angka adalah contoh hitungan; edukasi, bukan saran keuangan.
+
+Suara narasi
+- Google Gemini TTS, model gemini-3.8-flash-tts, suara "id-id-podcaster-1" — 1 request batch (voice/narration.json); batas baris diselaraskan dengan gemini-3.8-flash (--align) dan dicek dengan gemini-3.5-transcribe. Tunduk pada ketentuan layanan Gemini API.
+
+Musik: komposisi orisinal, seluruhnya disintesis di tools/score.py (kick, snare, clap, hat, bass kotak, pad segitiga, pluck mirip marimba, pizzicato, lonceng).
+Efek suara: disintesis di tools/mix.py.
+Font (SIL Open Font License 1.1, lisensi di fonts/OFL-*.txt):
+- Alfa Slab One (The Alfa Slab One Project Authors, JM Solé) — fonts/AlfaSlabOne-Regular.ttf
+- Bagel Fat One (The Bagel Fat Project Authors) — fonts/BagelFatOne-Regular.ttf
+- JetBrains Mono (JetBrains) — fonts/JetBrainsMono[wght].ttf
+- Inter (Rasmus Andersson) — fonts/Inter.ttf
+Gaya "Halftone Dossier" dari pustaka Lemo-Opuscar (github.com/lemomo-ai/lemo-opuscar); teknik halftone, stempel, dan kertas diadaptasi dari demo gaya itu ke Canvas 2D vertikal.

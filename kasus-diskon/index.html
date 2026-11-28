@@ -1,0 +1,19 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Kasus: Diskon yang Menipu Mata</title>
+<style>
+@font-face{font-family:Slab;src:url(fonts/AlfaSlabOne-Regular.ttf) format('truetype')}
+@font-face{font-family:Bagel;src:url(fonts/BagelFatOne-Regular.ttf) format('truetype')}
+@font-face{font-family:Mono;src:url('fonts/JetBrainsMono[wght].ttf') format('truetype');font-weight:100 800}
+@font-face{font-family:Inter;src:url(fonts/Inter.ttf) format('truetype');font-weight:100 900}
+html,body{margin:0;background:#F4ECDD;overflow:hidden}canvas{display:block}</style></head>
+<body><canvas id="c" width="1080" height="1920"></canvas>
+<script type="module">
+const cv = document.getElementById('c'), g = cv.getContext('2d');
+await Promise.all(['40px Slab', '40px Bagel', '800 40px Mono', '700 40px Mono', '900 40px Inter'].map(f => document.fonts.load(f)));
+const film = await import('./film.js'); const Q = new URLSearchParams(location.search);
+await film.load(g);
+window.DUR = film.DUR(); window.EV = film.events();
+window.render = t => film.render(t, Q);
+window.TEXTS = t => film.render(t, Q, true);
+window.READY = true;
+</script></body></html>
