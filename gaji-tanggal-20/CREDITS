@@ -1,0 +1,12 @@
+Gaji Habis Tanggal 20 — channel "Uang & Kerja", episode 2 (Stick-figure Explainer), 1080×1920, 60 fps, 54 detik
+Seluruh gambar dibuat dengan kode (Canvas 2D). Angka adalah contoh (gaji Rp5.000.000); edukasi, bukan saran keuangan.
+
+Suara narasi
+- Google Gemini TTS, model gemini-3.8-flash-tts, suara "id-id-podcaster-1" — 1 request batch (voice/narration.json); batas baris diselaraskan dengan bantuan gemini-3.8-flash dan dicek dengan gemini-3.5-transcribe. Tunduk pada ketentuan layanan Gemini API.
+
+Musik (komposisi orisinal, tools/score.py), instrumen sampel lewat core/audio/sampler.py (pustaka Lemo-Opuscar)
+- Versilian Community Sample Library (VCSL): marimba, mbira, glockenspiel, vibraphone, shaker — CC0 1.0
+- Karoryfer Samples: jazz_bass — CC0 1.0
+Efek suara: disintesis di tools/mix.py.
+Font: Jost (indestructible type*), SIL Open Font License 1.1 — fonts/Jost.ttf, lisensi di fonts/OFL.txt
+Kode rig figur, pegas, dan sambungan tangan diadaptasi dari contoh gaya "Stick-figure Explainer" di pustaka Lemo-Opuscar (github.com/lemomo-ai/lemo-opuscar).
